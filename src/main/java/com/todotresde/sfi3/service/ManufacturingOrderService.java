@@ -57,6 +57,7 @@ public class ManufacturingOrderService {
         Integer productIndex = 0;
         Integer stAttributeValueIndex = 0;
         for(Product product : products) {
+            product.setId(null);
             product.setManufacturingOrder(manufacturingOrder);
             product.setDescription("");
 
@@ -97,12 +98,12 @@ public class ManufacturingOrderService {
     }
 
     public ManufacturingOrder updateWithProductsAndSTAttributeValues(ManufacturingOrder manufacturingOrder, List<Product> products, List<SupplyTypeAttrValue> supplyTypeAttrValues) {
-        for(Product product : this.productService.getByManufacturingOrder(manufacturingOrder)) {
-            this.productService.delete(product);
-        }
-
         for(SupplyTypeAttrValue supplyTypeAttrValue : this.supplyTypeAttrValueService.getByManufacturingOrder(manufacturingOrder)) {
             this.supplyTypeAttrValueService.delete(supplyTypeAttrValue);
+        }
+
+        for(Product product : this.productService.getByManufacturingOrder(manufacturingOrder)) {
+            this.productService.delete(product);
         }
 
         return this.saveWithProductsAndSTAttributeValues(manufacturingOrder, products, supplyTypeAttrValues);

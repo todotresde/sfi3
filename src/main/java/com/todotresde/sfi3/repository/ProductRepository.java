@@ -21,4 +21,8 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     Product findOneWithEagerRelationships(@Param("id") Long id);
 
     List<Product> findByManufacturingOrder(ManufacturingOrder manufacturingOrder);
+
+    @Modifying
+    @Query(value = "DELETE FROM product_supply WHERE products_id =:id", nativeQuery = true)
+    void deleteSupplyRelations(@Param("id") Long id);
 }

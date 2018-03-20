@@ -44,6 +44,7 @@ public class ProductService {
     }
 
     public void delete(Product product) {
+        //this.productRepository.deleteSupplyRelations(product.getId());
         this.productRepository.delete(product.getId());
     }
 
