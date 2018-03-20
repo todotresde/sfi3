@@ -5,7 +5,7 @@ export class ManufacturingOrderDTO implements BaseEntity {
         public id?: number,
         public manufacturingOrder?: BaseEntity,
         public products?: BaseEntity[],
-        public sTAttributeValues?: BaseEntity[],
+        public supplyTypeAttrValues?: BaseEntity[],
     ) {
     }
 }

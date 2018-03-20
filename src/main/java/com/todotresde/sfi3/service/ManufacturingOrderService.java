@@ -95,5 +95,17 @@ public class ManufacturingOrderService {
 
         return manufacturingOrderDTO;
     }
+
+    public ManufacturingOrder updateWithProductsAndSTAttributeValues(ManufacturingOrder manufacturingOrder, List<Product> products, List<SupplyTypeAttrValue> supplyTypeAttrValues) {
+        for(Product product : this.productService.getByManufacturingOrder(manufacturingOrder)) {
+            this.productService.delete(product);
+        }
+
+        for(SupplyTypeAttrValue supplyTypeAttrValue : this.supplyTypeAttrValueService.getByManufacturingOrder(manufacturingOrder)) {
+            this.supplyTypeAttrValueService.delete(supplyTypeAttrValue);
+        }
+
+        return this.saveWithProductsAndSTAttributeValues(manufacturingOrder, products, supplyTypeAttrValues);
+    }
 }
 

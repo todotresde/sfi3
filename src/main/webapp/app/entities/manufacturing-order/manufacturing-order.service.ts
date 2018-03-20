@@ -118,7 +118,7 @@ export class ManufacturingOrderService {
 
         copy['manufacturingOrder'] = copyMO;
         copy['products'] = copyProducts;
-        copy['sTAttributeValues'] = copySupplyTypeAttrValues;
+        copy['supplyTypeAttrValues'] = copySupplyTypeAttrValues;
 
         return copy;
     }

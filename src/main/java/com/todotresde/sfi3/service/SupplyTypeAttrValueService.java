@@ -32,5 +32,9 @@ public class SupplyTypeAttrValueService {
         return this.supplyTypeAttrValueRepository.findByManufacturingOrder(manufacturingOrder);
     }
 
+    public void delete(SupplyTypeAttrValue supplyTypeAttrValue) {
+        this.supplyTypeAttrValueRepository.delete(supplyTypeAttrValue.getId());
+    }
+
 }
 

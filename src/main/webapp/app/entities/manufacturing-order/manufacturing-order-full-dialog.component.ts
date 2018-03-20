@@ -97,6 +97,7 @@ export class ManufacturingOrderFullDialogComponent implements OnInit {
     }
 
     private prepareSupplyTypeAttrValues() {
+        this.supplyTypeAttrValues = [];
         for (let productPosition = 0; productPosition < this.attributeValues.length; productPosition++) {
             for (let supplyPosition = 0; supplyPosition < this.attributeValues[productPosition].length; supplyPosition++) {
                 for (const attributeName in this.attributeValues[productPosition][supplyPosition]) {

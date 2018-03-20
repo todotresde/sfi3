@@ -20,6 +20,12 @@
                                  referencedColumnNames="id"
                                  referencedTableName="manufacturing_order"/>
 
+        <addForeignKeyConstraint baseColumnNames="product_id"
+                                 baseTableName="tracer"
+                                 constraintName="fk_tracer_product_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="product"/>
+
         <addForeignKeyConstraint baseColumnNames="line_id"
                                  baseTableName="tracer"
                                  constraintName="fk_tracer_line_id"

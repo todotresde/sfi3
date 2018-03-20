@@ -43,5 +43,9 @@ public class ProductService {
         return supplyTypes;
     }
 
+    public void delete(Product product) {
+        this.productRepository.delete(product.getId());
+    }
+
 }
 

@@ -105,6 +105,28 @@ public class ManufacturingOrderResource {
     }
 
     /**
+     * PUT  /manufacturing-orders/products : Updates an existing manufacturingOrder.
+     *
+     * @param manufacturingOrderDTO the manufacturingOrder to update
+     * @return the ResponseEntity with status 200 (OK) and with body the updated manufacturingOrder,
+     * or with status 400 (Bad Request) if the manufacturingOrder is not valid,
+     * or with status 500 (Internal Server Error) if the manufacturingOrder couldn't be updated
+     * @throws URISyntaxException if the Location URI syntax is incorrect
+     */
+    @PutMapping("/manufacturing-orders/products")
+    @Timed
+    public ResponseEntity<ManufacturingOrder> updateManufacturingOrderWithProducts(@Valid @RequestBody ManufacturingOrderDTO manufacturingOrderDTO) throws URISyntaxException {
+        log.debug("REST request to update ManufacturingOrder with Products : {}", manufacturingOrderDTO.getManufacturingOrder());
+        if (manufacturingOrderDTO.getManufacturingOrder().getId() == null) {
+            return createManufacturingOrderWithProducts(manufacturingOrderDTO);
+        }
+        ManufacturingOrder result = manufacturingOrderService.updateWithProductsAndSTAttributeValues(manufacturingOrderDTO.getManufacturingOrder(), manufacturingOrderDTO.getProducts(), manufacturingOrderDTO.getSupplyTypeAttrValues());
+        return ResponseEntity.ok()
+            .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, manufacturingOrderDTO.getManufacturingOrder().getId().toString()))
+            .body(result);
+    }
+
+    /**
      * GET  /manufacturing-orders : get all the manufacturingOrders.
      *
      * @return the ResponseEntity with status 200 (OK) and the list of manufacturingOrders in body
