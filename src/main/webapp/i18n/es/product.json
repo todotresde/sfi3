@@ -1,0 +1,25 @@
+
+{
+    "sfi3App": {
+        "product" : {
+            "home": {
+                "title": "Products",
+                "createLabel": "Crear nuevo Product",
+                "createOrEditLabel": "Crear o editar Product"
+            },
+            "created": "Un nuevo Product ha sido creado con el identificador {{ param }}",
+            "updated": "Un Product ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Product ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Product {{ id }}?"
+            },
+            "detail": {
+                "title": "Product"
+            },
+            "description": "Description",
+            "quantity": "Quantity",
+            "manufacturingOrder": "Manufacturing Order",
+            "supply": "Supply"
+        }
+    }
+}

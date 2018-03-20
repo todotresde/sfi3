@@ -1,0 +1,56 @@
+
+<div *ngIf="supplyTypeAttrValue">
+    <h2><span jhiTranslate="sfi3App.supplyTypeAttrValue.detail.title">Supply Type Attr Value</span> {{supplyTypeAttrValue.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="sfi3App.supplyTypeAttrValue.value">Value</span></dt>
+        <dd>
+            <span>{{supplyTypeAttrValue.value}}</span>
+        </dd>
+        <dt><span jhiTranslate="sfi3App.supplyTypeAttrValue.product">Product</span></dt>
+        <dd>
+            <div *ngIf="supplyTypeAttrValue.product">
+                <a [routerLink]="['/product', supplyTypeAttrValue.product?.id]">{{supplyTypeAttrValue.product?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="sfi3App.supplyTypeAttrValue.supply">Supply</span></dt>
+        <dd>
+            <div *ngIf="supplyTypeAttrValue.supply">
+                <a [routerLink]="['/supply', supplyTypeAttrValue.supply?.id]">{{supplyTypeAttrValue.supply?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="sfi3App.supplyTypeAttrValue.supplyType">Supply Type</span></dt>
+        <dd>
+            <div *ngIf="supplyTypeAttrValue.supplyType">
+                <a [routerLink]="['/supply-type', supplyTypeAttrValue.supplyType?.id]">{{supplyTypeAttrValue.supplyType?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="sfi3App.supplyTypeAttrValue.supplyTypeAttr">Supply Type Attr</span></dt>
+        <dd>
+            <div *ngIf="supplyTypeAttrValue.supplyTypeAttr">
+                <a [routerLink]="['/supply-type-attr', supplyTypeAttrValue.supplyTypeAttr?.id]">{{supplyTypeAttrValue.supplyTypeAttr?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="sfi3App.supplyTypeAttrValue.manufacturingOrder">Manufacturing Order</span></dt>
+        <dd>
+            <div *ngIf="supplyTypeAttrValue.manufacturingOrder">
+                <a [routerLink]="['/manufacturing-order', supplyTypeAttrValue.manufacturingOrder?.id]">{{supplyTypeAttrValue.manufacturingOrder?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'supply-type-attr-value/'+ supplyTypeAttrValue.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

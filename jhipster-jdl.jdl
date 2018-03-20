@@ -1,0 +1,92 @@
+
+entity Employee{
+    name String required,
+    lastName String,
+    userId String required
+}
+
+entity Line{
+    name String required
+}
+
+entity WorkStationConfig{
+    first Boolean,
+    last Boolean
+}
+
+entity WorkStation{
+    name String required,
+    shortName String required,
+    ip String required
+}
+
+entity ManufacturingOrder{
+    code String required,
+    orderDate Instant required,
+    status Integer required,
+    name String
+}
+
+entity Supply{
+    name String required
+}
+
+entity SupplyType{
+    name String required
+}
+
+entity SupplyTypeAttr{
+    name String required
+}
+
+entity SupplyTypeAttrValue{
+    value String required
+}
+
+entity Product{
+    description String required
+    quantity Integer required
+}
+
+entity Tracer{
+    code String required, 
+    inTime Instant required,
+    startTime Instant,
+    endTime Instant,
+    time Integer,
+    status Integer required
+}
+
+relationship ManyToOne {
+    Tracer{workStationConfig required} to WorkStationConfig,
+    Tracer{manufacturingOrder required} to ManufacturingOrder,
+    Tracer{line required} to Line,
+    Tracer{workStation required} to WorkStation,
+    Tracer{prevWorkStation} to WorkStation,
+    Tracer{nextWorkStation} to WorkStation,
+    Tracer{nextTracer} to Tracer,
+    Tracer{prevTracer} to Tracer,
+    Product{manufacturingOrder required} to ManufacturingOrder,
+    WorkStationConfig{workStation required} to WorkStation,
+    SupplyTypeAttrValue{product required} to Product,
+    SupplyTypeAttrValue{supply required} to Supply,
+    SupplyTypeAttrValue{supplyType required} to SupplyType,
+    SupplyTypeAttrValue{supplyTypeAttr required} to SupplyTypeAttr,
+    SupplyTypeAttrValue{manufacturingOrder required} to ManufacturingOrder
+}
+
+relationship OneToMany {
+    Line{workStationConfig} to WorkStationConfig{line required},
+    SupplyType{supply} to Supply{supplyType required}
+}
+
+relationship ManyToMany {
+    WorkStationConfig{supplyType} to SupplyType{workStationConfig},
+    SupplyType{supplyTypeAttr} to SupplyTypeAttr{supplyType},
+    Product{supply} to Supply{product},
+    WorkStationConfig{employee} to Employee{workStationConfig},
+    WorkStationConfig{prevWorkStation} to WorkStation{prevWorkStationConfig},
+    WorkStationConfig{nextWorkStation} to WorkStation{nextWorkStationConfig}
+}
+
+

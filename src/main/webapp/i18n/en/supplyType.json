@@ -1,0 +1,25 @@
+
+{
+    "sfi3App": {
+        "supplyType" : {
+            "home": {
+                "title": "Supply Types",
+                "createLabel": "Create a new Supply Type",
+                "createOrEditLabel": "Create or edit a Supply Type"
+            },
+            "created": "A new Supply Type is created with identifier {{ param }}",
+            "updated": "A Supply Type is updated with identifier {{ param }}",
+            "deleted": "A Supply Type is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Supply Type {{ id }}?"
+            },
+            "detail": {
+                "title": "Supply Type"
+            },
+            "name": "Name",
+            "supply": "Supply",
+            "supplyTypeAttr": "Supply Type Attr",
+            "workStationConfig": "Work Station Config"
+        }
+    }
+}

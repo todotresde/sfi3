@@ -1,0 +1,42 @@
+
+{
+    "sfi3App": {
+        "manufacturingOrder" : {
+            "home": {
+                "title": "Manufacturing Orders",
+                "createLabel": "Create a new Manufacturing Order",
+                "createFullLabel": "Create a new Full Manufacturing Order",
+                "createOrEditLabel": "Create or edit a Manufacturing Order"
+            },
+            "created": "A new Manufacturing Order is created with identifier {{ param }}",
+            "updated": "A Manufacturing Order is updated with identifier {{ param }}",
+            "deleted": "A Manufacturing Order is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Manufacturing Order {{ id }}?"
+            },
+            "detail": {
+                "title": "Manufacturing Order"
+            },
+            "send": {
+                "title": "Confirm Send to Production",
+                "question": "Are you sure you want to send Manufacturing Order {{ id }}?",
+                "send": "Send"
+            },
+            "code": "Code",
+            "orderDate": "Order Date",
+            "status": "Status",
+            "description": "Description",
+            "products": {
+                "product": "Product",
+                "products": "Products",
+                "add.product": "Add Product",
+                "quantity": "Quantity"
+            },
+            "supplies": {
+                "supply": "Supply",
+                "atributes": "Attributes",
+                "add.supply": "Add Supply" 
+            }
+        }
+    }
+}

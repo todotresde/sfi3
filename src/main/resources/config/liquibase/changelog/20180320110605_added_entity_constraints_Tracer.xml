@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Tracer.
+    -->
+    <changeSet id="20180320110605-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="work_station_config_id"
+                                 baseTableName="tracer"
+                                 constraintName="fk_tracer_work_station_config_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="work_station_config"/>
+
+        <addForeignKeyConstraint baseColumnNames="manufacturing_order_id"
+                                 baseTableName="tracer"
+                                 constraintName="fk_tracer_manufacturing_order_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="manufacturing_order"/>
+
+        <addForeignKeyConstraint baseColumnNames="line_id"
+                                 baseTableName="tracer"
+                                 constraintName="fk_tracer_line_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="line"/>
+
+        <addForeignKeyConstraint baseColumnNames="work_station_id"
+                                 baseTableName="tracer"
+                                 constraintName="fk_tracer_work_station_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="work_station"/>
+
+        <addForeignKeyConstraint baseColumnNames="prev_work_station_id"
+                                 baseTableName="tracer"
+                                 constraintName="fk_tracer_prev_work_station_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="work_station"/>
+
+        <addForeignKeyConstraint baseColumnNames="next_work_station_id"
+                                 baseTableName="tracer"
+                                 constraintName="fk_tracer_next_work_station_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="work_station"/>
+
+        <addForeignKeyConstraint baseColumnNames="next_tracer_id"
+                                 baseTableName="tracer"
+                                 constraintName="fk_tracer_next_tracer_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tracer"/>
+
+        <addForeignKeyConstraint baseColumnNames="prev_tracer_id"
+                                 baseTableName="tracer"
+                                 constraintName="fk_tracer_prev_tracer_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tracer"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,26 @@
+
+<div *ngIf="supplyTypeAttr">
+    <h2><span jhiTranslate="sfi3App.supplyTypeAttr.detail.title">Supply Type Attr</span> {{supplyTypeAttr.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="sfi3App.supplyTypeAttr.name">Name</span></dt>
+        <dd>
+            <span>{{supplyTypeAttr.name}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'supply-type-attr/'+ supplyTypeAttr.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

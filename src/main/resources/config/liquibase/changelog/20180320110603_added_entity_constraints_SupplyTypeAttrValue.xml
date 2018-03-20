@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity SupplyTypeAttrValue.
+    -->
+    <changeSet id="20180320110603-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="product_id"
+                                 baseTableName="supply_type_attr_value"
+                                 constraintName="fk_supply_type_attr_value_product_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="product"/>
+
+        <addForeignKeyConstraint baseColumnNames="supply_id"
+                                 baseTableName="supply_type_attr_value"
+                                 constraintName="fk_supply_type_attr_value_supply_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="supply"/>
+
+        <addForeignKeyConstraint baseColumnNames="supply_type_id"
+                                 baseTableName="supply_type_attr_value"
+                                 constraintName="fk_supply_type_attr_value_supply_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="supply_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="supply_type_attr_id"
+                                 baseTableName="supply_type_attr_value"
+                                 constraintName="fk_supply_type_attr_value_supply_type_attr_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="supply_type_attr"/>
+
+        <addForeignKeyConstraint baseColumnNames="manufacturing_order_id"
+                                 baseTableName="supply_type_attr_value"
+                                 constraintName="fk_supply_type_attr_value_manufacturing_order_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="manufacturing_order"/>
+
+    </changeSet>
+</databaseChangeLog>

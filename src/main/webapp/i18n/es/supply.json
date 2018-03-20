@@ -1,0 +1,24 @@
+
+{
+    "sfi3App": {
+        "supply" : {
+            "home": {
+                "title": "Supplies",
+                "createLabel": "Crear nuevo Supply",
+                "createOrEditLabel": "Crear o editar Supply"
+            },
+            "created": "Un nuevo Supply ha sido creado con el identificador {{ param }}",
+            "updated": "Un Supply ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Supply ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Supply {{ id }}?"
+            },
+            "detail": {
+                "title": "Supply"
+            },
+            "name": "Name",
+            "supplyType": "Supply Type",
+            "product": "Product"
+        }
+    }
+}

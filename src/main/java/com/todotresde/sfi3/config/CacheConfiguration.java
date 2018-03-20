@@ -42,6 +42,31 @@ public class CacheConfiguration {
             cm.createCache(com.todotresde.sfi3.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(com.todotresde.sfi3.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(com.todotresde.sfi3.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(com.todotresde.sfi3.domain.Employee.class.getName(), jcacheConfiguration);
+            cm.createCache(com.todotresde.sfi3.domain.Employee.class.getName() + ".workStationConfigs", jcacheConfiguration);
+            cm.createCache(com.todotresde.sfi3.domain.Line.class.getName(), jcacheConfiguration);
+            cm.createCache(com.todotresde.sfi3.domain.Line.class.getName() + ".workStationConfigs", jcacheConfiguration);
+            cm.createCache(com.todotresde.sfi3.domain.WorkStationConfig.class.getName(), jcacheConfiguration);
+            cm.createCache(com.todotresde.sfi3.domain.WorkStationConfig.class.getName() + ".supplyTypes", jcacheConfiguration);
+            cm.createCache(com.todotresde.sfi3.domain.WorkStationConfig.class.getName() + ".employees", jcacheConfiguration);
+            cm.createCache(com.todotresde.sfi3.domain.WorkStationConfig.class.getName() + ".prevWorkStations", jcacheConfiguration);
+            cm.createCache(com.todotresde.sfi3.domain.WorkStationConfig.class.getName() + ".nextWorkStations", jcacheConfiguration);
+            cm.createCache(com.todotresde.sfi3.domain.WorkStation.class.getName(), jcacheConfiguration);
+            cm.createCache(com.todotresde.sfi3.domain.WorkStation.class.getName() + ".prevWorkStationConfigs", jcacheConfiguration);
+            cm.createCache(com.todotresde.sfi3.domain.WorkStation.class.getName() + ".nextWorkStationConfigs", jcacheConfiguration);
+            cm.createCache(com.todotresde.sfi3.domain.ManufacturingOrder.class.getName(), jcacheConfiguration);
+            cm.createCache(com.todotresde.sfi3.domain.Supply.class.getName(), jcacheConfiguration);
+            cm.createCache(com.todotresde.sfi3.domain.Supply.class.getName() + ".products", jcacheConfiguration);
+            cm.createCache(com.todotresde.sfi3.domain.SupplyType.class.getName(), jcacheConfiguration);
+            cm.createCache(com.todotresde.sfi3.domain.SupplyType.class.getName() + ".supplies", jcacheConfiguration);
+            cm.createCache(com.todotresde.sfi3.domain.SupplyType.class.getName() + ".supplyTypeAttrs", jcacheConfiguration);
+            cm.createCache(com.todotresde.sfi3.domain.SupplyType.class.getName() + ".workStationConfigs", jcacheConfiguration);
+            cm.createCache(com.todotresde.sfi3.domain.SupplyTypeAttr.class.getName(), jcacheConfiguration);
+            cm.createCache(com.todotresde.sfi3.domain.SupplyTypeAttr.class.getName() + ".supplyTypes", jcacheConfiguration);
+            cm.createCache(com.todotresde.sfi3.domain.SupplyTypeAttrValue.class.getName(), jcacheConfiguration);
+            cm.createCache(com.todotresde.sfi3.domain.Product.class.getName(), jcacheConfiguration);
+            cm.createCache(com.todotresde.sfi3.domain.Product.class.getName() + ".supplies", jcacheConfiguration);
+            cm.createCache(com.todotresde.sfi3.domain.Tracer.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

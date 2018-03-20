@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity WorkStationConfig.
+    -->
+    <changeSet id="20180320110557-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="work_station_id"
+                                 baseTableName="work_station_config"
+                                 constraintName="fk_work_station_config_work_station_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="work_station"/>
+
+        <addForeignKeyConstraint baseColumnNames="work_station_configs_id"
+                                 baseTableName="work_station_config_supply_type"
+                                 constraintName="fk_work_station_config_supply_type_work_station_configs_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="work_station_config"/>
+        <addForeignKeyConstraint baseColumnNames="supply_types_id"
+                                 baseTableName="work_station_config_supply_type"
+                                 constraintName="fk_work_station_config_supply_type_supply_types_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="supply_type"/>
+        
+        <addForeignKeyConstraint baseColumnNames="work_station_configs_id"
+                                 baseTableName="work_station_config_employee"
+                                 constraintName="fk_work_station_config_employee_work_station_configs_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="work_station_config"/>
+        <addForeignKeyConstraint baseColumnNames="employees_id"
+                                 baseTableName="work_station_config_employee"
+                                 constraintName="fk_work_station_config_employee_employees_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="employee"/>
+        
+        <addForeignKeyConstraint baseColumnNames="work_station_configs_id"
+                                 baseTableName="work_station_config_prev_work_station"
+                                 constraintName="fk_work_station_config_prev_work_station_work_station_configs_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="work_station_config"/>
+        <addForeignKeyConstraint baseColumnNames="prev_work_stations_id"
+                                 baseTableName="work_station_config_prev_work_station"
+                                 constraintName="fk_work_station_config_prev_work_station_prev_work_stations_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="work_station"/>
+        
+        <addForeignKeyConstraint baseColumnNames="work_station_configs_id"
+                                 baseTableName="work_station_config_next_work_station"
+                                 constraintName="fk_work_station_config_next_work_station_work_station_configs_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="work_station_config"/>
+        <addForeignKeyConstraint baseColumnNames="next_work_stations_id"
+                                 baseTableName="work_station_config_next_work_station"
+                                 constraintName="fk_work_station_config_next_work_station_next_work_stations_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="work_station"/>
+        
+        <addForeignKeyConstraint baseColumnNames="line_id"
+                                 baseTableName="work_station_config"
+                                 constraintName="fk_work_station_config_line_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="line"/>
+
+    </changeSet>
+</databaseChangeLog>

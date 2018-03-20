@@ -1,0 +1,57 @@
+
+<div *ngIf="manufacturingOrder">
+    <h2><span jhiTranslate="sfi3App.manufacturingOrder.detail.title">Manufacturing Order</span> {{manufacturingOrder.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="sfi3App.manufacturingOrder.code">Code</span></dt>
+        <dd>
+            <span>{{manufacturingOrder.code}}</span>
+        </dd>
+        <dt><span jhiTranslate="sfi3App.manufacturingOrder.orderDate">Order Date</span></dt>
+        <dd>
+            <span>{{manufacturingOrder.orderDate | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="sfi3App.manufacturingOrder.status">Status</span></dt>
+        <dd>
+            <span>{{manufacturingOrder.status}}</span>
+        </dd>
+        <dt><span jhiTranslate="sfi3App.manufacturingOrder.description">Description</span></dt>
+        <dd>
+            <span>{{manufacturingOrder.description}}</span>
+        </dd>
+    </dl>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="products">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="sfi3App.mOProduct.quantity">Quantity</span></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let product of products ;trackBy: trackId">
+                <td><a [routerLink]="['../product', mOProduct.id ]">{{mOProduct.id}}</a></td>
+                <td>{{mOProduct.quantity}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'manufacturing-order/'+ manufacturingOrder.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

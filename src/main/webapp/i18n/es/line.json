@@ -1,0 +1,23 @@
+
+{
+    "sfi3App": {
+        "line" : {
+            "home": {
+                "title": "Lines",
+                "createLabel": "Crear nuevo Line",
+                "createOrEditLabel": "Crear o editar Line"
+            },
+            "created": "Un nuevo Line ha sido creado con el identificador {{ param }}",
+            "updated": "Un Line ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Line ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Line {{ id }}?"
+            },
+            "detail": {
+                "title": "Line"
+            },
+            "name": "Name",
+            "workStationConfig": "Work Station Config"
+        }
+    }
+}

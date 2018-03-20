@@ -1,0 +1,27 @@
+
+{
+    "sfi3App": {
+        "supplyTypeAttrValue" : {
+            "home": {
+                "title": "Supply Type Attr Values",
+                "createLabel": "Create a new Supply Type Attr Value",
+                "createOrEditLabel": "Create or edit a Supply Type Attr Value"
+            },
+            "created": "A new Supply Type Attr Value is created with identifier {{ param }}",
+            "updated": "A Supply Type Attr Value is updated with identifier {{ param }}",
+            "deleted": "A Supply Type Attr Value is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Supply Type Attr Value {{ id }}?"
+            },
+            "detail": {
+                "title": "Supply Type Attr Value"
+            },
+            "name": "Name",
+            "product": "Product",
+            "supply": "Supply",
+            "supplyType": "Supply Type",
+            "supplyTypeAttr": "Supply Type Attr",
+            "manufacturingOrder": "Manufacturing Order"
+        }
+    }
+}

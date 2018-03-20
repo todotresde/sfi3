@@ -1,0 +1,25 @@
+
+{
+    "sfi3App": {
+        "manufacturingOrder" : {
+            "home": {
+                "title": "Manufacturing Orders",
+                "createLabel": "Crear nuevo Manufacturing Order",
+                "createOrEditLabel": "Crear o editar Manufacturing Order"
+            },
+            "created": "Un nuevo Manufacturing Order ha sido creado con el identificador {{ param }}",
+            "updated": "Un Manufacturing Order ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Manufacturing Order ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Manufacturing Order {{ id }}?"
+            },
+            "detail": {
+                "title": "Manufacturing Order"
+            },
+            "code": "Code",
+            "orderDate": "Order Date",
+            "status": "Status",
+            "name": "Name"
+        }
+    }
+}

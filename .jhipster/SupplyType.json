@@ -1,0 +1,41 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "supply",
+            "otherEntityName": "supply",
+            "otherEntityRelationshipName": "supplyType"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "supplyType",
+            "relationshipName": "supplyTypeAttr",
+            "otherEntityName": "supplyTypeAttr",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "workStationConfig",
+            "otherEntityName": "workStationConfig",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "supplyType"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20180320110601",
+    "entityTableName": "supply_type",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

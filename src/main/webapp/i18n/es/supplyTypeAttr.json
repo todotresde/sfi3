@@ -1,0 +1,23 @@
+
+{
+    "sfi3App": {
+        "supplyTypeAttr" : {
+            "home": {
+                "title": "Supply Type Attrs",
+                "createLabel": "Crear nuevo Supply Type Attr",
+                "createOrEditLabel": "Crear o editar Supply Type Attr"
+            },
+            "created": "Un nuevo Supply Type Attr ha sido creado con el identificador {{ param }}",
+            "updated": "Un Supply Type Attr ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Supply Type Attr ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Supply Type Attr {{ id }}?"
+            },
+            "detail": {
+                "title": "Supply Type Attr"
+            },
+            "name": "Name",
+            "supplyType": "Supply Type"
+        }
+    }
+}

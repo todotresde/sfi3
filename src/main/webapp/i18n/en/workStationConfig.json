@@ -1,0 +1,29 @@
+
+{
+    "sfi3App": {
+        "workStationConfig" : {
+            "home": {
+                "title": "Work Station Configs",
+                "createLabel": "Create a new Work Station Config",
+                "createOrEditLabel": "Create or edit a Work Station Config"
+            },
+            "created": "A new Work Station Config is created with identifier {{ param }}",
+            "updated": "A Work Station Config is updated with identifier {{ param }}",
+            "deleted": "A Work Station Config is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Work Station Config {{ id }}?"
+            },
+            "detail": {
+                "title": "Work Station Config"
+            },
+            "first": "First",
+            "last": "Last",
+            "workStation": "Work Station",
+            "supplyType": "Supply Type",
+            "employee": "Employee",
+            "prevWorkStation": "Prev Work Station",
+            "nextWorkStation": "Next Work Station",
+            "line": "Line"
+        }
+    }
+}
