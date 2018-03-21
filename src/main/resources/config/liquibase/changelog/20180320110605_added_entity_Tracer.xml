@@ -54,15 +54,19 @@
                 <constraints nullable="false" />
             </column>
 
-            <column name="product_id" type="bigint">
-                <constraints nullable="false" />
-            </column>
-
             <column name="line_id" type="bigint">
                 <constraints nullable="false" />
             </column>
 
             <column name="work_station_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="product_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="supply_id" type="bigint">
                 <constraints nullable="false" />
             </column>
 
@@ -83,6 +87,14 @@
             </column>
 
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        <createTable tableName="tracer_supply_type_attr_value">
+            <column name="supply_type_attr_values_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="tracers_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
         <dropDefaultValue tableName="tracer" columnName="in_time" columnDataType="datetime"/>
         <dropDefaultValue tableName="tracer" columnName="start_time" columnDataType="datetime"/>

@@ -24,12 +24,18 @@
             "status": "Status",
             "workStationConfig": "Work Station Config",
             "manufacturingOrder": "Manufacturing Order",
+            "product": "Product",
             "line": "Line",
             "workStation": "Work Station",
             "prevWorkStation": "Prev Work Station",
             "nextWorkStation": "Next Work Station",
             "nextTracer": "Next Tracer",
-            "prevTracer": "Prev Tracer"
+            "prevTracer": "Prev Tracer",
+            "start": {
+                "start" : "Start",
+                "title" : "Start Tracer",
+                "finish" : "Finish"
+            }
         }
     }
 }

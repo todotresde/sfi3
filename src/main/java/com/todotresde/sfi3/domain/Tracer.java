@@ -8,7 +8,9 @@ import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * A Tracer.
@@ -53,9 +55,6 @@ public class Tracer implements Serializable {
     @NotNull
     private ManufacturingOrder manufacturingOrder;
 
-    @ManyToOne(optional = false)
-    @NotNull
-    private Product product;
 
     @ManyToOne(optional = false)
     @NotNull
@@ -64,6 +63,21 @@ public class Tracer implements Serializable {
     @ManyToOne(optional = false)
     @NotNull
     private WorkStation workStation;
+
+    @ManyToOne(optional = false)
+    @NotNull
+    private Product product;
+
+    @ManyToOne(optional = false)
+    @NotNull
+    private Supply supply;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    @JoinTable(name = "tracer_supply_type_attr_value",
+        joinColumns = @JoinColumn(name="tracers_id", referencedColumnName="id"),
+        inverseJoinColumns = @JoinColumn(name="supply_type_attr_values_id", referencedColumnName="id"))
+    private Set<SupplyTypeAttrValue> supplyTypeAttrValues = new HashSet<>();
 
     @ManyToOne
     private WorkStation prevWorkStation;
@@ -190,19 +204,6 @@ public class Tracer implements Serializable {
         this.manufacturingOrder = manufacturingOrder;
     }
 
-    public Product getProduct() {
-        return product;
-    }
-
-    public Tracer product(Product product) {
-        this.product = product;
-        return this;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
-    }
-
     public Line getLine() {
         return line;
     }
@@ -227,6 +228,57 @@ public class Tracer implements Serializable {
 
     public void setWorkStation(WorkStation workStation) {
         this.workStation = workStation;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public Tracer product(Product product) {
+        this.product = product;
+        return this;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public Supply getSupply() {
+        return supply;
+    }
+
+    public Tracer supply(Supply supply) {
+        this.supply = supply;
+        return this;
+    }
+
+    public void setSupply(Supply supply) {
+        this.supply = supply;
+    }
+
+    public Set<SupplyTypeAttrValue> getSupplyTypeAttrValues() {
+        return supplyTypeAttrValues;
+    }
+
+    public Tracer supplyTypeAttrValues(Set<SupplyTypeAttrValue> supplyTypeAttrValues) {
+        this.supplyTypeAttrValues = supplyTypeAttrValues;
+        return this;
+    }
+
+    public Tracer addSupplyTypeAttrValue(SupplyTypeAttrValue supplyTypeAttrValue) {
+        this.supplyTypeAttrValues.add(supplyTypeAttrValue);
+        supplyTypeAttrValue.getTracers().add(this);
+        return this;
+    }
+
+    public Tracer removeSupplyTypeAttrValue(SupplyTypeAttrValue supplyTypeAttrValue) {
+        this.supplyTypeAttrValues.remove(supplyTypeAttrValue);
+        supplyTypeAttrValue.getTracers().remove(this);
+        return this;
+    }
+
+    public void setSupplyTypeAttrValues(Set<SupplyTypeAttrValue> supplyTypeAttrValues) {
+        this.supplyTypeAttrValues = supplyTypeAttrValues;
     }
 
     public WorkStation getPrevWorkStation() {

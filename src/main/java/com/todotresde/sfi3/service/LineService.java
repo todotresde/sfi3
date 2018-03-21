@@ -50,18 +50,19 @@ public class LineService {
 
     public List<Line> getLineForProduct(Product product) {
         List<Line> lines = this.lineRepository.findAll();
-        List<Line> linesForMOProduct = new ArrayList<Line>();
+        List<Line> linesForProduct = new ArrayList<Line>();
 
         List<SupplyType> productSupplyTypes = this.productService.getSupplyTypes(product);
         for(Line line: lines){
             List<SupplyType> lineSupplyTypes = this.getSupplyTypesForLine(line);
 
-            if(productSupplyTypes.size() == lineSupplyTypes.size() && productSupplyTypes.containsAll(lineSupplyTypes)){
-                linesForMOProduct.add(line);
+            //if(productSupplyTypes.size() == lineSupplyTypes.size() && productSupplyTypes.containsAll(lineSupplyTypes)){
+            if(lineSupplyTypes.containsAll(productSupplyTypes)){
+                linesForProduct.add(line);
             }
         }
 
-        return linesForMOProduct;
+        return linesForProduct;
     }
 
     public Long getTimeForLine(Line line) {

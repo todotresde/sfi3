@@ -23,6 +23,12 @@ export class TracerService {
             .map((res: EntityResponseType) => this.convertResponse(res));
     }
 
+    send(tracer: Tracer): Observable<Tracer> {
+        const copy = this.convert(tracer);
+        return this.http.post<Tracer>(`${this.resourceUrl}/send`, copy)
+            .map((res: EntityResponseType) => this.convertItemFromServer(res));
+    }
+
     update(tracer: Tracer): Observable<EntityResponseType> {
         const copy = this.convert(tracer);
         return this.http.put<Tracer>(this.resourceUrl, copy, { observe: 'response' })
@@ -37,6 +43,11 @@ export class TracerService {
     query(req?: any): Observable<HttpResponse<Tracer[]>> {
         const options = createRequestOption(req);
         return this.http.get<Tracer[]>(this.resourceUrl, { params: options, observe: 'response' })
+            .map((res: HttpResponse<Tracer[]>) => this.convertArrayResponse(res));
+    }
+
+    queryByWorkStationIP(ip: string): Observable<HttpResponse<Tracer[]>> {
+        return this.http.get<Tracer[]>(`${this.resourceUrl}/workStationIP/${ip}/`, { observe: 'response' })
             .map((res: HttpResponse<Tracer[]>) => this.convertArrayResponse(res));
     }
 

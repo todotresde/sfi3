@@ -27,6 +27,9 @@
             <th><span jhiTranslate="sfi3App.tracer.manufacturingOrder">Manufacturing Order</span></th>
             <th><span jhiTranslate="sfi3App.tracer.line">Line</span></th>
             <th><span jhiTranslate="sfi3App.tracer.workStation">Work Station</span></th>
+            <th><span jhiTranslate="sfi3App.tracer.product">Product</span></th>
+            <th><span jhiTranslate="sfi3App.tracer.supply">Supply</span></th>
+            <th><span jhiTranslate="sfi3App.tracer.supplyTypeAttrValues">Supply Type Attribute Values</span></th>
             <th><span jhiTranslate="sfi3App.tracer.prevWorkStation">Prev Work Station</span></th>
             <th><span jhiTranslate="sfi3App.tracer.nextWorkStation">Next Work Station</span></th>
             <th><span jhiTranslate="sfi3App.tracer.nextTracer">Next Tracer</span></th>
@@ -62,6 +65,19 @@
                     <div *ngIf="tracer.workStation">
                         <a [routerLink]="['../work-station', tracer.workStation?.id ]" >{{tracer.workStation?.id}}</a>
                     </div>
+                </td>
+                <td>
+                    <div *ngIf="tracer.product">
+                        <a [routerLink]="['../product', tracer.product?.id ]" >{{tracer.product?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="tracer.supply">
+                        <a [routerLink]="['../supply', tracer.supply?.id ]" >{{tracer.supply?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    
                 </td>
                 <td>
                     <div *ngIf="tracer.prevWorkStation">

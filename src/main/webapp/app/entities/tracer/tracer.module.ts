@@ -6,7 +6,10 @@ import {
     TracerService,
     TracerPopupService,
     TracerComponent,
+    TracerWorkStationComponent,
     TracerDetailComponent,
+    TracerStartComponent,
+    TracerStartPopupComponent,
     TracerDialogComponent,
     TracerPopupComponent,
     TracerDeletePopupComponent,
@@ -15,6 +18,7 @@ import {
     tracerPopupRoute,
 } from './';
 
+import { SmallUUID } from '../../app.pipes';
 const ENTITY_STATES = [
     ...tracerRoute,
     ...tracerPopupRoute,
@@ -27,15 +31,22 @@ const ENTITY_STATES = [
     ],
     declarations: [
         TracerComponent,
+        TracerWorkStationComponent,
         TracerDetailComponent,
         TracerDialogComponent,
+        TracerStartComponent,
+        TracerStartPopupComponent,
         TracerDeleteDialogComponent,
         TracerPopupComponent,
         TracerDeletePopupComponent,
+        SmallUUID
     ],
     entryComponents: [
         TracerComponent,
+        TracerWorkStationComponent,
         TracerDialogComponent,
+        TracerStartComponent,
+        TracerStartPopupComponent,
         TracerPopupComponent,
         TracerDeleteDialogComponent,
         TracerDeletePopupComponent,

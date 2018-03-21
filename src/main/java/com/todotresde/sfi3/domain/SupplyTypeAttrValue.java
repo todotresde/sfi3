@@ -1,5 +1,6 @@
 package com.todotresde.sfi3.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -7,7 +8,9 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * A SupplyTypeAttrValue.
@@ -46,6 +49,11 @@ public class SupplyTypeAttrValue implements Serializable {
     @ManyToOne(optional = false)
     @NotNull
     private ManufacturingOrder manufacturingOrder;
+
+    @ManyToMany(mappedBy = "supplyTypeAttrValues")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Tracer> tracers = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -132,6 +140,31 @@ public class SupplyTypeAttrValue implements Serializable {
 
     public void setManufacturingOrder(ManufacturingOrder manufacturingOrder) {
         this.manufacturingOrder = manufacturingOrder;
+    }
+
+    public Set<Tracer> getTracers() {
+        return tracers;
+    }
+
+    public SupplyTypeAttrValue products(Set<Tracer> tracers) {
+        this.tracers = tracers;
+        return this;
+    }
+
+    public SupplyTypeAttrValue addTracer(Tracer tracer) {
+        this.tracers.add(tracer);
+        tracer.getSupplyTypeAttrValues().add(this);
+        return this;
+    }
+
+    public SupplyTypeAttrValue removeTracer(Tracer tracer) {
+        this.tracers.remove(tracer);
+        tracer.getSupplyTypeAttrValues().remove(this);
+        return this;
+    }
+
+    public void setTracers(Set<Tracer> tracers) {
+        this.tracers = tracers;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

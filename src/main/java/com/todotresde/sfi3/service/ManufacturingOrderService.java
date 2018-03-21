@@ -40,9 +40,7 @@ public class ManufacturingOrderService {
         List<Product> products = this.productService.getByManufacturingOrder(manufacturingOrder);
 
         for(Product product: products){
-            for(Integer count = 0; count < product.getQuantity(); count++){
-                schedulerService.sendProduct(product);
-            }
+            schedulerService.sendProduct(product);
         }
 
         manufacturingOrder.setStatus(1);

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Instant;
+import java.util.HashSet;
 import java.util.List;
 import java.util.UUID;
 
@@ -23,13 +24,19 @@ public class TracerService {
 
     private final TracerRepository tracerRepository;
     private final WorkStationRepository workStationRepository;
+    private final SupplyTypeAttrValueService supplyTypeAttrValueService;
 
-    public TracerService(TracerRepository tracerRepository, WorkStationRepository workStationRepository) {
+    public TracerService(TracerRepository tracerRepository, WorkStationRepository workStationRepository, SupplyTypeAttrValueService supplyTypeAttrValueService) {
         this.tracerRepository = tracerRepository;
         this.workStationRepository = workStationRepository;
+        this.supplyTypeAttrValueService = supplyTypeAttrValueService;
     }
 
     public void create(Line line, Product product, WorkStationConfig workStationConfig, WorkStation prevWorkStation, WorkStation nextWorkStation){
+        Supply supply = this.getSupplyForWorkStationConfig(workStationConfig, product);
+
+        List<SupplyTypeAttrValue> supplyTypeAttrValues = this.supplyTypeAttrValueService
+            .getByManufacturingOrderAndProductAndSupply(product.getManufacturingOrder(), product, supply);
 
         Tracer tracer = new Tracer();
         tracer.setCode(UUID.randomUUID().toString());
@@ -38,6 +45,8 @@ public class TracerService {
         tracer.setWorkStationConfig(workStationConfig);
         tracer.setManufacturingOrder(product.getManufacturingOrder());
         tracer.setProduct(product);
+        tracer.setSupply(supply);
+        tracer.setSupplyTypeAttrValues(new HashSet<>(supplyTypeAttrValues));
         tracer.setLine(line);
         tracer.setWorkStation(workStationConfig.getWorkStation());
         tracer.setPrevWorkStation(prevWorkStation);
@@ -74,6 +83,10 @@ public class TracerService {
         Tracer nextTracer = new Tracer();
 
         if(workStationConfig != null) {
+            Supply supply = this.getSupplyForWorkStationConfig(workStationConfig, tracer.getProduct());
+
+            List<SupplyTypeAttrValue> supplyTypeAttrValues = this.supplyTypeAttrValueService
+                .getByManufacturingOrderAndProductAndSupply(tracer.getProduct().getManufacturingOrder(), tracer.getProduct(), supply);
 
             nextTracer.setCode(tracer.getCode());
             nextTracer.setInTime(Instant.now());
@@ -81,6 +94,8 @@ public class TracerService {
             nextTracer.setWorkStationConfig(workStationConfig);
             nextTracer.setManufacturingOrder(tracer.getManufacturingOrder());
             nextTracer.setProduct(tracer.getProduct());
+            nextTracer.setSupply(supply);
+            tracer.setSupplyTypeAttrValues(new HashSet<>(supplyTypeAttrValues));
             nextTracer.setLine(tracer.getLine());
             nextTracer.setWorkStation(workStationConfig.getWorkStation());
             nextTracer.setPrevWorkStation(tracer.getWorkStation());
@@ -99,6 +114,20 @@ public class TracerService {
 
     public List<Tracer> getTracersForWorkStation(WorkStation workStation){
         return this.tracerRepository.findByWorkStationAndStatus(workStation,0);
+    }
+
+    public Supply getSupplyForWorkStationConfig(WorkStationConfig workStationConfig, Product product) {
+        Supply supply = new Supply();
+
+        for( SupplyType supplyType: workStationConfig.getSupplyTypes()) {
+            for( Supply productSupply: product.getSupplies()) {
+                if(productSupply.getSupplyType().getId() == supplyType.getId()) {
+                    supply = productSupply;
+                }
+            }
+        }
+
+        return supply;
     }
 }
 

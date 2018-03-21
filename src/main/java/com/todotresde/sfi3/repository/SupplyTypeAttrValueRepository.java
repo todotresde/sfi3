@@ -1,6 +1,8 @@
 package com.todotresde.sfi3.repository;
 
 import com.todotresde.sfi3.domain.ManufacturingOrder;
+import com.todotresde.sfi3.domain.Product;
+import com.todotresde.sfi3.domain.Supply;
 import com.todotresde.sfi3.domain.SupplyTypeAttrValue;
 import org.springframework.stereotype.Repository;
 
@@ -16,4 +18,5 @@ import java.util.List;
 @Repository
 public interface SupplyTypeAttrValueRepository extends JpaRepository<SupplyTypeAttrValue, Long> {
     List<SupplyTypeAttrValue> findByManufacturingOrder(ManufacturingOrder manufacturingOrder);
+    List<SupplyTypeAttrValue> findByManufacturingOrderAndProductAndSupply(ManufacturingOrder manufacturingOrder, Product product, Supply supply);
 }

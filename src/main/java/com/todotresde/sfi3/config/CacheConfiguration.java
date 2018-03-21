@@ -64,9 +64,11 @@ public class CacheConfiguration {
             cm.createCache(com.todotresde.sfi3.domain.SupplyTypeAttr.class.getName(), jcacheConfiguration);
             cm.createCache(com.todotresde.sfi3.domain.SupplyTypeAttr.class.getName() + ".supplyTypes", jcacheConfiguration);
             cm.createCache(com.todotresde.sfi3.domain.SupplyTypeAttrValue.class.getName(), jcacheConfiguration);
+            cm.createCache(com.todotresde.sfi3.domain.SupplyTypeAttrValue.class.getName() + ".tracers", jcacheConfiguration);
             cm.createCache(com.todotresde.sfi3.domain.Product.class.getName(), jcacheConfiguration);
             cm.createCache(com.todotresde.sfi3.domain.Product.class.getName() + ".supplies", jcacheConfiguration);
             cm.createCache(com.todotresde.sfi3.domain.Tracer.class.getName(), jcacheConfiguration);
+            cm.createCache(com.todotresde.sfi3.domain.Tracer.class.getName() + ".supplyTypeAttrValues", jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

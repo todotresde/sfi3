@@ -62,5 +62,17 @@
                                  referencedColumnNames="id"
                                  referencedTableName="tracer"/>
 
+        <addForeignKeyConstraint baseColumnNames="supply_type_attr_values_id"
+                                 baseTableName="tracer_supply_type_attr_value"
+                                 constraintName="fk_tracer_supply_type_attr_value_supply_type_attr_values_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="supply_type_attr_value"/>
+
+        <addForeignKeyConstraint baseColumnNames="tracers_id"
+                                 baseTableName="tracer_supply_type_attr_value"
+                                 constraintName="fk_tracer_supply_type_attr_value_tracers_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tracer"/>
+
     </changeSet>
 </databaseChangeLog>

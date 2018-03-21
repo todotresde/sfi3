@@ -62,6 +62,8 @@ relationship ManyToOne {
     Tracer{manufacturingOrder required} to ManufacturingOrder,
     Tracer{line required} to Line,
     Tracer{workStation required} to WorkStation,
+    Tracer{product required} to Product,
+    Tracer{supply required} to Supply,
     Tracer{prevWorkStation} to WorkStation,
     Tracer{nextWorkStation} to WorkStation,
     Tracer{nextTracer} to Tracer,
@@ -84,6 +86,7 @@ relationship ManyToMany {
     WorkStationConfig{supplyType} to SupplyType{workStationConfig},
     SupplyType{supplyTypeAttr} to SupplyTypeAttr{supplyType},
     Product{supply} to Supply{product},
+    Tracer{supplyTypeAttrValue} to SupplyTypeAttrValue{tracer},
     WorkStationConfig{employee} to Employee{workStationConfig},
     WorkStationConfig{prevWorkStation} to WorkStation{prevWorkStationConfig},
     WorkStationConfig{nextWorkStation} to WorkStation{nextWorkStationConfig}
