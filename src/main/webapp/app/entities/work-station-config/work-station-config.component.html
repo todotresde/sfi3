@@ -24,6 +24,8 @@
             <th><span jhiTranslate="sfi3App.workStationConfig.employee">Employee</span></th>
             <th><span jhiTranslate="sfi3App.workStationConfig.prevWorkStation">Prev Work Station</span></th>
             <th><span jhiTranslate="sfi3App.workStationConfig.nextWorkStation">Next Work Station</span></th>
+            <th><span jhiTranslate="sfi3App.workStationConfig.row">Row</span></th>
+            <th><span jhiTranslate="sfi3App.workStationConfig.col">Col</span></th>
             <th><span jhiTranslate="sfi3App.workStationConfig.line">Line</span></th>
             <th></th>
             </tr>
@@ -58,6 +60,8 @@
                             <a class="form-control-static" [routerLink]="['../work-station', nextWorkStation?.id ]">{{nextWorkStation.id}}</a>{{last ? '' : ', '}}
                         </span>
                 </td>
+                <td>{{workStationConfig.row}}</td>
+                <td>{{workStationConfig.col}}</td>
                 <td>
                     <div *ngIf="workStationConfig.line">
                         <a [routerLink]="['../line', workStationConfig.line?.id ]" >{{workStationConfig.line?.id}}</a>

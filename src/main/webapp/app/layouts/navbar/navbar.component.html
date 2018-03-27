@@ -42,6 +42,12 @@
                         </a>
                     </li>
                     <li>
+                        <a class="dropdown-item" routerLink="line-status" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
+                            <span jhiTranslate="global.menu.entities.linesStatus">Lines Status</span>
+                        </a>
+                    </li>
+                    <li>
                         <a class="dropdown-item" routerLink="work-station-config" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
                             <span jhiTranslate="global.menu.entities.workStationConfig">Work Station Config</span>

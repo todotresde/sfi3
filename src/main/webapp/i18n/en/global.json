@@ -9,6 +9,7 @@
                 "main": "Entities",
                 "employee": "Employee",
                 "line": "Line",
+                "linesStatus": "Lines Status",
                 "workStationConfig": "Work Station Config",
                 "workStation": "Work Station",
                 "manufacturingOrder": "Manufacturing Order",
@@ -18,6 +19,7 @@
                 "supplyTypeAttrValue": "Supply Type Attr Value",
                 "product": "Product",
                 "tracer": "Tracer",
+                "wsTracer": "WorkStation Tracer",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

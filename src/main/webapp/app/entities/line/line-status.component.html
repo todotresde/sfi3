@@ -1,0 +1,25 @@
+<div>
+    <h2>
+        <span jhiTranslate="sfi3App.line.status.title">Lines Status</span>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngFor="let lineDTO of linesDTOArray">
+        <h4>
+            <span>{{lineDTO.name}}</span>
+        </h4>
+        <table class="table table-striped" *ngIf="lineDTO.workStationConfigs">
+            <tbody>
+            <tr *ngFor="let workStationConfigRow of lineDTO.workStationConfigs">
+                <td *ngFor="let workStationConfig of workStationConfigRow">
+                    <div *ngIf="workStationConfig" >
+                        {{workStationConfig.workStation.name}}
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

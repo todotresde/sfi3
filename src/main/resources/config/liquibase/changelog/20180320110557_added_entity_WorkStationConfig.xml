@@ -34,13 +34,20 @@
                 <constraints nullable="false" />
             </column>
 
-            <column name="line_id" type="bigint">
+            <column name="row" type="int">
                 <constraints nullable="false" />
             </column>
 
+            <column name="col" type="int">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="line_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
-        
+
         <createTable tableName="work_station_config_supply_type">
             <column name="supply_types_id" type="bigint">
                 <constraints nullable="false"/>
@@ -51,7 +58,7 @@
         </createTable>
 
         <addPrimaryKey columnNames="work_station_configs_id, supply_types_id" tableName="work_station_config_supply_type"/>
-        
+
         <createTable tableName="work_station_config_employee">
             <column name="employees_id" type="bigint">
                 <constraints nullable="false"/>
@@ -62,7 +69,7 @@
         </createTable>
 
         <addPrimaryKey columnNames="work_station_configs_id, employees_id" tableName="work_station_config_employee"/>
-        
+
         <createTable tableName="work_station_config_prev_work_station">
             <column name="prev_work_stations_id" type="bigint">
                 <constraints nullable="false"/>
@@ -73,7 +80,7 @@
         </createTable>
 
         <addPrimaryKey columnNames="work_station_configs_id, prev_work_stations_id" tableName="work_station_config_prev_work_station"/>
-        
+
         <createTable tableName="work_station_config_next_work_station">
             <column name="next_work_stations_id" type="bigint">
                 <constraints nullable="false"/>
@@ -84,7 +91,7 @@
         </createTable>
 
         <addPrimaryKey columnNames="work_station_configs_id, next_work_stations_id" tableName="work_station_config_next_work_station"/>
-        
+
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
 </databaseChangeLog>

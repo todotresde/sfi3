@@ -1,4 +1,5 @@
 export * from './line.model';
+export * from './line-status.component';
 export * from './line-popup.service';
 export * from './line.service';
 export * from './line-dialog.component';

@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 
 import { UserRouteAccessService } from '../../shared';
 import { LineComponent } from './line.component';
+import { LineStatusComponent } from './line-status.component';
 import { LineDetailComponent } from './line-detail.component';
 import { LinePopupComponent } from './line-dialog.component';
 import { LineDeletePopupComponent } from './line-delete-dialog.component';
@@ -21,6 +22,14 @@ export const lineRoute: Routes = [
         data: {
             authorities: ['ROLE_USER'],
             pageTitle: 'sfi3App.line.home.title'
+        },
+        canActivate: [UserRouteAccessService]
+    }, {
+        path: 'line-status',
+        component: LineStatusComponent,
+        data: {
+            authorities: ['ROLE_USER'],
+            pageTitle: 'sfi3App.line.status.title'
         },
         canActivate: [UserRouteAccessService]
     }

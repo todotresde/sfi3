@@ -23,7 +23,9 @@
             "employee": "Employee",
             "prevWorkStation": "Prev Work Station",
             "nextWorkStation": "Next Work Station",
-            "line": "Line"
+            "line": "Line",
+            "row": "Row",
+            "col": "Col"
         }
     }
 }

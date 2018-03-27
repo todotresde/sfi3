@@ -42,6 +42,14 @@
                 <a [routerLink]="['/work-station', nextWorkStation?.id ]">{{nextWorkStation.id}}</a>{{last ? '' : ', '}}
             </span>
         </dd>
+        <dt><span jhiTranslate="sfi3App.workStationConfig.row">Row</span></dt>
+        <dd>
+            <span>{{workStationConfig.row}}</span>
+        </dd>
+        <dt><span jhiTranslate="sfi3App.workStationConfig.col">Col</span></dt>
+        <dd>
+            <span>{{workStationConfig.col}}</span>
+        </dd>
         <dt><span jhiTranslate="sfi3App.workStationConfig.line">Line</span></dt>
         <dd>
             <div *ngIf="workStationConfig.line">

@@ -5,6 +5,8 @@ export class WorkStationConfig implements BaseEntity {
         public id?: number,
         public first?: boolean,
         public last?: boolean,
+        public row?: number,
+        public col?: number,
         public workStation?: BaseEntity,
         public supplyTypes?: BaseEntity[],
         public employees?: BaseEntity[],

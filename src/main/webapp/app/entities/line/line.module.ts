@@ -6,6 +6,7 @@ import {
     LineService,
     LinePopupService,
     LineComponent,
+    LineStatusComponent,
     LineDetailComponent,
     LineDialogComponent,
     LinePopupComponent,
@@ -27,6 +28,7 @@ const ENTITY_STATES = [
     ],
     declarations: [
         LineComponent,
+        LineStatusComponent,
         LineDetailComponent,
         LineDialogComponent,
         LineDeleteDialogComponent,
@@ -35,6 +37,7 @@ const ENTITY_STATES = [
     ],
     entryComponents: [
         LineComponent,
+        LineStatusComponent,
         LineDialogComponent,
         LinePopupComponent,
         LineDeleteDialogComponent,

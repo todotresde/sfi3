@@ -63,6 +63,12 @@ public class WorkStationConfig implements Serializable {
                inverseJoinColumns = @JoinColumn(name="next_work_stations_id", referencedColumnName="id"))
     private Set<WorkStation> nextWorkStations = new HashSet<>();
 
+    @Column(name = "row")
+    private Integer row;
+
+    @Column(name = "col")
+    private Integer col;
+
     @ManyToOne(optional = false)
     @NotNull
     private Line line;
@@ -213,6 +219,32 @@ public class WorkStationConfig implements Serializable {
 
     public void setNextWorkStations(Set<WorkStation> workStations) {
         this.nextWorkStations = workStations;
+    }
+
+    public WorkStationConfig col(Integer col) {
+        this.col = col;
+        return this;
+    }
+
+    public void setCol(Integer col) {
+        this.col = col;
+    }
+
+    public Integer getCol() {
+        return this.col;
+    }
+
+    public WorkStationConfig row(Integer row) {
+        this.row = row;
+        return this;
+    }
+
+    public void setRow(Integer row) {
+        this.row = row;
+    }
+
+    public Integer getRow() {
+        return this.row;
     }
 
     public Line getLine() {

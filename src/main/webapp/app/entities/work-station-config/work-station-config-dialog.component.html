@@ -61,6 +61,28 @@
             </select>
         </div>
         <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sfi3App.workStationConfig.row" for="field_row">Row</label>
+            <input type="text" class="form-control" name="row" id="field_row"
+                [(ngModel)]="workStationConfig.row" required/>
+            <div [hidden]="!(editForm.controls.row?.dirty && editForm.controls.row?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.row?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sfi3App.workStationConfig.col" for="field_col">Col</label>
+            <input type="text" class="form-control" name="col" id="field_col"
+                [(ngModel)]="workStationConfig.col" required/>
+            <div [hidden]="!(editForm.controls.col?.dirty && editForm.controls.col?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.col?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
             <label class="form-control-label" jhiTranslate="sfi3App.workStationConfig.line" for="field_line">Line</label>
             <select class="form-control" id="field_line" name="line" [(ngModel)]="workStationConfig.line"  required>
                 <option *ngIf="!editForm.value.line" [ngValue]="null" selected></option>

@@ -17,7 +17,10 @@
                 "title": "Line"
             },
             "name": "Name",
-            "workStationConfig": "Work Station Config"
+            "workStationConfig": "Work Station Config",
+            "status": {
+                "title": "Lines Status"
+            }
         }
     }
 }
