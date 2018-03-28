@@ -51,6 +51,11 @@ export class TracerService {
             .map((res: HttpResponse<Tracer[]>) => this.convertArrayResponse(res));
     }
 
+    queryOpen(): Observable<HttpResponse<Tracer[]>> {
+        return this.http.get<Tracer[]>(`${this.resourceUrl}/open/`, { observe: 'response' })
+            .map((res: HttpResponse<Tracer[]>) => this.convertArrayResponse(res));
+    }
+
     delete(id: number): Observable<HttpResponse<any>> {
         return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response'});
     }

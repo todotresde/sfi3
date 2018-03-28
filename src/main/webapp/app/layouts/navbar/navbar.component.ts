@@ -2,9 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { JhiLanguageService } from 'ng-jhipster';
+import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
+import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 
 import { ProfileService } from '../profiles/profile.service';
 import { JhiLanguageHelper, Principal, LoginModalService, LoginService } from '../../shared';
+
+import { WorkStation } from '../../entities/work-station/work-station.model';
+import { WorkStationService } from '../../entities/work-station/work-station.service';
 
 import { VERSION } from '../../app.constants';
 
@@ -22,11 +27,14 @@ export class NavbarComponent implements OnInit {
     swaggerEnabled: boolean;
     modalRef: NgbModalRef;
     version: string;
+    workStations: WorkStation[];
 
     constructor(
         private loginService: LoginService,
+        private workStationService: WorkStationService,
         private languageService: JhiLanguageService,
         private languageHelper: JhiLanguageHelper,
+        private jhiAlertService: JhiAlertService,
         private principal: Principal,
         private loginModalService: LoginModalService,
         private profileService: ProfileService,
@@ -37,6 +45,8 @@ export class NavbarComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.loadAllWorkStations();
+
         this.languageHelper.getAll().then((languages) => {
             this.languages = languages;
         });
@@ -75,5 +85,18 @@ export class NavbarComponent implements OnInit {
 
     getImageUrl() {
         return this.isAuthenticated() ? this.principal.getImageUrl() : null;
+    }
+
+    loadAllWorkStations() {
+        this.workStationService.query().subscribe(
+            (res: HttpResponse<WorkStation[]>) => {
+                this.workStations = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+    }
+
+    private onError(error) {
+        this.jhiAlertService.error(error.message, null, null);
     }
 }

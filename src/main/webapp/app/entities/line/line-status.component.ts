@@ -2,12 +2,14 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Subscription } from 'rxjs/Subscription';
 import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
+import { Observable } from 'rxjs/Rx';
 
 import { Line } from './line.model';
-import { SubLine } from '../sub-line/sub-line.model';
 import { WorkStation } from '../work-station/work-station.model';
 import { WorkStationConfig } from '../work-station-config/work-station-config.model';
 import { WorkStationConfigService } from '../work-station-config/work-station-config.service';
+import { Tracer } from '../tracer/tracer.model';
+import { TracerService } from '../tracer/tracer.service';
 import { Principal } from '../../shared';
 
 @Component({
@@ -15,12 +17,16 @@ import { Principal } from '../../shared';
     templateUrl: './line-status.component.html'
 })
 export class LineStatusComponent implements OnInit, OnDestroy {
+    tracers: Tracer[];
     linesDTO: any = {};
     linesDTOArray: any = [];
+    workStationsDTO: any = {};
     currentAccount: any;
     eventSubscriber: Subscription;
+    eventSubscribeReload: Subscription;
 
     constructor(
+        private tracerService: TracerService,
         private workStationConfigService: WorkStationConfigService,
         private jhiAlertService: JhiAlertService,
         private eventManager: JhiEventManager,
@@ -28,7 +34,7 @@ export class LineStatusComponent implements OnInit, OnDestroy {
     ) {
     }
 
-    loadAll() {
+    loadAllWorkStationConfigs() {
         this.workStationConfigService.query().subscribe(
             (res: HttpResponse<WorkStationConfig[]>) => {
                 this.sortWorkStations(res.body);
@@ -37,8 +43,20 @@ export class LineStatusComponent implements OnInit, OnDestroy {
         );
     }
 
+    loadAll() {
+        this.tracerService.queryOpen().subscribe(
+            (res: HttpResponse<Tracer[]>) => {
+                this.tracers = res.body;
+                this.pushTracersIntoWorkStation(this.tracers);
+                this.loadAllWorkStationConfigs();
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+    }
+
     ngOnInit() {
         this.loadAll();
+        this.eventSubscribeReload = Observable.interval(60000).subscribe((time) => this.loadAll());
         this.principal.identity().then((account) => {
             this.currentAccount = account;
         });
@@ -47,6 +65,7 @@ export class LineStatusComponent implements OnInit, OnDestroy {
 
     ngOnDestroy() {
         this.eventManager.destroy(this.eventSubscriber);
+        this.eventSubscribeReload.unsubscribe();
     }
 
     trackWorkStationConfigId(index: number, item: WorkStationConfig) {
@@ -61,9 +80,22 @@ export class LineStatusComponent implements OnInit, OnDestroy {
         this.jhiAlertService.error(error.message, null, null);
     }
 
+    private pushTracersIntoWorkStation(tracers: Tracer[]) {
+        this.workStationsDTO = {};
+        tracers.forEach((tracer: Tracer) => {
+            if (!this.workStationsDTO[tracer.workStation.id]) {
+                this.workStationsDTO[tracer.workStation.id] = [];
+            }
+           this.workStationsDTO[tracer.workStation.id].push(tracer);
+        });
+    }
+
     private sortWorkStations(workStationConfigs: WorkStationConfig[]) {
+        this.linesDTO = {};
+        this.linesDTOArray = [];
+
         workStationConfigs.forEach((workStationConfig: WorkStationConfig) => {
-            if(!this.linesDTO[workStationConfig.line.id]){
+            if (!this.linesDTO[workStationConfig.line.id]) {
                 this.linesDTO[workStationConfig.line.id] = workStationConfig.line;
             }
 
@@ -80,6 +112,5 @@ export class LineStatusComponent implements OnInit, OnDestroy {
         for (const lineId of Object.keys(this.linesDTO)) {
             this.linesDTOArray.push(this.linesDTO[lineId]);
         }
-        console.log(this.linesDTOArray);
     }
 }

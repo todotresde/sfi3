@@ -25,7 +25,7 @@
                     <input type="text" class="form-control" name="manufacturingOrder" id="field_manufacturingOrder"
                         [value]="tracer.manufacturingOrder.id" readonly="readonly" />
                 </div>
-                <div class="form-group">
+                <div class="form-group" *ngIf="tracer.supply">
                     <label class="form-control-label" jhiTranslate="sfi3App.tracer.supply" for="field_supply">Supply</label>
                     <input type="text" class="form-control" name="supply" id="supply"
                         [value]="tracer.supply.id" readonly="readonly" />
@@ -52,7 +52,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row" *ngIf="tracer.supplyTypeAttrValues" >
             <div class="col-4" *ngFor="let supplyTypeAttrValue of tracer.supplyTypeAttrValues ;trackBy: trackId">
                 <div class="form-group">
                     <label class="form-control-label" for="field_{{supplyTypeAttrValue.supplyTypeAttr.name}}">{{supplyTypeAttrValue.supplyTypeAttr.name}}</label>

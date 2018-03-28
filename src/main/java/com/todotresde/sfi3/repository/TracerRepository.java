@@ -17,5 +17,6 @@ import java.util.List;
 public interface TracerRepository extends JpaRepository<Tracer, Long> {
     List<Tracer> findByWorkStation(WorkStation workstation);
     List<Tracer> findByWorkStationAndStatus(WorkStation workstation, Integer status);
+    List<Tracer> findByStatus(Integer status);
     Tracer findByWorkStationAndCode(WorkStation workstation, String code);
 }

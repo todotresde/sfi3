@@ -19,11 +19,11 @@
             <th><span jhiTranslate="global.field.id">ID</span></th>
             <th><span jhiTranslate="sfi3App.workStationConfig.first">First</span></th>
             <th><span jhiTranslate="sfi3App.workStationConfig.last">Last</span></th>
+            <th><span jhiTranslate="sfi3App.workStationConfig.prevWorkStation">Prev Work Station</span></th>
             <th><span jhiTranslate="sfi3App.workStationConfig.workStation">Work Station</span></th>
+            <th><span jhiTranslate="sfi3App.workStationConfig.nextWorkStation">Next Work Station</span></th>
             <th><span jhiTranslate="sfi3App.workStationConfig.supplyType">Supply Type</span></th>
             <th><span jhiTranslate="sfi3App.workStationConfig.employee">Employee</span></th>
-            <th><span jhiTranslate="sfi3App.workStationConfig.prevWorkStation">Prev Work Station</span></th>
-            <th><span jhiTranslate="sfi3App.workStationConfig.nextWorkStation">Next Work Station</span></th>
             <th><span jhiTranslate="sfi3App.workStationConfig.row">Row</span></th>
             <th><span jhiTranslate="sfi3App.workStationConfig.col">Col</span></th>
             <th><span jhiTranslate="sfi3App.workStationConfig.line">Line</span></th>
@@ -36,35 +36,35 @@
                 <td>{{workStationConfig.first}}</td>
                 <td>{{workStationConfig.last}}</td>
                 <td>
+                    <span *ngFor="let prevWorkStation of workStationConfig.prevWorkStations; let last = last">
+                            <a class="form-control-static" [routerLink]="['../work-station', prevWorkStation?.id ]">{{prevWorkStation.name}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td>
                     <div *ngIf="workStationConfig.workStation">
-                        <a [routerLink]="['../work-station', workStationConfig.workStation?.id ]" >{{workStationConfig.workStation?.id}}</a>
+                        <a [routerLink]="['../work-station', workStationConfig.workStation?.id ]" >{{workStationConfig.workStation?.name}}</a>
                     </div>
                 </td>
                 <td>
+                    <span *ngFor="let nextWorkStation of workStationConfig.nextWorkStations; let last = last">
+                            <a class="form-control-static" [routerLink]="['../work-station', nextWorkStation?.id ]">{{nextWorkStation.name}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td>
                     <span *ngFor="let supplyType of workStationConfig.supplyTypes; let last = last">
-                            <a class="form-control-static" [routerLink]="['../supply-type', supplyType?.id ]">{{supplyType.id}}</a>{{last ? '' : ', '}}
+                            <a class="form-control-static" [routerLink]="['../supply-type', supplyType?.id ]">{{supplyType.name}}</a>{{last ? '' : ', '}}
                         </span>
                 </td>
                 <td>
                     <span *ngFor="let employee of workStationConfig.employees; let last = last">
-                            <a class="form-control-static" [routerLink]="['../employee', employee?.id ]">{{employee.id}}</a>{{last ? '' : ', '}}
-                        </span>
-                </td>
-                <td>
-                    <span *ngFor="let prevWorkStation of workStationConfig.prevWorkStations; let last = last">
-                            <a class="form-control-static" [routerLink]="['../work-station', prevWorkStation?.id ]">{{prevWorkStation.id}}</a>{{last ? '' : ', '}}
-                        </span>
-                </td>
-                <td>
-                    <span *ngFor="let nextWorkStation of workStationConfig.nextWorkStations; let last = last">
-                            <a class="form-control-static" [routerLink]="['../work-station', nextWorkStation?.id ]">{{nextWorkStation.id}}</a>{{last ? '' : ', '}}
+                            <a class="form-control-static" [routerLink]="['../employee', employee?.id ]">{{employee.name}}</a>{{last ? '' : ', '}}
                         </span>
                 </td>
                 <td>{{workStationConfig.row}}</td>
                 <td>{{workStationConfig.col}}</td>
                 <td>
                     <div *ngIf="workStationConfig.line">
-                        <a [routerLink]="['../line', workStationConfig.line?.id ]" >{{workStationConfig.line?.id}}</a>
+                        <a [routerLink]="['../line', workStationConfig.line?.id ]" >{{workStationConfig.line?.name}}</a>
                     </div>
                 </td>
                 <td class="text-right">

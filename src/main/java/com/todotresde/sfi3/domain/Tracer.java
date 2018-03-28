@@ -69,7 +69,6 @@ public class Tracer implements Serializable {
     private Product product;
 
     @ManyToOne(optional = false)
-    @NotNull
     private Supply supply;
 
     @ManyToMany(fetch = FetchType.EAGER)

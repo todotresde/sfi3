@@ -67,7 +67,7 @@
             </column>
 
             <column name="supply_id" type="bigint">
-                <constraints nullable="false" />
+                <constraints nullable="true" />
             </column>
 
             <column name="prev_work_station_id" type="bigint">

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.UUID;
@@ -35,8 +36,13 @@ public class TracerService {
     public void create(Line line, Product product, WorkStationConfig workStationConfig, WorkStation prevWorkStation, WorkStation nextWorkStation){
         Supply supply = this.getSupplyForWorkStationConfig(workStationConfig, product);
 
-        List<SupplyTypeAttrValue> supplyTypeAttrValues = this.supplyTypeAttrValueService
-            .getByManufacturingOrderAndProductAndSupply(product.getManufacturingOrder(), product, supply);
+        List<SupplyTypeAttrValue> supplyTypeAttrValues;
+        if (null != supply) {
+            supplyTypeAttrValues = this.supplyTypeAttrValueService
+                .getByManufacturingOrderAndProductAndSupply(product.getManufacturingOrder(), product, supply);
+        } else {
+            supplyTypeAttrValues = new ArrayList<SupplyTypeAttrValue>();
+        }
 
         Tracer tracer = new Tracer();
         tracer.setCode(UUID.randomUUID().toString());
@@ -85,8 +91,13 @@ public class TracerService {
         if(workStationConfig != null) {
             Supply supply = this.getSupplyForWorkStationConfig(workStationConfig, tracer.getProduct());
 
-            List<SupplyTypeAttrValue> supplyTypeAttrValues = this.supplyTypeAttrValueService
-                .getByManufacturingOrderAndProductAndSupply(tracer.getProduct().getManufacturingOrder(), tracer.getProduct(), supply);
+            List<SupplyTypeAttrValue> supplyTypeAttrValues;
+            if (null != supply) {
+                supplyTypeAttrValues = this.supplyTypeAttrValueService
+                    .getByManufacturingOrderAndProductAndSupply(tracer.getProduct().getManufacturingOrder(), tracer.getProduct(), supply);
+            } else {
+                supplyTypeAttrValues = new ArrayList<SupplyTypeAttrValue>();
+            }
 
             nextTracer.setCode(tracer.getCode());
             nextTracer.setInTime(Instant.now());
@@ -117,7 +128,7 @@ public class TracerService {
     }
 
     public Supply getSupplyForWorkStationConfig(WorkStationConfig workStationConfig, Product product) {
-        Supply supply = new Supply();
+        Supply supply = null;
 
         for( SupplyType supplyType: workStationConfig.getSupplyTypes()) {
             for( Supply productSupply: product.getSupplies()) {

@@ -104,6 +104,18 @@ public class TracerResource {
         }
 
     /**
+     * GET  /tracers/open : get all open the tracers.
+     *
+     * @return the ResponseEntity with status 200 (OK) and the list of open tracers in body
+     */
+    @GetMapping("/tracers/open")
+    @Timed
+    public List<Tracer> getAllOpenTracers() {
+        log.debug("REST request to get all open Tracers");
+        return tracerRepository.findByStatus(0);
+    }
+
+    /**
      * GET  /tracers/workStationIP/:ip : get all the tracers by WorkStation IP.
      *
      * @param ip the ip of the workstation
