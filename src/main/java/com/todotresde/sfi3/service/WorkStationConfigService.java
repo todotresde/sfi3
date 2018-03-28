@@ -50,29 +50,35 @@ public class WorkStationConfigService {
     }
 
     public void create(WorkStationConfig workStationConfig, Line line, Product product){
-        WorkStation prevWorkStation = null;
-        WorkStation nextWorkStation = this.getNextWorkStation(workStationConfig);
-
-        this.tracerService.create(line, product, workStationConfig, prevWorkStation, nextWorkStation);
+        this.tracerService.create(line, product, workStationConfig);
     }
 
-    public WorkStationConfig getNextWorkStationConfig(WorkStationConfig workStationConfig) {
-        List<WorkStationConfig> workStationConfigs = this.workStationConfigRepository.findByLineAndPrevWorkStations(workStationConfig.getLine(), workStationConfig.getWorkStation());
-        WorkStationConfig bestWWorkStationConfig = null;
+    public WorkStationConfig getNextWorkStationConfig(WorkStationConfig workStationConfig, Product product, Supply supply) {
+        List<WorkStationConfig> workStationConfigs;
+        WorkStationConfig bestWorkStationConfig = null;
+        workStationConfig = this.workStationConfigRepository.findOne(workStationConfig.getId());
 
-        if (!workStationConfigs.isEmpty()){
-            Long time = new Long(999999999);
+        if(workStationConfig.getNextWorkStations().size() > 0) {
+            if (null != supply) {
+                workStationConfigs = this.workStationConfigRepository.getByLineIdAndSupplyTypeId(workStationConfig.getLine(), supply.getSupplyType().getId());
+            } else {
+                workStationConfigs = this.workStationConfigRepository.getByLineIdAndSupplyTypeIsNull(workStationConfig.getLine());
+            }
 
-            for (WorkStationConfig workStationConfig1 : workStationConfigs) {
-                Long workStationConfigTime = this.getTime(workStationConfig1);
-                if (workStationConfigTime < time) {
-                    time = workStationConfigTime;
-                    bestWWorkStationConfig = workStationConfig1;
+            if (!workStationConfigs.isEmpty()) {
+                Long time = new Long(999999999);
+
+                for (WorkStationConfig workStationConfig1 : workStationConfigs) {
+                    Long workStationConfigTime = this.getTime(workStationConfig1);
+                    if (workStationConfigTime < time) {
+                        time = workStationConfigTime;
+                        bestWorkStationConfig = workStationConfig1;
+                    }
                 }
             }
         }
 
-        return bestWWorkStationConfig;
+        return bestWorkStationConfig;
     }
 
     public WorkStation getNextWorkStation(WorkStationConfig workStationConfig){

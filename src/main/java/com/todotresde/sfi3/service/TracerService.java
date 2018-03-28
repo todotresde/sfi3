@@ -5,6 +5,7 @@ import com.todotresde.sfi3.repository.TracerRepository;
 import com.todotresde.sfi3.repository.WorkStationRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,14 +27,16 @@ public class TracerService {
     private final TracerRepository tracerRepository;
     private final WorkStationRepository workStationRepository;
     private final SupplyTypeAttrValueService supplyTypeAttrValueService;
+    private ManufacturingOrderService manufacturingOrderService;
 
-    public TracerService(TracerRepository tracerRepository, WorkStationRepository workStationRepository, SupplyTypeAttrValueService supplyTypeAttrValueService) {
+    public TracerService(TracerRepository tracerRepository, WorkStationRepository workStationRepository, SupplyTypeAttrValueService supplyTypeAttrValueService, @Lazy ManufacturingOrderService manufacturingOrderService) {
         this.tracerRepository = tracerRepository;
         this.workStationRepository = workStationRepository;
         this.supplyTypeAttrValueService = supplyTypeAttrValueService;
+        this.manufacturingOrderService = manufacturingOrderService;
     }
 
-    public void create(Line line, Product product, WorkStationConfig workStationConfig, WorkStation prevWorkStation, WorkStation nextWorkStation){
+    public void create(Line line, Product product, WorkStationConfig workStationConfig){
         Supply supply = this.getSupplyForWorkStationConfig(workStationConfig, product);
 
         List<SupplyTypeAttrValue> supplyTypeAttrValues;
@@ -55,37 +58,37 @@ public class TracerService {
         tracer.setSupplyTypeAttrValues(new HashSet<>(supplyTypeAttrValues));
         tracer.setLine(line);
         tracer.setWorkStation(workStationConfig.getWorkStation());
-        tracer.setPrevWorkStation(prevWorkStation);
-        tracer.setNextWorkStation(nextWorkStation);
+        tracer.setPrevWorkStation(null);
+        tracer.setNextWorkStation(null);
 
         tracerRepository.save(tracer);
     }
 
-    public Tracer sendFromWorkStationIP(WorkStationConfig workStationConfig, String ip, Tracer tracer, WorkStation nextWorkStation){
+    public Tracer sendFromWorkStationIP(WorkStationConfig workStationConfig, String ip, Tracer tracer){
         WorkStation workStation = this.workStationRepository.findByIp(ip);
 
         //Validate WorkStation and Tracer
         Boolean validTrace = this.tracerRepository.findByWorkStationAndCode(workStation, tracer.getCode()) != null;
 
         if(validTrace){
-            return this.moveNext(workStationConfig, tracer, nextWorkStation);
+            return this.moveNext(workStationConfig, tracer);
         }
 
         return null;
     }
 
-    public Tracer send(WorkStationConfig workStationConfig, Tracer tracer, WorkStation nextWorkStation){
+    public Tracer send(WorkStationConfig workStationConfig, Tracer tracer){
         //Validate WorkStation and Tracer
         Boolean validTrace = this.tracerRepository.findByWorkStationAndCode(tracer.getWorkStation(), tracer.getCode()) != null;
 
         if(validTrace){
-            return this.moveNext(workStationConfig, tracer, nextWorkStation);
+            return this.moveNext(workStationConfig, tracer);
         }
 
         return null;
     }
 
-    public Tracer moveNext(WorkStationConfig workStationConfig, Tracer tracer, WorkStation nextWorkStation){
+    public Tracer moveNext(WorkStationConfig workStationConfig, Tracer tracer){
         Tracer nextTracer = new Tracer();
 
         if(workStationConfig != null) {
@@ -110,15 +113,21 @@ public class TracerService {
             nextTracer.setLine(tracer.getLine());
             nextTracer.setWorkStation(workStationConfig.getWorkStation());
             nextTracer.setPrevWorkStation(tracer.getWorkStation());
-            nextTracer.setNextWorkStation(nextWorkStation);
+            nextTracer.setNextWorkStation(null);
             nextTracer.setPrevTracer(tracer);
 
             tracerRepository.save(nextTracer);
+
+            tracer.setNextWorkStation(workStationConfig.getWorkStation());
         }
 
         tracer.setStatus(1);
         tracer.setNextTracer(null);
         tracerRepository.save(tracer);
+
+        if (workStationConfig == null) {
+            this.manufacturingOrderService.productFinished(tracer.getProduct());
+        }
 
         return nextTracer;
     }
@@ -139,6 +148,14 @@ public class TracerService {
         }
 
         return supply;
+    }
+
+    public Integer getTotalForManufacturingOrder(ManufacturingOrder manufacturingOrder) {
+        return this.tracerRepository.countByManufacturingOrder(manufacturingOrder);
+    }
+
+    public Integer getFinishedForManufacturingOrder(ManufacturingOrder manufacturingOrder) {
+        return this.tracerRepository.countByManufacturingOrderAndStatus(manufacturingOrder,1);
     }
 }
 

@@ -1,5 +1,6 @@
 package com.todotresde.sfi3.repository;
 
+import com.todotresde.sfi3.domain.ManufacturingOrder;
 import com.todotresde.sfi3.domain.Tracer;
 import com.todotresde.sfi3.domain.WorkStation;
 import org.springframework.stereotype.Repository;
@@ -19,4 +20,6 @@ public interface TracerRepository extends JpaRepository<Tracer, Long> {
     List<Tracer> findByWorkStationAndStatus(WorkStation workstation, Integer status);
     List<Tracer> findByStatus(Integer status);
     Tracer findByWorkStationAndCode(WorkStation workstation, String code);
+    Integer countByManufacturingOrder(ManufacturingOrder manufacturingOrder);
+    Integer countByManufacturingOrderAndStatus(ManufacturingOrder manufacturingOrder, Integer status);
 }

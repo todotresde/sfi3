@@ -1,6 +1,7 @@
 package com.todotresde.sfi3.repository;
 
 import com.todotresde.sfi3.domain.Line;
+import com.todotresde.sfi3.domain.SupplyType;
 import com.todotresde.sfi3.domain.WorkStation;
 import com.todotresde.sfi3.domain.WorkStationConfig;
 import org.springframework.stereotype.Repository;
@@ -23,4 +24,10 @@ public interface WorkStationConfigRepository extends JpaRepository<WorkStationCo
 
     List<WorkStationConfig> findByLineAndFirst(Line line, Boolean first);
     List<WorkStationConfig> findByLineAndPrevWorkStations(Line line, WorkStation workStation);
+
+    @Query("SELECT work_station_config from WorkStationConfig work_station_config left join fetch work_station_config.supplyTypes supply_types WHERE work_station_config.line = :line AND supply_types.id = :supplyTypeId")
+    List<WorkStationConfig> getByLineIdAndSupplyTypeId(@Param("line") Line line, @Param("supplyTypeId") Long supplyTypeId);
+
+    @Query("SELECT work_station_config from WorkStationConfig work_station_config left join fetch work_station_config.supplyTypes supply_types WHERE work_station_config.line = :line AND supply_types.id is null")
+    List<WorkStationConfig> getByLineIdAndSupplyTypeIsNull(@Param("line") Line line);
 }

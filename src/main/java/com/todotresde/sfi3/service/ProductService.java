@@ -48,5 +48,23 @@ public class ProductService {
         this.productRepository.delete(product.getId());
     }
 
+    public Supply nextSupply(Product product, Supply supply) {
+        Supply nextSupply = null;
+        Boolean foundSupply = false;
+
+        if (supply != null) {
+            for (Supply productSupply : product.getSupplies()) {
+                if (foundSupply) {
+                    nextSupply = productSupply;
+                }
+                if (productSupply.getId().equals(supply.getId())) {
+                    foundSupply = true;
+                }
+            }
+        }
+
+        return nextSupply;
+    }
+
 }
 

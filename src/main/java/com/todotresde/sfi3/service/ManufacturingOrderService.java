@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,13 +22,16 @@ public class ManufacturingOrderService {
     private final SchedulerService schedulerService;
     private final ProductService productService;
     private final SupplyTypeAttrValueService supplyTypeAttrValueService;
+    private final TracerService tracerService;
     private final ManufacturingOrderRepository manufacturingOrderRepository;
 
-    public ManufacturingOrderService(SchedulerService schedulerService, ManufacturingOrderRepository manufacturingOrderRepository, ProductService productService, SupplyTypeAttrValueService supplyTypeAttrValueService) {
+
+    public ManufacturingOrderService(SchedulerService schedulerService, ManufacturingOrderRepository manufacturingOrderRepository, ProductService productService, SupplyTypeAttrValueService supplyTypeAttrValueService, TracerService tracerService) {
         this.schedulerService = schedulerService;
         this.productService = productService;
         this.supplyTypeAttrValueService = supplyTypeAttrValueService;
         this.manufacturingOrderRepository = manufacturingOrderRepository;
+        this.tracerService = tracerService;
     }
 
     //TODO - Capture error in case of schedulerService.sendMOProduct fail
@@ -107,6 +109,20 @@ public class ManufacturingOrderService {
         }
 
         return this.saveWithProductsAndSTAttributeValues(manufacturingOrder, products, supplyTypeAttrValues);
+    }
+
+    public ManufacturingOrder productFinished(Product product) {
+        ManufacturingOrder manufacturingOrder = product.getManufacturingOrder();
+
+        Integer totalTracers = this.tracerService.getTotalForManufacturingOrder(manufacturingOrder);
+        Integer finishedTracers = this.tracerService.getFinishedForManufacturingOrder(manufacturingOrder);
+
+        if (totalTracers.equals(finishedTracers) ) {
+            manufacturingOrder.setStatus(2);
+            this.manufacturingOrderRepository.save(manufacturingOrder);
+        }
+
+        return manufacturingOrder;
     }
 }
 

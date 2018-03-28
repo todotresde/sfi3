@@ -56,7 +56,6 @@ public class LineService {
         for(Line line: lines){
             List<SupplyType> lineSupplyTypes = this.getSupplyTypesForLine(line);
 
-            //if(productSupplyTypes.size() == lineSupplyTypes.size() && productSupplyTypes.containsAll(lineSupplyTypes)){
             if(lineSupplyTypes.containsAll(productSupplyTypes)){
                 linesForProduct.add(line);
             }
@@ -76,27 +75,19 @@ public class LineService {
     }
 
     public Tracer sendFromWorkStationIP(String ip, Tracer tracer){
-        WorkStation nextWorkStation = null;
-        WorkStationConfig nextWorkStationConfig = this.getNextWorkStationConfig(tracer.getWorkStationConfig());
-        if(nextWorkStationConfig != null) {
-            WorkStationConfig nextToNextWorkStationConfig = this.getNextWorkStationConfig(nextWorkStationConfig);
-            nextWorkStation = (nextToNextWorkStationConfig != null) ? nextToNextWorkStationConfig.getWorkStation() : null;
-        }
-        return this.tracerService.sendFromWorkStationIP(nextWorkStationConfig, ip, tracer, nextWorkStation);
+        WorkStationConfig nextWorkStationConfig = this.getNextWorkStationConfig(tracer.getWorkStationConfig(), tracer.getProduct(), this.productService.nextSupply(tracer.getProduct(), tracer.getSupply()));
+
+        return this.tracerService.sendFromWorkStationIP(nextWorkStationConfig, ip, tracer);
     }
 
     public Tracer send(Tracer tracer){
-        WorkStation nextWorkStation = null;
-        WorkStationConfig nextWorkStationConfig = this.getNextWorkStationConfig(tracer.getWorkStationConfig());
-        if(nextWorkStationConfig != null) {
-            WorkStationConfig nextToNextWorkStationConfig = this.getNextWorkStationConfig(nextWorkStationConfig);
-            nextWorkStation = (nextToNextWorkStationConfig != null) ? nextToNextWorkStationConfig.getWorkStation() : null;
-        }
-        return this.tracerService.send(nextWorkStationConfig, tracer, nextWorkStation);
+        WorkStationConfig nextWorkStationConfig = this.getNextWorkStationConfig(tracer.getWorkStationConfig(), tracer.getProduct(), this.productService.nextSupply(tracer.getProduct(), tracer.getSupply()));
+
+        return this.tracerService.send(nextWorkStationConfig, tracer);
     }
 
-    public WorkStationConfig getNextWorkStationConfig(WorkStationConfig workStationConfig){
-        return this.workStationConfigService.getNextWorkStationConfig(workStationConfig);
+    public WorkStationConfig getNextWorkStationConfig(WorkStationConfig workStationConfig, Product product, Supply supply){
+        return this.workStationConfigService.getNextWorkStationConfig(workStationConfig, product, supply);
     }
 
     public List<SupplyType> getSupplyTypesForLine(Line line){
