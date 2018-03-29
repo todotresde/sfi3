@@ -4,6 +4,7 @@ import com.codahale.metrics.annotation.Timed;
 import com.todotresde.sfi3.domain.WorkStationConfig;
 
 import com.todotresde.sfi3.repository.WorkStationConfigRepository;
+import com.todotresde.sfi3.service.WorkStationConfigService;
 import com.todotresde.sfi3.web.rest.errors.BadRequestAlertException;
 import com.todotresde.sfi3.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
@@ -31,9 +32,11 @@ public class WorkStationConfigResource {
     private static final String ENTITY_NAME = "workStationConfig";
 
     private final WorkStationConfigRepository workStationConfigRepository;
+    private final WorkStationConfigService workStationConfigService;
 
-    public WorkStationConfigResource(WorkStationConfigRepository workStationConfigRepository) {
+    public WorkStationConfigResource(WorkStationConfigRepository workStationConfigRepository, WorkStationConfigService workStationConfigService) {
         this.workStationConfigRepository = workStationConfigRepository;
+        this.workStationConfigService = workStationConfigService;
     }
 
     /**
@@ -49,6 +52,9 @@ public class WorkStationConfigResource {
         log.debug("REST request to save WorkStationConfig : {}", workStationConfig);
         if (workStationConfig.getId() != null) {
             throw new BadRequestAlertException("A new workStationConfig cannot already have an ID", ENTITY_NAME, "idexists");
+        }
+        if (!this.workStationConfigService.valid(workStationConfig)) {
+            throw new BadRequestAlertException("The workStationConfig is not valid", ENTITY_NAME, "invalid");
         }
         WorkStationConfig result = workStationConfigRepository.save(workStationConfig);
         return ResponseEntity.created(new URI("/api/work-station-configs/" + result.getId()))
@@ -71,6 +77,9 @@ public class WorkStationConfigResource {
         log.debug("REST request to update WorkStationConfig : {}", workStationConfig);
         if (workStationConfig.getId() == null) {
             return createWorkStationConfig(workStationConfig);
+        }
+        if (!this.workStationConfigService.valid(workStationConfig)) {
+            throw new BadRequestAlertException("The workStationConfig is not valid", ENTITY_NAME, "idexists");
         }
         WorkStationConfig result = workStationConfigRepository.save(workStationConfig);
         return ResponseEntity.ok()

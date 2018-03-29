@@ -24,7 +24,6 @@
         <table class="table table-striped">
             <thead>
             <tr>
-            <th><span jhiTranslate="global.field.id">ID</span></th>
             <th><span jhiTranslate="sfi3App.manufacturingOrder.code">Code</span></th>
             <th><span jhiTranslate="sfi3App.manufacturingOrder.orderDate">Order Date</span></th>
             <th><span jhiTranslate="sfi3App.manufacturingOrder.status">Status</span></th>
@@ -34,7 +33,6 @@
             </thead>
             <tbody>
             <tr *ngFor="let manufacturingOrder of manufacturingOrders ;trackBy: trackId">
-                <td><a [routerLink]="['../manufacturing-order', manufacturingOrder.id ]">{{manufacturingOrder.id}}</a></td>
                 <td>{{manufacturingOrder.code}}</td>
                 <td>{{manufacturingOrder.orderDate | date:'medium'}}</td>
                 <td>{{manufacturingOrder.status}}</td>

@@ -6,6 +6,7 @@
                 (click)="clear()">&times;</button>
     </div>
     <div class="modal-body">
+        <input type="hidden" id="id" name="id" [(ngModel)]="workStationConfig.id" />
         <jhi-alert-error></jhi-alert-error>
         <div class="row">
             <div class="col form-group">
@@ -53,16 +54,6 @@
                 <input type="checkbox" class="form-control" name="last" id="field_last"
                     [(ngModel)]="workStationConfig.last" />
             </div>
-        </div>
-        <div class="row">
-            <!--
-            <div class="col form-group form-inline" [hidden]="!workStationConfig.id">
-                <label class="form-control-label" for="id" jhiTranslate="global.field.id">ID</label>
-                <input type="text" class="form-control" id="id" name="id"
-                       [(ngModel)]="workStationConfig.id" readonly />
-            </div>
-            -->
-            
         </div>
         <div class="row">
             <div class="col form-group">

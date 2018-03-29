@@ -16,14 +16,12 @@
         <table class="table table-striped">
             <thead>
             <tr>
-            <th><span jhiTranslate="global.field.id">ID</span></th>
             <th><span jhiTranslate="sfi3App.supplyTypeAttr.name">Name</span></th>
             <th></th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let supplyTypeAttr of supplyTypeAttrs ;trackBy: trackId">
-                <td><a [routerLink]="['../supply-type-attr', supplyTypeAttr.id ]">{{supplyTypeAttr.id}}</a></td>
                 <td>{{supplyTypeAttr.name}}</td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">

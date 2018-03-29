@@ -96,5 +96,16 @@ public class WorkStationConfigService {
 
         return bestWorkStation;
     }
+
+    public Boolean valid(WorkStationConfig workStationConfig) {
+        WorkStationConfig workStationConfigResult = this.workStationConfigRepository.findOneByRowAndCol(workStationConfig.getRow(), workStationConfig.getCol());
+        if(workStationConfigResult != null && workStationConfig.getId() != null && workStationConfigResult.getId() != workStationConfig.getId()){
+            return false;
+        }
+        if(workStationConfigResult != null && workStationConfig.getId() == null){
+            return false;
+        }
+        return true;
+    }
 }
 

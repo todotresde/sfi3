@@ -21,7 +21,8 @@
             "supply": "Supply",
             "supplyType": "Supply Type",
             "supplyTypeAttr": "Supply Type Attr",
-            "manufacturingOrder": "Manufacturing Order"
+            "manufacturingOrder": "Manufacturing Order",
+            "value": "Value"
         }
     }
 }

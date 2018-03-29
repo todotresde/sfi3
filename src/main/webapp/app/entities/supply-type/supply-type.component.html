@@ -16,7 +16,6 @@
         <table class="table table-striped">
             <thead>
             <tr>
-            <th><span jhiTranslate="global.field.id">ID</span></th>
             <th><span jhiTranslate="sfi3App.supplyType.name">Name</span></th>
             <th><span jhiTranslate="sfi3App.supplyType.supplyTypeAttr">Supply Type Attr</span></th>
             <th></th>
@@ -24,11 +23,10 @@
             </thead>
             <tbody>
             <tr *ngFor="let supplyType of supplyTypes ;trackBy: trackId">
-                <td><a [routerLink]="['../supply-type', supplyType.id ]">{{supplyType.id}}</a></td>
                 <td>{{supplyType.name}}</td>
                 <td>
                     <span *ngFor="let supplyTypeAttr of supplyType.supplyTypeAttrs; let last = last">
-                            <a class="form-control-static" [routerLink]="['../supply-type-attr', supplyTypeAttr?.id ]">{{supplyTypeAttr.id}}</a>{{last ? '' : ', '}}
+                            <a class="form-control-static" [routerLink]="['../supply-type-attr', supplyTypeAttr?.id ]">{{supplyTypeAttr.name}}</a>{{last ? '' : ', '}}
                         </span>
                 </td>
                 <td class="text-right">

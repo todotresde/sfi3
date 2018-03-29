@@ -16,7 +16,6 @@
         <table class="table table-striped">
             <thead>
             <tr>
-            <th><span jhiTranslate="global.field.id">ID</span></th>
             <th><span jhiTranslate="sfi3App.employee.name">Name</span></th>
             <th><span jhiTranslate="sfi3App.employee.lastName">Last Name</span></th>
             <th><span jhiTranslate="sfi3App.employee.userId">User Id</span></th>
@@ -25,7 +24,6 @@
             </thead>
             <tbody>
             <tr *ngFor="let employee of employees ;trackBy: trackId">
-                <td><a [routerLink]="['../employee', employee.id ]">{{employee.id}}</a></td>
                 <td>{{employee.name}}</td>
                 <td>{{employee.lastName}}</td>
                 <td>{{employee.userId}}</td>

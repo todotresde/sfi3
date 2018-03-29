@@ -16,7 +16,6 @@
         <table class="table table-striped">
             <thead>
             <tr>
-            <th><span jhiTranslate="global.field.id">ID</span></th>
             <th><span jhiTranslate="sfi3App.workStation.name">Name</span></th>
             <th><span jhiTranslate="sfi3App.workStation.shortName">Short Name</span></th>
             <th><span jhiTranslate="sfi3App.workStation.ip">Ip</span></th>
@@ -25,7 +24,6 @@
             </thead>
             <tbody>
             <tr *ngFor="let workStation of workStations ;trackBy: trackId">
-                <td><a [routerLink]="['../work-station', workStation.id ]">{{workStation.id}}</a></td>
                 <td>{{workStation.name}}</td>
                 <td>{{workStation.shortName}}</td>
                 <td>{{workStation.ip}}</td>

@@ -32,6 +32,11 @@ export class WorkStationService {
             .map((res: EntityResponseType) => this.convertResponse(res));
     }
 
+    findByIP(ip: String): Observable<EntityResponseType> {
+        return this.http.get<WorkStation>(`${this.resourceUrl}/ip/${ip}/`, { observe: 'response'})
+            .map((res: EntityResponseType) => this.convertResponse(res));
+    }
+
     query(req?: any): Observable<HttpResponse<WorkStation[]>> {
         const options = createRequestOption(req);
         return this.http.get<WorkStation[]>(this.resourceUrl, { params: options, observe: 'response' })

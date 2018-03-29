@@ -16,7 +16,6 @@
         <table class="table table-striped">
             <thead>
             <tr>
-            <th><span jhiTranslate="global.field.id">ID</span></th>
             <th><span jhiTranslate="sfi3App.tracer.code">Code</span></th>
             <th><span jhiTranslate="sfi3App.tracer.inTime">In Time</span></th>
             <th><span jhiTranslate="sfi3App.tracer.startTime">Start Time</span></th>
@@ -39,7 +38,6 @@
             </thead>
             <tbody>
             <tr *ngFor="let tracer of tracers ;trackBy: trackId">
-                <td><a [routerLink]="['../tracer', tracer.id ]">{{tracer.id}}</a></td>
                 <td>{{tracer.code}}</td>
                 <td>{{tracer.inTime | date:'medium'}}</td>
                 <td>{{tracer.startTime | date:'medium'}}</td>
@@ -53,17 +51,17 @@
                 </td>
                 <td>
                     <div *ngIf="tracer.manufacturingOrder">
-                        <a [routerLink]="['../manufacturing-order', tracer.manufacturingOrder?.id ]" >{{tracer.manufacturingOrder?.id}}</a>
+                        <a [routerLink]="['../manufacturing-order', tracer.manufacturingOrder?.id ]" >{{tracer.manufacturingOrder?.code}}</a>
                     </div>
                 </td>
                 <td>
                     <div *ngIf="tracer.line">
-                        <a [routerLink]="['../line', tracer.line?.id ]" >{{tracer.line?.id}}</a>
+                        <a [routerLink]="['../line', tracer.line?.id ]" >{{tracer.line?.name}}</a>
                     </div>
                 </td>
                 <td>
                     <div *ngIf="tracer.workStation">
-                        <a [routerLink]="['../work-station', tracer.workStation?.id ]" >{{tracer.workStation?.id}}</a>
+                        <a [routerLink]="['../work-station', tracer.workStation?.id ]" >{{tracer.workStation?.name}}</a>
                     </div>
                 </td>
                 <td>
@@ -73,7 +71,7 @@
                 </td>
                 <td>
                     <div *ngIf="tracer.supply">
-                        <a [routerLink]="['../supply', tracer.supply?.id ]" >{{tracer.supply?.id}}</a>
+                        <a [routerLink]="['../supply', tracer.supply?.id ]" >{{tracer.supply?.name}}</a>
                     </div>
                 </td>
                 <td>
@@ -81,12 +79,12 @@
                 </td>
                 <td>
                     <div *ngIf="tracer.prevWorkStation">
-                        <a [routerLink]="['../work-station', tracer.prevWorkStation?.id ]" >{{tracer.prevWorkStation?.id}}</a>
+                        <a [routerLink]="['../work-station', tracer.prevWorkStation?.id ]" >{{tracer.prevWorkStation?.name}}</a>
                     </div>
                 </td>
                 <td>
                     <div *ngIf="tracer.nextWorkStation">
-                        <a [routerLink]="['../work-station', tracer.nextWorkStation?.id ]" >{{tracer.nextWorkStation?.id}}</a>
+                        <a [routerLink]="['../work-station', tracer.nextWorkStation?.id ]" >{{tracer.nextWorkStation?.name}}</a>
                     </div>
                 </td>
                 <td>

@@ -16,14 +16,12 @@
         <table class="table table-striped">
             <thead>
             <tr>
-            <th><span jhiTranslate="global.field.id">ID</span></th>
             <th><span jhiTranslate="sfi3App.line.name">Name</span></th>
             <th></th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let line of lines ;trackBy: trackId">
-                <td><a [routerLink]="['../line', line.id ]">{{line.id}}</a></td>
                 <td>{{line.name}}</td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">

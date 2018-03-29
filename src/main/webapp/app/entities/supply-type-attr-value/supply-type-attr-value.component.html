@@ -16,7 +16,6 @@
         <table class="table table-striped">
             <thead>
             <tr>
-            <th><span jhiTranslate="global.field.id">ID</span></th>
             <th><span jhiTranslate="sfi3App.supplyTypeAttrValue.value">Value</span></th>
             <th><span jhiTranslate="sfi3App.supplyTypeAttrValue.product">Product</span></th>
             <th><span jhiTranslate="sfi3App.supplyTypeAttrValue.supply">Supply</span></th>
@@ -28,31 +27,30 @@
             </thead>
             <tbody>
             <tr *ngFor="let supplyTypeAttrValue of supplyTypeAttrValues ;trackBy: trackId">
-                <td><a [routerLink]="['../supply-type-attr-value', supplyTypeAttrValue.id ]">{{supplyTypeAttrValue.id}}</a></td>
                 <td>{{supplyTypeAttrValue.value}}</td>
                 <td>
                     <div *ngIf="supplyTypeAttrValue.product">
-                        <a [routerLink]="['../product', supplyTypeAttrValue.product?.id ]" >{{supplyTypeAttrValue.product?.id}}</a>
+                        <a [routerLink]="['../product', supplyTypeAttrValue.product?.id ]" >{{supplyTypeAttrValue.product?.name}}</a>
                     </div>
                 </td>
                 <td>
                     <div *ngIf="supplyTypeAttrValue.supply">
-                        <a [routerLink]="['../supply', supplyTypeAttrValue.supply?.id ]" >{{supplyTypeAttrValue.supply?.id}}</a>
+                        <a [routerLink]="['../supply', supplyTypeAttrValue.supply?.id ]" >{{supplyTypeAttrValue.supply?.name}}</a>
                     </div>
                 </td>
                 <td>
                     <div *ngIf="supplyTypeAttrValue.supplyType">
-                        <a [routerLink]="['../supply-type', supplyTypeAttrValue.supplyType?.id ]" >{{supplyTypeAttrValue.supplyType?.id}}</a>
+                        <a [routerLink]="['../supply-type', supplyTypeAttrValue.supplyType?.id ]" >{{supplyTypeAttrValue.supplyType?.name}}</a>
                     </div>
                 </td>
                 <td>
                     <div *ngIf="supplyTypeAttrValue.supplyTypeAttr">
-                        <a [routerLink]="['../supply-type-attr', supplyTypeAttrValue.supplyTypeAttr?.id ]" >{{supplyTypeAttrValue.supplyTypeAttr?.id}}</a>
+                        <a [routerLink]="['../supply-type-attr', supplyTypeAttrValue.supplyTypeAttr?.id ]" >{{supplyTypeAttrValue.supplyTypeAttr?.name}}</a>
                     </div>
                 </td>
                 <td>
                     <div *ngIf="supplyTypeAttrValue.manufacturingOrder">
-                        <a [routerLink]="['../manufacturing-order', supplyTypeAttrValue.manufacturingOrder?.id ]" >{{supplyTypeAttrValue.manufacturingOrder?.id}}</a>
+                        <a [routerLink]="['../manufacturing-order', supplyTypeAttrValue.manufacturingOrder?.id ]" >{{supplyTypeAttrValue.manufacturingOrder?.code}}</a>
                     </div>
                 </td>
                 <td class="text-right">

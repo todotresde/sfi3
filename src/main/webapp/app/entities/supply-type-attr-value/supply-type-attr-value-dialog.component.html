@@ -6,12 +6,8 @@
                 (click)="clear()">&times;</button>
     </div>
     <div class="modal-body">
+        <input type="hidden" id="id" name="id" [(ngModel)]="supplyTypeAttrValue.id" />
         <jhi-alert-error></jhi-alert-error>
-        <div class="form-group" [hidden]="!supplyTypeAttrValue.id">
-            <label for="id" jhiTranslate="global.field.id">ID</label>
-            <input type="text" class="form-control" id="id" name="id"
-                   [(ngModel)]="supplyTypeAttrValue.id" readonly />
-        </div>
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="sfi3App.supplyTypeAttrValue.name" for="field_value">Value</label>
             <input type="text" class="form-control" name="value" id="field_value"
@@ -41,7 +37,7 @@
             <label class="form-control-label" jhiTranslate="sfi3App.supplyTypeAttrValue.supply" for="field_supply">Supply</label>
             <select class="form-control" id="field_supply" name="supply" [(ngModel)]="supplyTypeAttrValue.supply"  required>
                 <option *ngIf="!editForm.value.supply" [ngValue]="null" selected></option>
-                <option [ngValue]="supplyOption.id === supplyTypeAttrValue.supply?.id ? supplyTypeAttrValue.supply : supplyOption" *ngFor="let supplyOption of supplies; trackBy: trackSupplyById">{{supplyOption.id}}</option>
+                <option [ngValue]="supplyOption.id === supplyTypeAttrValue.supply?.id ? supplyTypeAttrValue.supply : supplyOption" *ngFor="let supplyOption of supplies; trackBy: trackSupplyById">{{supplyOption.name}}</option>
             </select>
         </div>
         <div [hidden]="!(editForm.controls.supply?.dirty && editForm.controls.supply?.invalid)">
@@ -54,7 +50,7 @@
             <label class="form-control-label" jhiTranslate="sfi3App.supplyTypeAttrValue.supplyType" for="field_supplyType">Supply Type</label>
             <select class="form-control" id="field_supplyType" name="supplyType" [(ngModel)]="supplyTypeAttrValue.supplyType"  required>
                 <option *ngIf="!editForm.value.supplyType" [ngValue]="null" selected></option>
-                <option [ngValue]="supplyTypeOption.id === supplyTypeAttrValue.supplyType?.id ? supplyTypeAttrValue.supplyType : supplyTypeOption" *ngFor="let supplyTypeOption of supplytypes; trackBy: trackSupplyTypeById">{{supplyTypeOption.id}}</option>
+                <option [ngValue]="supplyTypeOption.id === supplyTypeAttrValue.supplyType?.id ? supplyTypeAttrValue.supplyType : supplyTypeOption" *ngFor="let supplyTypeOption of supplytypes; trackBy: trackSupplyTypeById">{{supplyTypeOption.name}}</option>
             </select>
         </div>
         <div [hidden]="!(editForm.controls.supplyType?.dirty && editForm.controls.supplyType?.invalid)">
@@ -67,7 +63,7 @@
             <label class="form-control-label" jhiTranslate="sfi3App.supplyTypeAttrValue.supplyTypeAttr" for="field_supplyTypeAttr">Supply Type Attr</label>
             <select class="form-control" id="field_supplyTypeAttr" name="supplyTypeAttr" [(ngModel)]="supplyTypeAttrValue.supplyTypeAttr"  required>
                 <option *ngIf="!editForm.value.supplyTypeAttr" [ngValue]="null" selected></option>
-                <option [ngValue]="supplyTypeAttrOption.id === supplyTypeAttrValue.supplyTypeAttr?.id ? supplyTypeAttrValue.supplyTypeAttr : supplyTypeAttrOption" *ngFor="let supplyTypeAttrOption of supplytypeattrs; trackBy: trackSupplyTypeAttrById">{{supplyTypeAttrOption.id}}</option>
+                <option [ngValue]="supplyTypeAttrOption.id === supplyTypeAttrValue.supplyTypeAttr?.id ? supplyTypeAttrValue.supplyTypeAttr : supplyTypeAttrOption" *ngFor="let supplyTypeAttrOption of supplytypeattrs; trackBy: trackSupplyTypeAttrById">{{supplyTypeAttrOption.name}}</option>
             </select>
         </div>
         <div [hidden]="!(editForm.controls.supplyTypeAttr?.dirty && editForm.controls.supplyTypeAttr?.invalid)">
@@ -80,7 +76,7 @@
             <label class="form-control-label" jhiTranslate="sfi3App.supplyTypeAttrValue.manufacturingOrder" for="field_manufacturingOrder">Manufacturing Order</label>
             <select class="form-control" id="field_manufacturingOrder" name="manufacturingOrder" [(ngModel)]="supplyTypeAttrValue.manufacturingOrder"  required>
                 <option *ngIf="!editForm.value.manufacturingOrder" [ngValue]="null" selected></option>
-                <option [ngValue]="manufacturingOrderOption.id === supplyTypeAttrValue.manufacturingOrder?.id ? supplyTypeAttrValue.manufacturingOrder : manufacturingOrderOption" *ngFor="let manufacturingOrderOption of manufacturingorders; trackBy: trackManufacturingOrderById">{{manufacturingOrderOption.id}}</option>
+                <option [ngValue]="manufacturingOrderOption.id === supplyTypeAttrValue.manufacturingOrder?.id ? supplyTypeAttrValue.manufacturingOrder : manufacturingOrderOption" *ngFor="let manufacturingOrderOption of manufacturingorders; trackBy: trackManufacturingOrderById">{{manufacturingOrderOption.code}}</option>
             </select>
         </div>
         <div [hidden]="!(editForm.controls.manufacturingOrder?.dirty && editForm.controls.manufacturingOrder?.invalid)">

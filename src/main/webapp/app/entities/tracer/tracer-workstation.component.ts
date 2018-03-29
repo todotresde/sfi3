@@ -7,6 +7,8 @@ import { Observable } from 'rxjs/Rx';
 
 import { Tracer } from './tracer.model';
 import { TracerService } from './tracer.service';
+import { WorkStation } from '../work-station/work-station.model';
+import { WorkStationService } from '../work-station/work-station.service';
 import { ITEMS_PER_PAGE, Principal } from '../../shared';
 import { PaginationConfig } from '../../blocks/config/uib-pagination.config';
 
@@ -16,6 +18,7 @@ import { PaginationConfig } from '../../blocks/config/uib-pagination.config';
 })
 export class TracerWorkStationComponent implements OnInit, OnDestroy {
     tracers: Tracer[];
+    workStation: WorkStation;
     currentAccount: any;
     eventSubscriber: Subscription;
     eventSubscribeReload: Subscription;
@@ -23,6 +26,7 @@ export class TracerWorkStationComponent implements OnInit, OnDestroy {
 
     constructor(
         private tracerService: TracerService,
+        private workStationService: WorkStationService,
         private alertService: JhiAlertService,
         private eventManager: JhiEventManager,
         private principal: Principal,
@@ -37,6 +41,13 @@ export class TracerWorkStationComponent implements OnInit, OnDestroy {
         this.tracerService.queryByWorkStationIP(this.workStationIP).subscribe(
             (res: HttpResponse<Tracer[]>) => {
                 this.tracers = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+
+        this.workStationService.findByIP(this.workStationIP).subscribe(
+            (res: HttpResponse<WorkStation>) => {
+                this.workStation = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );

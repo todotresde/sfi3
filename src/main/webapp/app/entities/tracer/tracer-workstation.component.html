@@ -1,6 +1,6 @@
 <div>
     <h2>
-        <span jhiTranslate="sfi3App.tracer.home.title">Tracers</span>
+        <span >Tracers for WorkStation {{workStation?.name}} ({{workStation?.ip}})</span>
     </h2>
     <jhi-alert></jhi-alert>
     <div class="row">
@@ -29,9 +29,9 @@
                     </div>
                 </td>
                 <td>{{tracer.code | smallUUID }}</td>
-                <td>{{tracer.inTime | date:'medium'}}</td>
-                <td>{{tracer.startTime | date:'medium'}}</td>
-                <td>{{tracer.endTime | date:'medium'}}</td>
+                <td>{{tracer.inTime | date:'short':'-0300'}}</td>
+                <td>{{tracer.startTime | date:'short':'-0300'}}</td>
+                <td>{{tracer.endTime | date:'short':'-0300'}}</td>
                 <td>
                     <div *ngIf="tracer.manufacturingOrder">
                         <a [routerLink]="['../manufacturing-order', tracer.manufacturingOrder?.id ]" >{{tracer.manufacturingOrder?.code}}</a>

@@ -105,6 +105,20 @@ public class WorkStationResource {
     }
 
     /**
+     * GET  /work-stations/ip/:ip : get the workStation by IP.
+     *
+     * @param ip the IP of the workStation to retrieve
+     * @return the ResponseEntity with status 200 (OK) and with body the workStation, or with status 404 (Not Found)
+     */
+    @GetMapping("/work-stations/ip/{ip}")
+    @Timed
+    public ResponseEntity<WorkStation> getWorkStationByIP(@PathVariable String ip) {
+        log.debug("REST request to get WorkStation : {}", ip);
+        WorkStation workStation = workStationRepository.findByIp(ip);
+        return ResponseUtil.wrapOrNotFound(Optional.ofNullable(workStation));
+    }
+
+    /**
      * DELETE  /work-stations/:id : delete the "id" workStation.
      *
      * @param id the id of the workStation to delete

@@ -7,11 +7,7 @@
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
-        <div class="form-group" [hidden]="!supply.id">
-            <label for="id" jhiTranslate="global.field.id">ID</label>
-            <input type="text" class="form-control" id="id" name="id"
-                   [(ngModel)]="supply.id" readonly />
-        </div>
+        <input type="hidden" id="id" name="id" [(ngModel)]="supply.id" />
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="sfi3App.supply.name" for="field_name">Name</label>
             <input type="text" class="form-control" name="name" id="field_name"
@@ -28,7 +24,7 @@
             <label class="form-control-label" jhiTranslate="sfi3App.supply.supplyType" for="field_supplyType">Supply Type</label>
             <select class="form-control" id="field_supplyType" name="supplyType" [(ngModel)]="supply.supplyType"  required>
                 <option *ngIf="!editForm.value.supplyType" [ngValue]="null" selected></option>
-                <option [ngValue]="supplyTypeOption.id === supply.supplyType?.id ? supply.supplyType : supplyTypeOption" *ngFor="let supplyTypeOption of supplytypes; trackBy: trackSupplyTypeById">{{supplyTypeOption.id}}</option>
+                <option [ngValue]="supplyTypeOption.id === supply.supplyType?.id ? supply.supplyType : supplyTypeOption" *ngFor="let supplyTypeOption of supplytypes; trackBy: trackSupplyTypeById">{{supplyTypeOption.name}}</option>
             </select>
         </div>
         <div [hidden]="!(editForm.controls.supplyType?.dirty && editForm.controls.supplyType?.invalid)">
