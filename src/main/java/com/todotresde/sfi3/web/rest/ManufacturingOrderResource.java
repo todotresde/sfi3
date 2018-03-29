@@ -8,9 +8,14 @@ import com.todotresde.sfi3.service.ManufacturingOrderService;
 import com.todotresde.sfi3.service.dto.ManufacturingOrderDTO;
 import com.todotresde.sfi3.web.rest.errors.BadRequestAlertException;
 import com.todotresde.sfi3.web.rest.util.HeaderUtil;
+import com.todotresde.sfi3.web.rest.util.PaginationUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -129,13 +134,16 @@ public class ManufacturingOrderResource {
     /**
      * GET  /manufacturing-orders : get all the manufacturingOrders.
      *
+     * @param pageable the pagination information
      * @return the ResponseEntity with status 200 (OK) and the list of manufacturingOrders in body
      */
     @GetMapping("/manufacturing-orders")
     @Timed
-    public List<ManufacturingOrder> getAllManufacturingOrders() {
-        log.debug("REST request to get all ManufacturingOrders");
-        return manufacturingOrderRepository.findAll();
+    public ResponseEntity<List<ManufacturingOrder>> getAllManufacturingOrders(Pageable pageable) {
+        log.debug("REST request to get a page of ManufacturingOrders");
+        Page<ManufacturingOrder> page = manufacturingOrderRepository.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/paginados");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
         }
 
     /**

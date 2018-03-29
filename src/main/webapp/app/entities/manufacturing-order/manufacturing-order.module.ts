@@ -17,7 +17,8 @@ import {
     ManufacturingOrderSendDialogComponent,
     manufacturingOrderRoute,
     manufacturingOrderPopupRoute,
-    manufacturingOrderFullPopupRoute
+    manufacturingOrderFullPopupRoute,
+    ManufacturingOrderResolvePagingParams
 } from './';
 
 const ENTITY_STATES = [
@@ -57,6 +58,7 @@ const ENTITY_STATES = [
     providers: [
         ManufacturingOrderService,
         ManufacturingOrderPopupService,
+        ManufacturingOrderResolvePagingParams
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
