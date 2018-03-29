@@ -1,4 +1,4 @@
-<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm" >
 
     <div class="modal-header">
         <h4 class="modal-title" id="myWorkStationConfigLabel" jhiTranslate="sfi3App.workStationConfig.home.createOrEditLabel">Create or edit a Work Station Config</h4>
@@ -7,93 +7,107 @@
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
-        <div class="form-group" [hidden]="!workStationConfig.id">
-            <label for="id" jhiTranslate="global.field.id">ID</label>
-            <input type="text" class="form-control" id="id" name="id"
-                   [(ngModel)]="workStationConfig.id" readonly />
-        </div>
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="sfi3App.workStationConfig.first" for="field_first">First</label>
-            <input type="checkbox" class="form-control" name="first" id="field_first"
-                [(ngModel)]="workStationConfig.first" />
-        </div>
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="sfi3App.workStationConfig.last" for="field_last">Last</label>
-            <input type="checkbox" class="form-control" name="last" id="field_last"
-                [(ngModel)]="workStationConfig.last" />
-        </div>
-        <div class="form-group">
-            <label jhiTranslate="sfi3App.workStationConfig.prevWorkStation" for="field_prevWorkStation">Prev Work Station</label>
-            <select class="form-control" id="field_prevWorkStation" multiple name="prevWorkStation" [(ngModel)]="workStationConfig.prevWorkStations">
-                <option [ngValue]="getSelected(workStationConfig.prevWorkStations, workStationOption)" *ngFor="let workStationOption of workstations; trackBy: trackWorkStationById">{{workStationOption.name}}</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="sfi3App.workStationConfig.workStation" for="field_workStation">Work Station</label>
-            <select class="form-control" id="field_workStation" name="workStation" [(ngModel)]="workStationConfig.workStation"  required>
-                <option *ngIf="!editForm.value.workStation" [ngValue]="null" selected></option>
-                <option [ngValue]="workStationOption.id === workStationConfig.workStation?.id ? workStationConfig.workStation : workStationOption" *ngFor="let workStationOption of workstations; trackBy: trackWorkStationById">{{workStationOption.name}}</option>
-            </select>
-        </div>
-        <div [hidden]="!(editForm.controls.workStation?.dirty && editForm.controls.workStation?.invalid)">
-            <small class="form-text text-danger"
-                [hidden]="!editForm.controls.workStation?.errors?.required" jhiTranslate="entity.validation.required">
-                This field is required.
-            </small>
-        </div>
-        <div class="form-group">
-            <label jhiTranslate="sfi3App.workStationConfig.nextWorkStation" for="field_nextWorkStation">Next Work Station</label>
-            <select class="form-control" id="field_nextWorkStation" multiple name="nextWorkStation" [(ngModel)]="workStationConfig.nextWorkStations">
-                <option [ngValue]="getSelected(workStationConfig.nextWorkStations, workStationOption)" *ngFor="let workStationOption of workstations; trackBy: trackWorkStationById">{{workStationOption.name}}</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label jhiTranslate="sfi3App.workStationConfig.supplyType" for="field_supplyType">Supply Type</label>
-            <select class="form-control" id="field_supplyType" multiple name="supplyType" [(ngModel)]="workStationConfig.supplyTypes">
-                <option [ngValue]="getSelected(workStationConfig.supplyTypes, supplyTypeOption)" *ngFor="let supplyTypeOption of supplytypes; trackBy: trackSupplyTypeById">{{supplyTypeOption.name}}</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label jhiTranslate="sfi3App.workStationConfig.employee" for="field_employee">Employee</label>
-            <select class="form-control" id="field_employee" multiple name="employee" [(ngModel)]="workStationConfig.employees">
-                <option [ngValue]="getSelected(workStationConfig.employees, employeeOption)" *ngFor="let employeeOption of employees; trackBy: trackEmployeeById">{{employeeOption.name}}</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="sfi3App.workStationConfig.row" for="field_row">Row</label>
-            <input type="text" class="form-control" name="row" id="field_row"
-                [(ngModel)]="workStationConfig.row" required/>
-            <div [hidden]="!(editForm.controls.row?.dirty && editForm.controls.row?.invalid)">
+        <div class="row">
+            <div class="col form-group">
+                <label class="form-control-label" jhiTranslate="sfi3App.workStationConfig.line" for="field_line">Line</label>
+                <select class="form-control" id="field_line" name="line" [(ngModel)]="workStationConfig.line"  required>
+                    <option *ngIf="!editForm.value.line" [ngValue]="null" selected></option>
+                    <option [ngValue]="lineOption.id === workStationConfig.line?.id ? workStationConfig.line : lineOption" *ngFor="let lineOption of lines; trackBy: trackLineById">{{lineOption.name}}</option>
+                </select>
+            </div>
+            <div [hidden]="!(editForm.controls.line?.dirty && editForm.controls.line?.invalid)">
                 <small class="form-text text-danger"
-                   [hidden]="!editForm.controls.row?.errors?.required" jhiTranslate="entity.validation.required">
-                   This field is required.
+                    [hidden]="!editForm.controls.line?.errors?.required" jhiTranslate="entity.validation.required">
+                    This field is required.
+                </small>
+            </div>
+            <div class="col form-group">
+                <label class="form-control-label" jhiTranslate="sfi3App.workStationConfig.row" for="field_row">Row</label>
+                <input type="text" class="form-control" name="row" id="field_row"
+                    [(ngModel)]="workStationConfig.row" required/>
+                <div [hidden]="!(editForm.controls.row?.dirty && editForm.controls.row?.invalid)">
+                    <small class="form-text text-danger"
+                       [hidden]="!editForm.controls.row?.errors?.required" jhiTranslate="entity.validation.required">
+                       This field is required.
+                    </small>
+                </div>
+            </div>
+            <div class="col form-group">
+                <label class="form-control-label" jhiTranslate="sfi3App.workStationConfig.col" for="field_col">Col</label>
+                <input type="text" class="form-control" name="col" id="field_col"
+                    [(ngModel)]="workStationConfig.col" required/>
+                <div [hidden]="!(editForm.controls.col?.dirty && editForm.controls.col?.invalid)">
+                    <small class="form-text text-danger"
+                       [hidden]="!editForm.controls.col?.errors?.required" jhiTranslate="entity.validation.required">
+                       This field is required.
+                    </small>
+                </div>
+            </div>
+            <div class="col form-group">
+                <label class="form-control-label" jhiTranslate="sfi3App.workStationConfig.first" for="field_first">First</label>
+                <input type="checkbox" class="form-control" name="first" id="field_first"
+                    [(ngModel)]="workStationConfig.first" />
+            </div>
+            <div class="col form-group">
+                <label class="form-control-label" jhiTranslate="sfi3App.workStationConfig.last" for="field_last">Last</label>
+                <input type="checkbox" class="form-control" name="last" id="field_last"
+                    [(ngModel)]="workStationConfig.last" />
+            </div>
+        </div>
+        <div class="row">
+            <!--
+            <div class="col form-group form-inline" [hidden]="!workStationConfig.id">
+                <label class="form-control-label" for="id" jhiTranslate="global.field.id">ID</label>
+                <input type="text" class="form-control" id="id" name="id"
+                       [(ngModel)]="workStationConfig.id" readonly />
+            </div>
+            -->
+            
+        </div>
+        <div class="row">
+            <div class="col form-group">
+                <label class="form-control-label" jhiTranslate="sfi3App.workStationConfig.workStation" for="field_workStation">Work Station</label>
+                <select class="form-control" id="field_workStation" name="workStation" [(ngModel)]="workStationConfig.workStation"  required>
+                    <option *ngIf="!editForm.value.workStation" [ngValue]="null" selected></option>
+                    <option [ngValue]="workStationOption.id === workStationConfig.workStation?.id ? workStationConfig.workStation : workStationOption" *ngFor="let workStationOption of workstations; trackBy: trackWorkStationById">{{workStationOption.name}}</option>
+                </select>
+            </div>
+            <div [hidden]="!(editForm.controls.workStation?.dirty && editForm.controls.workStation?.invalid)">
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.workStation?.errors?.required" jhiTranslate="entity.validation.required">
+                    This field is required.
                 </small>
             </div>
         </div>
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="sfi3App.workStationConfig.col" for="field_col">Col</label>
-            <input type="text" class="form-control" name="col" id="field_col"
-                [(ngModel)]="workStationConfig.col" required/>
-            <div [hidden]="!(editForm.controls.col?.dirty && editForm.controls.col?.invalid)">
-                <small class="form-text text-danger"
-                   [hidden]="!editForm.controls.col?.errors?.required" jhiTranslate="entity.validation.required">
-                   This field is required.
-                </small>
+        <div class="row">
+            <div class="col form-group">
+                <label jhiTranslate="sfi3App.workStationConfig.prevWorkStation" for="field_prevWorkStation">Prev Work Station</label>
+                <select class="form-control" id="field_prevWorkStation" multiple name="prevWorkStation" [(ngModel)]="workStationConfig.prevWorkStations">
+                    <option [ngValue]="getSelected(workStationConfig.prevWorkStations, workStationOption)" *ngFor="let workStationOption of workstations; trackBy: trackWorkStationById">{{workStationOption.name}}</option>
+                </select>
+            </div>
+            <div class="col form-group">
+                <label jhiTranslate="sfi3App.workStationConfig.nextWorkStation" for="field_nextWorkStation">Next Work Station</label>
+                <select class="form-control" id="field_nextWorkStation" multiple name="nextWorkStation" [(ngModel)]="workStationConfig.nextWorkStations">
+                    <option [ngValue]="getSelected(workStationConfig.nextWorkStations, workStationOption)" *ngFor="let workStationOption of workstations; trackBy: trackWorkStationById">{{workStationOption.name}}</option>
+                </select>
             </div>
         </div>
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="sfi3App.workStationConfig.line" for="field_line">Line</label>
-            <select class="form-control" id="field_line" name="line" [(ngModel)]="workStationConfig.line"  required>
-                <option *ngIf="!editForm.value.line" [ngValue]="null" selected></option>
-                <option [ngValue]="lineOption.id === workStationConfig.line?.id ? workStationConfig.line : lineOption" *ngFor="let lineOption of lines; trackBy: trackLineById">{{lineOption.name}}</option>
-            </select>
+        <div class="row">
+            <div class="col form-group">
+                <label jhiTranslate="sfi3App.workStationConfig.supplyType" for="field_supplyType">Supply Type</label>
+                <select class="form-control" id="field_supplyType" multiple name="supplyType" [(ngModel)]="workStationConfig.supplyTypes">
+                    <option [ngValue]="getSelected(workStationConfig.supplyTypes, supplyTypeOption)" *ngFor="let supplyTypeOption of supplytypes; trackBy: trackSupplyTypeById">{{supplyTypeOption.name}}</option>
+                </select>
+            </div>
+            <div class="col form-group">
+                <label jhiTranslate="sfi3App.workStationConfig.employee" for="field_employee">Employee</label>
+                <select class="form-control" id="field_employee" multiple name="employee" [(ngModel)]="workStationConfig.employees">
+                    <option [ngValue]="getSelected(workStationConfig.employees, employeeOption)" *ngFor="let employeeOption of employees; trackBy: trackEmployeeById">{{employeeOption.name}}</option>
+                </select>
+            </div>
         </div>
-        <div [hidden]="!(editForm.controls.line?.dirty && editForm.controls.line?.invalid)">
-            <small class="form-text text-danger"
-                [hidden]="!editForm.controls.line?.errors?.required" jhiTranslate="entity.validation.required">
-                This field is required.
-            </small>
-        </div>
+        
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">

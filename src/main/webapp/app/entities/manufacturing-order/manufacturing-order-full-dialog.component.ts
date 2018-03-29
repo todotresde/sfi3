@@ -101,22 +101,24 @@ export class ManufacturingOrderFullDialogComponent implements OnInit {
         for (let productPosition = 0; productPosition < this.attributeValues.length; productPosition++) {
             for (let supplyPosition = 0; supplyPosition < this.attributeValues[productPosition].length; supplyPosition++) {
                 for (const attributeName in this.attributeValues[productPosition][supplyPosition]) {
-                    const value: any = this.attributeValues[productPosition][supplyPosition][attributeName];
-                    const supplyTypeAttrValue = new SupplyTypeAttrValue();
-                    const supply: Supply = this.products[productPosition].supplies[supplyPosition];
-                    const supplyType: SupplyType = supply.supplyType;
+                    if (this.attributeValues[productPosition][supplyPosition][attributeName]) {
+                        const value: any = this.attributeValues[productPosition][supplyPosition][attributeName];
+                        const supplyTypeAttrValue = new SupplyTypeAttrValue();
+                        const supply: Supply = this.products[productPosition].supplies[supplyPosition];
+                        const supplyType: SupplyType = supply.supplyType;
 
-                    supplyTypeAttrValue.value = value;
-                    supplyTypeAttrValue.product = this.products[productPosition];
-                    supplyTypeAttrValue.supply = supply;
-                    supplyTypeAttrValue.supplyType = supplyType;
-                    supplyType.supplyTypeAttrs.forEach((supplyTypeAttr: SupplyTypeAttr) => {
-                        if (supplyTypeAttr.name === attributeName) {
-                            supplyTypeAttrValue.supplyTypeAttr = supplyTypeAttr;
-                        }
-                    });
+                        supplyTypeAttrValue.value = value;
+                        supplyTypeAttrValue.product = this.products[productPosition];
+                        supplyTypeAttrValue.supply = supply;
+                        supplyTypeAttrValue.supplyType = supplyType;
+                        supplyType.supplyTypeAttrs.forEach((supplyTypeAttr: SupplyTypeAttr) => {
+                            if (supplyTypeAttr.name === attributeName) {
+                                supplyTypeAttrValue.supplyTypeAttr = supplyTypeAttr;
+                            }
+                        });
 
-                    this.supplyTypeAttrValues.push(supplyTypeAttrValue);
+                        this.supplyTypeAttrValues.push(supplyTypeAttrValue);
+                    }
                 }
             }
         }

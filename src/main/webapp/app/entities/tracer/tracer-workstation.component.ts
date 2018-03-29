@@ -28,7 +28,7 @@ export class TracerWorkStationComponent implements OnInit, OnDestroy {
         private principal: Principal,
         private route: ActivatedRoute
     ) {
-        route.params.subscribe(val => {
+        route.params.subscribe((val) => {
             this.ngOnInit();
         });
     }

@@ -16,7 +16,6 @@
         <table class="table table-striped">
             <thead>
             <tr>
-            <th><span jhiTranslate="global.field.id">ID</span></th>
             <th><span jhiTranslate="sfi3App.workStationConfig.first">First</span></th>
             <th><span jhiTranslate="sfi3App.workStationConfig.last">Last</span></th>
             <th><span jhiTranslate="sfi3App.workStationConfig.prevWorkStation">Prev Work Station</span></th>
@@ -32,9 +31,8 @@
             </thead>
             <tbody>
             <tr *ngFor="let workStationConfig of workStationConfigs ;trackBy: trackId">
-                <td><a [routerLink]="['../work-station-config', workStationConfig.id ]">{{workStationConfig.id}}</a></td>
-                <td>{{workStationConfig.first}}</td>
-                <td>{{workStationConfig.last}}</td>
+                <td><i *ngIf="workStationConfig.first" class="fa fa-check"></i></td>
+                <td><i *ngIf="workStationConfig.last" class="fa fa-check"></i></td>
                 <td>
                     <span *ngFor="let prevWorkStation of workStationConfig.prevWorkStations; let last = last">
                             <a class="form-control-static" [routerLink]="['../work-station', prevWorkStation?.id ]">{{prevWorkStation.name}}</a>{{last ? '' : ', '}}
