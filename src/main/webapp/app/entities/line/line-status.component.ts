@@ -34,26 +34,6 @@ export class LineStatusComponent implements OnInit, OnDestroy {
     ) {
     }
 
-    loadAllWorkStationConfigs() {
-        this.workStationConfigService.query().subscribe(
-            (res: HttpResponse<WorkStationConfig[]>) => {
-                this.sortWorkStations(res.body);
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
-    }
-
-    loadAll() {
-        this.tracerService.queryOpen().subscribe(
-            (res: HttpResponse<Tracer[]>) => {
-                this.tracers = res.body;
-                this.pushTracersIntoWorkStation(this.tracers);
-                this.loadAllWorkStationConfigs();
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
-    }
-
     ngOnInit() {
         this.loadAll();
         this.eventSubscribeReload = Observable.interval(60000).subscribe((time) => this.loadAll());
@@ -66,6 +46,30 @@ export class LineStatusComponent implements OnInit, OnDestroy {
     ngOnDestroy() {
         this.eventManager.destroy(this.eventSubscriber);
         this.eventSubscribeReload.unsubscribe();
+    }
+
+    loadAllWorkStationConfigs() {
+        this.workStationConfigService.query().subscribe(
+            (res: HttpResponse<WorkStationConfig[]>) => {
+                this.sortWorkStations(res.body);
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+    }
+
+    loadAll() {
+        this.tracerService.queryOpen().subscribe(
+            (res: HttpResponse<Tracer[]>) => {
+                this.pushTracersIntoWorkStation(res.body);
+                this.loadAllWorkStationConfigs();
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+    }
+
+    loadTracersForWorkStation(workStationId: number) {
+        this.tracers = this.workStationsDTO[workStationId];
+        console.log(this.workStationsDTO, workStationId);
     }
 
     trackWorkStationConfigId(index: number, item: WorkStationConfig) {

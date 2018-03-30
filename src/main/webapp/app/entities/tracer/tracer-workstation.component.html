@@ -10,7 +10,6 @@
         <table class="table table-striped">
             <thead>
             <tr>
-            <th><span jhiTranslate="sfi3App.tracer.line">Line</span></th>
             <th><span jhiTranslate="sfi3App.tracer.code">Code</span></th>
             <th><span jhiTranslate="sfi3App.tracer.inTime">In Time</span></th>
             <th><span jhiTranslate="sfi3App.tracer.startTime">Start Time</span></th>
@@ -23,11 +22,6 @@
             </thead>
             <tbody>
             <tr *ngFor="let tracer of tracers ;trackBy: trackId">
-                <td>
-                    <div *ngIf="tracer.line">
-                        <a [routerLink]="['../line', tracer.line?.id ]" >{{tracer.line?.name}}</a>
-                    </div>
-                </td>
                 <td>{{tracer.code | smallUUID }}</td>
                 <td>{{tracer.inTime | date:'short':'-0300'}}</td>
                 <td>{{tracer.startTime | date:'short':'-0300'}}</td>
@@ -39,7 +33,7 @@
                 </td>
                 <td>
                     <div *ngIf="tracer.product">
-                        <a [routerLink]="['../product', tracer.product?.id ]" >{{tracer.product?.name}}</a>
+                        <a [routerLink]="['../product', tracer.product?.id ]" >{{tracer.product?.description}}</a>
                     </div>
                 </td>
                 <td>

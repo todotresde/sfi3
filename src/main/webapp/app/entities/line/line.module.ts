@@ -33,7 +33,7 @@ const ENTITY_STATES = [
         LineDialogComponent,
         LineDeleteDialogComponent,
         LinePopupComponent,
-        LineDeletePopupComponent,
+        LineDeletePopupComponent
     ],
     entryComponents: [
         LineComponent,

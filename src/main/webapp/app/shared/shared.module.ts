@@ -1,5 +1,6 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { DatePipe } from '@angular/common';
+import { SmallUUID } from '../app.pipes';
 
 import {
     Sfi3SharedLibsModule,
@@ -23,7 +24,8 @@ import {
     ],
     declarations: [
         JhiLoginModalComponent,
-        HasAnyAuthorityDirective
+        HasAnyAuthorityDirective,
+        SmallUUID
     ],
     providers: [
         LoginService,
@@ -34,14 +36,16 @@ import {
         CSRFService,
         AuthServerProvider,
         UserService,
-        DatePipe
+        DatePipe,
+        SmallUUID
     ],
     entryComponents: [JhiLoginModalComponent],
     exports: [
         Sfi3SharedCommonModule,
         JhiLoginModalComponent,
         HasAnyAuthorityDirective,
-        DatePipe
+        DatePipe,
+        SmallUUID
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 

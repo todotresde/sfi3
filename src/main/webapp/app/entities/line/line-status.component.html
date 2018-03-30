@@ -9,11 +9,43 @@
             <tr *ngFor="let workStationConfigRow of lineDTO.workStationConfigs">
                 <td *ngFor="let workStationConfig of workStationConfigRow">
                     <div *ngIf="workStationConfig" >
-                        ({{workStationsDTO[workStationConfig.workStation.id] ? workStationsDTO[workStationConfig.workStation.id].length : 0}}) {{workStationConfig.workStation.name}}
+                        (<a (click)="loadTracersForWorkStation(workStationConfig.workStation.id)" >{{workStationsDTO[workStationConfig.workStation.id] ? workStationsDTO[workStationConfig.workStation.id].length : 0}}</a>)
+                        {{workStationConfig.workStation.name}}
                     </div>
                 </td>
             </tr>
             </tbody>
         </table>
+        <div *ngIf="tracers && tracers.length > 0">
+            <h4>
+                <span>WorkStation: {{tracers[0].workStation.name}}</span>
+            </h4>
+            <table class="table table-striped" >
+                <thead>
+                <tr>
+                <th><span jhiTranslate="sfi3App.tracer.code">Code</span></th>
+                <th><span jhiTranslate="sfi3App.tracer.inTime">In Time</span></th>
+                <th><span jhiTranslate="sfi3App.tracer.startTime">Start Time</span></th>
+                <th><span jhiTranslate="sfi3App.tracer.endTime">End Time</span></th>
+                <th><span jhiTranslate="sfi3App.tracer.manufacturingOrder">Manufacturing Order</span></th>
+                <th><span jhiTranslate="sfi3App.tracer.supply">Supply</span></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let tracer of tracers">
+                    <td>{{tracer.code | smallUUID }}</td>
+                    <td>{{tracer.inTime | date:'short':'-0300'}}</td>
+                    <td>{{tracer.startTime | date:'short':'-0300'}}</td>
+                    <td>{{tracer.endTime | date:'short':'-0300'}}</td>
+                    <td>
+                        <div *ngIf="tracer.manufacturingOrder">
+                            <a [routerLink]="['../manufacturing-order', tracer.manufacturingOrder?.id ]" >{{tracer.manufacturingOrder?.code}}</a>
+                        </div>
+                    </td>
+                    <td>{{tracer.supply.name}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
