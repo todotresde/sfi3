@@ -175,19 +175,6 @@ public class ManufacturingOrderResource {
     }
 
     /**
-     * DELETE  /manufacturing-orders/:id : delete the "id" manufacturingOrder.
-     *
-     * @param id the id of the manufacturingOrder to delete
-     * @return the ResponseEntity with status 200 (OK)
-     */
-    @DeleteMapping("/manufacturing-orders/{id}")
-    @Timed
-    public ResponseEntity<Void> deleteManufacturingOrder(@PathVariable Long id) {
-        log.debug("REST request to delete ManufacturingOrder : {}", id);
-        manufacturingOrderRepository.delete(id);
-        return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
-    }
-    /**
      * GET  /manufacturing-order/:id : Send a manufacturingOrder to build.
      *
      * @param id the id of the manufacturingOrder to retrieve
@@ -200,4 +187,19 @@ public class ManufacturingOrderResource {
         ManufacturingOrder manufacturingOrder = manufacturingOrderService.send(id);
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(manufacturingOrder));
     }
+
+    /**
+     * DELETE  /manufacturing-orders/:id : delete the "id" manufacturingOrder.
+     *
+     * @param id the id of the manufacturingOrder to delete
+     * @return the ResponseEntity with status 200 (OK)
+     */
+    @DeleteMapping("/manufacturing-orders/{id}")
+    @Timed
+    public ResponseEntity<Void> deleteManufacturingOrder(@PathVariable Long id) {
+        log.debug("REST request to delete ManufacturingOrder : {}", id);
+        manufacturingOrderRepository.delete(id);
+        return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
+    }
+
 }

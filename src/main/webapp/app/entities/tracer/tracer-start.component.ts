@@ -52,6 +52,7 @@ export class TracerStartComponent implements OnInit {
 
     send() {
         this.isSending = true;
+        console.log(this.tracer);
         this.tracer.endTime = this.datePipe.transform(new Date(), 'yyyy-MM-ddTHH:mm:ss');
         this.subscribeToSendResponse(
                 this.tracerService.send(this.tracer));

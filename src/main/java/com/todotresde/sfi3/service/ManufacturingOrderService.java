@@ -1,5 +1,6 @@
 package com.todotresde.sfi3.service;
 
+import com.todotresde.sfi3.config.Constants;
 import com.todotresde.sfi3.domain.*;
 import com.todotresde.sfi3.repository.ManufacturingOrderRepository;
 import com.todotresde.sfi3.service.dto.ManufacturingOrderDTO;
@@ -34,7 +35,6 @@ public class ManufacturingOrderService {
         this.tracerService = tracerService;
     }
 
-    //TODO - Capture error in case of schedulerService.sendMOProduct fail
     public ManufacturingOrder send(Long id) {
         ManufacturingOrder manufacturingOrder = manufacturingOrderRepository.findOne(id);
         log.debug("Send manufacturingOrder to build {}", manufacturingOrder);
@@ -47,7 +47,7 @@ public class ManufacturingOrderService {
             }
         }
 
-        manufacturingOrder.setStatus(1);
+        manufacturingOrder.setStatus(Constants.STATUS_INPROGRESS);
 
         manufacturingOrderRepository.save(manufacturingOrder);
 
@@ -56,7 +56,6 @@ public class ManufacturingOrderService {
 
     public ManufacturingOrder saveWithProductsAndSTAttributeValues(ManufacturingOrder manufacturingOrder, List<Product> products, List<SupplyTypeAttrValue> supplyTypeAttrValues) {
         manufacturingOrder = manufacturingOrderRepository.save(manufacturingOrder);
-        Integer productIndex = 0;
         Integer stAttributeValueIndex = 0;
         for(Product product : products) {
             product.setId(null);
@@ -81,8 +80,6 @@ public class ManufacturingOrderService {
                 }
 
             }
-
-            productIndex++;
         }
 
         return manufacturingOrder;
@@ -118,7 +115,7 @@ public class ManufacturingOrderService {
         Integer finishedTracers = this.tracerService.getFinishedForManufacturingOrder(manufacturingOrder);
 
         if (totalTracers.equals(finishedTracers) ) {
-            manufacturingOrder.setStatus(2);
+            manufacturingOrder.setStatus(Constants.STATUS_FINISHED);
             this.manufacturingOrderRepository.save(manufacturingOrder);
         }
 

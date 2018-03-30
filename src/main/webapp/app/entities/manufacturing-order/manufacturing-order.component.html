@@ -1,7 +1,7 @@
 <div>
     <h2>
         <span jhiTranslate="sfi3App.manufacturingOrder.home.title">Manufacturing Orders</span>
-        <button class="btn btn-primary float-right jh-create-entity create-manufacturing-order" [routerLink]="['/', { outlets: { popup: ['manufacturing-order-new'] } }]">
+        <button class="btn btn-primary float-right jh-create-entity create-manufacturing-order" [routerLink]="['/', { outlets: { popup: ['manufacturing-order-full-new'] } }]">
             <span class="fa fa-plus"></span>
             <span  jhiTranslate="sfi3App.manufacturingOrder.home.createLabel">
             Create new Manufacturing Order
@@ -27,7 +27,7 @@
             <tr *ngFor="let manufacturingOrder of manufacturingOrders ;trackBy: trackId">
                 <td>{{manufacturingOrder.code}}</td>
                 <td>{{manufacturingOrder.orderDate | date:'medium'}}</td>
-                <td>{{manufacturingOrder.status}}</td>
+                <td>{{manufacturingOrder.status | status}}</td>
                 <td>{{manufacturingOrder.description}}</td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
@@ -56,7 +56,7 @@
                         <button type="submit"
                                 [routerLink]="['/', { outlets: { popup: 'manufacturing-order/'+ manufacturingOrder.id + '/send'} }]"
                                 replaceUrl="true"
-                                class="btn btn-primary btn-sm" *ngIf="manufacturingOrder.status==0" >
+                                class="btn btn-primary btn-sm" *ngIf="manufacturingOrder.status==STATUS_CREATED" >
                             <span class="fa fa-cogs"></span>
                             <span class="d-none d-md-inline" jhiTranslate="sfi3App.manufacturingOrder.send.send">Send</span>
                         </button>

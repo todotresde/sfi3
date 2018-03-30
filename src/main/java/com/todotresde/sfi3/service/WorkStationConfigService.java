@@ -28,10 +28,12 @@ public class WorkStationConfigService {
     }
 
     public WorkStationConfig getFirstWorkStationConfigForLine(Line line){
+        log.debug("Get first workStation for line {}", line.getId());
+
         List<WorkStationConfig> workStationConfigs = this.workStationConfigRepository.findByLineAndFirst(line, true);
 
         WorkStationConfig bestWorkStationConfig = null;
-        Long time = new Long(999999999);
+        Long time = (long) 999999999;
 
         for(WorkStationConfig workStationConfig: workStationConfigs){
             Long workStationConfigTime = this.getTime(workStationConfig);
@@ -46,11 +48,7 @@ public class WorkStationConfigService {
 
 
     public Long getTime(WorkStationConfig workStationConfig) {
-        return new Long(this.tracerService.getTracersForWorkStation(workStationConfig.getWorkStation()).size());
-    }
-
-    public void create(WorkStationConfig workStationConfig, Line line, Product product){
-        this.tracerService.create(line, product, workStationConfig);
+        return (long) this.tracerService.getTracersForWorkStation(workStationConfig.getWorkStation()).size();
     }
 
     public WorkStationConfig getNextWorkStationConfig(WorkStationConfig workStationConfig, Product product, Supply supply) {
@@ -66,7 +64,7 @@ public class WorkStationConfigService {
             }
 
             if (!workStationConfigs.isEmpty()) {
-                Long time = new Long(999999999);
+                Long time = (long) 999999999;
 
                 for (WorkStationConfig workStationConfig1 : workStationConfigs) {
                     Long workStationConfigTime = this.getTime(workStationConfig1);
@@ -82,9 +80,9 @@ public class WorkStationConfigService {
     }
 
     public WorkStation getNextWorkStation(WorkStationConfig workStationConfig){
-        List<WorkStation> nextWorkStations = new ArrayList<WorkStation>(workStationConfig.getNextWorkStations());
+        List<WorkStation> nextWorkStations = new ArrayList<>(workStationConfig.getNextWorkStations());
         WorkStation bestWorkStation = null;
-        Integer maxTracers = new Integer(999999999);
+        Integer maxTracers = 999999999;
 
         for(WorkStation workStation: nextWorkStations){
             Integer numberOfTracers = this.tracerService.getTracersForWorkStation(workStation).size();
@@ -102,10 +100,7 @@ public class WorkStationConfigService {
         if(workStationConfigResult != null && workStationConfig.getId() != null && workStationConfigResult.getId() != workStationConfig.getId()){
             return false;
         }
-        if(workStationConfigResult != null && workStationConfig.getId() == null){
-            return false;
-        }
-        return true;
+        return !(workStationConfigResult != null && workStationConfig.getId() == null);
     }
 }
 

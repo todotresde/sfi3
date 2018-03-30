@@ -6,7 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { ManufacturingOrder } from './manufacturing-order.model';
 import { ManufacturingOrderService } from './manufacturing-order.service';
-import { ITEMS_PER_PAGE, Principal } from '../../shared';
+import { ITEMS_PER_PAGE, STATUS_CREATED, Principal } from '../../shared';
 
 @Component({
     selector: 'jhi-manufacturing-order',

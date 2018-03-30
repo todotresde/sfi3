@@ -1,5 +1,6 @@
 package com.todotresde.sfi3.service;
 
+import com.todotresde.sfi3.config.Constants;
 import com.todotresde.sfi3.domain.*;
 import com.todotresde.sfi3.repository.TracerRepository;
 import com.todotresde.sfi3.repository.WorkStationRepository;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Instant;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -50,7 +52,7 @@ public class TracerService {
         Tracer tracer = new Tracer();
         tracer.setCode(UUID.randomUUID().toString());
         tracer.setInTime(Instant.now());
-        tracer.setStatus(0);
+        tracer.setStatus(Constants.STATUS_CREATED);
         tracer.setWorkStationConfig(workStationConfig);
         tracer.setManufacturingOrder(product.getManufacturingOrder());
         tracer.setProduct(product);
@@ -104,7 +106,7 @@ public class TracerService {
 
             nextTracer.setCode(tracer.getCode());
             nextTracer.setInTime(Instant.now());
-            nextTracer.setStatus(0);
+            nextTracer.setStatus(Constants.STATUS_CREATED);
             nextTracer.setWorkStationConfig(workStationConfig);
             nextTracer.setManufacturingOrder(tracer.getManufacturingOrder());
             nextTracer.setProduct(tracer.getProduct());
@@ -121,7 +123,9 @@ public class TracerService {
             tracer.setNextWorkStation(workStationConfig.getWorkStation());
         }
 
-        tracer.setStatus(1);
+        tracer.setEndTime(Instant.now());
+        tracer.setTime((int)tracer.getEndTime().getEpochSecond() - (int)tracer.getStartTime().getEpochSecond());
+        tracer.setStatus(Constants.STATUS_FINISHED);
         tracer.setNextTracer(null);
         tracerRepository.save(tracer);
 
@@ -133,7 +137,7 @@ public class TracerService {
     }
 
     public List<Tracer> getTracersForWorkStation(WorkStation workStation){
-        return this.tracerRepository.findByWorkStationAndStatus(workStation,0);
+        return this.tracerRepository.findByWorkStationAndStatus(workStation, Constants.STATUS_CREATED);
     }
 
     public Supply getSupplyForWorkStationConfig(WorkStationConfig workStationConfig, Product product) {
@@ -155,7 +159,7 @@ public class TracerService {
     }
 
     public Integer getFinishedForManufacturingOrder(ManufacturingOrder manufacturingOrder) {
-        return this.tracerRepository.countByManufacturingOrderAndStatus(manufacturingOrder,1);
+        return this.tracerRepository.countByManufacturingOrderAndStatus(manufacturingOrder,Constants.STATUS_FINISHED);
     }
 }
 

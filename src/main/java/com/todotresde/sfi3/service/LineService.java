@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
-import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Service class for managing users.
@@ -31,47 +30,11 @@ public class LineService {
         this.productService = productService;
     }
 
-    public Line getBestLineForProduct(Product product) {
-        List<Line> lines = this.getLineForProduct(product);
-        Line bestLine = null;
-        Long time = new Long(999999999);
-
-        //Get Lines that has necessary workstations to build thos MOProduct
-        for(Line line: lines){
-            Long lineTime = this.getTimeForLine(line);
-            if(lineTime < time){
-                time = lineTime;
-                bestLine = line;
-            }
-        }
-
-        return bestLine;
-    }
-
-    public List<Line> getLineForProduct(Product product) {
-        List<Line> lines = this.lineRepository.findAll();
-        List<Line> linesForProduct = new ArrayList<Line>();
-
-        List<SupplyType> productSupplyTypes = this.productService.getSupplyTypes(product);
-        for(Line line: lines){
-            List<SupplyType> lineSupplyTypes = this.getSupplyTypesForLine(line);
-
-            if(lineSupplyTypes.containsAll(productSupplyTypes)){
-                linesForProduct.add(line);
-            }
-        }
-
-        return linesForProduct;
-    }
-
-    public Long getTimeForLine(Line line) {
-        return new Long(ThreadLocalRandom.current().nextInt(20, 100 ));
-    }
-
     public void sendProduct(Line line, Product product){
-        WorkStationConfig workStationConfig = this.workStationConfigService.getFirstWorkStationConfigForLine(line);
-        this.workStationConfigService.create(workStationConfig, line, product);
+        log.debug("Send Product to build line: {} and product: {}", line.getId(), product.getId());
 
+        WorkStationConfig workStationConfig = this.workStationConfigService.getFirstWorkStationConfigForLine(line);
+        this.tracerService.create(line, product, workStationConfig);
     }
 
     public Tracer sendFromWorkStationIP(String ip, Tracer tracer){
@@ -90,16 +53,8 @@ public class LineService {
         return this.workStationConfigService.getNextWorkStationConfig(workStationConfig, product, supply);
     }
 
-    public List<SupplyType> getSupplyTypesForLine(Line line){
-        Set<SupplyType> supplyTypes = new HashSet<SupplyType>();
-
-        for(WorkStationConfig wSConfiguration: line.getWorkStationConfigs()){
-            for(SupplyType supplyType: wSConfiguration.getSupplyTypes()) {
-                supplyTypes.add(supplyType);
-            }
-        }
-
-        return new ArrayList<>(supplyTypes);
+    public List<Line> findAll() {
+        return this.lineRepository.findAll();
     }
 }
 

@@ -1,14 +1,13 @@
 package com.todotresde.sfi3.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
-import com.todotresde.sfi3.domain.SupplyTypeAttrValue;
+import com.todotresde.sfi3.config.Constants;
 import com.todotresde.sfi3.domain.Tracer;
 
 import com.todotresde.sfi3.domain.WorkStation;
 import com.todotresde.sfi3.repository.TracerRepository;
 import com.todotresde.sfi3.repository.WorkStationRepository;
 import com.todotresde.sfi3.service.LineService;
-import com.todotresde.sfi3.service.TracerService;
 import com.todotresde.sfi3.web.rest.errors.BadRequestAlertException;
 import com.todotresde.sfi3.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
@@ -23,7 +22,6 @@ import java.net.URISyntaxException;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 /**
  * REST controller for managing Tracer.
@@ -39,13 +37,11 @@ public class TracerResource {
     private final TracerRepository tracerRepository;
     private final WorkStationRepository workStationRepository;
 
-    private final TracerService tracerService;
     private final LineService lineService;
 
-    public TracerResource(TracerRepository tracerRepository, WorkStationRepository workStationRepository, TracerService tracerService, LineService lineService) {
+    public TracerResource(TracerRepository tracerRepository, WorkStationRepository workStationRepository, LineService lineService) {
         this.tracerRepository = tracerRepository;
         this.workStationRepository = workStationRepository;
-        this.tracerService = tracerService;
         this.lineService = lineService;
     }
 
@@ -112,7 +108,7 @@ public class TracerResource {
     @Timed
     public List<Tracer> getAllOpenTracers() {
         log.debug("REST request to get all open Tracers");
-        return tracerRepository.findByStatus(0);
+        return tracerRepository.findByStatus(Constants.STATUS_CREATED);
     }
 
     /**
@@ -126,7 +122,7 @@ public class TracerResource {
     public List<Tracer> getAllTracersByWorkStationIP(@PathVariable String ip) {
         log.debug("REST request to get all Tracers by WorkStation IP");
         WorkStation workStation = workStationRepository.findByIp(ip);
-        return tracerRepository.findByWorkStationAndStatus(workStation,0);
+        return tracerRepository.findByWorkStationAndStatus(workStation,Constants.STATUS_CREATED);
     }
 
     /**

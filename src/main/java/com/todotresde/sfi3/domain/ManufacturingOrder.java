@@ -36,8 +36,8 @@ public class ManufacturingOrder implements Serializable {
     @Column(name = "status", nullable = false)
     private Integer status;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "description")
+    private String description;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -87,17 +87,17 @@ public class ManufacturingOrder implements Serializable {
         this.status = status;
     }
 
-    public String getName() {
-        return name;
+    public String getDescription() {
+        return description;
     }
 
-    public ManufacturingOrder name(String name) {
-        this.name = name;
+    public ManufacturingOrder description(String description) {
+        this.description = description;
         return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDescription(String description) {
+        this.description = description;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -128,7 +128,7 @@ public class ManufacturingOrder implements Serializable {
             ", code='" + getCode() + "'" +
             ", orderDate='" + getOrderDate() + "'" +
             ", status=" + getStatus() +
-            ", name='" + getName() + "'" +
+            ", description='" + getDescription() + "'" +
             "}";
     }
 }

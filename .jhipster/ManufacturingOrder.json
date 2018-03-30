@@ -24,7 +24,7 @@
             ]
         },
         {
-            "fieldName": "name",
+            "fieldName": "description",
             "fieldType": "String"
         }
     ],

@@ -13,6 +13,7 @@ import { SupplyType } from '../supply-type/supply-type.model';
 import { SupplyTypeAttr } from '../supply-type-attr/supply-type-attr.model';
 import { Product } from '../product/product.model';
 import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
+import { STATUS_CREATED } from '../../shared';
 
 @Injectable()
 export class ManufacturingOrderPopupService {
@@ -134,7 +135,8 @@ export class ManufacturingOrderPopupService {
     manufacturingOrderNewModalRef(component: Component, manufacturingOrder: ManufacturingOrder): NgbModalRef {
         const modalRef = this.modalService.open(component, { size: 'lg', backdrop: 'static'});
 
-        manufacturingOrder.orderDate = this.datePipe.transform(manufacturingOrder.orderDate, 'yyyy-MM-ddTHH:mm:ss');
+        manufacturingOrder.status = STATUS_CREATED;
+        manufacturingOrder.orderDate = this.datePipe.transform(new Date(), 'yyyy-MM-ddTHH:mm:ss');
         modalRef.componentInstance.manufacturingOrder = manufacturingOrder;
         modalRef.result.then((result) => {
             this.router.navigate([{ outlets: { popup: null }}], { replaceUrl: true, queryParamsHandling: 'merge' });

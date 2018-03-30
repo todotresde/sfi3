@@ -34,7 +34,9 @@ public class ProductService {
     }
 
     public List<SupplyType> getSupplyTypes(Product product) {
-        List<SupplyType> supplyTypes = new ArrayList<SupplyType>();
+        log.debug("Get supplies for product {}", product.getId());
+
+        List<SupplyType> supplyTypes = new ArrayList<>();
 
         for(Supply supply: product.getSupplies()){
             supplyTypes.add(supply.getSupplyType());
@@ -44,7 +46,6 @@ public class ProductService {
     }
 
     public void delete(Product product) {
-        //this.productRepository.deleteSupplyRelations(product.getId());
         this.productRepository.delete(product.getId());
     }
 
