@@ -26,6 +26,7 @@ export class ManufacturingOrderComponent implements OnInit, OnDestroy {
     predicate: any;
     previousPage: any;
     reverse: any;
+    statusCreated: any;
     // Paging
 
     constructor(
@@ -37,6 +38,7 @@ export class ManufacturingOrderComponent implements OnInit, OnDestroy {
         private activatedRoute: ActivatedRoute,
         private router: Router
     ) {
+        this.statusCreated = STATUS_CREATED;
         this.itemsPerPage = ITEMS_PER_PAGE;
         this.routeData = this.activatedRoute.data.subscribe((data) => {
             this.page = data.pagingParams.page;

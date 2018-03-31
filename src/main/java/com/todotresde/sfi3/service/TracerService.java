@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Instant;
-import java.time.Period;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -29,16 +28,20 @@ public class TracerService {
     private final TracerRepository tracerRepository;
     private final WorkStationRepository workStationRepository;
     private final SupplyTypeAttrValueService supplyTypeAttrValueService;
-    private ManufacturingOrderService manufacturingOrderService;
+    private final ManufacturingOrderService manufacturingOrderService;
+    private final SchedulerService schedulerService;
 
-    public TracerService(TracerRepository tracerRepository, WorkStationRepository workStationRepository, SupplyTypeAttrValueService supplyTypeAttrValueService, @Lazy ManufacturingOrderService manufacturingOrderService) {
+    public TracerService(TracerRepository tracerRepository, WorkStationRepository workStationRepository, SupplyTypeAttrValueService supplyTypeAttrValueService, @Lazy ManufacturingOrderService manufacturingOrderService, @Lazy SchedulerService schedulerService) {
         this.tracerRepository = tracerRepository;
         this.workStationRepository = workStationRepository;
         this.supplyTypeAttrValueService = supplyTypeAttrValueService;
         this.manufacturingOrderService = manufacturingOrderService;
+        this.schedulerService = schedulerService;
     }
 
     public void create(Line line, Product product, WorkStationConfig workStationConfig){
+        log.debug("Create a Tracer for Product {}", product.getId());
+
         Supply supply = this.getSupplyForWorkStationConfig(workStationConfig, product);
 
         List<SupplyTypeAttrValue> supplyTypeAttrValues;
@@ -46,7 +49,7 @@ public class TracerService {
             supplyTypeAttrValues = this.supplyTypeAttrValueService
                 .getByManufacturingOrderAndProductAndSupply(product.getManufacturingOrder(), product, supply);
         } else {
-            supplyTypeAttrValues = new ArrayList<SupplyTypeAttrValue>();
+            supplyTypeAttrValues = new ArrayList<>();
         }
 
         Tracer tracer = new Tracer();
@@ -60,6 +63,7 @@ public class TracerService {
         tracer.setSupplyTypeAttrValues(new HashSet<>(supplyTypeAttrValues));
         tracer.setLine(line);
         tracer.setWorkStation(workStationConfig.getWorkStation());
+        tracer.setTime(this.schedulerService.getTimeForWorkStationConfig(workStationConfig));
         tracer.setPrevWorkStation(null);
         tracer.setNextWorkStation(null);
 
@@ -101,7 +105,7 @@ public class TracerService {
                 supplyTypeAttrValues = this.supplyTypeAttrValueService
                     .getByManufacturingOrderAndProductAndSupply(tracer.getProduct().getManufacturingOrder(), tracer.getProduct(), supply);
             } else {
-                supplyTypeAttrValues = new ArrayList<SupplyTypeAttrValue>();
+                supplyTypeAttrValues = new ArrayList<>();
             }
 
             nextTracer.setCode(tracer.getCode());
@@ -160,6 +164,15 @@ public class TracerService {
 
     public Integer getFinishedForManufacturingOrder(ManufacturingOrder manufacturingOrder) {
         return this.tracerRepository.countByManufacturingOrderAndStatus(manufacturingOrder,Constants.STATUS_FINISHED);
+    }
+
+    public Integer getTotalTimeForWorkStationConfig(WorkStationConfig workStationConfig) {
+        List<Tracer> tracers = this.tracerRepository.findByWorkStationAndOpen(workStationConfig.getWorkStation());
+        Integer sum = 0;
+        for( Tracer tracer: tracers) {
+            sum += tracer.getTime();
+        }
+        return sum;
     }
 }
 

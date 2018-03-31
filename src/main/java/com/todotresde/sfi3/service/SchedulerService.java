@@ -2,7 +2,6 @@ package com.todotresde.sfi3.service;
 
 import com.todotresde.sfi3.domain.Line;
 import com.todotresde.sfi3.domain.Product;
-import com.todotresde.sfi3.domain.SupplyType;
 import com.todotresde.sfi3.domain.WorkStationConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,10 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Service class for managing users.
@@ -25,11 +21,11 @@ public class SchedulerService {
     private final Logger log = LoggerFactory.getLogger(SchedulerService.class);
 
     private final LineService lineService;
-    private final ProductService productService;
+    private final WorkStationConfigService workStationConfigService;
 
-    public SchedulerService(LineService lineService, ProductService productService) {
+    public SchedulerService(LineService lineService, WorkStationConfigService workStationConfigService) {
         this.lineService = lineService;
-        this.productService = productService;
+        this.workStationConfigService = workStationConfigService;
 
     }
 
@@ -42,13 +38,12 @@ public class SchedulerService {
     }
 
     private Line getBestLineForProduct(Product product) {
-        List<Line> lines = this.getLineForProduct(product);
+        List<Line> lines = this.lineService.getLineForProduct(product);
         Line bestLine = null;
-        Long time = (long) 999999999;
+        Integer time = 999999999;
 
-        //Get Lines that has necessary workstations to build thos MOProduct
         for(Line line: lines){
-            Long lineTime = this.getTimeForLine(line);
+            Integer lineTime = this.getTimeForLine(line);
             if(lineTime < time){
                 time = lineTime;
                 bestLine = line;
@@ -58,36 +53,29 @@ public class SchedulerService {
         return bestLine;
     }
 
-    private List<Line> getLineForProduct(Product product) {
-        List<Line> lines = this.lineService.findAll();
-        List<Line> linesForProduct = new ArrayList<>();
+    public Integer getTimeForLine(Line line) {
+        List<Integer> lineRowTimes = new ArrayList<>();
+        List<WorkStationConfig> workStationConfigs = this.workStationConfigService.findByLine(line);
+        Integer minRowTime = 999999;
 
-        List<SupplyType> productSupplyTypes = this.productService.getSupplyTypes(product);
-        for(Line line: lines){
-            List<SupplyType> lineSupplyTypes = this.getSupplyTypesForLine(line);
+        for(WorkStationConfig workStationConfig: workStationConfigs ){
+            if(lineRowTimes.size() <= workStationConfig.getRow()){
+                lineRowTimes.add(0);
+            }
+            lineRowTimes.set(workStationConfig.getRow(), lineRowTimes.get(workStationConfig.getRow()) + this.workStationConfigService.getTimeForWorkStationConfig(workStationConfig));
+        }
 
-            if(lineSupplyTypes.containsAll(productSupplyTypes)){
-                linesForProduct.add(line);
+        for(Integer lineRowTime: lineRowTimes ){
+            if(lineRowTime < minRowTime){
+                minRowTime = lineRowTime;
             }
         }
 
-        return linesForProduct;
+        return minRowTime;
     }
 
-    public List<SupplyType> getSupplyTypesForLine(Line line){
-        Set<SupplyType> supplyTypes = new HashSet<>();
-
-        for(WorkStationConfig workStationConfig: line.getWorkStationConfigs()){
-            for(SupplyType supplyType: workStationConfig.getSupplyTypes()) {
-                supplyTypes.add(supplyType);
-            }
-        }
-
-        return new ArrayList<>(supplyTypes);
-    }
-
-    public Long getTimeForLine(Line line) {
-        return (long)ThreadLocalRandom.current().nextInt(20, 100 );
+    public Integer getTimeForWorkStationConfig(WorkStationConfig workStationConfig) {
+        return 10;
     }
 }
 

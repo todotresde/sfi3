@@ -53,8 +53,44 @@ public class LineService {
         return this.workStationConfigService.getNextWorkStationConfig(workStationConfig, product, supply);
     }
 
-    public List<Line> findAll() {
-        return this.lineRepository.findAll();
+    /**
+     *
+     * @param product the product to get lines
+     * @return the List<Line> with all lines that has the ability to build the product
+     */
+    public List<Line> getLineForProduct(Product product) {
+        List<Line> lines = this.lineRepository.findAll();
+        List<Line> linesForProduct = new ArrayList<>();
+
+        List<SupplyType> productSupplyTypes = this.productService.getSupplyTypes(product);
+        for(Line line: lines){
+            List<SupplyType> lineSupplyTypes = this.getSupplyTypesForLine(line);
+
+            if(lineSupplyTypes.containsAll(productSupplyTypes)){
+                linesForProduct.add(line);
+            }
+        }
+
+        return linesForProduct;
     }
+
+    /**
+     *
+     * @param line the line to get supplies
+     * @return the List<SupplyType> with all supplies provided for the line, without repetitions.
+     */
+    public List<SupplyType> getSupplyTypesForLine(Line line){
+        Set<SupplyType> supplyTypes = new HashSet<>();
+
+        for(WorkStationConfig workStationConfig: line.getWorkStationConfigs()){
+            for(SupplyType supplyType: workStationConfig.getSupplyTypes()) {
+                if(!supplyTypes.contains(supplyType))
+                    supplyTypes.add(supplyType);
+            }
+        }
+
+        return new ArrayList<>(supplyTypes);
+    }
+
 }
 

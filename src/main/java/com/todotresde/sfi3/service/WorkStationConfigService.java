@@ -33,10 +33,10 @@ public class WorkStationConfigService {
         List<WorkStationConfig> workStationConfigs = this.workStationConfigRepository.findByLineAndFirst(line, true);
 
         WorkStationConfig bestWorkStationConfig = null;
-        Long time = (long) 999999999;
+        Integer time = 999999999;
 
         for(WorkStationConfig workStationConfig: workStationConfigs){
-            Long workStationConfigTime = this.getTime(workStationConfig);
+            Integer workStationConfigTime = this.getRowTimeForWorkStationConfig(workStationConfig);
             if(workStationConfigTime < time){
                 time = workStationConfigTime;
                 bestWorkStationConfig = workStationConfig;
@@ -46,11 +46,6 @@ public class WorkStationConfigService {
         return bestWorkStationConfig;
     }
 
-
-    public Long getTime(WorkStationConfig workStationConfig) {
-        return (long) this.tracerService.getTracersForWorkStation(workStationConfig.getWorkStation()).size();
-    }
-
     public WorkStationConfig getNextWorkStationConfig(WorkStationConfig workStationConfig, Product product, Supply supply) {
         List<WorkStationConfig> workStationConfigs;
         WorkStationConfig bestWorkStationConfig = null;
@@ -58,16 +53,16 @@ public class WorkStationConfigService {
 
         if(workStationConfig.getNextWorkStations().size() > 0) {
             if (null != supply) {
-                workStationConfigs = this.workStationConfigRepository.getByLineIdAndSupplyTypeId(workStationConfig.getLine(), supply.getSupplyType().getId());
+                workStationConfigs = this.workStationConfigRepository.getByLineAndRowAndSupplyTypeId(workStationConfig.getLine(), workStationConfig.getRow(), supply.getSupplyType().getId());
             } else {
-                workStationConfigs = this.workStationConfigRepository.getByLineIdAndSupplyTypeIsNull(workStationConfig.getLine());
+                workStationConfigs = this.workStationConfigRepository.getByLineAndRowAndSupplyTypeIsNull(workStationConfig.getLine(), workStationConfig.getRow());
             }
 
             if (!workStationConfigs.isEmpty()) {
-                Long time = (long) 999999999;
+                Integer time = 999999999;
 
                 for (WorkStationConfig workStationConfig1 : workStationConfigs) {
-                    Long workStationConfigTime = this.getTime(workStationConfig1);
+                    Integer workStationConfigTime = this.getTimeForWorkStationConfig(workStationConfig1);
                     if (workStationConfigTime < time) {
                         time = workStationConfigTime;
                         bestWorkStationConfig = workStationConfig1;
@@ -101,6 +96,23 @@ public class WorkStationConfigService {
             return false;
         }
         return !(workStationConfigResult != null && workStationConfig.getId() == null);
+    }
+
+    public Integer getRowTimeForWorkStationConfig(WorkStationConfig workStationConfig) {
+        List <WorkStationConfig> workStationConfigs = this.workStationConfigRepository.findByLineAndRow(workStationConfig.getLine(), workStationConfig.getRow());
+        Integer sumTime = 0;
+        for(WorkStationConfig workStationConfig1: workStationConfigs) {
+            sumTime += this.tracerService.getTotalTimeForWorkStationConfig(workStationConfig1);
+        }
+        return sumTime;
+    }
+
+    public Integer getTimeForWorkStationConfig(WorkStationConfig workStationConfig) {
+        return this.tracerService.getTotalTimeForWorkStationConfig(workStationConfig);
+    }
+
+    public List<WorkStationConfig> findByLine(Line line) {
+        return this.workStationConfigRepository.findByLine(line);
     }
 }
 

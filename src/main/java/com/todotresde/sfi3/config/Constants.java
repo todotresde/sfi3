@@ -14,9 +14,8 @@ public final class Constants {
 
     public static final Integer STATUS_CREATED = 0;
     public static final Integer STATUS_STARTED = 1;
-    public static final Integer STATUS_INPROGRESS = 2;
-    public static final Integer STATUS_FINISHED = 3;
-    public static final Integer STATUS_CANCELED = 4;
+    public static final Integer STATUS_FINISHED = 2;
+    public static final Integer STATUS_CANCELED = 3;
 
     private Constants() {
     }

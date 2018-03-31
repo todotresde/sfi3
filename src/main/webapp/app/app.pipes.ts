@@ -15,7 +15,6 @@ export class Status implements PipeTransform {
    switch (status) {
       case SYSTEM.STATUS_CREATED : return 'Created';
       case SYSTEM.STATUS_STARTED : return 'Started';
-      case SYSTEM.STATUS_INPROGRESS : return 'In Progress';
       case SYSTEM.STATUS_FINISHED : return 'Finished';
       case SYSTEM.STATUS_CANCELED : return 'Canceled';
       default : return 'Unknown';

@@ -47,7 +47,7 @@ public class ManufacturingOrderService {
             }
         }
 
-        manufacturingOrder.setStatus(Constants.STATUS_INPROGRESS);
+        manufacturingOrder.setStatus(Constants.STATUS_STARTED);
 
         manufacturingOrderRepository.save(manufacturingOrder);
 
