@@ -3,42 +3,58 @@
     <h2><span jhiTranslate="sfi3App.manufacturingOrder.detail.title">Manufacturing Order</span> {{manufacturingOrder.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
-    <dl class="row-md jh-entity-details">
-        <dt><span jhiTranslate="sfi3App.manufacturingOrder.code">Code</span></dt>
-        <dd>
-            <span>{{manufacturingOrder.code}}</span>
-        </dd>
-        <dt><span jhiTranslate="sfi3App.manufacturingOrder.orderDate">Order Date</span></dt>
-        <dd>
-            <span>{{manufacturingOrder.orderDate | date:'medium'}}</span>
-        </dd>
-        <dt><span jhiTranslate="sfi3App.manufacturingOrder.status">Status</span></dt>
-        <dd>
-            <span>{{manufacturingOrder.status}}</span>
-        </dd>
-        <dt><span jhiTranslate="sfi3App.manufacturingOrder.description">Description</span></dt>
-        <dd>
-            <span>{{manufacturingOrder.description}}</span>
-        </dd>
-    </dl>
+    <div class='row'>
+        <div class="col form-group">
+            <label class="form-control-label" jhiTranslate="sfi3App.manufacturingOrder.code" for="field_code">Code</label>
+            <input type="text" class="form-control" name="code" id="field_code" [value]="manufacturingOrder.code" readonly/>
+        </div>
+        <div class="col form-group">
+            <label class="form-control-label" jhiTranslate="sfi3App.manufacturingOrder.orderDate" for="field_orderDate">Order Date</label>
+            <input type="text" class="form-control" name="orderDate" id="field_orderDate" [value]="manufacturingOrder.orderDate | date : 'short' " readonly/>
+        </div>
+        <div class="col form-group">
+            <label class="form-control-label" jhiTranslate="sfi3App.manufacturingOrder.status" for="field_status">Status</label>
+            <input type="text" class="form-control" name="status" id="field_status" [value]="manufacturingOrder.status | status" readonly/>
+        </div>
+    </div>
+    <div class='row'>
+        <div class="col form-group">
+            <label class="form-control-label" jhiTranslate="sfi3App.manufacturingOrder.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description" [value]="manufacturingOrder.description" readonly/>
+        </div>
+    </div>
     <div class="row">
     </div>
     <br/>
     <div class="table-responsive" *ngIf="products">
-        <table class="table table-striped">
-            <thead>
-            <tr>
-            <th><span jhiTranslate="global.field.id">ID</span></th>
-            <th><span jhiTranslate="sfi3App.mOProduct.quantity">Quantity</span></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr *ngFor="let product of products ;trackBy: trackId">
-                <td><a [routerLink]="['../product', mOProduct.id ]">{{mOProduct.id}}</a></td>
-                <td>{{mOProduct.quantity}}</td>
-            </tr>
-            </tbody>
-        </table>
+        <div *ngFor="let product of products ;trackBy: trackId; let productPosition = index;">
+            <div class="modal-header">
+                <h5 class="modal-title" jhiTranslate="sfi3App.manufacturingOrder.products.product">Product {{index+1}}</h5>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_quantity">Quantity: {{product.quantity}}</label>
+                </div>
+            </div>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th><span jhiTranslate="sfi3App.manufacturingOrder.supplies.supply">Supply</span></th>
+                    <th><span jhiTranslate="sfi3App.manufacturingOrder.supplies.atributes">Attributes</span></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let supply of product.supplies ;trackBy: trackId; let supplyPosition = index;" >
+                    <td>
+                        {{supply.name}}
+                    </td>
+                    <td>
+                        <span *ngFor="let supplyTypeAttr of supply?.supplyType?.supplyTypeAttrs ;trackBy: trackId">
+                            <strong>{{supplyTypeAttr.name}}:</strong> {{getValueForSupplyTypeAttr(product, supply.supplyType, supplyTypeAttr)}}
+                        </span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <button type="submit"

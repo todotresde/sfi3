@@ -91,6 +91,18 @@ public class ProductResource {
         }
 
     /**
+     * GET  /products/manufacturingOrder/:id : get all the products by ManufacturingOrder.
+     *
+     * @return the ResponseEntity with status 200 (OK) and the list of products in body
+     */
+    @GetMapping("/products/manufacturing-order/{id}")
+    @Timed
+    public List<Product> getAllProductsByManufacturingOrder(@PathVariable Long id) {
+        log.debug("REST request to get all Products");
+        return productRepository.findAllWithEagerRelationshipsByManufacturingOrderId(id);
+    }
+
+    /**
      * GET  /products/:id : get the "id" product.
      *
      * @param id the id of the product to retrieve

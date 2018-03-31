@@ -6,9 +6,12 @@ import { JhiEventManager } from 'ng-jhipster';
 
 import { ManufacturingOrder } from './manufacturing-order.model';
 import { ManufacturingOrderService } from './manufacturing-order.service';
-
 import { Product } from '../product/product.model';
 import { ProductService } from '../product/product.service';
+import { SupplyType } from '../supply-type/supply-type.model';
+import { SupplyTypeAttr } from '../supply-type-attr/supply-type-attr.model';
+import { SupplyTypeAttrValue } from '../supply-type-attr-value/supply-type-attr-value.model';
+import { SupplyTypeAttrValueService } from '../supply-type-attr-value/supply-type-attr-value.service';
 
 @Component({
     selector: 'jhi-manufacturing-order-detail',
@@ -17,7 +20,8 @@ import { ProductService } from '../product/product.service';
 export class ManufacturingOrderDetailComponent implements OnInit, OnDestroy {
 
     manufacturingOrder: ManufacturingOrder;
-    mOProducts: Product[];
+    products: Product[];
+    supplyTypeAttrValues: SupplyTypeAttrValue[];
 
     private subscription: Subscription;
     private eventSubscriber: Subscription;
@@ -26,6 +30,7 @@ export class ManufacturingOrderDetailComponent implements OnInit, OnDestroy {
         private eventManager: JhiEventManager,
         private manufacturingOrderService: ManufacturingOrderService,
         private productService: ProductService,
+        private supplyTypeAttrValueService: SupplyTypeAttrValueService,
         private route: ActivatedRoute
     ) {
     }
@@ -39,12 +44,16 @@ export class ManufacturingOrderDetailComponent implements OnInit, OnDestroy {
 
     load(id) {
         this.manufacturingOrderService.find(id)
-            .subscribe((manufacturingOrderResponse: HttpResponse<ManufacturingOrder>) => {
-                this.manufacturingOrder = manufacturingOrderResponse.body;
+            .subscribe((response: HttpResponse<ManufacturingOrder>) => {
+                this.manufacturingOrder = response.body;
             });
         this.productService.findByManufacturingOrder(id)
-            .subscribe((mOProducts: HttpResponse<Product[]>) => {
-                this.mOProducts = mOProducts.body;
+            .subscribe((response: HttpResponse<Product[]>) => {
+                this.products = response.body;
+            });
+        this.supplyTypeAttrValueService.findByManufacturingOrder(id)
+            .subscribe((response: HttpResponse<SupplyTypeAttrValue[]>) => {
+                this.supplyTypeAttrValues = response.body;
             });
     }
     previousState() {
@@ -61,5 +70,22 @@ export class ManufacturingOrderDetailComponent implements OnInit, OnDestroy {
             'manufacturingOrderListModification',
             (response) => this.load(this.manufacturingOrder.id)
         );
+    }
+
+    getValueForSupplyTypeAttr(product: Product, supplyType: SupplyType, supplyTypeAttr: SupplyTypeAttr) {
+        let supplyTypeAttrValues: SupplyTypeAttrValue[];
+        if (this.supplyTypeAttrValues) {
+            supplyTypeAttrValues = this.supplyTypeAttrValues.filter((supplyTypeAttrValue) => {
+                return (
+                    supplyTypeAttrValue.product.id === product.id &&
+                    supplyTypeAttrValue.supplyType.id === supplyType.id &&
+                    supplyTypeAttrValue.supplyTypeAttr.id === supplyTypeAttr.id
+                );
+            });
+            return supplyTypeAttrValues[0].value;
+        } else {
+            return 0;
+        }
+
     }
 }

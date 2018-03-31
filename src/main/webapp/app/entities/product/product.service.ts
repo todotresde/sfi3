@@ -33,7 +33,7 @@ export class ProductService {
     }
 
     findByManufacturingOrder(id: number): Observable<HttpResponse<Product[]>> {
-        return this.http.get<Product[]>(`${this.resourceUrl}/manufacturingOrder/${id}`, { observe: 'response'})
+        return this.http.get<Product[]>(`${this.resourceUrl}/manufacturing-order/${id}`, { observe: 'response'})
             .map((res: HttpResponse<Product[]>) => this.convertArrayResponse(res));
     }
 

@@ -22,6 +22,13 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     List<Product> findByManufacturingOrder(ManufacturingOrder manufacturingOrder);
 
+    @Query("select distinct product from Product product " +
+        "left join fetch product.supplies supplies " +
+        "left join fetch supplies.supplyType supplyType " +
+        "left join fetch supplyType.supplyTypeAttrs " +
+        "WHERE product.manufacturingOrder.id = :manufacturingOrderId")
+    List<Product> findAllWithEagerRelationshipsByManufacturingOrderId(@Param("manufacturingOrderId") Long manufacturingOrderId);
+
     @Modifying
     @Query(value = "DELETE FROM product_supply WHERE products_id =:id", nativeQuery = true)
     void deleteSupplyRelations(@Param("id") Long id);

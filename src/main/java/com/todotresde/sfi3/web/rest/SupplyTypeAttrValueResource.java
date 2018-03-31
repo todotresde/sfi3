@@ -91,6 +91,18 @@ public class SupplyTypeAttrValueResource {
         }
 
     /**
+     * GET  /supply-type-attr-values/manufacturing-order/:id : get all the supplyTypeAttrValues from manufacturingOrder.
+     *
+     * @return the ResponseEntity with status 200 (OK) and the list of supplyTypeAttrValues in body
+     */
+    @GetMapping("/supply-type-attr-values/manufacturing-order/{id}")
+    @Timed
+    public List<SupplyTypeAttrValue> getAllSupplyTypeAttrValues(@PathVariable Long id) {
+        log.debug("REST request to get all SupplyTypeAttrValues by ManufacturingOrder");
+        return supplyTypeAttrValueRepository.findAllByManufacturingOrderId(id);
+    }
+
+    /**
      * GET  /supply-type-attr-values/:id : get the "id" supplyTypeAttrValue.
      *
      * @param id the id of the supplyTypeAttrValue to retrieve

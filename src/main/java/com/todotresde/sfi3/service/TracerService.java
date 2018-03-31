@@ -121,6 +121,7 @@ public class TracerService {
             nextTracer.setPrevWorkStation(tracer.getWorkStation());
             nextTracer.setNextWorkStation(null);
             nextTracer.setPrevTracer(tracer);
+            nextTracer.setTime(this.schedulerService.getTimeForWorkStationConfig(workStationConfig));
 
             tracerRepository.save(nextTracer);
 

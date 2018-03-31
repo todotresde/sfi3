@@ -32,6 +32,11 @@ export class SupplyTypeAttrValueService {
             .map((res: EntityResponseType) => this.convertResponse(res));
     }
 
+    findByManufacturingOrder(id: number): Observable<HttpResponse<SupplyTypeAttrValue[]>> {
+        return this.http.get<SupplyTypeAttrValue[]>(`${this.resourceUrl}/manufacturing-order/${id}`, { observe: 'response'})
+            .map((res: HttpResponse<SupplyTypeAttrValue[]>) => this.convertArrayResponse(res));
+    }
+
     query(req?: any): Observable<HttpResponse<SupplyTypeAttrValue[]>> {
         const options = createRequestOption(req);
         return this.http.get<SupplyTypeAttrValue[]>(this.resourceUrl, { params: options, observe: 'response' })
