@@ -5,6 +5,7 @@ import com.todotresde.sfi3.domain.WorkStationConfig;
 
 import com.todotresde.sfi3.repository.WorkStationConfigRepository;
 import com.todotresde.sfi3.service.WorkStationConfigService;
+import com.todotresde.sfi3.service.dto.WorkStationConfigDTO;
 import com.todotresde.sfi3.web.rest.errors.BadRequestAlertException;
 import com.todotresde.sfi3.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
@@ -98,6 +99,18 @@ public class WorkStationConfigResource {
         log.debug("REST request to get all WorkStationConfigs");
         return workStationConfigRepository.findAllWithEagerRelationships();
         }
+
+    /**
+     * GET  /work-station-configs/time : get all the workStationConfigs with pending time.
+     *
+     * @return the ResponseEntity with status 200 (OK) and the list of workStationConfigs in body
+     */
+    @GetMapping("/work-station-configs/time")
+    @Timed
+    public List<WorkStationConfigDTO> getAllWorkStationConfigsWithTime() {
+        log.debug("REST request to get all WorkStationConfigs with Time");
+        return this.workStationConfigService.findAllWithTime();
+    }
 
     /**
      * GET  /work-station-configs/:id : get the "id" workStationConfig.

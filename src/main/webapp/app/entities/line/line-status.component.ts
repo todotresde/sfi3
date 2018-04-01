@@ -49,7 +49,7 @@ export class LineStatusComponent implements OnInit, OnDestroy {
     }
 
     loadAllWorkStationConfigs() {
-        this.workStationConfigService.query().subscribe(
+        this.workStationConfigService.queryTime().subscribe(
             (res: HttpResponse<WorkStationConfig[]>) => {
                 this.sortWorkStations(res.body);
             },
@@ -78,6 +78,10 @@ export class LineStatusComponent implements OnInit, OnDestroy {
 
     registerChangeInLines() {
         this.eventSubscriber = this.eventManager.subscribe('lineListModification', (response) => this.loadAll());
+    }
+
+    ceil(num: number) {
+        return Math.ceil(num);
     }
 
     private onError(error) {

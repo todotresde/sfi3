@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { SERVER_API_URL } from '../../app.constants';
 
 import { WorkStationConfig } from './work-station-config.model';
+import { WorkStationConfigDTO } from '../work-station-config-dto/work-station-config-dto.model';
 import { createRequestOption } from '../../shared';
 
 export type EntityResponseType = HttpResponse<WorkStationConfig>;
@@ -38,6 +39,12 @@ export class WorkStationConfigService {
             .map((res: HttpResponse<WorkStationConfig[]>) => this.convertArrayResponse(res));
     }
 
+    queryTime(req?: any): Observable<HttpResponse<WorkStationConfigDTO[]>> {
+        const options = createRequestOption(req);
+        return this.http.get<WorkStationConfigDTO[]>(`${this.resourceUrl}/time`, { params: options, observe: 'response' })
+            .map((res: HttpResponse<WorkStationConfigDTO[]>) => this.convertArrayResponseDTO(res));
+    }
+
     delete(id: number): Observable<HttpResponse<any>> {
         return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response'});
     }
@@ -50,6 +57,15 @@ export class WorkStationConfigService {
     private convertArrayResponse(res: HttpResponse<WorkStationConfig[]>): HttpResponse<WorkStationConfig[]> {
         const jsonResponse: WorkStationConfig[] = res.body;
         const body: WorkStationConfig[] = [];
+        for (let i = 0; i < jsonResponse.length; i++) {
+            body.push(this.convertItemFromServer(jsonResponse[i]));
+        }
+        return res.clone({body});
+    }
+
+    private convertArrayResponseDTO(res: HttpResponse<WorkStationConfigDTO[]>): HttpResponse<WorkStationConfigDTO[]> {
+        const jsonResponse: WorkStationConfigDTO[] = res.body;
+        const body: WorkStationConfigDTO[] = [];
         for (let i = 0; i < jsonResponse.length; i++) {
             body.push(this.convertItemFromServer(jsonResponse[i]));
         }

@@ -13,7 +13,7 @@
                         {{workStationConfig.workStation.name}} 
                         (<i *ngFor="let supplyType of workStationConfig.supplyTypes">{{supplyType.name}}</i>)
                         <br/>
-                        <i class="fa fa-clock-o">{{workStationConfig.time}}</i>
+                        <i class="fa fa-clock-o"> {{ceil(workStationConfig.time / 60)}} / {{ceil(workStationConfig.averageTime / 60)}}</i>
                     </div>
                 </td>
             </tr>

@@ -2,6 +2,7 @@ package com.todotresde.sfi3.service;
 
 import com.todotresde.sfi3.domain.*;
 import com.todotresde.sfi3.repository.WorkStationConfigRepository;
+import com.todotresde.sfi3.service.dto.WorkStationConfigDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -138,6 +139,20 @@ public class WorkStationConfigService {
             return (averageTime / tracers.size());
         else
             return 300; // 5 min.
+    }
+
+    public List<WorkStationConfigDTO> findAllWithTime() {
+        List<WorkStationConfig> workStationConfigs = this.workStationConfigRepository.findAllWithEagerRelationships();
+        List<WorkStationConfigDTO> workStationConfigDTOs = new ArrayList<>();
+
+        for(WorkStationConfig workStationConfig: workStationConfigs) {
+            WorkStationConfigDTO workStationConfigDTO = new WorkStationConfigDTO(workStationConfig);
+            workStationConfigDTO.setTime(this.getTimeForWorkStationConfig(workStationConfig));
+            workStationConfigDTO.setAverageTime(this.getAverageTimeForWorkStationConfig(workStationConfig));
+            workStationConfigDTOs.add(workStationConfigDTO);
+        }
+
+        return workStationConfigDTOs;
     }
 }
 

@@ -56,9 +56,12 @@ export class ManufacturingOrderDetailComponent implements OnInit, OnDestroy {
             .subscribe((response: HttpResponse<number>) => {
                 this.manufacturingOrderTimeToFinish = response.body;
                 console.log(this.manufacturingOrderTimeToFinish / 60);
-                this.manufacturingOrderTimeToFinishDays = Math.floor(((this.manufacturingOrderTimeToFinish / 60) / 60) / 8);
-                this.manufacturingOrderTimeToFinishHours = Math.floor(((this.manufacturingOrderTimeToFinish / 60) / 60) - this.manufacturingOrderTimeToFinishDays * 8);
-                this.manufacturingOrderTimeToFinishMinutes = Math.floor(this.manufacturingOrderTimeToFinish / 60) - (this.manufacturingOrderTimeToFinishDays * 8 * 60) - (this.manufacturingOrderTimeToFinishHours * 60);
+                this.manufacturingOrderTimeToFinishDays =
+                    Math.floor(((this.manufacturingOrderTimeToFinish / 60) / 60) / 8);
+                this.manufacturingOrderTimeToFinishHours =
+                    Math.floor(((this.manufacturingOrderTimeToFinish / 60) / 60) - this.manufacturingOrderTimeToFinishDays * 8);
+                this.manufacturingOrderTimeToFinishMinutes =
+                    Math.floor(this.manufacturingOrderTimeToFinish / 60) - (this.manufacturingOrderTimeToFinishDays * 8 * 60) - (this.manufacturingOrderTimeToFinishHours * 60);
             });
         this.productService.findByManufacturingOrder(id)
             .subscribe((response: HttpResponse<Product[]>) => {
