@@ -34,6 +34,7 @@ export class ManufacturingOrderDetailComponent implements OnInit, OnDestroy {
         private supplyTypeAttrValueService: SupplyTypeAttrValueService,
         private route: ActivatedRoute
     ) {
+        this.manufacturingOrderTimeToFinish = 0;
     }
 
     ngOnInit() {
@@ -51,6 +52,7 @@ export class ManufacturingOrderDetailComponent implements OnInit, OnDestroy {
         this.manufacturingOrderService.getTimeToFinish(id)
             .subscribe((response: HttpResponse<number>) => {
                 this.manufacturingOrderTimeToFinish = response.body;
+                this.manufacturingOrderTimeToFinish = Math.ceil(this.manufacturingOrderTimeToFinish / 60);
             });
         this.productService.findByManufacturingOrder(id)
             .subscribe((response: HttpResponse<Product[]>) => {

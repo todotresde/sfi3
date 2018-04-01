@@ -50,7 +50,7 @@ public class ProductService {
     }
 
     public Supply nextSupply(Product product, Supply supply) {
-        return this.nextSupply(product, supply.getSupplyType());
+        return this.nextSupply(product, (supply != null) ? supply.getSupplyType() : null);
     }
 
     public Supply nextSupply(Product product, SupplyType supplyType) {

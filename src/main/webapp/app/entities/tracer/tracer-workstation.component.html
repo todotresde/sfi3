@@ -28,17 +28,17 @@
                 <td>{{tracer.endTime | date:'short':'-0300'}}</td>
                 <td>
                     <div *ngIf="tracer.manufacturingOrder">
-                        <a [routerLink]="['../manufacturing-order', tracer.manufacturingOrder?.id ]" >{{tracer.manufacturingOrder?.code}}</a>
+                        <a [routerLink]="['/manufacturing-order', tracer.manufacturingOrder?.id ]" >{{tracer.manufacturingOrder?.code}}</a>
                     </div>
                 </td>
                 <td>
                     <div *ngIf="tracer.product">
-                        <a [routerLink]="['../product', tracer.product?.id ]" >{{tracer.product?.description}}</a>
+                        <a [routerLink]="['/product', tracer.product?.id ]" >{{tracer.product?.description}}</a>
                     </div>
                 </td>
                 <td>
                     <div *ngIf="tracer.workStation">
-                        <a [routerLink]="['../workStation', tracer.workStation?.id ]" >{{tracer.workStation?.name}}</a>
+                        <a [routerLink]="['/workStation', tracer.workStation?.id ]" >{{tracer.workStation?.name}}</a>
                     </div>
                 </td>
                 <td class="text-right">

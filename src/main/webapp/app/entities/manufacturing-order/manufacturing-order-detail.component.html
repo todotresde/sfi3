@@ -1,6 +1,6 @@
 
 <div *ngIf="manufacturingOrder">
-    <h2><span jhiTranslate="sfi3App.manufacturingOrder.detail.title">Manufacturing Order</span> {{manufacturingOrder.code}} - (manufacturingOrderTimeToFinish/60)</h2>
+    <h2><span jhiTranslate="sfi3App.manufacturingOrder.detail.title">Manufacturing Order</span> {{manufacturingOrder.code}} - ({{manufacturingOrderTimeToFinish}} min.)</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <div class='row'>
@@ -61,13 +61,5 @@
             (click)="previousState()"
             class="btn btn-info">
         <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
-    </button>
-
-    <button type="button"
-            [routerLink]="['/', { outlets: { popup: 'manufacturing-order/'+ manufacturingOrder.id + '/edit'} }]"
-            replaceUrl="true"
-            queryParamsHandling="merge"
-            class="btn btn-primary">
-        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
     </button>
 </div>

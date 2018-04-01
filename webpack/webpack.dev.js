@@ -65,7 +65,7 @@ module.exports = webpackMerge(commonConfig({ env: ENV }), {
             test: /(vendor\.css|global\.css)/,
             loaders: ['style-loader', 'css-loader']
         }]
-    },
+    }/*,
     plugins: [
         new BrowserSyncPlugin({
             host: 'localhost',
@@ -86,5 +86,5 @@ module.exports = webpackMerge(commonConfig({ env: ENV }), {
             title: 'JHipster',
             contentImage: path.join(__dirname, 'logo-jhipster.png')
         })
-    ]
+    ]*/
 });
