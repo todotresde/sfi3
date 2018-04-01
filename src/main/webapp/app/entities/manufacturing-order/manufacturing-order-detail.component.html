@@ -1,6 +1,6 @@
 
 <div *ngIf="manufacturingOrder">
-    <h2><span jhiTranslate="sfi3App.manufacturingOrder.detail.title">Manufacturing Order</span> {{manufacturingOrder.code}} - ({{manufacturingOrderTimeToFinish}} min.)</h2>
+    <h2><span jhiTranslate="sfi3App.manufacturingOrder.detail.title">Manufacturing Order</span> {{manufacturingOrder.code}} - ({{manufacturingOrderTimeToFinishDays}} days - {{manufacturingOrderTimeToFinishHours}} hours - {{manufacturingOrderTimeToFinishMinutes}} minutes)</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <div class='row'>

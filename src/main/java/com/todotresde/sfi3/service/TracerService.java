@@ -16,6 +16,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.UUID;
 
+import static com.todotresde.sfi3.config.Constants.STATUS_FINISHED;
+
 /**
  * Service class for managing users.
  */
@@ -63,9 +65,10 @@ public class TracerService {
         tracer.setSupplyTypeAttrValues(new HashSet<>(supplyTypeAttrValues));
         tracer.setLine(line);
         tracer.setWorkStation(workStationConfig.getWorkStation());
-        tracer.setTime(this.schedulerService.getTimeForWorkStationConfig(workStationConfig));
+        tracer.setTime(this.schedulerService.getAverageTimeForWorkStationConfig(workStationConfig));
         tracer.setPrevWorkStation(null);
         tracer.setNextWorkStation(null);
+        tracer.setEmployee(workStationConfig.getEmployees().iterator().next());
 
         tracerRepository.save(tracer);
     }
@@ -121,7 +124,8 @@ public class TracerService {
             nextTracer.setPrevWorkStation(tracer.getWorkStation());
             nextTracer.setNextWorkStation(null);
             nextTracer.setPrevTracer(tracer);
-            nextTracer.setTime(this.schedulerService.getTimeForWorkStationConfig(workStationConfig));
+            nextTracer.setTime(this.schedulerService.getAverageTimeForWorkStationConfig(workStationConfig));
+            nextTracer.setEmployee(workStationConfig.getEmployees().iterator().next());
 
             tracerRepository.save(nextTracer);
 
@@ -130,7 +134,7 @@ public class TracerService {
 
         tracer.setEndTime(Instant.now());
         tracer.setTime((int)tracer.getEndTime().getEpochSecond() - (int)tracer.getStartTime().getEpochSecond());
-        tracer.setStatus(Constants.STATUS_FINISHED);
+        tracer.setStatus(STATUS_FINISHED);
         tracer.setNextTracer(null);
         tracerRepository.save(tracer);
 
@@ -164,7 +168,7 @@ public class TracerService {
     }
 
     public Integer getFinishedForManufacturingOrder(ManufacturingOrder manufacturingOrder) {
-        return this.tracerRepository.countByManufacturingOrderAndStatus(manufacturingOrder,Constants.STATUS_FINISHED);
+        return this.tracerRepository.countByManufacturingOrderAndStatus(manufacturingOrder,STATUS_FINISHED);
     }
 
     /**
@@ -188,6 +192,10 @@ public class TracerService {
 
     public List<Tracer> findByManufacturingOrder(ManufacturingOrder manufacturingOrder) {
         return this.tracerRepository.findByManufacturingOrder(manufacturingOrder);
+    }
+
+    public List<Tracer> getFinishedForWorkStationConfig(WorkStationConfig workStationConfig) {
+        return this.tracerRepository.findByWorkStationAndStatus(workStationConfig.getWorkStation(), STATUS_FINISHED);
     }
 }
 

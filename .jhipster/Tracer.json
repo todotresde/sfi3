@@ -52,6 +52,13 @@
             "relationshipName": "prevTracer",
             "otherEntityName": "tracer",
             "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "employee",
+            "otherEntityName": "employee",
+            "otherEntityField": "id"
         }
     ],
     "fields": [

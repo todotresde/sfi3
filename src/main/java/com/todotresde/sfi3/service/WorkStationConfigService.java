@@ -127,5 +127,17 @@ public class WorkStationConfigService {
     public List<WorkStationConfig> findByLine(Line line) {
         return this.workStationConfigRepository.findByLine(line);
     }
+
+    public Integer getAverageTimeForWorkStationConfig(WorkStationConfig workStationConfig) {
+        Integer averageTime = 0;
+        List<Tracer> tracers = this.tracerService.getFinishedForWorkStationConfig(workStationConfig);
+        for(Tracer tracer: tracers) {
+            averageTime += tracer.getTime();
+        }
+        if(tracers.size() > 0)
+            return (averageTime / tracers.size());
+        else
+            return 300; // 5 min.
+    }
 }
 

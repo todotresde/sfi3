@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 
 import java.util.*;
 
@@ -66,7 +67,7 @@ public class LineService {
         for(Line line: lines){
             List<SupplyType> lineSupplyTypes = this.getSupplyTypesForLine(line);
 
-            if(lineSupplyTypes.containsAll(productSupplyTypes)){
+            if(lineSupplyTypes.equals(productSupplyTypes)){
                 linesForProduct.add(line);
             }
         }

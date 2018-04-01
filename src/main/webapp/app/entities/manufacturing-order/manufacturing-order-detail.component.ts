@@ -23,6 +23,9 @@ export class ManufacturingOrderDetailComponent implements OnInit, OnDestroy {
     products: Product[];
     supplyTypeAttrValues: SupplyTypeAttrValue[];
     manufacturingOrderTimeToFinish: number;
+    manufacturingOrderTimeToFinishDays: number;
+    manufacturingOrderTimeToFinishHours: number;
+    manufacturingOrderTimeToFinishMinutes: number;
 
     private subscription: Subscription;
     private eventSubscriber: Subscription;
@@ -52,7 +55,10 @@ export class ManufacturingOrderDetailComponent implements OnInit, OnDestroy {
         this.manufacturingOrderService.getTimeToFinish(id)
             .subscribe((response: HttpResponse<number>) => {
                 this.manufacturingOrderTimeToFinish = response.body;
-                this.manufacturingOrderTimeToFinish = Math.ceil(this.manufacturingOrderTimeToFinish / 60);
+                console.log(this.manufacturingOrderTimeToFinish / 60);
+                this.manufacturingOrderTimeToFinishDays = Math.floor(((this.manufacturingOrderTimeToFinish / 60) / 60) / 8);
+                this.manufacturingOrderTimeToFinishHours = Math.floor(((this.manufacturingOrderTimeToFinish / 60) / 60) - this.manufacturingOrderTimeToFinishDays * 8);
+                this.manufacturingOrderTimeToFinishMinutes = Math.floor(this.manufacturingOrderTimeToFinish / 60) - (this.manufacturingOrderTimeToFinishDays * 8 * 60) - (this.manufacturingOrderTimeToFinishHours * 60);
             });
         this.productService.findByManufacturingOrder(id)
             .subscribe((response: HttpResponse<Product[]>) => {

@@ -86,6 +86,10 @@
                 <constraints nullable="true" />
             </column>
 
+            <column name="employee_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
         <createTable tableName="tracer_supply_type_attr_value">
@@ -99,7 +103,7 @@
         <dropDefaultValue tableName="tracer" columnName="in_time" columnDataType="datetime"/>
         <dropDefaultValue tableName="tracer" columnName="start_time" columnDataType="datetime"/>
         <dropDefaultValue tableName="tracer" columnName="end_time" columnDataType="datetime"/>
-        
+
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
 </databaseChangeLog>

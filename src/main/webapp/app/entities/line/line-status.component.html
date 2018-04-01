@@ -12,6 +12,8 @@
                         (<a (click)="loadTracersForWorkStation(workStationConfig.workStation.id)" >{{workStationsDTO[workStationConfig.workStation.id] ? workStationsDTO[workStationConfig.workStation.id].length : 0}}</a>)
                         {{workStationConfig.workStation.name}} 
                         (<i *ngFor="let supplyType of workStationConfig.supplyTypes">{{supplyType.name}}</i>)
+                        <br/>
+                        <i class="fa fa-clock-o">{{workStationConfig.time}}</i>
                     </div>
                 </td>
             </tr>
@@ -44,7 +46,7 @@
                         <a [routerLink]="['../manufacturing-order', tracer.manufacturingOrder?.id ]" >{{tracer.manufacturingOrder?.code}}</a>
                     </div>
                 </td>
-                <td>{{tracer.supply.name}}</td>
+                <td>{{tracer?.supply?.name}}</td>
             </tr>
             </tbody>
         </table>

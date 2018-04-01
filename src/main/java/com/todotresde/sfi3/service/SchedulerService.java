@@ -74,8 +74,8 @@ public class SchedulerService {
         return minRowTime;
     }
 
-    public Integer getTimeForWorkStationConfig(WorkStationConfig workStationConfig) {
-        return 10;
+    public Integer getAverageTimeForWorkStationConfig(WorkStationConfig workStationConfig) {
+        return this.workStationConfigService.getAverageTimeForWorkStationConfig(workStationConfig);
     }
 }
 

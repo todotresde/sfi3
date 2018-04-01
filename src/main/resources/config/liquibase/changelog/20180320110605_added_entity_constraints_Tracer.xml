@@ -7,7 +7,7 @@
         Added the constraints for entity Tracer.
     -->
     <changeSet id="20180320110605-2" author="jhipster">
-        
+
         <addForeignKeyConstraint baseColumnNames="work_station_config_id"
                                  baseTableName="tracer"
                                  constraintName="fk_tracer_work_station_config_id"
@@ -73,6 +73,12 @@
                                  constraintName="fk_tracer_supply_type_attr_value_tracers_id"
                                  referencedColumnNames="id"
                                  referencedTableName="tracer"/>
+
+        <addForeignKeyConstraint baseColumnNames="employee_id"
+                                 baseTableName="tracer"
+                                 constraintName="fk_tracer_employee_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="employee"/>
 
     </changeSet>
 </databaseChangeLog>

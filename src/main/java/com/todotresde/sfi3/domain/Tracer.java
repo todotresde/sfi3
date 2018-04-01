@@ -90,6 +90,10 @@ public class Tracer implements Serializable {
     @ManyToOne
     private Tracer prevTracer;
 
+    @ManyToOne(optional = false)
+    @NotNull
+    private Employee employee;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -330,6 +334,19 @@ public class Tracer implements Serializable {
 
     public void setPrevTracer(Tracer tracer) {
         this.prevTracer = tracer;
+    }
+
+    public Tracer employee(Employee employee) {
+        this.employee = employee;
+        return this;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
+    public Employee getEmployee() {
+        return employee;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
