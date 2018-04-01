@@ -25,14 +25,16 @@ public class ManufacturingOrderService {
     private final SupplyTypeAttrValueService supplyTypeAttrValueService;
     private final TracerService tracerService;
     private final ManufacturingOrderRepository manufacturingOrderRepository;
+    private final WorkStationConfigService workStationConfigService;
 
 
-    public ManufacturingOrderService(SchedulerService schedulerService, ManufacturingOrderRepository manufacturingOrderRepository, ProductService productService, SupplyTypeAttrValueService supplyTypeAttrValueService, TracerService tracerService) {
+    public ManufacturingOrderService(SchedulerService schedulerService, ManufacturingOrderRepository manufacturingOrderRepository, ProductService productService, SupplyTypeAttrValueService supplyTypeAttrValueService, TracerService tracerService, WorkStationConfigService workStationConfigService) {
         this.schedulerService = schedulerService;
         this.productService = productService;
         this.supplyTypeAttrValueService = supplyTypeAttrValueService;
         this.manufacturingOrderRepository = manufacturingOrderRepository;
         this.tracerService = tracerService;
+        this.workStationConfigService = workStationConfigService;
     }
 
     public ManufacturingOrder send(Long id) {
@@ -120,6 +122,16 @@ public class ManufacturingOrderService {
         }
 
         return manufacturingOrder;
+    }
+
+    public Integer getTimeToFinish(Long manufacturingOrderId) {
+        Integer timeToFinish = 0;
+        ManufacturingOrder manufacturingOrder = this.manufacturingOrderRepository.findOne(manufacturingOrderId);
+        List <Tracer> tracers = this.tracerService.findByManufacturingOrder(manufacturingOrder);
+        for(Tracer tracer : tracers) {
+            timeToFinish += this.tracerService.getTotalTimeForWorkStationConfig(tracer.getWorkStationConfig()) + this.workStationConfigService.getPendingRowTimeFromWorkStationConfig(tracer.getWorkStationConfig(), tracer.getProduct(), tracer.getSupply());
+        }
+        return timeToFinish;
     }
 }
 

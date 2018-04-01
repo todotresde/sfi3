@@ -12,6 +12,7 @@ import { Product } from '../product/product.model';
 import { SupplyTypeAttrValue } from '../supply-type-attr-value/supply-type-attr-value.model';
 
 export type EntityResponseType = HttpResponse<ManufacturingOrder>;
+export type EntityResponse = HttpResponse<number>;
 
 @Injectable()
 export class ManufacturingOrderService {
@@ -52,6 +53,10 @@ export class ManufacturingOrderService {
     findFull(id: number): Observable<EntityResponseType> {
         return this.http.get<ManufacturingOrderDTO>(`${this.resourceUrl}/${id}/products`, { observe: 'response'})
             .map((res: EntityResponseType) => this.convertResponse(res));
+    }
+
+    getTimeToFinish(id: number): Observable<EntityResponse> {
+        return this.http.get<number>(`${this.resourceUrl}/${id}/time`, { observe: 'response'});
     }
 
     query(req?: any): Observable<HttpResponse<ManufacturingOrder[]>> {

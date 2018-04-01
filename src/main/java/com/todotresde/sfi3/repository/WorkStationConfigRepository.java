@@ -26,7 +26,7 @@ public interface WorkStationConfigRepository extends JpaRepository<WorkStationCo
     List<WorkStationConfig> findByLineAndFirst(Line line, Boolean first);
     List<WorkStationConfig> findByLineAndRow(Line line, Integer row);
     List<WorkStationConfig> findByLineAndPrevWorkStations(Line line, WorkStation workStation);
-    WorkStationConfig findOneByRowAndCol(Integer row, Integer col);
+    WorkStationConfig findOneByLineAndRowAndCol(Line line, Integer row, Integer col);
 
     @Query("SELECT work_station_config from WorkStationConfig work_station_config left join fetch work_station_config.supplyTypes supply_types WHERE work_station_config.line = :line AND work_station_config.row = :row AND supply_types.id = :supplyTypeId")
     List<WorkStationConfig> getByLineAndRowAndSupplyTypeId(@Param("line") Line line, @Param("row") Integer row, @Param("supplyTypeId") Long supplyTypeId);

@@ -161,9 +161,9 @@ public class ManufacturingOrderResource {
     }
 
     /**
-     * GET  /manufacturing-orders/:id/products : get the "id" manufacturingOrder.
+     * GET  /manufacturing-orders/:id/products : get ManufacturingOrderDTO by the "id" manufacturingOrder.
      *
-     * @param id the id of the manufacturingOrder to retrieve
+     * @param id the id of the manufacturingOrder to retrieve ManufacturingOrderDTO
      * @return the ResponseEntity with status 200 (OK) and with body the manufacturingOrder, or with status 404 (Not Found)
      */
     @GetMapping("/manufacturing-orders/{id}/products")
@@ -172,6 +172,20 @@ public class ManufacturingOrderResource {
         log.debug("REST request to get ManufacturingOrderDTO : {}", id);
         ManufacturingOrderDTO manufacturingOrderDTO = manufacturingOrderService.findOneFull(id);
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(manufacturingOrderDTO));
+    }
+
+    /**
+     * GET  /manufacturing-orders/:id/time : get the time in seconds to finish it by the "id" manufacturingOrder.
+     *
+     * @param id the id of the manufacturingOrder to retrieve
+     * @return the ResponseEntity with status 200 (OK) and with body the manufacturingOrder, or with status 404 (Not Found)
+     */
+    @GetMapping("/manufacturing-orders/{id}/time")
+    @Timed
+    public ResponseEntity<Integer> getManufacturingOrderTimeToFinish(@PathVariable Long id) {
+        log.debug("REST request to the time in seconds to finish the manufacturingOrder : {}", id);
+        Integer time = manufacturingOrderService.getTimeToFinish(id);
+        return ResponseUtil.wrapOrNotFound(Optional.ofNullable(time));
     }
 
     /**

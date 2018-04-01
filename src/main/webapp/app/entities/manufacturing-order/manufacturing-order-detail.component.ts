@@ -22,6 +22,7 @@ export class ManufacturingOrderDetailComponent implements OnInit, OnDestroy {
     manufacturingOrder: ManufacturingOrder;
     products: Product[];
     supplyTypeAttrValues: SupplyTypeAttrValue[];
+    manufacturingOrderTimeToFinish: number;
 
     private subscription: Subscription;
     private eventSubscriber: Subscription;
@@ -46,6 +47,10 @@ export class ManufacturingOrderDetailComponent implements OnInit, OnDestroy {
         this.manufacturingOrderService.find(id)
             .subscribe((response: HttpResponse<ManufacturingOrder>) => {
                 this.manufacturingOrder = response.body;
+            });
+        this.manufacturingOrderService.getTimeToFinish(id)
+            .subscribe((response: HttpResponse<number>) => {
+                this.manufacturingOrderTimeToFinish = response.body;
             });
         this.productService.findByManufacturingOrder(id)
             .subscribe((response: HttpResponse<Product[]>) => {

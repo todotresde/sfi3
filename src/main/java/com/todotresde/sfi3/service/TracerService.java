@@ -167,6 +167,12 @@ public class TracerService {
         return this.tracerRepository.countByManufacturingOrderAndStatus(manufacturingOrder,Constants.STATUS_FINISHED);
     }
 
+    /**
+     * Get the total time in a workStation using the WorkStationConfig
+     *
+     * @param workStationConfig the workStationConfig to get the time
+     * @return the time to wait in the workStation
+     */
     public Integer getTotalTimeForWorkStationConfig(WorkStationConfig workStationConfig) {
         List<Tracer> tracers = this.tracerRepository.findByWorkStationAndOpen(workStationConfig.getWorkStation());
         Integer sum = 0;
@@ -174,6 +180,14 @@ public class TracerService {
             sum += tracer.getTime();
         }
         return sum;
+    }
+
+    public Integer getTimeToFinish(Tracer tracer) {
+        return this.getTotalTimeForWorkStationConfig(tracer.getWorkStationConfig());
+    }
+
+    public List<Tracer> findByManufacturingOrder(ManufacturingOrder manufacturingOrder) {
+        return this.tracerRepository.findByManufacturingOrder(manufacturingOrder);
     }
 }
 

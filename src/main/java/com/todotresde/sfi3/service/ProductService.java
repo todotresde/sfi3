@@ -50,15 +50,19 @@ public class ProductService {
     }
 
     public Supply nextSupply(Product product, Supply supply) {
+        return this.nextSupply(product, supply.getSupplyType());
+    }
+
+    public Supply nextSupply(Product product, SupplyType supplyType) {
         Supply nextSupply = null;
         Boolean foundSupply = false;
 
-        if (supply != null) {
+        if (supplyType != null) {
             for (Supply productSupply : product.getSupplies()) {
                 if (foundSupply) {
                     nextSupply = productSupply;
                 }
-                if (productSupply.getId().equals(supply.getId())) {
+                if (productSupply.getSupplyType().getId().equals(supplyType.getId())) {
                     foundSupply = true;
                 }
             }

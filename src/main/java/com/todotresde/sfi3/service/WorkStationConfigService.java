@@ -21,10 +21,12 @@ public class WorkStationConfigService {
 
     private final WorkStationConfigRepository workStationConfigRepository;
     private final TracerService tracerService;
+    private final ProductService productService;
 
-    public WorkStationConfigService(WorkStationConfigRepository workStationConfigRepository, TracerService tracerService) {
+    public WorkStationConfigService(WorkStationConfigRepository workStationConfigRepository, TracerService tracerService, ProductService productService) {
         this.workStationConfigRepository = workStationConfigRepository;
         this.tracerService = tracerService;
+        this.productService = productService;
     }
 
     public WorkStationConfig getFirstWorkStationConfigForLine(Line line){
@@ -91,7 +93,7 @@ public class WorkStationConfigService {
     }
 
     public Boolean valid(WorkStationConfig workStationConfig) {
-        WorkStationConfig workStationConfigResult = this.workStationConfigRepository.findOneByRowAndCol(workStationConfig.getRow(), workStationConfig.getCol());
+        WorkStationConfig workStationConfigResult = this.workStationConfigRepository.findOneByLineAndRowAndCol(workStationConfig.getLine(), workStationConfig.getRow(), workStationConfig.getCol());
         if(workStationConfigResult != null && workStationConfig.getId() != null && workStationConfigResult.getId() != workStationConfig.getId()){
             return false;
         }
@@ -109,6 +111,17 @@ public class WorkStationConfigService {
 
     public Integer getTimeForWorkStationConfig(WorkStationConfig workStationConfig) {
         return this.tracerService.getTotalTimeForWorkStationConfig(workStationConfig);
+    }
+
+    public Integer getPendingRowTimeFromWorkStationConfig(WorkStationConfig workStationConfig, Product product, Supply supply) {
+        Integer rowTimePending;
+        Supply nextSupply = this.productService.nextSupply(product, supply);
+        WorkStationConfig nextWorkStationConfig = this.getNextWorkStationConfig(workStationConfig, product, nextSupply);
+        rowTimePending = this.tracerService.getTotalTimeForWorkStationConfig(workStationConfig);
+        if(nextWorkStationConfig != null){
+            rowTimePending += this.getPendingRowTimeFromWorkStationConfig(nextWorkStationConfig, product, nextSupply);
+        }
+        return rowTimePending;
     }
 
     public List<WorkStationConfig> findByLine(Line line) {
