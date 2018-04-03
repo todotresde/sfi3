@@ -19,7 +19,7 @@ describe('WorkStationConfig e2e test', () => {
         navBarPage.goToEntity('work-station-config');
         workStationConfigComponentsPage = new WorkStationConfigComponentsPage();
         expect(workStationConfigComponentsPage.getTitle())
-            .toMatch(/sfi3App.workStationConfig.home.title/);
+            .toMatch(/mmsApp.workStationConfig.home.title/);
 
     });
 
@@ -27,7 +27,7 @@ describe('WorkStationConfig e2e test', () => {
         workStationConfigComponentsPage.clickOnCreateButton();
         workStationConfigDialogPage = new WorkStationConfigDialogPage();
         expect(workStationConfigDialogPage.getModalTitle())
-            .toMatch(/sfi3App.workStationConfig.home.createOrEditLabel/);
+            .toMatch(/mmsApp.workStationConfig.home.createOrEditLabel/);
         workStationConfigDialogPage.close();
     });
 

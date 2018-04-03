@@ -12,7 +12,7 @@ export const productRoute: Routes = [
         component: ProductComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'sfi3App.product.home.title'
+            pageTitle: 'mmsApp.product.home.title'
         },
         canActivate: [UserRouteAccessService]
     }, {
@@ -20,7 +20,7 @@ export const productRoute: Routes = [
         component: ProductDetailComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'sfi3App.product.home.title'
+            pageTitle: 'mmsApp.product.home.title'
         },
         canActivate: [UserRouteAccessService]
     }
@@ -32,7 +32,7 @@ export const productPopupRoute: Routes = [
         component: ProductPopupComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'sfi3App.product.home.title'
+            pageTitle: 'mmsApp.product.home.title'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'
@@ -42,7 +42,7 @@ export const productPopupRoute: Routes = [
         component: ProductPopupComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'sfi3App.product.home.title'
+            pageTitle: 'mmsApp.product.home.title'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'
@@ -52,7 +52,7 @@ export const productPopupRoute: Routes = [
         component: ProductDeletePopupComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'sfi3App.product.home.title'
+            pageTitle: 'mmsApp.product.home.title'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'

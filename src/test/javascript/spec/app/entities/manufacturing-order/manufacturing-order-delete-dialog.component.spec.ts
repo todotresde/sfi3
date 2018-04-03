@@ -4,7 +4,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Observable } from 'rxjs/Observable';
 import { JhiEventManager } from 'ng-jhipster';
 
-import { Sfi3TestModule } from '../../../test.module';
+import { MMSTestModule } from '../../../test.module';
 import { ManufacturingOrderDeleteDialogComponent } from '../../../../../../main/webapp/app/entities/manufacturing-order/manufacturing-order-delete-dialog.component';
 import { ManufacturingOrderService } from '../../../../../../main/webapp/app/entities/manufacturing-order/manufacturing-order.service';
 
@@ -19,7 +19,7 @@ describe('Component Tests', () => {
 
         beforeEach(async(() => {
             TestBed.configureTestingModule({
-                imports: [Sfi3TestModule],
+                imports: [MMSTestModule],
                 declarations: [ManufacturingOrderDeleteDialogComponent],
                 providers: [
                     ManufacturingOrderService

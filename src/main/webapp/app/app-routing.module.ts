@@ -16,4 +16,4 @@ const LAYOUT_ROUTES = [
         RouterModule
     ]
 })
-export class Sfi3AppRoutingModule {}
+export class MMSAppRoutingModule {}

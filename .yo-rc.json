@@ -1,13 +1,13 @@
 {
   "generator-jhipster": {
     "promptValues": {
-      "packageName": "com.todotresde.sfi3",
+      "packageName": "com.todotresde.mms",
       "nativeLanguage": "en"
     },
     "jhipsterVersion": "4.14.1",
-    "baseName": "sfi3",
-    "packageName": "com.todotresde.sfi3",
-    "packageFolder": "com/todotresde/sfi3",
+    "baseName": "mms",
+    "packageName": "com.todotresde.mms",
+    "packageFolder": "com/todotresde/mms",
     "serverPort": "8080",
     "authenticationType": "jwt",
     "cacheProvider": "ehcache",

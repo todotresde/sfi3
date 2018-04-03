@@ -19,7 +19,7 @@ describe('SupplyTypeAttr e2e test', () => {
         navBarPage.goToEntity('supply-type-attr');
         supplyTypeAttrComponentsPage = new SupplyTypeAttrComponentsPage();
         expect(supplyTypeAttrComponentsPage.getTitle())
-            .toMatch(/sfi3App.supplyTypeAttr.home.title/);
+            .toMatch(/mmsApp.supplyTypeAttr.home.title/);
 
     });
 
@@ -27,7 +27,7 @@ describe('SupplyTypeAttr e2e test', () => {
         supplyTypeAttrComponentsPage.clickOnCreateButton();
         supplyTypeAttrDialogPage = new SupplyTypeAttrDialogPage();
         expect(supplyTypeAttrDialogPage.getModalTitle())
-            .toMatch(/sfi3App.supplyTypeAttr.home.createOrEditLabel/);
+            .toMatch(/mmsApp.supplyTypeAttr.home.createOrEditLabel/);
         supplyTypeAttrDialogPage.close();
     });
 

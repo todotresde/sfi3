@@ -19,7 +19,7 @@ describe('Employee e2e test', () => {
         navBarPage.goToEntity('employee');
         employeeComponentsPage = new EmployeeComponentsPage();
         expect(employeeComponentsPage.getTitle())
-            .toMatch(/sfi3App.employee.home.title/);
+            .toMatch(/mmsApp.employee.home.title/);
 
     });
 
@@ -27,7 +27,7 @@ describe('Employee e2e test', () => {
         employeeComponentsPage.clickOnCreateButton();
         employeeDialogPage = new EmployeeDialogPage();
         expect(employeeDialogPage.getModalTitle())
-            .toMatch(/sfi3App.employee.home.createOrEditLabel/);
+            .toMatch(/mmsApp.employee.home.createOrEditLabel/);
         employeeDialogPage.close();
     });
 

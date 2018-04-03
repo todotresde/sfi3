@@ -9,14 +9,14 @@
         <jhi-alert-error></jhi-alert-error>
         <div class="row">
             <div class="col form-group">
-                <label class="form-control-label" jhiTranslate="sfi3App.tracer.inTime" for="field_inTime">In Time</label>
+                <label class="form-control-label" jhiTranslate="mmsApp.tracer.inTime" for="field_inTime">In Time</label>
                 <div class="d-flex">
                     <input id="field_inTime" type="datetime-local" class="form-control" name="inTime" [(ngModel)]="tracer.inTime"
                     readonly="readonly"  />
                 </div>
             </div>
             <div class="col form-group">
-                <label class="form-control-label" jhiTranslate="sfi3App.tracer.startTime" for="field_startTime">Start Time</label>
+                <label class="form-control-label" jhiTranslate="mmsApp.tracer.startTime" for="field_startTime">Start Time</label>
                 <div class="d-flex">
                     <input id="field_startTime" type="datetime-local" class="form-control" name="startTime" [value]="tracer.startTime" readonly="readonly" />
                 </div>
@@ -24,12 +24,12 @@
         </div>
         <div class="row">
             <div class="col form-group">
-                <label class="form-control-label" jhiTranslate="sfi3App.tracer.manufacturingOrder" for="field_manufacturingOrder">Manufacturing Order</label>
+                <label class="form-control-label" jhiTranslate="mmsApp.tracer.manufacturingOrder" for="field_manufacturingOrder">Manufacturing Order</label>
                 <input type="text" class="form-control" name="manufacturingOrder" id="field_manufacturingOrder"
                     [value]="tracer.manufacturingOrder.id" readonly="readonly" />
             </div>
             <div class="col form-group" *ngIf="tracer.supply">
-                <label class="form-control-label" jhiTranslate="sfi3App.tracer.supply" for="field_supply">Supply</label>
+                <label class="form-control-label" jhiTranslate="mmsApp.tracer.supply" for="field_supply">Supply</label>
                 <input type="text" class="form-control" name="supply" id="supply"
                     [value]="tracer.supply.name" readonly="readonly" />
             </div>
@@ -47,7 +47,7 @@
             <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
         </button>
         <button type="submit" [disabled]="editForm.form.invalid || isSending" class="btn btn-primary">
-            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="sfi3App.tracer.start.finish">Finish</span>
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="mmsApp.tracer.start.finish">Finish</span>
         </button>
     </div>
 </form>

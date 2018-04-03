@@ -4,7 +4,7 @@ import { registerLocaleData } from '@angular/common';
 import locale from '@angular/common/locales/en';
 
 import {
-    Sfi3SharedLibsModule,
+    MMSSharedLibsModule,
     JhiLanguageHelper,
     FindLanguageFromKeyPipe,
     JhiAlertComponent,
@@ -13,7 +13,7 @@ import {
 
 @NgModule({
     imports: [
-        Sfi3SharedLibsModule
+        MMSSharedLibsModule
     ],
     declarations: [
         FindLanguageFromKeyPipe,
@@ -29,13 +29,13 @@ import {
         },
     ],
     exports: [
-        Sfi3SharedLibsModule,
+        MMSSharedLibsModule,
         FindLanguageFromKeyPipe,
         JhiAlertComponent,
         JhiAlertErrorComponent
     ]
 })
-export class Sfi3SharedCommonModule {
+export class MMSSharedCommonModule {
     constructor() {
         registerLocaleData(locale);
     }

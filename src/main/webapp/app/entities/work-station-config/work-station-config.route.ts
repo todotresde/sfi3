@@ -12,7 +12,7 @@ export const workStationConfigRoute: Routes = [
         component: WorkStationConfigComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'sfi3App.workStationConfig.home.title'
+            pageTitle: 'mmsApp.workStationConfig.home.title'
         },
         canActivate: [UserRouteAccessService]
     }, {
@@ -20,7 +20,7 @@ export const workStationConfigRoute: Routes = [
         component: WorkStationConfigDetailComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'sfi3App.workStationConfig.home.title'
+            pageTitle: 'mmsApp.workStationConfig.home.title'
         },
         canActivate: [UserRouteAccessService]
     }
@@ -32,7 +32,7 @@ export const workStationConfigPopupRoute: Routes = [
         component: WorkStationConfigPopupComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'sfi3App.workStationConfig.home.title'
+            pageTitle: 'mmsApp.workStationConfig.home.title'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'
@@ -42,7 +42,7 @@ export const workStationConfigPopupRoute: Routes = [
         component: WorkStationConfigPopupComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'sfi3App.workStationConfig.home.title'
+            pageTitle: 'mmsApp.workStationConfig.home.title'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'
@@ -52,7 +52,7 @@ export const workStationConfigPopupRoute: Routes = [
         component: WorkStationConfigDeletePopupComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'sfi3App.workStationConfig.home.title'
+            pageTitle: 'mmsApp.workStationConfig.home.title'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'

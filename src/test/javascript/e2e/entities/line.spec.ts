@@ -19,7 +19,7 @@ describe('Line e2e test', () => {
         navBarPage.goToEntity('line');
         lineComponentsPage = new LineComponentsPage();
         expect(lineComponentsPage.getTitle())
-            .toMatch(/sfi3App.line.home.title/);
+            .toMatch(/mmsApp.line.home.title/);
 
     });
 
@@ -27,7 +27,7 @@ describe('Line e2e test', () => {
         lineComponentsPage.clickOnCreateButton();
         lineDialogPage = new LineDialogPage();
         expect(lineDialogPage.getModalTitle())
-            .toMatch(/sfi3App.line.home.createOrEditLabel/);
+            .toMatch(/mmsApp.line.home.createOrEditLabel/);
         lineDialogPage.close();
     });
 

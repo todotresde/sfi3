@@ -10,12 +10,12 @@ import { AuthInterceptor } from './blocks/interceptor/auth.interceptor';
 import { AuthExpiredInterceptor } from './blocks/interceptor/auth-expired.interceptor';
 import { ErrorHandlerInterceptor } from './blocks/interceptor/errorhandler.interceptor';
 import { NotificationInterceptor } from './blocks/interceptor/notification.interceptor';
-import { Sfi3SharedModule, UserRouteAccessService } from './shared';
-import { Sfi3AppRoutingModule} from './app-routing.module';
-import { Sfi3HomeModule } from './home/home.module';
-import { Sfi3AdminModule } from './admin/admin.module';
-import { Sfi3AccountModule } from './account/account.module';
-import { Sfi3EntityModule } from './entities/entity.module';
+import { MMSSharedModule, UserRouteAccessService } from './shared';
+import { MMSAppRoutingModule} from './app-routing.module';
+import { MMSHomeModule } from './home/home.module';
+import { MMSAdminModule } from './admin/admin.module';
+import { MMSAccountModule } from './account/account.module';
+import { MMSEntityModule } from './entities/entity.module';
 import { PaginationConfig } from './blocks/config/uib-pagination.config';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import {
@@ -31,13 +31,13 @@ import {
 @NgModule({
     imports: [
         BrowserModule,
-        Sfi3AppRoutingModule,
+        MMSAppRoutingModule,
         Ng2Webstorage.forRoot({ prefix: 'jhi', separator: '-'}),
-        Sfi3SharedModule,
-        Sfi3HomeModule,
-        Sfi3AdminModule,
-        Sfi3AccountModule,
-        Sfi3EntityModule,
+        MMSSharedModule,
+        MMSHomeModule,
+        MMSAdminModule,
+        MMSAccountModule,
+        MMSEntityModule,
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
     declarations: [
@@ -88,4 +88,4 @@ import {
     ],
     bootstrap: [ JhiMainComponent ]
 })
-export class Sfi3AppModule {}
+export class MMSAppModule {}

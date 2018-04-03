@@ -12,7 +12,7 @@ export const supplyTypeAttrValueRoute: Routes = [
         component: SupplyTypeAttrValueComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'sfi3App.supplyTypeAttrValue.home.title'
+            pageTitle: 'mmsApp.supplyTypeAttrValue.home.title'
         },
         canActivate: [UserRouteAccessService]
     }, {
@@ -20,7 +20,7 @@ export const supplyTypeAttrValueRoute: Routes = [
         component: SupplyTypeAttrValueDetailComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'sfi3App.supplyTypeAttrValue.home.title'
+            pageTitle: 'mmsApp.supplyTypeAttrValue.home.title'
         },
         canActivate: [UserRouteAccessService]
     }
@@ -32,7 +32,7 @@ export const supplyTypeAttrValuePopupRoute: Routes = [
         component: SupplyTypeAttrValuePopupComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'sfi3App.supplyTypeAttrValue.home.title'
+            pageTitle: 'mmsApp.supplyTypeAttrValue.home.title'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'
@@ -42,7 +42,7 @@ export const supplyTypeAttrValuePopupRoute: Routes = [
         component: SupplyTypeAttrValuePopupComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'sfi3App.supplyTypeAttrValue.home.title'
+            pageTitle: 'mmsApp.supplyTypeAttrValue.home.title'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'
@@ -52,7 +52,7 @@ export const supplyTypeAttrValuePopupRoute: Routes = [
         component: SupplyTypeAttrValueDeletePopupComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'sfi3App.supplyTypeAttrValue.home.title'
+            pageTitle: 'mmsApp.supplyTypeAttrValue.home.title'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'

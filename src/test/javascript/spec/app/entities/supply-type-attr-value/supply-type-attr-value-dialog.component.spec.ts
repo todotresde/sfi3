@@ -5,7 +5,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Observable } from 'rxjs/Observable';
 import { JhiEventManager } from 'ng-jhipster';
 
-import { Sfi3TestModule } from '../../../test.module';
+import { MMSTestModule } from '../../../test.module';
 import { SupplyTypeAttrValueDialogComponent } from '../../../../../../main/webapp/app/entities/supply-type-attr-value/supply-type-attr-value-dialog.component';
 import { SupplyTypeAttrValueService } from '../../../../../../main/webapp/app/entities/supply-type-attr-value/supply-type-attr-value.service';
 import { SupplyTypeAttrValue } from '../../../../../../main/webapp/app/entities/supply-type-attr-value/supply-type-attr-value.model';
@@ -26,7 +26,7 @@ describe('Component Tests', () => {
 
         beforeEach(async(() => {
             TestBed.configureTestingModule({
-                imports: [Sfi3TestModule],
+                imports: [MMSTestModule],
                 declarations: [SupplyTypeAttrValueDialogComponent],
                 providers: [
                     ProductService,

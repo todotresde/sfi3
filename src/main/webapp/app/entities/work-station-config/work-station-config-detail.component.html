@@ -1,56 +1,56 @@
 
 <div *ngIf="workStationConfig">
-    <h2><span jhiTranslate="sfi3App.workStationConfig.detail.title">Work Station Config</span> {{workStationConfig.id}}</h2>
+    <h2><span jhiTranslate="mmsApp.workStationConfig.detail.title">Work Station Config</span> {{workStationConfig.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="row-md jh-entity-details">
-        <dt><span jhiTranslate="sfi3App.workStationConfig.first">First</span></dt>
+        <dt><span jhiTranslate="mmsApp.workStationConfig.first">First</span></dt>
         <dd>
             <span>{{workStationConfig.first}}</span>
         </dd>
-        <dt><span jhiTranslate="sfi3App.workStationConfig.last">Last</span></dt>
+        <dt><span jhiTranslate="mmsApp.workStationConfig.last">Last</span></dt>
         <dd>
             <span>{{workStationConfig.last}}</span>
         </dd>
-        <dt><span jhiTranslate="sfi3App.workStationConfig.workStation">Work Station</span></dt>
+        <dt><span jhiTranslate="mmsApp.workStationConfig.workStation">Work Station</span></dt>
         <dd>
             <div *ngIf="workStationConfig.workStation">
                 <a [routerLink]="['/work-station', workStationConfig.workStation?.id]">{{workStationConfig.workStation?.id}}</a>
             </div>
         </dd>
-        <dt><span jhiTranslate="sfi3App.workStationConfig.supplyType">Supply Type</span></dt>
+        <dt><span jhiTranslate="mmsApp.workStationConfig.supplyType">Supply Type</span></dt>
         <dd>
             <span *ngFor="let supplyType of workStationConfig.supplyTypes; let last = last">
                 <a [routerLink]="['/supply-type', supplyType?.id ]">{{supplyType.id}}</a>{{last ? '' : ', '}}
             </span>
         </dd>
-        <dt><span jhiTranslate="sfi3App.workStationConfig.employee">Employee</span></dt>
+        <dt><span jhiTranslate="mmsApp.workStationConfig.employee">Employee</span></dt>
         <dd>
             <span *ngFor="let employee of workStationConfig.employees; let last = last">
                 <a [routerLink]="['/employee', employee?.id ]">{{employee.id}}</a>{{last ? '' : ', '}}
             </span>
         </dd>
-        <dt><span jhiTranslate="sfi3App.workStationConfig.prevWorkStation">Prev Work Station</span></dt>
+        <dt><span jhiTranslate="mmsApp.workStationConfig.prevWorkStation">Prev Work Station</span></dt>
         <dd>
             <span *ngFor="let prevWorkStation of workStationConfig.prevWorkStations; let last = last">
                 <a [routerLink]="['/work-station', prevWorkStation?.id ]">{{prevWorkStation.id}}</a>{{last ? '' : ', '}}
             </span>
         </dd>
-        <dt><span jhiTranslate="sfi3App.workStationConfig.nextWorkStation">Next Work Station</span></dt>
+        <dt><span jhiTranslate="mmsApp.workStationConfig.nextWorkStation">Next Work Station</span></dt>
         <dd>
             <span *ngFor="let nextWorkStation of workStationConfig.nextWorkStations; let last = last">
                 <a [routerLink]="['/work-station', nextWorkStation?.id ]">{{nextWorkStation.id}}</a>{{last ? '' : ', '}}
             </span>
         </dd>
-        <dt><span jhiTranslate="sfi3App.workStationConfig.row">Row</span></dt>
+        <dt><span jhiTranslate="mmsApp.workStationConfig.row">Row</span></dt>
         <dd>
             <span>{{workStationConfig.row}}</span>
         </dd>
-        <dt><span jhiTranslate="sfi3App.workStationConfig.col">Col</span></dt>
+        <dt><span jhiTranslate="mmsApp.workStationConfig.col">Col</span></dt>
         <dd>
             <span>{{workStationConfig.col}}</span>
         </dd>
-        <dt><span jhiTranslate="sfi3App.workStationConfig.line">Line</span></dt>
+        <dt><span jhiTranslate="mmsApp.workStationConfig.line">Line</span></dt>
         <dd>
             <div *ngIf="workStationConfig.line">
                 <a [routerLink]="['/line', workStationConfig.line?.id]">{{workStationConfig.line?.id}}</a>

@@ -19,7 +19,7 @@ describe('Supply e2e test', () => {
         navBarPage.goToEntity('supply');
         supplyComponentsPage = new SupplyComponentsPage();
         expect(supplyComponentsPage.getTitle())
-            .toMatch(/sfi3App.supply.home.title/);
+            .toMatch(/mmsApp.supply.home.title/);
 
     });
 
@@ -27,7 +27,7 @@ describe('Supply e2e test', () => {
         supplyComponentsPage.clickOnCreateButton();
         supplyDialogPage = new SupplyDialogPage();
         expect(supplyDialogPage.getModalTitle())
-            .toMatch(/sfi3App.supply.home.createOrEditLabel/);
+            .toMatch(/mmsApp.supply.home.createOrEditLabel/);
         supplyDialogPage.close();
     });
 

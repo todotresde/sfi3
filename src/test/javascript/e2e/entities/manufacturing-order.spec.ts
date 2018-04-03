@@ -19,7 +19,7 @@ describe('ManufacturingOrder e2e test', () => {
         navBarPage.goToEntity('manufacturing-order');
         manufacturingOrderComponentsPage = new ManufacturingOrderComponentsPage();
         expect(manufacturingOrderComponentsPage.getTitle())
-            .toMatch(/sfi3App.manufacturingOrder.home.title/);
+            .toMatch(/mmsApp.manufacturingOrder.home.title/);
 
     });
 
@@ -27,7 +27,7 @@ describe('ManufacturingOrder e2e test', () => {
         manufacturingOrderComponentsPage.clickOnCreateButton();
         manufacturingOrderDialogPage = new ManufacturingOrderDialogPage();
         expect(manufacturingOrderDialogPage.getModalTitle())
-            .toMatch(/sfi3App.manufacturingOrder.home.createOrEditLabel/);
+            .toMatch(/mmsApp.manufacturingOrder.home.createOrEditLabel/);
         manufacturingOrderDialogPage.close();
     });
 

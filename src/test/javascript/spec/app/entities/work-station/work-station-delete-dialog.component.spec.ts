@@ -4,7 +4,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Observable } from 'rxjs/Observable';
 import { JhiEventManager } from 'ng-jhipster';
 
-import { Sfi3TestModule } from '../../../test.module';
+import { MMSTestModule } from '../../../test.module';
 import { WorkStationDeleteDialogComponent } from '../../../../../../main/webapp/app/entities/work-station/work-station-delete-dialog.component';
 import { WorkStationService } from '../../../../../../main/webapp/app/entities/work-station/work-station.service';
 
@@ -19,7 +19,7 @@ describe('Component Tests', () => {
 
         beforeEach(async(() => {
             TestBed.configureTestingModule({
-                imports: [Sfi3TestModule],
+                imports: [MMSTestModule],
                 declarations: [WorkStationDeleteDialogComponent],
                 providers: [
                     WorkStationService

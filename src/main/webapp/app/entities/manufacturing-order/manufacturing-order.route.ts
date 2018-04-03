@@ -35,7 +35,7 @@ export const manufacturingOrderRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'sfi3App.manufacturingOrder.home.title'
+            pageTitle: 'mmsApp.manufacturingOrder.home.title'
         },
         canActivate: [UserRouteAccessService]
     }, {
@@ -43,7 +43,7 @@ export const manufacturingOrderRoute: Routes = [
         component: ManufacturingOrderDetailComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'sfi3App.manufacturingOrder.home.title'
+            pageTitle: 'mmsApp.manufacturingOrder.home.title'
         },
         canActivate: [UserRouteAccessService]
     }
@@ -55,7 +55,7 @@ export const manufacturingOrderPopupRoute: Routes = [
         component: ManufacturingOrderPopupComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'sfi3App.manufacturingOrder.home.title'
+            pageTitle: 'mmsApp.manufacturingOrder.home.title'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'
@@ -65,7 +65,7 @@ export const manufacturingOrderPopupRoute: Routes = [
         component: ManufacturingOrderPopupComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'sfi3App.manufacturingOrder.home.title'
+            pageTitle: 'mmsApp.manufacturingOrder.home.title'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'
@@ -75,7 +75,7 @@ export const manufacturingOrderPopupRoute: Routes = [
         component: ManufacturingOrderDeletePopupComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'sfi3App.manufacturingOrder.home.title'
+            pageTitle: 'mmsApp.manufacturingOrder.home.title'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'
@@ -85,7 +85,7 @@ export const manufacturingOrderPopupRoute: Routes = [
         component: ManufacturingOrderSendPopupComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'sfi3App.manufacturingOrder.home.title'
+            pageTitle: 'mmsApp.manufacturingOrder.home.title'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'
@@ -97,7 +97,7 @@ export const manufacturingOrderFullPopupRoute: Routes = [
         component: ManufacturingOrderFullPopupComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'sfi3App.manufacturingOrder.home.title'
+            pageTitle: 'mmsApp.manufacturingOrder.home.title'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'
@@ -107,7 +107,7 @@ export const manufacturingOrderFullPopupRoute: Routes = [
         component: ManufacturingOrderFullPopupComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'sfi3App.manufacturingOrder.home.title'
+            pageTitle: 'mmsApp.manufacturingOrder.home.title'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'

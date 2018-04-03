@@ -3,7 +3,7 @@
 <configuration scan="true">
     <include resource="org/springframework/boot/logging/logback/base.xml"/>
 
-    <logger name="com.todotresde.sfi3" level="INFO"/>
+    <logger name="com.todotresde.mms" level="INFO"/>
 
     <logger name="io.github.jhipster" level="WARN"/>
 

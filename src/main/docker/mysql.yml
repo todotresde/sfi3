@@ -1,13 +1,13 @@
 version: '2'
 services:
-    sfi3-mysql:
+    mms-mysql:
         image: mysql:5.7.20
         # volumes:
-        #     - ~/volumes/jhipster/sfi3/mysql/:/var/lib/mysql/
+        #     - ~/volumes/jhipster/mms/mysql/:/var/lib/mysql/
         environment:
             - MYSQL_USER=root
             - MYSQL_ALLOW_EMPTY_PASSWORD=yes
-            - MYSQL_DATABASE=sfi3
+            - MYSQL_DATABASE=mms
         ports:
             - 3306:3306
         command: mysqld --lower_case_table_names=1 --skip-ssl --character_set_server=utf8 --explicit_defaults_for_timestamp

@@ -5,7 +5,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Observable } from 'rxjs/Observable';
 import { JhiEventManager } from 'ng-jhipster';
 
-import { Sfi3TestModule } from '../../../test.module';
+import { MMSTestModule } from '../../../test.module';
 import { ManufacturingOrderDialogComponent } from '../../../../../../main/webapp/app/entities/manufacturing-order/manufacturing-order-dialog.component';
 import { ManufacturingOrderService } from '../../../../../../main/webapp/app/entities/manufacturing-order/manufacturing-order.service';
 import { ManufacturingOrder } from '../../../../../../main/webapp/app/entities/manufacturing-order/manufacturing-order.model';
@@ -21,7 +21,7 @@ describe('Component Tests', () => {
 
         beforeEach(async(() => {
             TestBed.configureTestingModule({
-                imports: [Sfi3TestModule],
+                imports: [MMSTestModule],
                 declarations: [ManufacturingOrderDialogComponent],
                 providers: [
                     ManufacturingOrderService

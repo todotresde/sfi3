@@ -1,7 +1,7 @@
 <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
 
     <div class="modal-header">
-        <h4 class="modal-title" id="myTracerLabel" jhiTranslate="sfi3App.tracer.home.createOrEditLabel">Create or edit a Tracer</h4>
+        <h4 class="modal-title" id="myTracerLabel" jhiTranslate="mmsApp.tracer.home.createOrEditLabel">Create or edit a Tracer</h4>
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 (click)="clear()">&times;</button>
     </div>
@@ -13,7 +13,7 @@
                    [(ngModel)]="tracer.id" readonly />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="sfi3App.tracer.code" for="field_code">Code</label>
+            <label class="form-control-label" jhiTranslate="mmsApp.tracer.code" for="field_code">Code</label>
             <input type="text" class="form-control" name="code" id="field_code"
                 [(ngModel)]="tracer.code" required/>
             <div [hidden]="!(editForm.controls.code?.dirty && editForm.controls.code?.invalid)">
@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="sfi3App.tracer.inTime" for="field_inTime">In Time</label>
+            <label class="form-control-label" jhiTranslate="mmsApp.tracer.inTime" for="field_inTime">In Time</label>
             <div class="d-flex">
                 <input id="field_inTime" type="datetime-local" class="form-control" name="inTime" [(ngModel)]="tracer.inTime"
                 required/>
@@ -41,26 +41,26 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="sfi3App.tracer.startTime" for="field_startTime">Start Time</label>
+            <label class="form-control-label" jhiTranslate="mmsApp.tracer.startTime" for="field_startTime">Start Time</label>
             <div class="d-flex">
                 <input id="field_startTime" type="datetime-local" class="form-control" name="startTime" [(ngModel)]="tracer.startTime"
                 />
             </div>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="sfi3App.tracer.endTime" for="field_endTime">End Time</label>
+            <label class="form-control-label" jhiTranslate="mmsApp.tracer.endTime" for="field_endTime">End Time</label>
             <div class="d-flex">
                 <input id="field_endTime" type="datetime-local" class="form-control" name="endTime" [(ngModel)]="tracer.endTime"
                 />
             </div>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="sfi3App.tracer.time" for="field_time">Time</label>
+            <label class="form-control-label" jhiTranslate="mmsApp.tracer.time" for="field_time">Time</label>
             <input type="number" class="form-control" name="time" id="field_time"
                 [(ngModel)]="tracer.time" />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="sfi3App.tracer.status" for="field_status">Status</label>
+            <label class="form-control-label" jhiTranslate="mmsApp.tracer.status" for="field_status">Status</label>
             <input type="number" class="form-control" name="status" id="field_status"
                 [(ngModel)]="tracer.status" required/>
             <div [hidden]="!(editForm.controls.status?.dirty && editForm.controls.status?.invalid)">
@@ -76,7 +76,7 @@
         </div>
 
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="sfi3App.tracer.workStationConfig" for="field_workStationConfig">Work Station Config</label>
+            <label class="form-control-label" jhiTranslate="mmsApp.tracer.workStationConfig" for="field_workStationConfig">Work Station Config</label>
             <select class="form-control" id="field_workStationConfig" name="workStationConfig" [(ngModel)]="tracer.workStationConfig"  required>
                 <option *ngIf="!editForm.value.workStationConfig" [ngValue]="null" selected></option>
                 <option [ngValue]="workStationConfigOption.id === tracer.workStationConfig?.id ? tracer.workStationConfig : workStationConfigOption" *ngFor="let workStationConfigOption of workstationconfigs; trackBy: trackWorkStationConfigById">{{workStationConfigOption.id}}</option>
@@ -89,7 +89,7 @@
             </small>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="sfi3App.tracer.manufacturingOrder" for="field_manufacturingOrder">Manufacturing Order</label>
+            <label class="form-control-label" jhiTranslate="mmsApp.tracer.manufacturingOrder" for="field_manufacturingOrder">Manufacturing Order</label>
             <select class="form-control" id="field_manufacturingOrder" name="manufacturingOrder" [(ngModel)]="tracer.manufacturingOrder"  required>
                 <option *ngIf="!editForm.value.manufacturingOrder" [ngValue]="null" selected></option>
                 <option [ngValue]="manufacturingOrderOption.id === tracer.manufacturingOrder?.id ? tracer.manufacturingOrder : manufacturingOrderOption" *ngFor="let manufacturingOrderOption of manufacturingorders; trackBy: trackManufacturingOrderById">{{manufacturingOrderOption.id}}</option>
@@ -102,7 +102,7 @@
             </small>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="sfi3App.tracer.line" for="field_line">Line</label>
+            <label class="form-control-label" jhiTranslate="mmsApp.tracer.line" for="field_line">Line</label>
             <select class="form-control" id="field_line" name="line" [(ngModel)]="tracer.line"  required>
                 <option *ngIf="!editForm.value.line" [ngValue]="null" selected></option>
                 <option [ngValue]="lineOption.id === tracer.line?.id ? tracer.line : lineOption" *ngFor="let lineOption of lines; trackBy: trackLineById">{{lineOption.id}}</option>
@@ -115,7 +115,7 @@
             </small>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="sfi3App.tracer.workStation" for="field_workStation">Work Station</label>
+            <label class="form-control-label" jhiTranslate="mmsApp.tracer.workStation" for="field_workStation">Work Station</label>
             <select class="form-control" id="field_workStation" name="workStation" [(ngModel)]="tracer.workStation"  required>
                 <option *ngIf="!editForm.value.workStation" [ngValue]="null" selected></option>
                 <option [ngValue]="workStationOption.id === tracer.workStation?.id ? tracer.workStation : workStationOption" *ngFor="let workStationOption of workstations; trackBy: trackWorkStationById">{{workStationOption.id}}</option>
@@ -128,28 +128,28 @@
             </small>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="sfi3App.tracer.prevWorkStation" for="field_prevWorkStation">Prev Work Station</label>
+            <label class="form-control-label" jhiTranslate="mmsApp.tracer.prevWorkStation" for="field_prevWorkStation">Prev Work Station</label>
             <select class="form-control" id="field_prevWorkStation" name="prevWorkStation" [(ngModel)]="tracer.prevWorkStation" >
                 <option [ngValue]="null"></option>
                 <option [ngValue]="workStationOption.id === tracer.prevWorkStation?.id ? tracer.prevWorkStation : workStationOption" *ngFor="let workStationOption of workstations; trackBy: trackWorkStationById">{{workStationOption.id}}</option>
             </select>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="sfi3App.tracer.nextWorkStation" for="field_nextWorkStation">Next Work Station</label>
+            <label class="form-control-label" jhiTranslate="mmsApp.tracer.nextWorkStation" for="field_nextWorkStation">Next Work Station</label>
             <select class="form-control" id="field_nextWorkStation" name="nextWorkStation" [(ngModel)]="tracer.nextWorkStation" >
                 <option [ngValue]="null"></option>
                 <option [ngValue]="workStationOption.id === tracer.nextWorkStation?.id ? tracer.nextWorkStation : workStationOption" *ngFor="let workStationOption of workstations; trackBy: trackWorkStationById">{{workStationOption.id}}</option>
             </select>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="sfi3App.tracer.nextTracer" for="field_nextTracer">Next Tracer</label>
+            <label class="form-control-label" jhiTranslate="mmsApp.tracer.nextTracer" for="field_nextTracer">Next Tracer</label>
             <select class="form-control" id="field_nextTracer" name="nextTracer" [(ngModel)]="tracer.nextTracer" >
                 <option [ngValue]="null"></option>
                 <option [ngValue]="tracerOption.id === tracer.nextTracer?.id ? tracer.nextTracer : tracerOption" *ngFor="let tracerOption of tracers; trackBy: trackTracerById">{{tracerOption.id}}</option>
             </select>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="sfi3App.tracer.prevTracer" for="field_prevTracer">Prev Tracer</label>
+            <label class="form-control-label" jhiTranslate="mmsApp.tracer.prevTracer" for="field_prevTracer">Prev Tracer</label>
             <select class="form-control" id="field_prevTracer" name="prevTracer" [(ngModel)]="tracer.prevTracer" >
                 <option [ngValue]="null"></option>
                 <option [ngValue]="tracerOption.id === tracer.prevTracer?.id ? tracer.prevTracer : tracerOption" *ngFor="let tracerOption of tracers; trackBy: trackTracerById">{{tracerOption.id}}</option>

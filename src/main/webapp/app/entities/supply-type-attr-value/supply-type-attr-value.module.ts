@@ -1,7 +1,7 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { Sfi3SharedModule } from '../../shared';
+import { MMSSharedModule } from '../../shared';
 import {
     SupplyTypeAttrValueService,
     SupplyTypeAttrValuePopupService,
@@ -22,7 +22,7 @@ const ENTITY_STATES = [
 
 @NgModule({
     imports: [
-        Sfi3SharedModule,
+        MMSSharedModule,
         RouterModule.forChild(ENTITY_STATES)
     ],
     declarations: [
@@ -46,4 +46,4 @@ const ENTITY_STATES = [
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class Sfi3SupplyTypeAttrValueModule {}
+export class MMSSupplyTypeAttrValueModule {}

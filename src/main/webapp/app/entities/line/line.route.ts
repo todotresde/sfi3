@@ -13,7 +13,7 @@ export const lineRoute: Routes = [
         component: LineComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'sfi3App.line.home.title'
+            pageTitle: 'mmsApp.line.home.title'
         },
         canActivate: [UserRouteAccessService]
     }, {
@@ -21,7 +21,7 @@ export const lineRoute: Routes = [
         component: LineDetailComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'sfi3App.line.home.title'
+            pageTitle: 'mmsApp.line.home.title'
         },
         canActivate: [UserRouteAccessService]
     }, {
@@ -29,7 +29,7 @@ export const lineRoute: Routes = [
         component: LineStatusComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'sfi3App.line.status.title'
+            pageTitle: 'mmsApp.line.status.title'
         },
         canActivate: [UserRouteAccessService]
     }
@@ -41,7 +41,7 @@ export const linePopupRoute: Routes = [
         component: LinePopupComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'sfi3App.line.home.title'
+            pageTitle: 'mmsApp.line.home.title'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'
@@ -51,7 +51,7 @@ export const linePopupRoute: Routes = [
         component: LinePopupComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'sfi3App.line.home.title'
+            pageTitle: 'mmsApp.line.home.title'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'
@@ -61,7 +61,7 @@ export const linePopupRoute: Routes = [
         component: LineDeletePopupComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'sfi3App.line.home.title'
+            pageTitle: 'mmsApp.line.home.title'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'

@@ -5,7 +5,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Observable } from 'rxjs/Observable';
 import { JhiEventManager } from 'ng-jhipster';
 
-import { Sfi3TestModule } from '../../../test.module';
+import { MMSTestModule } from '../../../test.module';
 import { WorkStationDialogComponent } from '../../../../../../main/webapp/app/entities/work-station/work-station-dialog.component';
 import { WorkStationService } from '../../../../../../main/webapp/app/entities/work-station/work-station.service';
 import { WorkStation } from '../../../../../../main/webapp/app/entities/work-station/work-station.model';
@@ -22,7 +22,7 @@ describe('Component Tests', () => {
 
         beforeEach(async(() => {
             TestBed.configureTestingModule({
-                imports: [Sfi3TestModule],
+                imports: [MMSTestModule],
                 declarations: [WorkStationDialogComponent],
                 providers: [
                     WorkStationConfigService,

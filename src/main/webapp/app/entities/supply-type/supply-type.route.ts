@@ -12,7 +12,7 @@ export const supplyTypeRoute: Routes = [
         component: SupplyTypeComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'sfi3App.supplyType.home.title'
+            pageTitle: 'mmsApp.supplyType.home.title'
         },
         canActivate: [UserRouteAccessService]
     }, {
@@ -20,7 +20,7 @@ export const supplyTypeRoute: Routes = [
         component: SupplyTypeDetailComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'sfi3App.supplyType.home.title'
+            pageTitle: 'mmsApp.supplyType.home.title'
         },
         canActivate: [UserRouteAccessService]
     }
@@ -32,7 +32,7 @@ export const supplyTypePopupRoute: Routes = [
         component: SupplyTypePopupComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'sfi3App.supplyType.home.title'
+            pageTitle: 'mmsApp.supplyType.home.title'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'
@@ -42,7 +42,7 @@ export const supplyTypePopupRoute: Routes = [
         component: SupplyTypePopupComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'sfi3App.supplyType.home.title'
+            pageTitle: 'mmsApp.supplyType.home.title'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'
@@ -52,7 +52,7 @@ export const supplyTypePopupRoute: Routes = [
         component: SupplyTypeDeletePopupComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'sfi3App.supplyType.home.title'
+            pageTitle: 'mmsApp.supplyType.home.title'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'

@@ -1,14 +1,14 @@
 
 <div *ngIf="supply">
-    <h2><span jhiTranslate="sfi3App.supply.detail.title">Supply</span> {{supply.id}}</h2>
+    <h2><span jhiTranslate="mmsApp.supply.detail.title">Supply</span> {{supply.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="row-md jh-entity-details">
-        <dt><span jhiTranslate="sfi3App.supply.name">Name</span></dt>
+        <dt><span jhiTranslate="mmsApp.supply.name">Name</span></dt>
         <dd>
             <span>{{supply.name}}</span>
         </dd>
-        <dt><span jhiTranslate="sfi3App.supply.supplyType">Supply Type</span></dt>
+        <dt><span jhiTranslate="mmsApp.supply.supplyType">Supply Type</span></dt>
         <dd>
             <div *ngIf="supply.supplyType">
                 <a [routerLink]="['/supply-type', supply.supplyType?.id]">{{supply.supplyType?.id}}</a>

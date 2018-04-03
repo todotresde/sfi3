@@ -3,8 +3,8 @@ import { DatePipe } from '@angular/common';
 import { SmallUUID, Status } from '../app.pipes';
 
 import {
-    Sfi3SharedLibsModule,
-    Sfi3SharedCommonModule,
+    MMSSharedLibsModule,
+    MMSSharedCommonModule,
     CSRFService,
     AuthServerProvider,
     AccountService,
@@ -19,8 +19,8 @@ import {
 
 @NgModule({
     imports: [
-        Sfi3SharedLibsModule,
-        Sfi3SharedCommonModule
+        MMSSharedLibsModule,
+        MMSSharedCommonModule
     ],
     declarations: [
         JhiLoginModalComponent,
@@ -43,7 +43,7 @@ import {
     ],
     entryComponents: [JhiLoginModalComponent],
     exports: [
-        Sfi3SharedCommonModule,
+        MMSSharedCommonModule,
         JhiLoginModalComponent,
         HasAnyAuthorityDirective,
         DatePipe,
@@ -53,4 +53,4 @@ import {
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 
 })
-export class Sfi3SharedModule {}
+export class MMSSharedModule {}

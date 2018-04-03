@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { Observable } from 'rxjs/Observable';
 import { HttpHeaders, HttpResponse } from '@angular/common/http';
 
-import { Sfi3TestModule } from '../../../test.module';
+import { MMSTestModule } from '../../../test.module';
 import { SupplyTypeAttrValueComponent } from '../../../../../../main/webapp/app/entities/supply-type-attr-value/supply-type-attr-value.component';
 import { SupplyTypeAttrValueService } from '../../../../../../main/webapp/app/entities/supply-type-attr-value/supply-type-attr-value.service';
 import { SupplyTypeAttrValue } from '../../../../../../main/webapp/app/entities/supply-type-attr-value/supply-type-attr-value.model';
@@ -17,7 +17,7 @@ describe('Component Tests', () => {
 
         beforeEach(async(() => {
             TestBed.configureTestingModule({
-                imports: [Sfi3TestModule],
+                imports: [MMSTestModule],
                 declarations: [SupplyTypeAttrValueComponent],
                 providers: [
                     SupplyTypeAttrValueService

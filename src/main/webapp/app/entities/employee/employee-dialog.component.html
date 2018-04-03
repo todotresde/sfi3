@@ -1,7 +1,7 @@
 <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
 
     <div class="modal-header">
-        <h4 class="modal-title" id="myEmployeeLabel" jhiTranslate="sfi3App.employee.home.createOrEditLabel">Create or edit a Employee</h4>
+        <h4 class="modal-title" id="myEmployeeLabel" jhiTranslate="mmsApp.employee.home.createOrEditLabel">Create or edit a Employee</h4>
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 (click)="clear()">&times;</button>
     </div>
@@ -9,7 +9,7 @@
         <jhi-alert-error></jhi-alert-error>
         <input type="hidden" id="id" name="id" [(ngModel)]="employee.id" />
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="sfi3App.employee.name" for="field_name">Name</label>
+            <label class="form-control-label" jhiTranslate="mmsApp.employee.name" for="field_name">Name</label>
             <input type="text" class="form-control" name="name" id="field_name"
                 [(ngModel)]="employee.name" required/>
             <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
@@ -20,12 +20,12 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="sfi3App.employee.lastName" for="field_lastName">Last Name</label>
+            <label class="form-control-label" jhiTranslate="mmsApp.employee.lastName" for="field_lastName">Last Name</label>
             <input type="text" class="form-control" name="lastName" id="field_lastName"
                 [(ngModel)]="employee.lastName" />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="sfi3App.employee.userId" for="field_userId">User Id</label>
+            <label class="form-control-label" jhiTranslate="mmsApp.employee.userId" for="field_userId">User Id</label>
             <input type="text" class="form-control" name="userId" id="field_userId"
                 [(ngModel)]="employee.userId" required/>
             <div [hidden]="!(editForm.controls.userId?.dirty && editForm.controls.userId?.invalid)">

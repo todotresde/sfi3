@@ -1,25 +1,25 @@
 
 <div *ngIf="manufacturingOrder">
-    <h2><span jhiTranslate="sfi3App.manufacturingOrder.detail.title">Manufacturing Order</span> {{manufacturingOrder.code}} - ({{manufacturingOrderTimeToFinishDays}} days - {{manufacturingOrderTimeToFinishHours}} hours - {{manufacturingOrderTimeToFinishMinutes}} minutes)</h2>
+    <h2><span jhiTranslate="mmsApp.manufacturingOrder.detail.title">Manufacturing Order</span> {{manufacturingOrder.code}} - ({{manufacturingOrderTimeToFinishDays}} days - {{manufacturingOrderTimeToFinishHours}} hours - {{manufacturingOrderTimeToFinishMinutes}} minutes)</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <div class='row'>
         <div class="col form-group">
-            <label class="form-control-label" jhiTranslate="sfi3App.manufacturingOrder.code" for="field_code">Code</label>
+            <label class="form-control-label" jhiTranslate="mmsApp.manufacturingOrder.code" for="field_code">Code</label>
             <input type="text" class="form-control" name="code" id="field_code" [value]="manufacturingOrder.code" readonly/>
         </div>
         <div class="col form-group">
-            <label class="form-control-label" jhiTranslate="sfi3App.manufacturingOrder.orderDate" for="field_orderDate">Order Date</label>
+            <label class="form-control-label" jhiTranslate="mmsApp.manufacturingOrder.orderDate" for="field_orderDate">Order Date</label>
             <input type="text" class="form-control" name="orderDate" id="field_orderDate" [value]="manufacturingOrder.orderDate | date : 'short' " readonly/>
         </div>
         <div class="col form-group">
-            <label class="form-control-label" jhiTranslate="sfi3App.manufacturingOrder.status" for="field_status">Status</label>
+            <label class="form-control-label" jhiTranslate="mmsApp.manufacturingOrder.status" for="field_status">Status</label>
             <input type="text" class="form-control" name="status" id="field_status" [value]="manufacturingOrder.status | status" readonly/>
         </div>
     </div>
     <div class='row'>
         <div class="col form-group">
-            <label class="form-control-label" jhiTranslate="sfi3App.manufacturingOrder.description" for="field_description">Description</label>
+            <label class="form-control-label" jhiTranslate="mmsApp.manufacturingOrder.description" for="field_description">Description</label>
             <input type="text" class="form-control" name="description" id="field_description" [value]="manufacturingOrder.description" readonly/>
         </div>
     </div>
@@ -29,7 +29,7 @@
     <div class="table-responsive" *ngIf="products">
         <div *ngFor="let product of products ;trackBy: trackId; let productPosition = index;">
             <div class="modal-header">
-                <h5 class="modal-title" jhiTranslate="sfi3App.manufacturingOrder.products.product">Product {{index+1}}</h5>
+                <h5 class="modal-title" jhiTranslate="mmsApp.manufacturingOrder.products.product">Product {{index+1}}</h5>
                 <div class="form-group">
                     <label class="form-control-label" for="field_quantity">Quantity: {{product.quantity}}</label>
                 </div>
@@ -37,8 +37,8 @@
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th><span jhiTranslate="sfi3App.manufacturingOrder.supplies.supply">Supply</span></th>
-                    <th><span jhiTranslate="sfi3App.manufacturingOrder.supplies.atributes">Attributes</span></th>
+                    <th><span jhiTranslate="mmsApp.manufacturingOrder.supplies.supply">Supply</span></th>
+                    <th><span jhiTranslate="mmsApp.manufacturingOrder.supplies.atributes">Attributes</span></th>
                 </tr>
                 </thead>
                 <tbody>

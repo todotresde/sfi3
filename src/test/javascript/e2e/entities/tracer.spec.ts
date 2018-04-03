@@ -19,7 +19,7 @@ describe('Tracer e2e test', () => {
         navBarPage.goToEntity('tracer');
         tracerComponentsPage = new TracerComponentsPage();
         expect(tracerComponentsPage.getTitle())
-            .toMatch(/sfi3App.tracer.home.title/);
+            .toMatch(/mmsApp.tracer.home.title/);
 
     });
 
@@ -27,7 +27,7 @@ describe('Tracer e2e test', () => {
         tracerComponentsPage.clickOnCreateButton();
         tracerDialogPage = new TracerDialogPage();
         expect(tracerDialogPage.getModalTitle())
-            .toMatch(/sfi3App.tracer.home.createOrEditLabel/);
+            .toMatch(/mmsApp.tracer.home.createOrEditLabel/);
         tracerDialogPage.close();
     });
 

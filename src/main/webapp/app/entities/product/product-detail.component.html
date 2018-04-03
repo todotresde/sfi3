@@ -1,24 +1,24 @@
 
 <div *ngIf="product">
-    <h2><span jhiTranslate="sfi3App.product.detail.title">Product</span> {{product.id}}</h2>
+    <h2><span jhiTranslate="mmsApp.product.detail.title">Product</span> {{product.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="row-md jh-entity-details">
-        <dt><span jhiTranslate="sfi3App.product.description">Description</span></dt>
+        <dt><span jhiTranslate="mmsApp.product.description">Description</span></dt>
         <dd>
             <span>{{product.description}}</span>
         </dd>
-        <dt><span jhiTranslate="sfi3App.product.quantity">Quantity</span></dt>
+        <dt><span jhiTranslate="mmsApp.product.quantity">Quantity</span></dt>
         <dd>
             <span>{{product.quantity}}</span>
         </dd>
-        <dt><span jhiTranslate="sfi3App.product.manufacturingOrder">Manufacturing Order</span></dt>
+        <dt><span jhiTranslate="mmsApp.product.manufacturingOrder">Manufacturing Order</span></dt>
         <dd>
             <div *ngIf="product.manufacturingOrder">
                 <a [routerLink]="['/manufacturing-order', product.manufacturingOrder?.id]">{{product.manufacturingOrder?.id}}</a>
             </div>
         </dd>
-        <dt><span jhiTranslate="sfi3App.product.supply">Supply</span></dt>
+        <dt><span jhiTranslate="mmsApp.product.supply">Supply</span></dt>
         <dd>
             <span *ngFor="let supply of product.supplies; let last = last">
                 <a [routerLink]="['/supply', supply?.id ]">{{supply.id}}</a>{{last ? '' : ', '}}

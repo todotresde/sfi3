@@ -19,7 +19,7 @@ describe('Product e2e test', () => {
         navBarPage.goToEntity('product');
         productComponentsPage = new ProductComponentsPage();
         expect(productComponentsPage.getTitle())
-            .toMatch(/sfi3App.product.home.title/);
+            .toMatch(/mmsApp.product.home.title/);
 
     });
 
@@ -27,7 +27,7 @@ describe('Product e2e test', () => {
         productComponentsPage.clickOnCreateButton();
         productDialogPage = new ProductDialogPage();
         expect(productDialogPage.getModalTitle())
-            .toMatch(/sfi3App.product.home.createOrEditLabel/);
+            .toMatch(/mmsApp.product.home.createOrEditLabel/);
         productDialogPage.close();
     });
 

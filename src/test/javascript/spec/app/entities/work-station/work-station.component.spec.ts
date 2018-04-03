@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { Observable } from 'rxjs/Observable';
 import { HttpHeaders, HttpResponse } from '@angular/common/http';
 
-import { Sfi3TestModule } from '../../../test.module';
+import { MMSTestModule } from '../../../test.module';
 import { WorkStationComponent } from '../../../../../../main/webapp/app/entities/work-station/work-station.component';
 import { WorkStationService } from '../../../../../../main/webapp/app/entities/work-station/work-station.service';
 import { WorkStation } from '../../../../../../main/webapp/app/entities/work-station/work-station.model';
@@ -17,7 +17,7 @@ describe('Component Tests', () => {
 
         beforeEach(async(() => {
             TestBed.configureTestingModule({
-                imports: [Sfi3TestModule],
+                imports: [MMSTestModule],
                 declarations: [WorkStationComponent],
                 providers: [
                     WorkStationService

@@ -15,7 +15,7 @@ export const tracerRoute: Routes = [
         component: TracerComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'sfi3App.tracer.home.title'
+            pageTitle: 'mmsApp.tracer.home.title'
         },
         canActivate: [UserRouteAccessService]
     }, {
@@ -23,7 +23,7 @@ export const tracerRoute: Routes = [
         component: TracerDetailComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'sfi3App.tracer.home.title'
+            pageTitle: 'mmsApp.tracer.home.title'
         },
         canActivate: [UserRouteAccessService]
     }, {
@@ -43,7 +43,7 @@ export const tracerPopupRoute: Routes = [
         component: TracerPopupComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'sfi3App.tracer.home.title'
+            pageTitle: 'mmsApp.tracer.home.title'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'
@@ -53,7 +53,7 @@ export const tracerPopupRoute: Routes = [
         component: TracerPopupComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'sfi3App.tracer.home.title'
+            pageTitle: 'mmsApp.tracer.home.title'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'

@@ -5,7 +5,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Observable } from 'rxjs/Observable';
 import { JhiEventManager } from 'ng-jhipster';
 
-import { Sfi3TestModule } from '../../../test.module';
+import { MMSTestModule } from '../../../test.module';
 import { ProductDialogComponent } from '../../../../../../main/webapp/app/entities/product/product-dialog.component';
 import { ProductService } from '../../../../../../main/webapp/app/entities/product/product.service';
 import { Product } from '../../../../../../main/webapp/app/entities/product/product.model';
@@ -23,7 +23,7 @@ describe('Component Tests', () => {
 
         beforeEach(async(() => {
             TestBed.configureTestingModule({
-                imports: [Sfi3TestModule],
+                imports: [MMSTestModule],
                 declarations: [ProductDialogComponent],
                 providers: [
                     ManufacturingOrderService,

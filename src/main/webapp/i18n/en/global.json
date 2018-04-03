@@ -1,6 +1,6 @@
 {
     "global": {
-        "title": "Sfi3",
+        "title": "MMS",
         "browsehappy": "You are using an <strong>outdated</strong> browser. Please <a href=\"http://browsehappy.com/?locale=en\">upgrade your browser</a> to improve your experience.",
         "menu": {
             "home": "Home",
@@ -21,6 +21,13 @@
                 "tracer": "Tracer",
                 "wsTracer": "WorkStation Tracer",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
+            },
+            "sale": {
+                "main": "Sales"
+            },
+            "line": {
+                "main": "Lines Admin.",
+                "flow": "Flow"
             },
             "account": {
                 "main": "Account",

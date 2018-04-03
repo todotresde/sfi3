@@ -1,7 +1,7 @@
 <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
 
     <div class="modal-header">
-        <h4 class="modal-title" id="mySupplyLabel" jhiTranslate="sfi3App.supply.home.createOrEditLabel">Create or edit a Supply</h4>
+        <h4 class="modal-title" id="mySupplyLabel" jhiTranslate="mmsApp.supply.home.createOrEditLabel">Create or edit a Supply</h4>
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 (click)="clear()">&times;</button>
     </div>
@@ -9,7 +9,7 @@
         <jhi-alert-error></jhi-alert-error>
         <input type="hidden" id="id" name="id" [(ngModel)]="supply.id" />
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="sfi3App.supply.name" for="field_name">Name</label>
+            <label class="form-control-label" jhiTranslate="mmsApp.supply.name" for="field_name">Name</label>
             <input type="text" class="form-control" name="name" id="field_name"
                 [(ngModel)]="supply.name" required/>
             <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
@@ -21,7 +21,7 @@
         </div>
 
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="sfi3App.supply.supplyType" for="field_supplyType">Supply Type</label>
+            <label class="form-control-label" jhiTranslate="mmsApp.supply.supplyType" for="field_supplyType">Supply Type</label>
             <select class="form-control" id="field_supplyType" name="supplyType" [(ngModel)]="supply.supplyType"  required>
                 <option *ngIf="!editForm.value.supplyType" [ngValue]="null" selected></option>
                 <option [ngValue]="supplyTypeOption.id === supply.supplyType?.id ? supply.supplyType : supplyTypeOption" *ngFor="let supplyTypeOption of supplytypes; trackBy: trackSupplyTypeById">{{supplyTypeOption.name}}</option>

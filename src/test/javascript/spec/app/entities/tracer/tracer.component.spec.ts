@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { Observable } from 'rxjs/Observable';
 import { HttpHeaders, HttpResponse } from '@angular/common/http';
 
-import { Sfi3TestModule } from '../../../test.module';
+import { MMSTestModule } from '../../../test.module';
 import { TracerComponent } from '../../../../../../main/webapp/app/entities/tracer/tracer.component';
 import { TracerService } from '../../../../../../main/webapp/app/entities/tracer/tracer.service';
 import { Tracer } from '../../../../../../main/webapp/app/entities/tracer/tracer.model';
@@ -17,7 +17,7 @@ describe('Component Tests', () => {
 
         beforeEach(async(() => {
             TestBed.configureTestingModule({
-                imports: [Sfi3TestModule],
+                imports: [MMSTestModule],
                 declarations: [TracerComponent],
                 providers: [
                     TracerService

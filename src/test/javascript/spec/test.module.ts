@@ -74,4 +74,4 @@ import { MockEventManager } from './helpers/mock-event-manager.service';
     ],
     imports: [HttpClientTestingModule]
 })
-export class Sfi3TestModule {}
+export class MMSTestModule {}
