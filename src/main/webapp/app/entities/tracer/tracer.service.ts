@@ -40,6 +40,11 @@ export class TracerService {
             .map((res: EntityResponseType) => this.convertResponse(res));
     }
 
+    findByCodeAndIp(code: string, ip: string): Observable<EntityResponseType> {
+        return this.http.get<Tracer>(`${this.resourceUrl}/code/${code}/ip/${ip}/`, { observe: 'response'})
+            .map((res: EntityResponseType) => this.convertResponse(res));
+    }
+
     query(req?: any): Observable<HttpResponse<Tracer[]>> {
         const options = createRequestOption(req);
         return this.http.get<Tracer[]>(this.resourceUrl, { params: options, observe: 'response' })

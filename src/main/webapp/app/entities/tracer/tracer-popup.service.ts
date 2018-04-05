@@ -50,6 +50,36 @@ export class TracerPopupService {
         });
     }
 
+    openCodeIp(component: Component, code?: number | any, ip?: string): Promise<NgbModalRef> {
+        return new Promise<NgbModalRef>((resolve, reject) => {
+            const isOpen = this.ngbModalRef !== null;
+            if (isOpen) {
+                resolve(this.ngbModalRef);
+            }
+
+            if (code && ip) {
+                this.tracerService.findByCodeAndIp(code, ip)
+                    .subscribe((tracerResponse: HttpResponse<Tracer>) => {
+                        const tracer: Tracer = tracerResponse.body;
+                        tracer.inTime = this.datePipe
+                            .transform(tracer.inTime, 'yyyy-MM-ddTHH:mm:ss');
+                        tracer.startTime = this.datePipe
+                            .transform(tracer.startTime, 'yyyy-MM-ddTHH:mm:ss');
+                        tracer.endTime = this.datePipe
+                            .transform(tracer.endTime, 'yyyy-MM-ddTHH:mm:ss');
+                        this.ngbModalRef = this.tracerModalRef(component, tracer);
+                        resolve(this.ngbModalRef);
+                    });
+            } else {
+                // setTimeout used as a workaround for getting ExpressionChangedAfterItHasBeenCheckedError
+                setTimeout(() => {
+                    this.ngbModalRef = this.tracerModalRef(component, new Tracer());
+                    resolve(this.ngbModalRef);
+                }, 0);
+            }
+        });
+    }
+
     tracerModalRef(component: Component, tracer: Tracer): NgbModalRef {
         const modalRef = this.modalService.open(component, { size: 'lg', backdrop: 'static'});
         modalRef.componentInstance.tracer = tracer;

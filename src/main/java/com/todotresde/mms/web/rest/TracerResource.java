@@ -8,6 +8,7 @@ import com.todotresde.mms.domain.WorkStation;
 import com.todotresde.mms.repository.TracerRepository;
 import com.todotresde.mms.repository.WorkStationRepository;
 import com.todotresde.mms.service.LineService;
+import com.todotresde.mms.service.TracerService;
 import com.todotresde.mms.web.rest.errors.BadRequestAlertException;
 import com.todotresde.mms.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
@@ -36,12 +37,13 @@ public class TracerResource {
 
     private final TracerRepository tracerRepository;
     private final WorkStationRepository workStationRepository;
-
+    private final TracerService tracerService;
     private final LineService lineService;
 
-    public TracerResource(TracerRepository tracerRepository, WorkStationRepository workStationRepository, LineService lineService) {
+    public TracerResource(TracerRepository tracerRepository, WorkStationRepository workStationRepository, LineService lineService, TracerService tracerService) {
         this.tracerRepository = tracerRepository;
         this.workStationRepository = workStationRepository;
+        this.tracerService = tracerService;
         this.lineService = lineService;
     }
 
@@ -176,6 +178,21 @@ public class TracerResource {
     public ResponseEntity<Tracer> getTracer(@PathVariable Long id) {
         log.debug("REST request to get Tracer : {}", id);
         Tracer tracer = tracerRepository.findOne(id);
+        return ResponseUtil.wrapOrNotFound(Optional.ofNullable(tracer));
+    }
+
+    /**
+     * GET  /tracers/code/:code/ip/:ip/ : get the tracer by code and ip.
+     *
+     * @param code the code of the tracer to retrieve
+     * @param ip the ip of the tracer to retrieve
+     * @return the ResponseEntity with status 200 (OK) and with body the tracer, or with status 404 (Not Found)
+     */
+    @GetMapping("/tracers/code/{code}/ip/{ip}/")
+    @Timed
+    public ResponseEntity<Tracer> getTracerByCodeAndIp(@PathVariable String code, @PathVariable String ip) {
+        log.debug("REST request to get Tracer by code: {} and ip: {}", code, ip);
+        Tracer tracer = this.tracerService.findByCodeAndIp(code, ip);
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(tracer));
     }
 

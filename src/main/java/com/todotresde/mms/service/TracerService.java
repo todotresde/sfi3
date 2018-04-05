@@ -197,5 +197,10 @@ public class TracerService {
     public List<Tracer> getFinishedForWorkStationConfig(WorkStationConfig workStationConfig) {
         return this.tracerRepository.findByWorkStationAndStatus(workStationConfig.getWorkStation(), STATUS_FINISHED);
     }
+
+    public Tracer findByCodeAndIp(String code, String ip) {
+        WorkStation workStation = this.workStationRepository.findByIp(ip);
+        return this.tracerRepository.findByWorkStationAndCode(workStation, code);
+    }
 }
 

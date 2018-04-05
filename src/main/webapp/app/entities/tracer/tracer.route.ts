@@ -5,7 +5,7 @@ import { TracerComponent } from './tracer.component';
 import { TracerWorkStationComponent } from './tracer-workstation.component';
 import { TracerDetailComponent } from './tracer-detail.component';
 import { TracerStartComponent } from './tracer-start.component';
-import { TracerStartPopupComponent } from './tracer-start.component';
+import { TracerStartPopupComponent, TracerStartCodeIpPopupComponent } from './tracer-start.component';
 import { TracerPopupComponent } from './tracer-dialog.component';
 import { TracerDeletePopupComponent } from './tracer-delete-dialog.component';
 
@@ -31,7 +31,7 @@ export const tracerRoute: Routes = [
         component: TracerWorkStationComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'sfi2App.tracer.home.title'
+            pageTitle: 'mmsApp.tracer.home.title'
         },
         canActivate: [UserRouteAccessService]
     }
@@ -63,7 +63,7 @@ export const tracerPopupRoute: Routes = [
         component: TracerDeletePopupComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'sfi23pp.tracer.home.title'
+            pageTitle: 'mmsApp.tracer.home.title'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'
@@ -73,7 +73,17 @@ export const tracerPopupRoute: Routes = [
         component: TracerStartPopupComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'sfiApp.tracer.home.title'
+            pageTitle: 'mmsApp.tracer.home.title'
+        },
+        canActivate: [UserRouteAccessService],
+        outlet: 'popup'
+    },
+    {
+        path: 'tracer/start/code/:code/ip/:ip/',
+        component: TracerStartCodeIpPopupComponent,
+        data: {
+            authorities: ['ROLE_USER'],
+            pageTitle: 'mmsApp.tracer.home.title'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'

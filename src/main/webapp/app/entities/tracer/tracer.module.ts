@@ -10,6 +10,7 @@ import {
     TracerDetailComponent,
     TracerStartComponent,
     TracerStartPopupComponent,
+    TracerStartCodeIpPopupComponent,
     TracerDialogComponent,
     TracerPopupComponent,
     TracerDeletePopupComponent,
@@ -35,6 +36,7 @@ const ENTITY_STATES = [
         TracerDialogComponent,
         TracerStartComponent,
         TracerStartPopupComponent,
+        TracerStartCodeIpPopupComponent,
         TracerDeleteDialogComponent,
         TracerPopupComponent,
         TracerDeletePopupComponent
@@ -45,6 +47,7 @@ const ENTITY_STATES = [
         TracerDialogComponent,
         TracerStartComponent,
         TracerStartPopupComponent,
+        TracerStartCodeIpPopupComponent,
         TracerPopupComponent,
         TracerDeleteDialogComponent,
         TracerDeletePopupComponent,

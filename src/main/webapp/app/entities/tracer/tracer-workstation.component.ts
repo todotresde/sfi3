@@ -23,6 +23,7 @@ export class TracerWorkStationComponent implements OnInit, OnDestroy {
     eventSubscriber: Subscription;
     eventSubscribeReload: Subscription;
     workStationIP: string;
+    code = '';
 
     constructor(
         private tracerService: TracerService,
@@ -32,9 +33,11 @@ export class TracerWorkStationComponent implements OnInit, OnDestroy {
         private principal: Principal,
         private route: ActivatedRoute
     ) {
+        // Necessary to reload when th WorkStationIP changes.
         route.params.subscribe((val) => {
             this.ngOnInit();
         });
+        this.eventSubscribeReload = Observable.interval(60000).subscribe((time) => this.loadAll());
     }
 
     loadAll() {
@@ -59,7 +62,6 @@ export class TracerWorkStationComponent implements OnInit, OnDestroy {
         });
         this.registerChangeInTracers();
         this.loadAll();
-        this.eventSubscribeReload = Observable.interval(60000).subscribe((time) => this.loadAll());
     }
 
     ngOnDestroy() {
@@ -72,6 +74,9 @@ export class TracerWorkStationComponent implements OnInit, OnDestroy {
     }
     registerChangeInTracers() {
         this.eventSubscriber = this.eventManager.subscribe('tracerListModification', (response) => this.loadAll());
+    }
+    loadTrace(code: string) {
+        this.code = code;
     }
 
     private onError(error) {

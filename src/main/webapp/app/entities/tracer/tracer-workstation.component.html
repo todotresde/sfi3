@@ -3,42 +3,34 @@
         <span >Tracers for WorkStation {{workStation?.name}} ({{workStation?.ip}})</span>
     </h2>
     <jhi-alert></jhi-alert>
-    <div class="row">
+    <div class="form-inline float-right w-50">
+        <label class="form-control-label mr-2" for="code" jhiTranslate="mmsApp.tracer.code">Code</label>
+        <input type="text" class="form-control mr-2 w-50" id="code" name="code" [value]="code" />
+        <button type="submit" 
+            [routerLink]="['/', { outlets: { popup: 'tracer/start/code/' + code + '/ip/' + workStationIP + '/'} }]"
+            replaceUrl="true" class="btn btn-danger btn-sm">
+            <span class="fa fa-cogs"></span>
+            <span class="hidden-md-down" jhiTranslate="mmsApp.tracer.start.start">Start</span>
+        </button>
     </div>
-    <br/>
+    <div class="row mb-5" ></div>
     <div class="table-responsive" *ngIf="tracers">
         <table class="table table-striped">
             <thead>
             <tr>
             <th><span jhiTranslate="mmsApp.tracer.code">Code</span></th>
             <th><span jhiTranslate="mmsApp.tracer.inTime">In Time</span></th>
-            <th><span jhiTranslate="mmsApp.tracer.startTime">Start Time</span></th>
-            <th><span jhiTranslate="mmsApp.tracer.endTime">End Time</span></th>
             <th><span jhiTranslate="mmsApp.tracer.manufacturingOrder">Manufacturing Order</span></th>
-            <th><span jhiTranslate="mmsApp.tracer.product">Product</span></th>
-            <th><span jhiTranslate="mmsApp.tracer.workStation">WorkStation</span></th>
             <th></th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let tracer of tracers ;trackBy: trackId">
-                <td>{{tracer.code | smallUUID }}</td>
+                <td (click)="loadTrace(tracer.code)">{{tracer.code | smallUUID }}</td>
                 <td>{{tracer.inTime | date:'short':'-0300'}}</td>
-                <td>{{tracer.startTime | date:'short':'-0300'}}</td>
-                <td>{{tracer.endTime | date:'short':'-0300'}}</td>
                 <td>
                     <div *ngIf="tracer.manufacturingOrder">
                         <a [routerLink]="['/manufacturing-order', tracer.manufacturingOrder?.id ]" >{{tracer.manufacturingOrder?.code}}</a>
-                    </div>
-                </td>
-                <td>
-                    <div *ngIf="tracer.product">
-                        <a [routerLink]="['/product', tracer.product?.id ]" >{{tracer.product?.description}}</a>
-                    </div>
-                </td>
-                <td>
-                    <div *ngIf="tracer.workStation">
-                        <a [routerLink]="['/workStation', tracer.workStation?.id ]" >{{tracer.workStation?.name}}</a>
                     </div>
                 </td>
                 <td class="text-right">

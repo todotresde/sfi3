@@ -120,3 +120,33 @@ export class TracerStartPopupComponent implements OnInit, OnDestroy {
         this.routeSub.unsubscribe();
     }
 }
+
+@Component({
+    selector: 'jhi-tracer-code-ip-spopup',
+    template: ''
+})
+export class TracerStartCodeIpPopupComponent implements OnInit, OnDestroy {
+
+    routeSub: any;
+
+    constructor(
+        private route: ActivatedRoute,
+        private tracerPopupService: TracerPopupService
+    ) {}
+
+    ngOnInit() {
+        this.routeSub = this.route.params.subscribe((params) => {
+            if ( params['code'] && params['ip'] ) {
+                this.tracerPopupService
+                    .openCodeIp(TracerStartComponent as Component, params['code'], params['ip']);
+            } else {
+                this.tracerPopupService
+                    .open(TracerStartComponent as Component);
+            }
+        });
+    }
+
+    ngOnDestroy() {
+        this.routeSub.unsubscribe();
+    }
+}

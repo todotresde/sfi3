@@ -16,6 +16,7 @@
         <table class="table table-striped">
             <thead>
             <tr>
+            <th><span jhiTranslate="mmsApp.workStationConfig.line">Line</span></th>
             <th><span jhiTranslate="mmsApp.workStationConfig.first">First</span></th>
             <th><span jhiTranslate="mmsApp.workStationConfig.last">Last</span></th>
             <th><span jhiTranslate="mmsApp.workStationConfig.prevWorkStation">Prev Work Station</span></th>
@@ -25,12 +26,16 @@
             <th><span jhiTranslate="mmsApp.workStationConfig.employee">Employee</span></th>
             <th><span jhiTranslate="mmsApp.workStationConfig.row">Row</span></th>
             <th><span jhiTranslate="mmsApp.workStationConfig.col">Col</span></th>
-            <th><span jhiTranslate="mmsApp.workStationConfig.line">Line</span></th>
             <th></th>
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let workStationConfig of workStationConfigs ;trackBy: trackId">
+            <tr *ngFor="let workStationConfig of workStationConfigs | sort : ['line.name','row','col'] ;trackBy: trackId">
+                <td>
+                    <div *ngIf="workStationConfig.line">
+                        <a [routerLink]="['../line', workStationConfig.line?.id ]" >{{workStationConfig.line?.name}}</a>
+                    </div>
+                </td>
                 <td><i *ngIf="workStationConfig.first" class="fa fa-check"></i></td>
                 <td><i *ngIf="workStationConfig.last" class="fa fa-check"></i></td>
                 <td>
@@ -60,11 +65,6 @@
                 </td>
                 <td>{{workStationConfig.row}}</td>
                 <td>{{workStationConfig.col}}</td>
-                <td>
-                    <div *ngIf="workStationConfig.line">
-                        <a [routerLink]="['../line', workStationConfig.line?.id ]" >{{workStationConfig.line?.name}}</a>
-                    </div>
-                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

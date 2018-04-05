@@ -21,3 +21,28 @@ export class Status implements PipeTransform {
    }
   }
 }
+
+@Pipe({name: 'sort'})
+export class Sort implements PipeTransform {
+  transform(array: Array<any>, args: Array<string>): Array<any> {
+    if (array) {
+          array.sort((a: any, b: any) => {
+              let valueA = '';
+              let valueB = '';
+              args.forEach((field) => {
+                  valueA += (field.indexOf('.') !== -1) ? a[field.split('.')[0]][field.split('.')[1]] : a[field];
+                  valueB += (field.indexOf('.') !== -1) ? b[field.split('.')[0]][field.split('.')[1]] : b[field];
+              });
+
+              if (valueA < valueB) {
+                  return -1;
+              } else if (valueA > valueB) {
+                  return 1;
+              } else {
+                  return 0;
+              }
+          });
+      }
+      return array;
+  }
+}

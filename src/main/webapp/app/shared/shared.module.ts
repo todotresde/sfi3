@@ -1,6 +1,6 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { DatePipe } from '@angular/common';
-import { SmallUUID, Status } from '../app.pipes';
+import { SmallUUID, Status, Sort } from '../app.pipes';
 
 import {
     MMSSharedLibsModule,
@@ -26,7 +26,8 @@ import {
         JhiLoginModalComponent,
         HasAnyAuthorityDirective,
         SmallUUID,
-        Status
+        Status,
+        Sort
     ],
     providers: [
         LoginService,
@@ -39,7 +40,8 @@ import {
         UserService,
         DatePipe,
         SmallUUID,
-        Status
+        Status,
+        Sort
     ],
     entryComponents: [JhiLoginModalComponent],
     exports: [
@@ -48,7 +50,8 @@ import {
         HasAnyAuthorityDirective,
         DatePipe,
         SmallUUID,
-        Status
+        Status,
+        Sort
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 
