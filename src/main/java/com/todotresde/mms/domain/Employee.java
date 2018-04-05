@@ -33,9 +33,9 @@ public class Employee implements Serializable {
     @Column(name = "last_name")
     private String lastName;
 
+    @ManyToOne(optional = false)
     @NotNull
-    @Column(name = "user_id", nullable = false)
-    private String userId;
+    private User user;
 
     @ManyToMany(mappedBy = "employees")
     @JsonIgnore
@@ -77,17 +77,17 @@ public class Employee implements Serializable {
         this.lastName = lastName;
     }
 
-    public String getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public Employee userId(String userId) {
-        this.userId = userId;
+    public Employee user(User user) {
+        this.user = user;
         return this;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Set<WorkStationConfig> getWorkStationConfigs() {
@@ -142,7 +142,6 @@ public class Employee implements Serializable {
             "id=" + getId() +
             ", name='" + getName() + "'" +
             ", lastName='" + getLastName() + "'" +
-            ", userId='" + getUserId() + "'" +
             "}";
     }
 }

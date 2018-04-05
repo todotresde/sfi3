@@ -9,11 +9,12 @@ import { Tracer } from './tracer.model';
 import { TracerService } from './tracer.service';
 import { WorkStation } from '../work-station/work-station.model';
 import { WorkStationService } from '../work-station/work-station.service';
+import { UserService } from '../../shared/user/user.service';
 import { ITEMS_PER_PAGE, Principal } from '../../shared';
 import { PaginationConfig } from '../../blocks/config/uib-pagination.config';
 
 @Component({
-    selector: 'jhi-tracer',
+    selector: 'jhi-tracer-workstation',
     templateUrl: './tracer-workstation.component.html'
 })
 export class TracerWorkStationComponent implements OnInit, OnDestroy {
@@ -28,6 +29,7 @@ export class TracerWorkStationComponent implements OnInit, OnDestroy {
     constructor(
         private tracerService: TracerService,
         private workStationService: WorkStationService,
+        private userService: UserService,
         private alertService: JhiAlertService,
         private eventManager: JhiEventManager,
         private principal: Principal,
@@ -56,12 +58,18 @@ export class TracerWorkStationComponent implements OnInit, OnDestroy {
         );
     }
     ngOnInit() {
-        this.workStationIP = this.route.snapshot.paramMap.get('ip');
         this.principal.identity().then((account) => {
             this.currentAccount = account;
         });
         this.registerChangeInTracers();
-        this.loadAll();
+
+        this.workStationIP = this.route.snapshot.paramMap.get('ip');
+
+        this.userService.getIP('anonymous').subscribe((res) => {
+            this.workStationIP = res;
+            this.loadAll();
+        });
+
     }
 
     ngOnDestroy() {

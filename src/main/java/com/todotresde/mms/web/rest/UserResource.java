@@ -25,6 +25,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -171,6 +172,21 @@ public class UserResource {
         return ResponseUtil.wrapOrNotFound(
             userService.getUserWithAuthoritiesByLogin(login)
                 .map(UserDTO::new));
+    }
+
+    /**
+     * GET /users/ip/:login : get the "ip" from current user.
+     *
+     * @param login the login of the user to find
+     * @return the ResponseEntity with status 200 (OK) and with ip the "login" user, or with status 404 (Not Found)
+     */
+    @GetMapping("/users/ip/{login}")
+    @Timed
+    public List<String> getUserIP(@PathVariable String login, HttpServletRequest request) {
+        log.debug("REST request to get User IP for : {}", login);
+        List<String> userIP = new ArrayList<>();
+        userIP.add(request.getRemoteAddr());
+        return userIP;
     }
 
     /**

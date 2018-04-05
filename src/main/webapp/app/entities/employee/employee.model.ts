@@ -5,7 +5,7 @@ export class Employee implements BaseEntity {
         public id?: number,
         public name?: string,
         public lastName?: string,
-        public userId?: string,
+        public user?: BaseEntity,
         public workStationConfigs?: BaseEntity[],
     ) {
     }

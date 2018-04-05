@@ -7,6 +7,13 @@
             "otherEntityName": "workStationConfig",
             "ownerSide": false,
             "otherEntityRelationshipName": "employee"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "otherEntityField": "id"
         }
     ],
     "fields": [

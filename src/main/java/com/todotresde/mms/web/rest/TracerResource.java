@@ -9,6 +9,7 @@ import com.todotresde.mms.repository.TracerRepository;
 import com.todotresde.mms.repository.WorkStationRepository;
 import com.todotresde.mms.service.LineService;
 import com.todotresde.mms.service.TracerService;
+import com.todotresde.mms.service.util.NetworkUtil;
 import com.todotresde.mms.web.rest.errors.BadRequestAlertException;
 import com.todotresde.mms.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
@@ -17,6 +18,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -121,8 +123,9 @@ public class TracerResource {
      */
     @GetMapping("/tracers/workStationIP/{ip}")
     @Timed
-    public List<Tracer> getAllTracersByWorkStationIP(@PathVariable String ip) {
+    public List<Tracer> getAllTracersByWorkStationIP(@PathVariable String ip, HttpServletRequest request) {
         log.debug("REST request to get all Tracers by WorkStation IP");
+        if(!NetworkUtil.validate(ip)) { ip = request.getRemoteHost(); }
         WorkStation workStation = workStationRepository.findByIp(ip);
         return tracerRepository.findByWorkStationAndStatus(workStation,Constants.STATUS_CREATED);
     }

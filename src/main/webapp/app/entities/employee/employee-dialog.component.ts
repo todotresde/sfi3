@@ -9,7 +9,8 @@ import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 import { Employee } from './employee.model';
 import { EmployeePopupService } from './employee-popup.service';
 import { EmployeeService } from './employee.service';
-import { WorkStationConfig, WorkStationConfigService } from '../work-station-config';
+import { User } from '../../shared/user/user.model';
+import { UserService } from '../../shared/user/user.service';
 
 @Component({
     selector: 'jhi-employee-dialog',
@@ -20,21 +21,24 @@ export class EmployeeDialogComponent implements OnInit {
     employee: Employee;
     isSaving: boolean;
 
-    workstationconfigs: WorkStationConfig[];
+    users: User[];
 
     constructor(
         public activeModal: NgbActiveModal,
         private jhiAlertService: JhiAlertService,
         private employeeService: EmployeeService,
-        private workStationConfigService: WorkStationConfigService,
+        private userService: UserService,
         private eventManager: JhiEventManager
     ) {
     }
 
     ngOnInit() {
         this.isSaving = false;
-        this.workStationConfigService.query()
-            .subscribe((res: HttpResponse<WorkStationConfig[]>) => { this.workstationconfigs = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
+        this.userService.query()
+            .subscribe((res: HttpResponse<User[]>) => {
+                this.users = res.body;
+            }, (res: HttpErrorResponse) => this.onError(res.message));
+
     }
 
     clear() {
@@ -71,7 +75,7 @@ export class EmployeeDialogComponent implements OnInit {
         this.jhiAlertService.error(error.message, null, null);
     }
 
-    trackWorkStationConfigById(index: number, item: WorkStationConfig) {
+    trackUserById(index: number, item: User) {
         return item.id;
     }
 

@@ -24,6 +24,10 @@ export class UserService {
         return this.http.get<User>(`${this.resourceUrl}/${login}`, { observe: 'response' });
     }
 
+    getIP(login: string): Observable<string> {
+        return this.http.get<string>(`${this.resourceUrl}/ip/${login}`);
+    }
+
     query(req?: any): Observable<HttpResponse<User[]>> {
         const options = createRequestOption(req);
         return this.http.get<User[]>(this.resourceUrl, { params: options, observe: 'response' });

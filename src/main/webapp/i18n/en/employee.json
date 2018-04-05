@@ -18,7 +18,7 @@
             },
             "name": "Name",
             "lastName": "Last Name",
-            "userId": "User Id",
+            "user": "User",
             "workStationConfig": "Work Station Config"
         }
     }

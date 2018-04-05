@@ -4,6 +4,7 @@ import com.codahale.metrics.annotation.Timed;
 import com.todotresde.mms.domain.WorkStation;
 
 import com.todotresde.mms.repository.WorkStationRepository;
+import com.todotresde.mms.service.util.NetworkUtil;
 import com.todotresde.mms.web.rest.errors.BadRequestAlertException;
 import com.todotresde.mms.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
@@ -12,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -112,8 +114,9 @@ public class WorkStationResource {
      */
     @GetMapping("/work-stations/ip/{ip}")
     @Timed
-    public ResponseEntity<WorkStation> getWorkStationByIP(@PathVariable String ip) {
+    public ResponseEntity<WorkStation> getWorkStationByIP(@PathVariable String ip, HttpServletRequest request) {
         log.debug("REST request to get WorkStation : {}", ip);
+        if(!NetworkUtil.validate(ip)) { ip = request.getRemoteHost();}
         WorkStation workStation = workStationRepository.findByIp(ip);
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(workStation));
     }
