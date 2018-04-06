@@ -12,7 +12,7 @@ export const lineRoute: Routes = [
         path: 'line',
         component: LineComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'mmsApp.line.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -20,7 +20,7 @@ export const lineRoute: Routes = [
         path: 'line/:id',
         component: LineDetailComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'mmsApp.line.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -28,7 +28,7 @@ export const lineRoute: Routes = [
         path: 'line-status',
         component: LineStatusComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN','ROLE_CHIEF'],
             pageTitle: 'mmsApp.line.status.title'
         },
         canActivate: [UserRouteAccessService]
@@ -40,7 +40,7 @@ export const linePopupRoute: Routes = [
         path: 'line-new',
         component: LinePopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'mmsApp.line.home.title'
         },
         canActivate: [UserRouteAccessService],
@@ -50,7 +50,7 @@ export const linePopupRoute: Routes = [
         path: 'line/:id/edit',
         component: LinePopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'mmsApp.line.home.title'
         },
         canActivate: [UserRouteAccessService],
@@ -60,7 +60,7 @@ export const linePopupRoute: Routes = [
         path: 'line/:id/delete',
         component: LineDeletePopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'mmsApp.line.home.title'
         },
         canActivate: [UserRouteAccessService],

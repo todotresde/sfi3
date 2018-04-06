@@ -11,7 +11,7 @@ export const workStationRoute: Routes = [
         path: 'work-station',
         component: WorkStationComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'mmsApp.workStation.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -19,7 +19,7 @@ export const workStationRoute: Routes = [
         path: 'work-station/:id',
         component: WorkStationDetailComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'mmsApp.workStation.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -31,7 +31,7 @@ export const workStationPopupRoute: Routes = [
         path: 'work-station-new',
         component: WorkStationPopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'mmsApp.workStation.home.title'
         },
         canActivate: [UserRouteAccessService],
@@ -41,7 +41,7 @@ export const workStationPopupRoute: Routes = [
         path: 'work-station/:id/edit',
         component: WorkStationPopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'mmsApp.workStation.home.title'
         },
         canActivate: [UserRouteAccessService],
@@ -51,7 +51,7 @@ export const workStationPopupRoute: Routes = [
         path: 'work-station/:id/delete',
         component: WorkStationDeletePopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'mmsApp.workStation.home.title'
         },
         canActivate: [UserRouteAccessService],

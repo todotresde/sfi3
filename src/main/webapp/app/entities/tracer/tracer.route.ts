@@ -14,7 +14,7 @@ export const tracerRoute: Routes = [
         path: 'tracer',
         component: TracerComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'mmsApp.tracer.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -22,7 +22,7 @@ export const tracerRoute: Routes = [
         path: 'tracer/:id',
         component: TracerDetailComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'mmsApp.tracer.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -30,7 +30,7 @@ export const tracerRoute: Routes = [
         path: 'tracer/workStationIP/:ip',
         component: TracerWorkStationComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN','ROLE_USER'],
             pageTitle: 'mmsApp.tracer.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -42,7 +42,7 @@ export const tracerPopupRoute: Routes = [
         path: 'tracer-new',
         component: TracerPopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'mmsApp.tracer.home.title'
         },
         canActivate: [UserRouteAccessService],
@@ -52,7 +52,7 @@ export const tracerPopupRoute: Routes = [
         path: 'tracer/:id/edit',
         component: TracerPopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'mmsApp.tracer.home.title'
         },
         canActivate: [UserRouteAccessService],
@@ -62,7 +62,7 @@ export const tracerPopupRoute: Routes = [
         path: 'tracer/:id/delete',
         component: TracerDeletePopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'mmsApp.tracer.home.title'
         },
         canActivate: [UserRouteAccessService],
@@ -72,7 +72,7 @@ export const tracerPopupRoute: Routes = [
         path: 'tracer/start/:id',
         component: TracerStartPopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'mmsApp.tracer.home.title'
         },
         canActivate: [UserRouteAccessService],
@@ -82,7 +82,7 @@ export const tracerPopupRoute: Routes = [
         path: 'tracer/start/code/:code/ip/:ip/',
         component: TracerStartCodeIpPopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'mmsApp.tracer.home.title'
         },
         canActivate: [UserRouteAccessService],

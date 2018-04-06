@@ -62,14 +62,7 @@ export class TracerWorkStationComponent implements OnInit, OnDestroy {
             this.currentAccount = account;
         });
         this.registerChangeInTracers();
-
-        this.workStationIP = this.route.snapshot.paramMap.get('ip');
-
-        this.userService.getIP('anonymous').subscribe((res) => {
-            this.workStationIP = res;
-            this.loadAll();
-        });
-
+        this.setWorkStationIP();
     }
 
     ngOnDestroy() {
@@ -85,6 +78,18 @@ export class TracerWorkStationComponent implements OnInit, OnDestroy {
     }
     loadTrace(code: string) {
         this.code = code;
+    }
+    setWorkStationIP() {
+        this.workStationIP = this.route.snapshot.paramMap.get('ip');
+
+        if (!this.workStationIP) {
+            this.userService.getIP('anonymous').subscribe((res) => {
+                this.workStationIP = res[0];
+                this.loadAll();
+            });
+        } else {
+            this.loadAll();
+        }
     }
 
     private onError(error) {

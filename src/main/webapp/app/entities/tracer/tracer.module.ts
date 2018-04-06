@@ -57,8 +57,6 @@ const ENTITY_STATES = [
         TracerPopupService,
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    exports: [
-        TracerWorkStationComponent
-    ]
+    exports: []
 })
 export class MMSTracerModule {}

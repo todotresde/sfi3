@@ -11,7 +11,7 @@ export const productRoute: Routes = [
         path: 'product',
         component: ProductComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'mmsApp.product.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -19,7 +19,7 @@ export const productRoute: Routes = [
         path: 'product/:id',
         component: ProductDetailComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'mmsApp.product.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -31,7 +31,7 @@ export const productPopupRoute: Routes = [
         path: 'product-new',
         component: ProductPopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'mmsApp.product.home.title'
         },
         canActivate: [UserRouteAccessService],
@@ -41,7 +41,7 @@ export const productPopupRoute: Routes = [
         path: 'product/:id/edit',
         component: ProductPopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'mmsApp.product.home.title'
         },
         canActivate: [UserRouteAccessService],
@@ -51,7 +51,7 @@ export const productPopupRoute: Routes = [
         path: 'product/:id/delete',
         component: ProductDeletePopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'mmsApp.product.home.title'
         },
         canActivate: [UserRouteAccessService],

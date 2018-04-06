@@ -60,6 +60,9 @@ const ENTITY_STATES = [
         ManufacturingOrderPopupService,
         ManufacturingOrderResolvePagingParams
     ],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    exports: [
+        ManufacturingOrderComponent
+    ]
 })
 export class MMSManufacturingOrderModule {}

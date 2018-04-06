@@ -11,7 +11,7 @@ export const supplyTypeAttrValueRoute: Routes = [
         path: 'supply-type-attr-value',
         component: SupplyTypeAttrValueComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'mmsApp.supplyTypeAttrValue.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -19,7 +19,7 @@ export const supplyTypeAttrValueRoute: Routes = [
         path: 'supply-type-attr-value/:id',
         component: SupplyTypeAttrValueDetailComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'mmsApp.supplyTypeAttrValue.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -31,7 +31,7 @@ export const supplyTypeAttrValuePopupRoute: Routes = [
         path: 'supply-type-attr-value-new',
         component: SupplyTypeAttrValuePopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'mmsApp.supplyTypeAttrValue.home.title'
         },
         canActivate: [UserRouteAccessService],
@@ -41,7 +41,7 @@ export const supplyTypeAttrValuePopupRoute: Routes = [
         path: 'supply-type-attr-value/:id/edit',
         component: SupplyTypeAttrValuePopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'mmsApp.supplyTypeAttrValue.home.title'
         },
         canActivate: [UserRouteAccessService],
@@ -51,7 +51,7 @@ export const supplyTypeAttrValuePopupRoute: Routes = [
         path: 'supply-type-attr-value/:id/delete',
         component: SupplyTypeAttrValueDeletePopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'mmsApp.supplyTypeAttrValue.home.title'
         },
         canActivate: [UserRouteAccessService],

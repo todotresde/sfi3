@@ -118,7 +118,7 @@ public class TracerService {
             nextTracer.setManufacturingOrder(tracer.getManufacturingOrder());
             nextTracer.setProduct(tracer.getProduct());
             nextTracer.setSupply(supply);
-            tracer.setSupplyTypeAttrValues(new HashSet<>(supplyTypeAttrValues));
+            nextTracer.setSupplyTypeAttrValues(new HashSet<>(supplyTypeAttrValues));
             nextTracer.setLine(tracer.getLine());
             nextTracer.setWorkStation(workStationConfig.getWorkStation());
             nextTracer.setPrevWorkStation(tracer.getWorkStation());

@@ -29,8 +29,6 @@
             <tr>
             <th><span jhiTranslate="mmsApp.tracer.code">Code</span></th>
             <th><span jhiTranslate="mmsApp.tracer.inTime">In Time</span></th>
-            <th><span jhiTranslate="mmsApp.tracer.startTime">Start Time</span></th>
-            <th><span jhiTranslate="mmsApp.tracer.endTime">End Time</span></th>
             <th><span jhiTranslate="mmsApp.tracer.manufacturingOrder">Manufacturing Order</span></th>
             <th><span jhiTranslate="mmsApp.tracer.supply">Supply</span></th>
             </tr>
@@ -39,8 +37,6 @@
             <tr *ngFor="let tracer of tracers">
                 <td>{{tracer.code | smallUUID }}</td>
                 <td>{{tracer.inTime | date:'short':'-0300'}}</td>
-                <td>{{tracer.startTime | date:'short':'-0300'}}</td>
-                <td>{{tracer.endTime | date:'short':'-0300'}}</td>
                 <td>
                     <div *ngIf="tracer.manufacturingOrder">
                         <a [routerLink]="['../manufacturing-order', tracer.manufacturingOrder?.id ]" >{{tracer.manufacturingOrder?.code}}</a>

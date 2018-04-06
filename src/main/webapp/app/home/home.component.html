@@ -1,3 +1,9 @@
 <div class="row">
-    <jhi-tracer-workstation class="col"></jhi-tracer-workstation>
+	<div [hidden]="!isAuthenticated()" class="col">
+	    <jhi-tracer-workstation *jhiHasAnyAuthority="'ROLE_USER'" ></jhi-tracer-workstation>
+	</div>
+	<div [hidden]="isAuthenticated()" class="col">
+		<h1 class="display-4" jhiTranslate="home.title">Welcome to Manual Manufacturing System</h1>
+	    <p class="lead" jhiTranslate="home.subtitle">This is your homepage</p>
+	</div>
 </div>
