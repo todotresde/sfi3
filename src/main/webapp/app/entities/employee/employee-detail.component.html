@@ -3,20 +3,20 @@
     <h2><span jhiTranslate="mmsApp.employee.detail.title">Employee</span> {{employee.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
-    <dl class="row-md jh-entity-details">
-        <dt><span jhiTranslate="mmsApp.employee.name">Name</span></dt>
-        <dd>
-            <span>{{employee.name}}</span>
-        </dd>
-        <dt><span jhiTranslate="mmsApp.employee.lastName">Last Name</span></dt>
-        <dd>
-            <span>{{employee.lastName}}</span>
-        </dd>
-        <dt><span jhiTranslate="mmsApp.employee.user">User</span></dt>
-        <dd>
-            <span>{{employee.user.name}}</span>
-        </dd>
-    </dl>
+    <div class='row'>
+        <div class="col form-group">
+            <label class="form-control-label" jhiTranslate="mmsApp.employee.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name" [value]="employee.name" readonly/>
+        </div>
+        <div class="col form-group">
+            <label class="form-control-label" jhiTranslate="mmsApp.employee.lastName" for="field_lastName">Last Name</label>
+            <input type="text" class="form-control" name="lastName" id="field_lastName" [value]="employee.lastName" readonly/>
+        </div>
+        <div class="col form-group">
+            <label class="form-control-label" jhiTranslate="mmsApp.employee.user" for="field_user">User</label>
+            <input type="text" class="form-control" name="user" id="field_user" [value]="employee.user?.firstName" readonly/>
+        </div>
+    </div>
 
     <button type="submit"
             (click)="previousState()"

@@ -20,7 +20,8 @@
             "shortName": "Short Name",
             "ip": "Ip",
             "prevWorkStationConfig": "Prev Work Station Config",
-            "nextWorkStationConfig": "Next Work Station Config"
+            "nextWorkStationConfig": "Next Work Station Config",
+            "work": "Work"
         }
     }
 }

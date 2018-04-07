@@ -3,20 +3,20 @@
     <h2><span jhiTranslate="mmsApp.workStation.detail.title">Work Station</span> {{workStation.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
-    <dl class="row-md jh-entity-details">
-        <dt><span jhiTranslate="mmsApp.workStation.name">Name</span></dt>
-        <dd>
-            <span>{{workStation.name}}</span>
-        </dd>
-        <dt><span jhiTranslate="mmsApp.workStation.shortName">Short Name</span></dt>
-        <dd>
-            <span>{{workStation.shortName}}</span>
-        </dd>
-        <dt><span jhiTranslate="mmsApp.workStation.ip">Ip</span></dt>
-        <dd>
-            <span>{{workStation.ip}}</span>
-        </dd>
-    </dl>
+    <div class='row'>
+        <div class="col form-group">
+            <label class="form-control-label" jhiTranslate="mmsApp.workStation.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name" [value]="workStation.name" readonly/>
+        </div>
+        <div class="col form-group">
+            <label class="form-control-label" jhiTranslate="mmsApp.workStation.shortName" for="field_shortName">Short Name</label>
+            <input type="text" class="form-control" name="shortName" id="field_shortName" [value]="workStation.shortName" readonly/>
+        </div>
+        <div class="col form-group">
+            <label class="form-control-label" jhiTranslate="mmsApp.workStation.ip" for="field_ip">IP</label>
+            <input type="text" class="form-control" name="ip" id="field_ip" [value]="workStation.ip" readonly/>
+        </div>
+    </div>
 
     <button type="submit"
             (click)="previousState()"

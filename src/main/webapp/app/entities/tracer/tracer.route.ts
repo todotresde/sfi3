@@ -30,7 +30,7 @@ export const tracerRoute: Routes = [
         path: 'tracer/workStationIP/:ip',
         component: TracerWorkStationComponent,
         data: {
-            authorities: ['ROLE_ADMIN','ROLE_USER'],
+            authorities: ['ROLE_ADMIN', 'ROLE_USER'],
             pageTitle: 'mmsApp.tracer.home.title'
         },
         canActivate: [UserRouteAccessService]

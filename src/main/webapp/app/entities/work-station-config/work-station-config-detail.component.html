@@ -3,60 +3,80 @@
     <h2><span jhiTranslate="mmsApp.workStationConfig.detail.title">Work Station Config</span> {{workStationConfig.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
-    <dl class="row-md jh-entity-details">
-        <dt><span jhiTranslate="mmsApp.workStationConfig.first">First</span></dt>
-        <dd>
-            <span>{{workStationConfig.first}}</span>
-        </dd>
-        <dt><span jhiTranslate="mmsApp.workStationConfig.last">Last</span></dt>
-        <dd>
-            <span>{{workStationConfig.last}}</span>
-        </dd>
-        <dt><span jhiTranslate="mmsApp.workStationConfig.workStation">Work Station</span></dt>
-        <dd>
+    <div class='row'>
+        <div class="col form-group">
+            <label class="form-control-label" jhiTranslate="mmsApp.workStationConfig.line" for="field_line">Line</label>
+            <input type="text" class="form-control" name="line" id="field_line" [value]="workStationConfig.line?.name" readonly/>
+        </div>
+        <div class="col form-group">
+            <label class="form-control-label" jhiTranslate="mmsApp.workStationConfig.first" for="field_first">First</label>
+            <input type="text" class="form-control" name="first" id="field_first" [value]="workStationConfig.first" readonly/>
+        </div>
+        <div class="col form-group">
+            <label class="form-control-label" jhiTranslate="mmsApp.workStationConfig.last" for="field_last">Last</label>
+            <input type="text" class="form-control" name="last" id="field_last" [value]="workStationConfig.last" readonly/>
+        </div>
+    </div>
+    <div class='row'>
+        <div class="col form-group">
+            <label class="form-control-label" jhiTranslate="mmsApp.workStationConfig.workStation" for="field_workStation">Work Station</label>
             <div *ngIf="workStationConfig.workStation">
-                <a [routerLink]="['/work-station', workStationConfig.workStation?.id]">{{workStationConfig.workStation?.id}}</a>
+                <input type="text" class="form-control" name="workStation" id="field_last" [value]="workStationConfig.workStation?.name" readonly/>
             </div>
-        </dd>
-        <dt><span jhiTranslate="mmsApp.workStationConfig.supplyType">Supply Type</span></dt>
-        <dd>
-            <span *ngFor="let supplyType of workStationConfig.supplyTypes; let last = last">
-                <a [routerLink]="['/supply-type', supplyType?.id ]">{{supplyType.id}}</a>{{last ? '' : ', '}}
-            </span>
-        </dd>
-        <dt><span jhiTranslate="mmsApp.workStationConfig.employee">Employee</span></dt>
-        <dd>
-            <span *ngFor="let employee of workStationConfig.employees; let last = last">
-                <a [routerLink]="['/employee', employee?.id ]">{{employee.id}}</a>{{last ? '' : ', '}}
-            </span>
-        </dd>
-        <dt><span jhiTranslate="mmsApp.workStationConfig.prevWorkStation">Prev Work Station</span></dt>
-        <dd>
-            <span *ngFor="let prevWorkStation of workStationConfig.prevWorkStations; let last = last">
-                <a [routerLink]="['/work-station', prevWorkStation?.id ]">{{prevWorkStation.id}}</a>{{last ? '' : ', '}}
-            </span>
-        </dd>
-        <dt><span jhiTranslate="mmsApp.workStationConfig.nextWorkStation">Next Work Station</span></dt>
-        <dd>
-            <span *ngFor="let nextWorkStation of workStationConfig.nextWorkStations; let last = last">
-                <a [routerLink]="['/work-station', nextWorkStation?.id ]">{{nextWorkStation.id}}</a>{{last ? '' : ', '}}
-            </span>
-        </dd>
-        <dt><span jhiTranslate="mmsApp.workStationConfig.row">Row</span></dt>
-        <dd>
-            <span>{{workStationConfig.row}}</span>
-        </dd>
-        <dt><span jhiTranslate="mmsApp.workStationConfig.col">Col</span></dt>
-        <dd>
-            <span>{{workStationConfig.col}}</span>
-        </dd>
-        <dt><span jhiTranslate="mmsApp.workStationConfig.line">Line</span></dt>
-        <dd>
-            <div *ngIf="workStationConfig.line">
-                <a [routerLink]="['/line', workStationConfig.line?.id]">{{workStationConfig.line?.id}}</a>
+        </div>
+        <div class="col form-group">
+            <label class="form-control-label" jhiTranslate="mmsApp.workStationConfig.prevWorkStation" for="field_prevWorkStation">Prev Work Station</label>
+            <div class="form-control" readonly>
+                <span *ngFor="let prevWorkStation of workStationConfig.prevWorkStations; let last = last">
+                    <a [routerLink]="['/supply-type-attr', prevWorkStation?.id ]">{{prevWorkStation?.name}}</a>{{last ? '' : ', '}}
+                </span>
             </div>
-        </dd>
-    </dl>
+        </div>
+        <div class="col form-group">
+            <label class="form-control-label" jhiTranslate="mmsApp.workStationConfig.nextWorkStation" for="field_nextWorkStation">Next Work Station</label>
+            <div class="form-control" readonly>
+                <span *ngFor="let nextWorkStation of workStationConfig.nextWorkStations; let last = last">
+                    <a [routerLink]="['/supply-type-attr', nextWorkStation?.id ]">{{nextWorkStation?.name}}</a>{{last ? '' : ', '}}
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col form-group">
+            <label class="form-control-label" jhiTranslate="mmsApp.workStationConfig.supplyType" for="field_supplyType">Supply Type</label>
+            <div class="form-control" readonly>
+                <span *ngFor="let supplyType of workStationConfig.supplyTypes; let last = last">
+                    <a [routerLink]="['/supply-type-attr', supplyType?.id ]">{{supplyType?.name}}</a>{{last ? '' : ', '}}
+                </span>
+            </div>
+        </div>
+        <div class="col form-group">
+            <label class="form-control-label" jhiTranslate="mmsApp.workStationConfig.employee" for="field_employee">Employee</label>
+            <div class="form-control" readonly>
+                <span *ngFor="let employee of workStationConfig.employees; let last = last">
+                    <a [routerLink]="['/supply-type-attr', employee?.id ]">{{employee?.name}}</a>{{last ? '' : ', '}}
+                </span>
+            </div>
+        </div>
+        <div class="col form-group"></div>
+        <div class="col form-group"></div>
+    </div>
+    <div class="row">
+        <div class="col form-group">
+            <label class="form-control-label" jhiTranslate="mmsApp.workStationConfig.row" for="field_row">Row</label>
+            <div *ngIf="workStationConfig.row">
+                <input type="text" class="form-control" name="row" id="field_row" [value]="workStationConfig.row" readonly/>
+            </div>
+        </div>
+        <div class="col form-group">
+            <label class="form-control-label" jhiTranslate="mmsApp.workStationConfig.col" for="field_col">Col</label>
+            <div *ngIf="workStationConfig.col">
+                <input type="text" class="form-control" name="col" id="field_col" [value]="workStationConfig.col" readonly/>
+            </div>
+        </div>
+        <div class="col form-group"></div>
+        <div class="col form-group"></div>
+    </div>
 
     <button type="submit"
             (click)="previousState()"

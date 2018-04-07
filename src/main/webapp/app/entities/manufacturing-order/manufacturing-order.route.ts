@@ -34,7 +34,7 @@ export const manufacturingOrderRoute: Routes = [
             'pagingParams': ManufacturingOrderResolvePagingParams
         },
         data: {
-            authorities: ['ROLE_ADMIN','ROLE_SALES'],
+            authorities: ['ROLE_ADMIN', 'ROLE_SALES'],
             pageTitle: 'mmsApp.manufacturingOrder.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -42,7 +42,7 @@ export const manufacturingOrderRoute: Routes = [
         path: 'manufacturing-order/:id',
         component: ManufacturingOrderDetailComponent,
         data: {
-            authorities: ['ROLE_ADMIN','ROLE_SALES'],
+            authorities: ['ROLE_ADMIN', 'ROLE_SALES', 'ROLE_CHIEF'],
             pageTitle: 'mmsApp.manufacturingOrder.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -54,7 +54,7 @@ export const manufacturingOrderPopupRoute: Routes = [
         path: 'manufacturing-order-new',
         component: ManufacturingOrderPopupComponent,
         data: {
-            authorities: ['ROLE_ADMIN','ROLE_SALES'],
+            authorities: ['ROLE_ADMIN', 'ROLE_SALES'],
             pageTitle: 'mmsApp.manufacturingOrder.home.title'
         },
         canActivate: [UserRouteAccessService],
@@ -64,7 +64,7 @@ export const manufacturingOrderPopupRoute: Routes = [
         path: 'manufacturing-order/:id/edit',
         component: ManufacturingOrderPopupComponent,
         data: {
-            authorities: ['ROLE_ADMIN','ROLE_SALES'],
+            authorities: ['ROLE_ADMIN', 'ROLE_SALES'],
             pageTitle: 'mmsApp.manufacturingOrder.home.title'
         },
         canActivate: [UserRouteAccessService],
@@ -84,7 +84,7 @@ export const manufacturingOrderPopupRoute: Routes = [
         path: 'manufacturing-order/:id/send',
         component: ManufacturingOrderSendPopupComponent,
         data: {
-            authorities: ['ROLE_ADMIN','ROLE_SALES'],
+            authorities: ['ROLE_ADMIN', 'ROLE_SALES'],
             pageTitle: 'mmsApp.manufacturingOrder.home.title'
         },
         canActivate: [UserRouteAccessService],
@@ -96,7 +96,7 @@ export const manufacturingOrderFullPopupRoute: Routes = [
         path: 'manufacturing-order-full-new',
         component: ManufacturingOrderFullPopupComponent,
         data: {
-            authorities: ['ROLE_ADMIN','ROLE_SALES'],
+            authorities: ['ROLE_ADMIN', 'ROLE_SALES'],
             pageTitle: 'mmsApp.manufacturingOrder.home.title'
         },
         canActivate: [UserRouteAccessService],
@@ -106,7 +106,7 @@ export const manufacturingOrderFullPopupRoute: Routes = [
         path: 'manufacturing-order-full/:id/edit',
         component: ManufacturingOrderFullPopupComponent,
         data: {
-            authorities: ['ROLE_ADMIN','ROLE_SALES'],
+            authorities: ['ROLE_ADMIN', 'ROLE_SALES'],
             pageTitle: 'mmsApp.manufacturingOrder.home.title'
         },
         canActivate: [UserRouteAccessService],

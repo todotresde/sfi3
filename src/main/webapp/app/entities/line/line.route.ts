@@ -28,7 +28,7 @@ export const lineRoute: Routes = [
         path: 'line-status',
         component: LineStatusComponent,
         data: {
-            authorities: ['ROLE_ADMIN','ROLE_CHIEF'],
+            authorities: ['ROLE_ADMIN', 'ROLE_CHIEF'],
             pageTitle: 'mmsApp.line.status.title'
         },
         canActivate: [UserRouteAccessService]

@@ -38,6 +38,10 @@ export class HomeComponent implements OnInit {
         });
     }
 
+    isNotAuthenticated() {
+        return !this.isAuthenticated();
+    }
+
     isAuthenticated() {
         return this.principal.isAuthenticated();
     }

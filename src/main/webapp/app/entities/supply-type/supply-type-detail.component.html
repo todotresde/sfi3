@@ -3,18 +3,20 @@
     <h2><span jhiTranslate="mmsApp.supplyType.detail.title">Supply Type</span> {{supplyType.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
-    <dl class="row-md jh-entity-details">
-        <dt><span jhiTranslate="mmsApp.supplyType.name">Name</span></dt>
-        <dd>
-            <span>{{supplyType.name}}</span>
-        </dd>
-        <dt><span jhiTranslate="mmsApp.supplyType.supplyTypeAttr">Supply Type Attr</span></dt>
-        <dd>
-            <span *ngFor="let supplyTypeAttr of supplyType.supplyTypeAttrs; let last = last">
-                <a [routerLink]="['/supply-type-attr', supplyTypeAttr?.id ]">{{supplyTypeAttr.id}}</a>{{last ? '' : ', '}}
-            </span>
-        </dd>
-    </dl>
+    <div class='row'>
+        <div class="col form-group">
+            <label class="form-control-label" jhiTranslate="mmsApp.supplyType.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name" [value]="supplyType.name" readonly/>
+        </div>
+        <div class="col form-group">
+            <label class="form-control-label" jhiTranslate="mmsApp.supplyType.supplyTypeAttr" for="field_name">Supply Type Attr</label>
+            <div class="form-control">
+                <span *ngFor="let supplyTypeAttr of supplyType.supplyTypeAttrs; let last = last">
+                    <a [routerLink]="['/supply-type-attr', supplyTypeAttr?.id ]">{{supplyTypeAttr.name}}</a>{{last ? '' : ', '}}
+                </span>
+            </div>
+        </div>
+    </div>
 
     <button type="submit"
             (click)="previousState()"

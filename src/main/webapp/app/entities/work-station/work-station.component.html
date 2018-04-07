@@ -36,6 +36,12 @@
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
                         </button>
                         <button type="submit"
+                                [routerLink]="['/tracer/workStationIP', workStation.ip ]"
+                                class="btn btn-warning btn-sm">
+                            <span class="fa fa-cogs"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="mmsApp.workStation.work">Work</span>
+                        </button>
+                        <button type="submit"
                                 [routerLink]="['/', { outlets: { popup: 'work-station/'+ workStation.id + '/edit'} }]"
                                 replaceUrl="true"
                                 queryParamsHandling="merge"
