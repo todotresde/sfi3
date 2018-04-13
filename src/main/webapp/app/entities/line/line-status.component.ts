@@ -69,7 +69,6 @@ export class LineStatusComponent implements OnInit, OnDestroy {
 
     loadTracersForWorkStation(workStationId: number) {
         this.tracers = this.workStationsDTO[workStationId];
-        console.log(this.workStationsDTO, workStationId);
     }
 
     trackWorkStationConfigId(index: number, item: WorkStationConfig) {

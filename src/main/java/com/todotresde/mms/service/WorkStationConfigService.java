@@ -58,7 +58,7 @@ public class WorkStationConfigService {
             if (null != supply) {
                 workStationConfigs = this.workStationConfigRepository.getByLineAndRowAndSupplyTypeId(workStationConfig.getLine(), workStationConfig.getRow(), supply.getSupplyType().getId());
             } else {
-                workStationConfigs = this.workStationConfigRepository.getByLineAndRowAndSupplyTypeIsNull(workStationConfig.getLine(), workStationConfig.getRow());
+                workStationConfigs = this.workStationConfigRepository.getByLineAndRowAndColAndSupplyTypeIsNull(workStationConfig.getLine(), workStationConfig.getRow(), workStationConfig.getCol() + 1);
             }
 
             if (!workStationConfigs.isEmpty()) {

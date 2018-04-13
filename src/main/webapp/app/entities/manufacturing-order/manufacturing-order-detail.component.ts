@@ -55,7 +55,6 @@ export class ManufacturingOrderDetailComponent implements OnInit, OnDestroy {
         this.manufacturingOrderService.getTimeToFinish(id)
             .subscribe((response: HttpResponse<number>) => {
                 this.manufacturingOrderTimeToFinish = response.body;
-                console.log(this.manufacturingOrderTimeToFinish / 60);
                 this.manufacturingOrderTimeToFinishDays =
                     Math.floor(((this.manufacturingOrderTimeToFinish / 60) / 60) / 8);
                 this.manufacturingOrderTimeToFinishHours =
