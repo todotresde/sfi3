@@ -1,0 +1,64 @@
+0801NNORMAL      bandas pliegan hacia la cadena de mando                                          0200 0100R0010 0700R0020 0000 0000 0000 0000                                                 R
+0802B<<==ABRE==>>bandas se pliegan en dos grupos hacia ambos lados                                0200 0100R0010 0700R0020 0000 0000 0000 0000                                                 R
+0803IM.INVERTIDO bandas se pliegan al lado contrario a los mandos                                 0200 0100R0010 0700R0020 0000 0000 0000 0000                                                 R
+0804DM.DER-M.IZQ para pares de cortinas, una mando derecho y otra izquierdo                       0200 0100R0010 0700R0020 0000 0000 0000 0000                                                 R
+0805C==>>ABRE<<==bandas se pliegan al centro                                                      0200 0100R0010 0700R0020 0000 0000 0000 0000                                                 R
+0806FM.IZQUIERDA motor al frente las bandas se pliegan hacia el motor                             0200 0000 0000 0000 0000 0000 0000 0000 0000                                                 R
+0807JM.IZQUIERDA motor a la ventana las bandas se pliegan hacia el motor                          0000 0000 0000 0000 0000 0000 0000 0000 0000                                                 R
+0808TMEDID.EXACTAsolo para bandas de reemplazo, se indica medida exacta                           0000 0000 0000 0000 0000 0000 0000 0000 0000                                                 R
+0901NNORMAL      mando a la izquierda, tela cae por detras                                        0095 0129F0095 0200F0130 0340F0200 0700F0330                                                 R
+0902JM.DERACHA   mando a la derecha, tela cae por detras                                          0095 0129F0095 0200F0130 0340F0200 0700F0330                                                 R
+0903DM.DER-M.IZQ para pares de cortinas, una mando derecho y otra izquierdo, tela cae por detras  0095 0129F0095 0200F0130 0340F0200 0700F0330                                                 R
+0904XT.DEL M.IZQ mando a la izquierda, tela cae por delante                                       0095 0129F0095 0200F0130 0340F0200 0700F0330                                                 R
+0905YT.DEL M.DER mando a la derecha, tela cae por delante                                         0095 0129F0095 0200F0130 0340F0200 0700F0330                                                 R
+0906ZT.DEL TIPO Zpara pares de cortinas, una mando derecho y otra izquierdo, tela cae por delante 0095 0129F0095 0200F0130 0340F0200 0700F0330                                                 R
+0907TMEDID.EXACTApara telas sin sistema, se indica medida excata                                  0000 0000 0000 0000 0000 0000 0000 0000 0000                                                 R
+0908QTELA X DELANpara casette 2 rolers con caida tela por delante                                 0000 0000 0000 0000 0000 0000 0000 0000 0000                                                 R
+1101NNORMAL      mando a la derecha                                                               0000 0129F0095 0200F0130 0340F0200 0700F0330                                                 R
+1102FM.IZQUIERDA mando a la izquierda                                                             0000 0129F0095 0200F0130 0340F0200 0700F0330                                                 R
+1103DM.DER-M.IZQ para pares de cortinas, una mando derecho y otra izquierdo                       0000 0129F0095 0200F0130 0340F0200 0700F0330                                                 R
+1104RMOTORIZADA  motorizada                                                                       0000 0000 0000 0000 0000 0000 0000 0000 0000                                                 R
+11051MOTOR DER   automatizada con motor a la derecha                                              0000 0000 0000 0000 0000 0000 0000 0000 0000                                                 R
+11062MOTOR IZQ   automatizada con motor a la izquierda                                            0000 0000 0000 0000 0000 0000 0000 0000 0000                                                 R
+11073MOT. DER-IZQautomatizada con 1 motor a la derecha y otro a la izquierda                      0000 0000 0000 0000 0000 0000 0000 0000 0000                                                 R
+1201NNORMAL      cordon a la derecha, sistema de giro a la izquierda                              0000 0220F0060 0300F0120 0500 0150 0000 0000                                                 R
+1202IM.INVERTIDO cordon a la izquierda, sistema de giro a la derecha                              0000 0220F0060 0300F0120 0500 0150 0000 0000                                                 R
+1203FM.IZQUIERDA ambos mandos a la izquierda                                                      0000 0220F0060 0300F0120 0500 0150 0000 0000                                                 R
+1204JM.DERECHA   ambos mandos a la derecha                                                        0000 0220F0060 0300F0120 0500 0150 0000 0000                                                 R
+1205DM.DER-M.IZQ para pares de cortinas, una mando derecho y otra izquierdo                       0000 0220F0060 0300F0120 0500 0150 0000 0000                                                 R
+1206SSIST.SINFIN sistema de giro a la izquierda, cordon sinfin a la derecha                       0000 0500R0000 0000 0000 0000 0000 0000 0000                                                 R
+12071SINFIN "I"  sistema de giro a la derecha, cordon SINFIN a la izquierda                       0000 0500R0000 0000 0000 0000 0000 0000 0000                                                 R
+12082SINFIN "F"  sistema de giro a la izquierda, cordon SINFIN a la izquierda                     0000 0500R0000 0000 0000 0000 0000 0000 0000                                                 R
+12093SINFIN "J"  sistema de giro a la derecha, cordon SINFIN a la derecha                         0000 0500R0000 0000 0000 0000 0000 0000 0000                                                 R
+12104SISFIN "D"  para pares de cortinas una mando Derechoy otra mando Izquierdo, cordones SINFIN  0000 0500R0000 0000 0000 0000 0000 0000 0000                                                 R
+1211LENTRE VIDRIOmandos para instalar cortinas entre vidrios                                      0000 0500R0000 0000 0000 0000 0000 0000 0000                                                 R
+1212RMOTORIZADA  motorizada                                                                       0000 0000 0000 0000 0000 0000 0000 0000 0000                                                 R
+1301NNORMAL      cordon a la derecha, sistema de giro a la izquierda                              0000 0220F0060 0300F0120 0500 0150 0000 0000                                                 R
+1302IM.INVERTIDO cordon a la izquierda, sistema de giro a la derecha                              0000 0220F0060 0300F0120 0500 0150 0000 0000                                                 R
+1303FM.IZQUIERDA ambos mandos a la izquierda                                                      0000 0220F0060 0300F0120 0500 0150 0000 0000                                                 R
+1304JM.DERECHA   ambos mandos a la derecha                                                        0000 0220F0060 0300F0120 0500 0150 0000 0000                                                 R
+1305DM.DER-M.IZQ para pares de cortinas, una mando derecho y otra izquierdo                       0000 0220F0060 0300F0120 0500 0150 0000 0000                                                 R
+1306SSIST.SINFIN sistema de giro a la izquierda, cordon sinfin a la derecha                       0000 0500R0000 0000 0000 0000 0000 0000 0000                                                 R
+13071SINFIN "I"  sistema de giro a la derecha, cordon SINFIN a la izquierda                       0000 0500R0000 0000 0000 0000 0000 0000 0000                                                 R
+13082SINFIN "F"  sistema de giro a la izquierda, cordon SINFIN a la izquierda                     0000 0500R0000 0000 0000 0000 0000 0000 0000                                                 R
+13093SINFIN "J"  sistema de giro a la derecha, cordon SINFIN a la derecha                         0000 0500R0000 0000 0000 0000 0000 0000 0000                                                 R
+13104SISFIN "D"  para pares de cortinas una mando Derechoy otra mando Izquierdo, cordones SINFIN  0000 0500R0000 0000 0000 0000 0000 0000 0000                                                 R
+1311RMOTORIZADA  motorizada                                                                       0000 0000 0000 0000 0000 0000 0000 0000 0000                                                 R
+1401NNORMAL      mando a la izquierda                                                             0095 0200F0095 0500F0150 0000 0000 0000 0000                                                 R
+1402JM.DERECHA   mando a la derecha                                                               0095 0200F0095 0500F0150 0000 0000 0000 0000                                                 R
+1403DM.DER-M.IZQ para pares de cortinas, una mando derecho y otra izquierdo                       0095 0200F0095 0500F0150 0000 0000 0000 0000                                                 R
+1404TMEDID.EXACTApara telas solas sin sistema, se indica medida exacta                            0000 0000 0000 0000 0000 0000 0000 0000 0000                                                 R
+1405RMOTORIZADA  motorizada                                                                       0000 0000 0000 0000 0000 0000 0000 0000 0000                                                 R
+1501VMED.EX C/VELmedidas exactas de paneles, armado con velcro                                    0200 0000 0000 0000 0000 0000 0000 0000 0000                                                 R
+1502CMED.EX C/CINmedidas exactas de paneles, armado con cinta                                     0200 0000 0000 0000 0000 0000 0000 0000 0000                                                 R
+1503RMOTORIZADA  motorizada                                                                       0000 0000 0000 0000 0000 0000 0000 0000 0000                                                 R
+1801NNORMAL      mando a la izquierda                                                             0000 0000 0000 0000 0000 0000 0000 0000 0000                                                 R
+1802JM.DERECHA   mando a la derecha                                                               0000 0000 0000 0000 0000 0000 0000 0000 0000                                                 R
+1803DM.DER-M.IZQ para pares de cortinas, una mando derecho y otra izquierdo                       0000 0000 0000 0000 0000 0000 0000 0000 0000                                                 R
+7001NNORMAL      mando a la izquierda                                                             0000 0000 0000 0000 0000 0000 0000 0000 0000                                                 R
+7002JM.DERECHA   mando a la derecha                                                               0000 0000 0000 0000 0000 0000 0000 0000 0000                                                 R
+7003DM.DER-M.IZQ para pares de toldos, uno mando derecho y otro izquierdo                         0000 0000 0000 0000 0000 0000 0000 0000 0000                                                 R
+7004XT.DEL M.IZQ mando a la izquierda, tela cae por delante                                       0000 0000 0000 0000 0000 0000 0000 0000 0000                                                 R
+7005YT.DEL M.DER mando a la derecha, tela cae por delante                                         0000 0000 0000 0000 0000 0000 0000 0000 0000                                                 R
+7006ZT.DEL TIPO Zpara pares de toldos, uno mando derecho y otro izquierdo, tela cae por delante   0000 0000 0000 0000 0000 0000 0000 0000 0000                                                 R
+7007TMEDID.EXACTApara tela de toldos sin sistema, se indica medida exacta                         0000 0000 0000 0000 0000 0000 0000 0000 0000                                                 R

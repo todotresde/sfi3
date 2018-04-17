@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { JhiLanguageService } from 'ng-jhipster';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
-import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
+import { JhiAlertService } from 'ng-jhipster';
 
 import { ProfileService } from '../profiles/profile.service';
 import { JhiLanguageHelper, Principal, LoginModalService, LoginService } from '../../shared';

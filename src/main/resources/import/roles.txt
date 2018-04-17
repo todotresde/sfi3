@@ -1,0 +1,6 @@
+admin                         Administrador                 "product","user","quotation","category","client","control", "product_prices"                        C 
+rielhelper                    Asistente Riel Americano      "product","user","quotation","category","client","control", "product_prices"                        C
+rielseller                    Vendedor Riel Americano       "product","category","control","product_prices_rielseller"                                          C 
+distributor                   Distribuidor                  "product","category","control","product_prices_distributor"                                         C 
+rielarchitect                 Arquitecto                    "product","category","control","product_prices_rielarchitect"                                       C
+seller                        Vendedor de Distribuidor      "product","category","control","product_prices_seller"                                              C

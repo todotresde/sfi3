@@ -9,10 +9,9 @@ import { SupplyService } from '../supply/supply.service';
 import { ManufacturingOrderDTO } from '../manufacturing-order-dto/manufacturing-order-dto.model';
 import { SupplyTypeAttrValue } from '../supply-type-attr-value/supply-type-attr-value.model';
 import { Supply } from '../supply/supply.model';
-import { SupplyType } from '../supply-type/supply-type.model';
 import { SupplyTypeAttr } from '../supply-type-attr/supply-type-attr.model';
 import { Product } from '../product/product.model';
-import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
+import { JhiAlertService } from 'ng-jhipster';
 import { STATUS_CREATED } from '../../shared';
 
 @Injectable()
@@ -77,7 +76,6 @@ export class ManufacturingOrderPopupService {
         for (let supplyTypeAttrValuePosition = 0; supplyTypeAttrValuePosition < modalRef.componentInstance.supplyTypeAttrValues.length; supplyTypeAttrValuePosition++) {
             const supplyTypeAttrValue: SupplyTypeAttrValue = modalRef.componentInstance.supplyTypeAttrValues[supplyTypeAttrValuePosition];
             const supplyTypeAttr: SupplyTypeAttr = supplyTypeAttrValue.supplyTypeAttr;
-            const supplyType: SupplyType = supplyTypeAttrValue.supplyType;
             const supply: Supply = supplyTypeAttrValue.supply;
             const product: Product = supplyTypeAttrValue.product;
 

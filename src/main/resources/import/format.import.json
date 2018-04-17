@@ -1,0 +1,554 @@
+{
+	"files" : [
+		{
+			"name" : "rubros.txt",
+			"fields" : [
+				{
+					"name" : "numrub", 
+					"size" : "2",
+					"key" : "1"
+				},{
+					"name" : "nomrub", 
+					"size" : "35"
+				},{
+					"name" : "aplicaD", 
+					"size" : "1"
+				},{
+					"name" : "libre", 
+					"size" : "25"
+				},{
+					"name" : "abm", 
+					"size" : "1"
+				}
+			] 
+		},{
+			"name" : "subrubros.txt",
+			"fields" : [
+				{
+					"name" : "numru1", 
+					"size" : "2",
+					"key" : "1"
+				},{
+					"name" : "numsu2", 
+					"size" : "3",
+					"key" : "1"
+				},{
+					"name" : "nomsub", 
+					"size" : "50"
+				},{
+					"name" : "tipopro", 
+					"size" : "2"
+				},{
+					"name" : "destipo", 
+					"size" : "15"
+				},{
+					"name" : "libre", 
+					"size" : "23"
+				},{
+					"name" : "abm", 
+					"size" : "1"
+				}
+			] 
+		},{
+			"name" : "articulos.txt",
+			"fields" : [
+				{
+					"name" : "numart", 
+					"size" : "5",
+					"key" : "1"
+				},{
+					"name" : "desart", 
+					"size" : "60"
+				},{
+					"name" : "rubro", 
+					"size" : "2"
+				},{
+					"name" : "subrub", 
+					"size" : "3"
+				},{
+					"name" : "unimed", 
+					"size" : "8"
+				},{
+					"name" : "medped", 
+					"size" : "1"
+				},{
+					"name" : "estvta", 
+					"size" : "1"
+				},{
+					"name" : "stkdsp", 
+					"size" : "7",
+					"dec"  : "2"
+				},{
+					"name" : "precDI", 
+					"size" : "9",
+					"dec"  : "2"
+				},{
+					"name" : "precPA", 
+					"size" : "9",
+					"dec"  : "2"
+				},{
+					"name" : "precCO", 
+					"size" : "9",
+					"dec"  : "2"
+				},{
+					"name" : "soldab", 
+					"size" : "1"
+				},{
+					"name" : "invert", 
+					"size" : "1"
+				},{
+					"name" : "camdib", 
+					"size" : "1"
+				},{
+					"name" : "medida", 
+					"size" : "3",
+					"key" : "1"
+				},{
+					"name" : "tiposman", 
+					"size" : "15"
+				},{
+					"name" : "altmanSS", 
+					"size" : "4",
+					"dec"  : "2"
+				},{
+					"name" : "hasta1", 
+					"size" : "4",
+					"dec"  : "2"
+				},{
+					"name" : "opera1", 
+					"size" : "1"
+				},{
+					"name" : "canti1", 
+					"size" : "4",
+					"dec"  : "2"
+				},{
+					"name" : "hasta2", 
+					"size" : "4",
+					"dec"  : "2"
+				},{
+					"name" : "opera2", 
+					"size" : "1"
+				},{
+					"name" : "canti2", 
+					"size" : "4",
+					"dec"  : "2"
+				},{
+					"name" : "hasta3", 
+					"size" : "4",
+					"dec"  : "2"
+				},{
+					"name" : "opera3", 
+					"size" : "1"
+				},{
+					"name" : "canti3", 
+					"size" : "4",
+					"dec"  : "2"
+				},{
+					"name" : "hasta4", 
+					"size" : "4",
+					"dec"  : "2"
+				},{
+					"name" : "opera4", 
+					"size" : "1"
+				},{
+					"name" : "canti4", 
+					"size" : "4",
+					"dec"  : "2"
+				},{
+					"name" : "pedirzoc", 
+					"size" : "1"
+				},{
+					"name" : "nivel", 
+					"size" : "2"
+				},{
+					"name" : "destipo", 
+					"size" : "15"
+				},{
+					"name" : "metmin", 
+					"size" : "1"
+				},{
+					"name" : "libre", 
+					"size" : "53"
+				},{
+					"name" : "KY1", 
+					"size" : "5"
+				},{
+					"name" : "KY2", 
+					"size" : "3"
+				},{
+					"name" : "abm", 
+					"size" : "1"
+				}
+			] 
+		},{
+			"name" : "consistencia.txt",
+			"fields" : [
+				{
+					"name" : "arti1", 
+					"size" : "5",
+					"key" : "1"
+				},{
+					"name" : "arti2", 
+					"size" : "5",
+					"key" : "1"
+				},{
+					"name" : "supmx", 
+					"size" : "4",
+					"dec"  : "2"
+				},{
+					"name" : "ancmn", 
+					"size" : "4",
+					"dec"  : "2"
+				},{
+					"name" : "altmn", 
+					"size" : "4",
+					"dec"  : "2"
+				},{
+					"name" : "ancmxnor", 
+					"size" : "4",
+					"dec"  : "2"
+				},{
+					"name" : "altmxnor", 
+					"size" : "4",
+					"dec"  : "2"
+				},{
+					"name" : "ancmxinv", 
+					"size" : "4",
+					"dec"  : "2"
+				},{
+					"name" : "altmxinv", 
+					"size" : "4",
+					"dec"  : "2"
+				},{
+					"name" : "tolmaxan", 
+					"size" : "3",
+					"dec"  : "2"
+				},,{
+					"name" : "tolmaxal", 
+					"size" : "3",
+					"dec"  : "2"
+				},,{
+					"name" : "tolmaxsp", 
+					"size" : "3",
+					"dec"  : "2"
+				},{
+					"name" : "libre", 
+					"size" : "16"
+				},{
+					"name" : "abm", 
+					"size" : "1"
+				}
+			] 
+		},{
+			"name" : "clientes.txt",
+			"fields" : [
+				{
+					"name" : "numcli", 
+					"size" : "6",
+					"key" : "1"
+				},{
+					"name" : "nomcli", 
+					"size" : "25"
+				},{
+					"name" : "fantasia", 
+					"size" : "25"
+				},{
+					"name" : "domcli", 
+					"size" : "25"
+				},{
+					"name" : "loccli", 
+					"size" : "25"
+				},{
+					"name" : "provcli", 
+					"size" : "25"
+				},{
+					"name" : "codpos", 
+					"size" : "4"
+				},{
+					"name" : "telcli", 
+					"size" : "20"
+				},{
+					"name" : "mailcli", 
+					"size" : "50"
+				},{
+					"name" : "codven", 
+					"size" : "2"
+				},{
+					"name" : "tipousr", 
+					"size" : "1"
+				},{
+					"name" : "listaP", 
+					"size" : "1"
+				},{
+					"name" : "dtoexc", 
+					"size" : "4",
+					"dec"  : "2"
+				},{
+					"name" : "dtovid", 
+					"size" : "4",
+					"dec"  : "2"
+				},{
+					"name" : "convta", 
+					"size" : "2"
+				},{
+					"name" : "vtaint", 
+					"size" : "1"
+				},{
+					"name" : "tipres", 
+					"size" : "1"
+				},{
+					"name" : "numcuit", 
+					"size" : "11"
+				},{
+					"name" : "tasaIB", 
+					"size" : "4",
+					"dec"  : "2"
+				},{
+					"name" : "libre", 
+					"size" : "19"
+				},{
+					"name" : "abm", 
+					"size" : "1"
+				}
+			] 
+		},{
+			"name" : "usuarios.txt",
+			"fields" : [
+				{
+					"name" : "numcli", 
+					"size" : "6",
+					"key" : "1"
+				},{
+					"name" : "nomcli", 
+					"size" : "25"
+				},{
+					"name" : "fantasia", 
+					"size" : "25"
+				},{
+					"name" : "domcli", 
+					"size" : "25"
+				},{
+					"name" : "loccli", 
+					"size" : "25"
+				},{
+					"name" : "provcli", 
+					"size" : "25"
+				},{
+					"name" : "codpos", 
+					"size" : "4"
+				},{
+					"name" : "telcli", 
+					"size" : "20"
+				},{
+					"name" : "mailcli", 
+					"size" : "50"
+				},{
+					"name" : "codven", 
+					"size" : "2"
+				},{
+					"name" : "tipousr", 
+					"size" : "1"
+				},{
+					"name" : "listaP", 
+					"size" : "1"
+				},{
+					"name" : "dtoexc", 
+					"size" : "4",
+					"dec"  : "2"
+				},{
+					"name" : "dtovid", 
+					"size" : "4",
+					"dec"  : "2"
+				},{
+					"name" : "convta", 
+					"size" : "2"
+				},{
+					"name" : "vtaint", 
+					"size" : "1"
+				},{
+					"name" : "tipres", 
+					"size" : "1"
+				},{
+					"name" : "numcuit", 
+					"size" : "11"
+				},{
+					"name" : "tasaIB", 
+					"size" : "4",
+					"dec"  : "2"
+				},{
+					"name" : "libre", 
+					"size" : "19"
+				},{
+					"name" : "abm", 
+					"size" : "1"
+				}
+			] 
+		},{
+			"name" : "bonifica.txt",
+			"fields" : [
+				{
+					"name" : "cliente", 
+					"size" : "6",
+					"key" : "1"
+				},{
+					"name" : "tipbon", 
+					"size" : "1"
+				},{
+					"name" : "codigo", 
+					"size" : "5",
+					"key" : "1"
+				},{
+					"name" : "porbon", 
+					"size" : "2"
+				},{
+					"name" : "libre", 
+					"size" : "17"
+				},{
+					"name" : "abm", 
+					"size" : "1"
+				}
+			] 
+		},{
+			"name" : "variantes.txt",
+			"fields" : [
+				{
+					"name" : "codart", 
+					"size" : "5",
+					"key" : "1"
+				},{
+					"name" : "prenro", 
+					"size" : "2",
+					"key" : "1"
+				},{
+					"name" : "resnro", 
+					"size" : "2",
+					"key" : "1"
+				},{
+					"name" : "texvar", 
+					"size" : "50"
+				},{
+					"name" : "obligatoria", 
+					"size" : "1"
+				},{
+					"name" : "libre", 
+					"size" : "35"
+				},{
+					"name" : "abm", 
+					"size" : "1"
+				}
+			] 
+		},{
+			"name" : "mandos.txt",
+			"fields" : [
+				{
+					"name" : "codrub", 
+					"size" : "2",
+					"key" : "1"
+				},{
+					"name" : "orden", 
+					"size" : "2",
+					"key" : "1"
+				},{
+					"name" : "codtip", 
+					"size" : "1"
+				},{
+					"name" : "nomtipc", 
+					"size" : "12"
+				},{
+					"name" : "nomtipl", 
+					"size" : "80"
+				},{
+					"name" : "libre_1", 
+					"size" : "1"
+				},{
+					"name" : "altnorSS", 
+					"size" : "4",
+					"dec"  : "2"
+				},{
+					"name" : "libre_2", 
+					"size" : "1"
+				},{
+					"name" : "hasta1", 
+					"size" : "4",
+					"dec"  : "2"
+				},{
+					"name" : "opera1", 
+					"size" : "1"
+				},{
+					"name" : "medid1", 
+					"size" : "4",
+					"dec"  : "2"
+				},{
+					"name" : "libre_3", 
+					"size" : "1"
+				},{
+					"name" : "hasta2", 
+					"size" : "4",
+					"dec"  : "2"
+				},{
+					"name" : "opera2", 
+					"size" : "1"
+				},{
+					"name" : "medid2", 
+					"size" : "4",
+					"dec"  : "2"
+				},{
+					"name" : "libre_4", 
+					"size" : "1"
+				},{
+					"name" : "hasta3", 
+					"size" : "4",
+					"dec"  : "2"
+				},{
+					"name" : "opera3", 
+					"size" : "1"
+				},{
+					"name" : "medid3", 
+					"size" : "4",
+					"dec"  : "2"
+				},{
+					"name" : "libre_5", 
+					"size" : "1"
+				},{
+					"name" : "hasta4", 
+					"size" : "4",
+					"dec"  : "2"
+				},{
+					"name" : "opera4", 
+					"size" : "1"
+				},{
+					"name" : "medid4", 
+					"size" : "4",
+					"dec"  : "2"
+				},{
+					"name" : "observ", 
+					"size" : "40"
+				},{
+					"name" : "libre", 
+					"size" : "9"
+				},{
+					"name" : "abm", 
+					"size" : "1"
+				}
+			] 
+		},{
+			"name" : "roles.txt",
+			"fields" : [
+				{
+					"name" : "id", 
+					"size" : "30",
+					"key" : "1"
+				},{
+					"name" : "name", 
+					"size" : "30"
+				},{
+					"name" : "channels", 
+					"size" : "100"
+				},{
+					"name" : "abm", 
+					"size" : "1"
+				}
+			] 
+		}
+	] 
+}

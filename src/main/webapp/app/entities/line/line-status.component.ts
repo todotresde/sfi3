@@ -4,8 +4,6 @@ import { Subscription } from 'rxjs/Subscription';
 import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 import { Observable } from 'rxjs/Rx';
 
-import { Line } from './line.model';
-import { WorkStation } from '../work-station/work-station.model';
 import { WorkStationConfig } from '../work-station-config/work-station-config.model';
 import { WorkStationConfigService } from '../work-station-config/work-station-config.service';
 import { Tracer } from '../tracer/tracer.model';

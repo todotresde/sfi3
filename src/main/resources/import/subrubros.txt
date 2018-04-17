@@ -1,0 +1,705 @@
+01010Rieles                                            00                                      R
+01020Accesorios                                        00                                      R
+02010Riel Aluminium - Perfil y riel                    00                                      R
+02020Riel curvable                                     00                                      R
+02030Riel Hotel                                        00                                      R
+02035Riel RippleFold y HookFold                        00                                      R
+02040Riel Dekora                                       00                                      R
+02050Riel Sistema 2800                                 00                                      R
+02055Riel para Cortinas con cabezal Ondulado           00                                      R
+02060Accesorios                                        00                                      R
+03010Rieles                                            00                                      R
+03020Rieles armados a medida (facturación mínima: 1 m) 00                                      R
+03030Bastones                                          00                                      R
+03040Correderas                                        00                                      R
+03050Cruces                                            00                                      R
+03060Accesorios                                        00                                      R
+05010Tarugos                                           00                                      R
+05020Kit 12 mm                                         00                                      R
+05030Accesorios y barrales de 12,7 mm                  00                                      R
+05040Soportes para visillos                            00                                      R
+05050Varillas visillo                                  00                                      R
+05060Kit varilla visillo                               00                                      R
+05070Tornillos                                         00                                      R
+05080Ganchos                                           00                                      R
+05090Cintas                                            00                                      R
+05100Agarraderas                                       00                                      R
+06010Ganchos                                           00                                      R
+06020Barrales para baño                                00                                      R
+06030Topes y terminales                                00                                      R
+06040Argollas                                          00                                      R
+06050Caños lisos                                       00                                      R
+06060Kit                                               00                                      R
+06070Soportes de 1 pulgada                             00                                      R
+06080Productos promocionados hasta agotar stock        00                                      R
+08005Rieles armados Multistore Prolight, bandas 9 cm   02Sistemas                              R
+08010Rieles armados Multistore Prolight, bandas 25 cm  02Sistemas                              R
+08015Rieles armados Multistore Prolight Automat. 9 cm  02Sistemas                              R
+08035Soportes para riel Multistore Prolight            09Accesorios                            R
+08037Cenefas para riel Multistore Prolight             09Accesorios                            R
+08040Tela Venezia, cortinas Multistore, 9 cm           01Telas                                 R
+08045Tela Presto Print, cortinas Multistore, 9 cm      01Telas                                 R
+08050Tela Lima, cortinas Multistore, 9 cm              01Telas                                 R
+08055Tela Porto, cortinas Multistore, 9 cm             01Telas                                 R
+08060Tela Shadow Black-Out, cortinas Multistore, 9 cm  01Telas                                 R
+08065Tela Sun-Screen 6%, cortinas Multistore, 9 cm     01Telas                                 R
+08070Tela Poliéster, cortinas Multistore, 9 cm         01Telas                                 R
+08075Tela F.de Vidrio Rain, cortinas Multistore, 9 cm  01Telas                                 R
+08080Tela F.de Vidrio Circus, cortinas Multistore, 9 cm01Telas                                 R
+08085Tela Poliéster, cortinas Multistore, 25 cm        01Telas                                 R
+08120Tela Matices, reemplazo de bandas de 9 cm         09Accesorios                            R
+08140Tela Venezia, reemplazo de bandas de 9 cm         09Accesorios                            R
+08145Tela Presto Print, reemplazo de bandas de 9 cm    09Accesorios                            R
+08150Tela Lima, reemplazo de bandas de 9 cm            09Accesorios                            R
+08155Tela Porto, reemplazo de bandas de 9 cm           09Accesorios                            R
+08160Tela Shadow B.Out, reemplazo de bandas de 9 cm    09Accesorios                            R
+08165Tela Sun-Screen 6%, reemplazo de bandas de 9 cm   09Accesorios                            R
+08170Tela Poliéster, reemplazo de bandas de 9 cm       09Accesorios                            R
+08175Tela F.de vidrio Rain, reemplazo bandas de 9 cm   09Accesorios                            R
+08180Tela F.de Vidrio Circus, reemplazo bandas de 9 cm 09Accesorios                            R
+08185Tela Poliéster, reemplazo de bandas de 25 cm      09Accesorios                            R
+08190Tela F.de Vidrio Tram., reemplazo bandas de 9 cm  09Accesorios                            R
+08200Accesorios                                        09Accesorios                            R
+08205Accesorios Riel Prolight 250                      09Accesorios                            R
+08999ARTICULOS NUEVOS A VERIFICAR                      09Accesorios                            R
+09000Productos promocionados hasta agotar stock        09Accesorios                            R
+09001Telas roler Sun-Screen 1%-ancho tela 3,10 m       01Telas                                 R
+09002Telas roler Sun-Screen 1% Plus-ancho tela 3,20 m  01Telas                                 R
+09003Telas roler Sun-Screen 3%-ancho tela 2,49 m       01Telas                                 R
+09004Telas roler Sun-Screen 3% Plus-ancho tela 2,50 m  01Telas                                 R
+09005Telas roler Sun-Screen 5%-ancho tela 2,44 m       01Telas                                 R
+09006Telas roler Sun-Screen 5% Super Wide-3,20 m       01Telas                                 R
+09009Telas roler Sun-Screen 5% Plus-ancho tela 2,50 m  01Telas                                 R
+09010Telas roler Sun-Screen 5% Plus Super Wide-3,20 m  01Telas                                 R
+09011Telas roler Sun-Screen 6%-ancho tela 2,49 m       01Telas                                 R
+09012Telas roler Sun-Screen 10% Plus-ancho tela 2,50 m 01Telas                                 R
+09016Telas roler Sun-Screen Indoor & Outdoor-3,20 m    01Telas                                 R
+09018Telas roler Sun-Screen Jacquard-ancho tela 2,50 m 01Telas                                 R
+09019Telas roler Sun-Screen Platinum-ancho tela 2,47 m 01Telas                                 R
+09020Telas roler Vinílicas Triple-ancho tela 1,83 m    01Telas                                 R
+09021Telas roler Vinílicas Dimout-ancho de tela 3,00 m 01Telas                                 R
+09022Telas roler Black-Out Vinílicas-ancho tela 1,83 m 01Telas                                 R
+09023Telas roler Black-Out Vinílicas Super Wide-3,00 m 01Telas                                 R
+09024Telas roler Black-Out Poliéster-ancho tela 2,00 m 01Telas                                 R
+09025Telas roler Black-Out Poliéster Super Wide-3,00 m 01Telas                                 R
+09026Telas roler Black-Out Steel-ancho tela 2,00 m     01Telas                                 R
+09027Telas roler Black-Out Dolce-ancho tela 2,00 m     01Telas                                 R
+09028Telas roler Black-Out Art-ancho tela 1,95 m       01Telas                                 R
+09029Telas roler Black-Out Point-ancho tela 2,50 m     01Telas                                 R
+09030Telas roler Black-Out Natural-ancho tela 2,50 m   01Telas                                 R
+09031Telas roler Black-Out Estampado-ancho tela 2,00 m 01Telas                                 R
+09032Telas roler Black-Out Duo-ancho tela 2,00 m       01Telas                                 R
+09033Telas roler Black-Out Perlado-ancho tela 2,00 m   01Telas                                 R
+09034Telas roler Black-Out Burbujas-ancho tela 2,00 m  01Telas                                 R
+09035Telas roler Black-Out Rustic-ancho tela 2,00 m    01Telas                                 R
+09036Telas roler Black-Out Globos-ancho tela 1,95 m    01Telas                                 R
+09037Telas roler Black-Out Crepúsculo-ancho tela 2,50 m01Telas                                 R
+09038Telas roler Crepúsculo Dimout-ancho tela 2,50 m   01Telas                                 R
+09039Telas roler Sun-Screen 3% Classic-ancho tela 2,50m01Telas                                 R
+09040Telas roler Sun-Screen 5% Chick-ancho tela 2,50 m 01Telas                                 R
+09041Telas roler Sun-Screen 5% Bicolor-ancho tela 2,50m01Telas                                 R
+09050Telas roler Enigma New-ancho tela 2,40 m          01Telas                                 R
+09051Telas roler Tree-ancho tela 2,80 m                01Telas                                 R
+09052Telas roler Cascada-ancho tela 2,80 m             01Telas                                 R
+09053Telas roler Barroco-ancho tela 2,00 m             01Telas                                 R
+09054Telas roler City-ancho tela 2,00 m                01Telas                                 R
+09055Telas roler Onix-ancho tela 2,00 m                01Telas                                 R
+09056Telas roler Eclipse Cher-ancho tela 2,50 m        01Telas                                 R
+09057Telas roler Moonligth Cher-ancho tela 2,50 m      01Telas                                 R
+09058Telas roler Eclipse Block-ancho tela 2,70 m       01Telas                                 R
+09059Telas roler Moonligth Block-ancho tela 2,70 m     01Telas                                 R
+09060Telas roler Eclipse Wood-ancho tela 2,75 m        01Telas                                 R
+09061Telas roler Moonligth Wood-ancho tela 2,75 m      01Telas                                 R
+09062Telas roler Aros-ancho tela 2,40 m                01Telas                                 R
+09063Telas roler Curvas-ancho tela 2,40 m              01Telas                                 R
+09064Telas roler Hojas-ancho tela 2,40 m               01Telas                                 R
+09065Telas roler Pétalos-ancho tela 2,40 m             01Telas                                 R
+09066Telas roler Tierra-ancho tela 2,40 m              01Telas                                 R
+09067Telas roler Valencia-ancho tela 2,40 m            01Telas                                 R
+09074Telas roler Eclipse Gala-ancho tela 2,80 m        01Telas                                 R
+09075Telas roler Moonligth Gala-ancho tela 2,80 m      01Telas                                 R
+09076Telas roler Eclipse New-ancho tela 2,80 m         01Telas                                 R
+09077Telas roler Moonligth New-ancho tela 2,80 m       01Telas                                 R
+09080Telas roler Gasa Gold-ancho tela 3,00 m           01Telas                                 R
+09081Telas roler Gasa Gold-ancho tela 2,70 m           01Telas                                 R
+09082Telas roler Enigma-ancho tela 1,80 m              01Telas                                 R
+09083Telas roler Opera-ancho tela 2,00 m               01Telas                                 R
+09084Telas roler Crystal-ancho tela 2,40 m             01Telas                                 R
+09085Telas roler Capriccio-ancho tela 2,00 m           01Telas                                 R
+09086Telas roler Milano-ancho tela 2,35 m              01Telas                                 R
+09087Telas roler Print-ancho tela 2,00 m               01Telas                                 R
+09088Telas roler Diamond-ancho tela 2,00 m             01Telas                                 R
+09089Telas roler Poliéster-ancho tela 2,00 m           01Telas                                 R
+09090Telas roler Acuarela-ancho tela 2,00 m            01Telas                                 R
+09091Telas roler Natural Concept-ancho tela 2,00 m     01Telas                                 R
+09092Telas roler Elegance-ancho tela 2,00 m            01Telas                                 R
+09093Telas roler Mónaco-ancho tela 2,00 m              01Telas                                 R
+09094Telas roler Boheme-ancho tela 1,81 m              01Telas                                 R
+09095Telas roler Dark-ancho tela 1,83 m                01Telas                                 R
+09096Telas roler Estera-espesor 1,10m-ancho tela 2,13m 01Telas                                 R
+09097Telas roler Estera-espesor 0,90m-ancho tela 2,13m 01Telas                                 R
+09098Telas roler Estera-espesor 1,15m-ancho tela 2,13m 01Telas                                 R
+09100Telas roler Screen Tex-ancho tela 2,10 m          01Telas                                 R
+09101Telas roler Metallic-ancho tela 2,00 m            01Telas                                 R
+09102Telas roler Black-Out Vinílicas Hueso S.W.-3,00 m 01Telas                                 R
+09103Telas roler Eclipse-ancho tela 2,25 m             01Telas                                 R
+09104Telas roler Gasa-ancho tela 2,00 m                01Telas                                 R
+09105Telas roler Allegro-ancho tela 2,00 m             01Telas                                 R
+09106Telas roler Círculos-ancho tela 2,30 m            01Telas                                 R
+09107Telas roler Livanto-ancho tela 2,00 m             01Telas                                 R
+09120Telas roler Black-Out Vogue-ancho tela 2,50 m     01Telas                                 R
+09122Telas roler Black-Out Wild-ancho tela 2,40 m      01Telas                                 R
+09123Telas roler Black-Out Loom-ancho tela 2,40 m      01Telas                                 R
+09130Telas roler Sun-Screen 5% Burlap-ancho tela 2,50 m01Telas                                 R
+09133Telas roler Sun-Screen 10% Bamboo-ancho tela 2,50m01Telas                                 R
+09135Telas roler Sun-Screen 14% Shiny-ancho tela 2,50 m01Telas                                 R
+09150Telas roler Eclipse Narrow-ancho tela 2,40 m      01Telas                                 R
+09151Teles roler Eclipse Big Band-ancho tela 2,40 m    01Telas                                 R
+09152Telas roler Eclipse Brilliant-ancho tela 2,40 m   01Telas                                 R
+09153Telas roler Eclipse Line-ancho tela 2,40 m        01Telas                                 R
+09154Telas roler Eclipse Delicat-ancho tela 2,80 m     01Telas                                 R
+09155Telas roler Eclipse Legno-ancho tela 2,80 m       01Telas                                 R
+09156Telas roler Eclipse Mur-ancho tela 2,80 m         01Telas                                 R
+09157Telas roler Eclipse Forest-ancho tela 2,60 m      01Telas                                 R
+09158Telas roler Eclipse Jungle-ancho tela 2,80 m      01Telas                                 R
+09159Telas roler Eclipse Brigth-ancho tela 2,80 m      01Telas                                 R
+09160Telas roler Eclipse Rainbow-ancho tela 2,80 m     01Telas                                 R
+09163Telas roler Charm-ancho tela 2,50 m               01Telas                                 R
+09164Telas roler Brand-ancho tela 2,40 m               01Telas                                 R
+09165Telas roler Knot-ancho tela 2,40 m                01Telas                                 R
+09166Telas roler Snake-ancho tela 2,00 m               01Telas                                 R
+09167Telas roler Victorian-ancho tela 2,00 m           01Telas                                 R
+09168Telas roler Square-ancho tela 2,40 m              01Telas                                 R
+09169Telas roler Smile-ancho tela 2,00 m               01Telas                                 R
+09170Telas roler Fringe-ancho tela 2,00 m              01Telas                                 R
+09171Telas roler Thick-ancho tela 2,50 m               01Telas                                 R
+09172Telas roler Secret-ancho tela 3,00 m              01Telas                                 R
+09200Sistemas a resorte                                02Sistemas                              R
+09205Sistemas Tecno 29 mm con soporte de 50 mm         02Sistemas                              R
+09207Sistemas Tecno 29 mm con soporte de 60 mm         02Sistemas                              R
+09210Sistemas TecnoMaxi 40 mm con soporte de 75 mm     02Sistemas                              R
+09213Sistemas TecnoMaxi 40 mm con soporte de 85 mm     02Sistemas                              R
+09214Sistemas TecnoMaxi 48 mm                          02Sistemas                              R
+09220Sistemas SuperTecno 48 mm                         02Sistemas                              R
+09222Sistemas SuperTecno asistidos de 48 mm            02Sistemas                              R
+09223Sistemas SuperTecno asistidos de 58 mm            02Sistemas                              R
+09226Sistemas para automatizar p/motor 40 y caño 48 mm 02Sistemas                              R
+09229Sistemas para automatizar p/motor 40 y caño 58 mm 02Sistemas                              R
+09232Sistemas para automatizar p/motor 50 y caño 58 mm 02Sistemas                              R
+09234Sistemas p/aut.p/motor 50 y caño 58 c/sop.metálico02Sistemas                              R
+09235Sistemas p/aut.p/motor 50 y caño 78 c/sop.metálico02Sistemas                              R
+09240Sistemas p/aut.p/motor 50 y caño 100 c/sop.metál. 02Sistemas                              R
+09245Sistemas para automatizar Tecnoroll LUTRON        02Sistemas                              R
+09246Sistemas para automatizar Eclipse LUTRON          02Sistemas                              R
+09250Sistemas Tecno con base sujeción y soporte 60     02Sistemas                              R
+09254Sistemas TecnoMaxi con base sujeción y soporte 75 02Sistemas                              R
+09258Sistemas TecnoMaxi con base sujeción y soporte 85 02Sistemas                              R
+09262Sistemas SuperTecno 48 mm con base de sujeción    02Sistemas                              R
+09264Sistemas SuperTecno asistidos 48 mm c/base sujec. 02Sistemas                              R
+09266Sistemas SuperTecno asistidos 58 mm c/base sujec. 02Sistemas                              R
+09268Sistemas aut. p/motor 40 y caño 48 c/base sujeción02Sistemas                              R
+09275Sistemas aut. p/motor 40 y caño 58 c/base sujeción02Sistemas                              R
+09280Sistemas aut. p/motor 50 y caño 58 c/base sujeción02Sistemas                              R
+09290Sist. aut.p/motor 50 y caño 58 c/base suj.sop.mét.02Sistemas                              R
+09300Frente Recto 75 mm con sistema Tecno              02Sistemas                              R
+09301Sistemas TecnoMaxi con frente recto de 75 mm      02Sistemas                              R
+09302Sistemas p/motor 40 mm con frente recto de 75 mm  02Sistemas                              R
+09303Sistemas Tecno con cenefa frente curvo de 60 mm   02Sistemas                              R
+09304Sistemas Tecno con cenefa frente curvo de 75 mm   02Sistemas                              R
+09305Sistemas TecnoMaxi c/cenefa frente curvo de 75 mm 02Sistemas                              R
+09306Sist. p/motor 40 mm con cenefa frente curvo 75 mm 02Sistemas                              R
+09307Sistemas Tecno con cenefa frente recto de 75 mm   02Sistemas                              R
+09308Sistemas TecnoMaxi con cenefa frente recto 75 mm  02Sistemas                              R
+09309Sist. p/motor 40 mm con cenefa frente recto 75 mm 02Sistemas                              R
+09310Sistemas TecnoMaxi con cenefa frente recto 100 mm 02Sistemas                              R
+09311Sistemas SuperTecno con cenefa frente recto 100 mm02Sistemas                              R
+09312Sist. SuperTecno 48 asis. c/cenefa fr.recto 100 mm02Sistemas                              R
+09313Sist. SuperTecno 58 asis. c/cenefa fr.recto 100 mm02Sistemas                              R
+09314Sist.48 p/motor 40 mm c/cenefa frente recto 100 mm02Sistemas                              R
+09315Sist.58 p/motor 40 mm c/cenefa frente recto 100 mm02Sistemas                              R
+09316Sist.58 p/motor 50 mm c/cenefa frente recto 100 mm02Sistemas                              R
+09317Sistemas Tecno con casette frente curvo de 60 mm  02Sistemas                              R
+09318Sistemas Tecno con casette frente curvo de 75 mm  02Sistemas                              R
+09319Sistemas TecnoMaxi con casette fr.curvo de 75 mm  02Sistemas                              R
+09320Sist. p/motor 40 mm con casette frente curvo 75 mm02Sistemas                              R
+09321Sistemas Tecno con casette frente recto 80 mm     02Sistemas                              R
+09322Sistemas TecnoMaxi con casette fr.recto de 80 mm  02Sistemas                              R
+09323Sist. para motor 40 mm c/casette fr.recto 80 mm   02Sistemas                              R
+09324Suplementos para Casette de Frente Recto de 80 mm 09Accesorios                            R
+09325Sistemas TecnoMaxi con casette frente recto 100 mm02Sistemas                              R
+09326Sist. SuperTecno 48 asist. casette fr.recto 100 mm02Sistemas                              R
+09327Sist. SuperTecno 48 asist. casette fr.recto 100 mm02Sistemas                              R
+09328Sist. SuperTecno 58 asist. casette fr.recto 100 mm02Sistemas                              R
+09329Sist.p/motor 40 y caño 48 con casette fr.recto 10002Sistemas                              R
+09330Sist.p/motor 40 y caño 58 con casette fr.recto 10002Sistemas                              R
+09331Sist.58 p/motor 50 con casette frente recto 100 mm02Sistemas                              R
+09332Sist.58 p/motor 50 con casette super wide 105 mm  02Sistemas                              R
+09333Casette para dos roler                            09Accesorios                            R
+09334Sistemas consecutivos con base de sujeción        02Sistemas                              R
+09335Sistemas consecutivos con frente recto 75 mm      02Sistemas                              R
+09336Sistemas consecutivos c/cenefa frente recto 75 mm 02Sistemas                              R
+09337Sistemas consecutivos c/cenefa frente recto 100 mm02Sistemas                              R
+09338Sistemas consecutivos c/casette frente recto 80 mm02Sistemas                              R
+09339Sistemas consecutivos c/casette frente recto 100mm02Sistemas                              R
+09342Sistemas Overlapping 2 tecnoroll con base sujeción02Sistemas                              R
+09343Sistemas Overlapping 90x150mm c/sistemas Tecnoroll02Sistemas                              R
+09345Sistemas ZIP autom. con retención para vientos    02Sistemas                              R
+09350Sistemas especiales                               02Sistemas                              R
+09355Sistemas para Cortinas Eclipse Manual             02Sistemas                              R
+09358Sistema para cortinas Eclipse automatizado        02Sistemas                              R
+09359Frentes,cenefas y cajones guardatela (sin sistema)09Accesorios                            R
+09360Cenefas y casettes Eclipse                        09Accesorios                            R
+09361Taparrollos embutidos                             09Accesorios                            R
+09362Guías laterales de aluminio                       07Guias                                 R
+09363Guías laterales de acero inoxidable               07Guias                                 R
+09364Guías de cable de acero                           07Guias                                 R
+09365Perfiles para suplementar                         09Accesorios                            R
+09370Escuadras para sistemas overlapping Tecnoroll     09Accesorios                            R
+09375Soportes para sistemas overlapping Tecnoroll      09Accesorios                            R
+09380Bases para sujeción de sistemas Tecnoroll         09Accesorios                            R
+09400Accesorios para sistema a resorte                 09Accesorios                            R
+09404Accesorios 50 mm para sistema Tecno 29 mm         09Accesorios                            R
+09408Accesorios 60 mm para sistema Tecno 29 mm         09Accesorios                            R
+09412Accesorios 75 mm para sistema TecnoMaxi 40 mm     09Accesorios                            R
+09416Accesorios 85 mm para sistema TecnoMaxi 40 mm     09Accesorios                            R
+09420Accesorios 85 mm para sistema SuperTecno 48 mm    09Accesorios                            R
+09424Accesorios 85 mm para sistema SuperTecno 48 asist.09Accesorios                            R
+09428Accesorios 85 mm para sistema SuperTecno 58 asist.09Accesorios                            R
+09432Accesorios p/sistema aut.p/motor 40 y caño 48 mm  09Accesorios                            R
+09436Accesorios p/sistema aut.p/motor 40 y caño 58 mm  09Accesorios                            R
+09440Accesorios p/sistema aut.p/motor 50 y caño 58 mm  09Accesorios                            R
+09444Acces.p/sistema aut.p/motor 50 y caño 58 c/sop.met09Accesorios                            R
+09448Acces.p/sistema aut.p/motor 50 y caño 78 c/sop.met09Accesorios                            R
+09452Acces.p/sist.aut.p/motor 50 y caño 100 c/sop.met  09Accesorios                            R
+09454Accesorios 60 mm p/sist.Tecno c/base sujeción     09Accesorios                            R
+09456Accesorios 75 mm p/sist.TecnoMaxi c/base sujeción 09Accesorios                            R
+09460Accesorios 85 mm p/sist.TecnoMaxi c/base sujeción 09Accesorios                            R
+09464Accesorios 85 mm p/sist.SuperTecno 48 c/base suj. 09Accesorios                            R
+09468Accesorios 85 mm p/sist.SuperTecno 48 asis. b.suj.09Accesorios                            R
+09472Accesorios 85 mm p/sist.SuperTecno 58 asis. b.suj.09Accesorios                            R
+09476Acces.p/sist.aut.p/motor 40 y caño 48 c/base suj. 09Accesorios                            R
+09480Acces.p/sist.aut.p/motor 40 y caño 58 c/base suj. 09Accesorios                            R
+09484Acces.p/sist.aut.p/motor 50 y caño 58 c/base suj. 09Accesorios                            R
+09488Acces.p/sis.aut.p/motor 50 y caño 58 b.suj.sop.met09Accesorios                            R
+09490Accesorios p/frente recto 75 mm c/sist.Tecno      09Accesorios                            R
+09492Accesorios p/frente recto 75 mm c/sist.TecnoMaxi  09Accesorios                            R
+09496Accesorios p/frente recto 75 mm c/sist.p/motor 40 09Accesorios                            R
+09500Acces.p/cenefa frente curvo 60 mm c/sist.Tecno    09Accesorios                            R
+09504Acces.p/cenefa frente curvo 75 mm c/sist.Tecno    09Accesorios                            R
+09508Acces.p/cenefa frente curvo 75 mm c/sist.TecnoMaxi09Accesorios                            R
+09512Acces.p/cenefa frente curvo 75 mm c/sis.p/motor 4009Accesorios                            R
+09514Acces.p/cenefa frente recto 75 mm c/sist.Tecno    09Accesorios                            R
+09516Acces.p/cenefa frente recto 75 mm c/sist.TecnoMaxi09Accesorios                            R
+09518Acces.p/cenefa frente recto 75 mm c/sis.p/motor 4009Accesorios                            R
+09520Acces.p/cenefa frente recto 100mm c/sist.TecnoMaxi09Accesorios                            R
+09522Acces.p/cenefa frente recto 100mm c/sis.SuperTecno09Accesorios                            R
+09524Acces.p/cenefa fr.recto 100mm c/SuperTecno 48 asis09Accesorios                            R
+09526Acces.p/cenefa fr.recto 100mm c/SuperTecno 58 asis09Accesorios                            R
+09528Acces.p/cenefa fr.recto 100mm c/sist.48 p/motor 4009Accesorios                            R
+09530Acces.p/cenefa fr.recto 100mm c/sist.58 p/motor 4009Accesorios                            R
+09532Acces.p/cenefa fr.recto 100mm c/sist.58 p/motor 5009Accesorios                            R
+09534Acces.p/casette frente curvo 60 mm c/sist.Tecno   09Accesorios                            R
+09536Acces.p/casette frente curvo 75 mm c/sist.Tecno   09Accesorios                            R
+09538Acces.p/casette frente curvo 75mm c/sist.TecnoMaxi09Accesorios                            R
+09540Acces.p/casette frente curvo 75mm c/sis.p/motor 4009Accesorios                            R
+09542Acces.p/casette frente recto 80mm c/sist.TecnoMaxi09Accesorios                            R
+09544Acces.p/casette frente recto 80mm c/sis.p/motor 4009Accesorios                            R
+09546Acces.p/casette f.recto 100mm c/SuperTecno 48     09Accesorios                            R
+09548Acces.p/casette f.recto 100mm c/SuperTecno 48 asis09Accesorios                            R
+09550Acces.p/casette f.recto 100mm c/SuperTecno 58 asis09Accesorios                            R
+09554Acces.p/casette f.recto 100mm c/sist.48 p/motor 4009Accesorios                            R
+09558Acces.p/casette f.recto 100mm c/sist.58 p/motor 4009Accesorios                            R
+09560Acces.p/casette f.recto 100mm c/sist.58 p/motor 5009Accesorios                            R
+09562Acces.p/casette S.Wide 105 mm c/sist.58 p/motor 5009Accesorios                            R
+09564Acces.p/sistemas consecutivos con base de suj.    09Accesorios                            R
+09568Acces.p/sist.consecutivos c/casette fr.rec. 80    09Accesorios                            R
+09572Acces.p/sist.consecutivos c/casette fr.rec. 100   09Accesorios                            R
+09574Accesorios para sistemas con casette overlapping  09Accesorios                            R
+09576Accesorios para sistemas accionados a manivela    09Accesorios                            R
+09577Accesorios para sistemas de cortina Eclipse       09Accesorios                            R
+09600Soporte para sistema a resorte                    09Accesorios                            R
+09604Soporte de 50 mm para sist.Tecno de 29 mm         09Accesorios                            R
+09608Soporte de 60 mm para sist.Tecno de 29 mm         09Accesorios                            R
+09612Soporte de 75 mm para sist.TecnoMaxi de 40 mm     09Accesorios                            R
+09616Soporte de 85 mm para sist.TecnoMaxi de 40 mm     09Accesorios                            R
+09620Soporte de 85 mm para sist.SuperTecno de 48 mm    09Accesorios                            R
+09624Soporte de 85 mm para sist.SuperTecno 48 asist.   09Accesorios                            R
+09628Soporte de 85 mm para sist.SuperTecno 58 asist.   09Accesorios                            R
+09632Soporte p/sistema aut.p/motor 40 y caño 48 mm     09Accesorios                            R
+09636Soporte p/sistema aut.p/motor 40 y caño 58 mm     09Accesorios                            R
+09640Soporte p/sistema aut.p/motor 50 y caño 58 mm     09Accesorios                            R
+09644Soporte metálico p/sis.aut.p/motor 50 y caño 58 mm09Accesorios                            R
+09648Soporte metálico p/sis.aut.p/motor 50 y caño 78 mm09Accesorios                            R
+09652Soporte metálico p/sis.aut.p/motor 50 y caño 100mm09Accesorios                            R
+09654Soporte de 60 mm p/sist.Tecno c/base sujeción     09Accesorios                            R
+09656Soporte de 75 mm p/sist.TecnoMaxi c/base sujeción 09Accesorios                            R
+09660Soporte de 85 mm p/sist.TecnoMaxi c/base sujeción 09Accesorios                            R
+09664Soporte 85 mm p/sist.SuperTecno 48 mm c/base suj. 09Accesorios                            R
+09668Soporte 85 mm p/sist.SuperTecno 48 asist.c/b.suj. 09Accesorios                            R
+09672Soporte 85 mm p/sist.SuperTecno 58 asist.c/b.suj. 09Accesorios                            R
+09676Soporte p/sist.aut.p/motor 40 y caño 48 c/b.suj.  09Accesorios                            R
+09680Soporte p/sist.aut.p/motor 40 y caño 58 c/b.suj.  09Accesorios                            R
+09684Soporte p/sist.aut.p/motor 50 y caño 58 c/b.suj.  09Accesorios                            R
+09688Soporte met.p/sis.aut.p/motor 50 y caño 48 c/b.suj09Accesorios                            R
+09690Soporte p/frente recto 75 mm c/sistema Tecno      09Accesorios                            R
+09692Soporte p/frente recto 75 mm c/sistema TecnoMaxi  09Accesorios                            R
+09696Soporte p/frente recto 75 mm c/sist.p/motor 40    09Accesorios                            R
+09700Soporte p/cenefa fr.curvo 60 mm c/sistema Tecno   09Accesorios                            R
+09704Soporte p/cenefa fr.curvo 75 mm c/sistema Tecno   09Accesorios                            R
+09708Soporte p/cenefa fr.curvo 75 mm c/sist.TecnoMaxi  09Accesorios                            R
+09712Soporte p/cenefa fr.curvo 75 mm c/sis.p/motor 40  09Accesorios                            R
+09714Soporte p/cenefa fr.recto 75 mm c/sistema Tecno   09Accesorios                            R
+09716Soporte p/cenefa fr.recto 75 mm c/sist.TecnoMaxi  09Accesorios                            R
+09718Soporte p/cenefa fr.recto 75 mm c/sist.p/motor 40 09Accesorios                            R
+09720Soporte p/cenefa fr.recto 100 mm c/sist.TecnoMaxi 09Accesorios                            R
+09722Soporte p/cenefa fr.recto 100 mm c/sis.SuperTecno 09Accesorios                            R
+09724Soporte p/cenefa f.rec.100 c/s.SuperTecno 48 asis.09Accesorios                            R
+09726Soporte p/cenefa f.rec.100 c/s.SuperTecno 58 asis.09Accesorios                            R
+09728Soporte p/cenefa fr.rec.100 c/sist.48 p/motor 40  09Accesorios                            R
+09730Soporte p/cenefa fr.rec.100 c/sist.58 p/motor 40  09Accesorios                            R
+09732Soporte p/cenefa fr.rec.100 c/sist.58 p/motor 50  09Accesorios                            R
+09734Soporte p/casette fr.curvo 60 mm c/sistema Tecno  09Accesorios                            R
+09736Soporte p/casette fr.curvo 75 mm c/sistema Tecno  09Accesorios                            R
+09738Soporte p/casette fr.curvo 75 mm c/sist.TecnoMaxi 09Accesorios                            R
+09740Soporte p/casette fr.curvo 75 mm c/sis.p/motor 40 09Accesorios                            R
+09742Soporte p/casette fr.recto 80 mm c/sist.TecnoMaxi 09Accesorios                            R
+09744Soporte p/casette fr.recto 80 mm c/sis.p/motor 40 09Accesorios                            R
+09746Soporte p/casette f.rec.100 c/SuperTecno 48       09Accesorios                            R
+09748Soporte p/casette f.rec.100 c/SuperTecno 48 asis. 09Accesorios                            R
+09750Soporte p/casette f.rec.100 c/SuperTecno 58 asis. 09Accesorios                            R
+09754Soporte p/casette fr.rec.100 c/sist.48 p/motor 40 09Accesorios                            R
+09758Soporte p/casette fr.rec.100 c/sist.58 p/motor 40 09Accesorios                            R
+09760Soporte p/casette fr.rec.100 c/sist.58 p/motor 50 09Accesorios                            R
+09762Soporte p/casette S.Wide 105 c/sist.58 p/motor 50 09Accesorios                            R
+09764Soporte p/sistemas consecutivos con base de suj.  09Accesorios                            R
+09768Soporte p/sist.consecutivos c/casette fr.rec. 80  09Accesorios                            R
+09772Soporte p/sist.consecutivos c/casette fr.rec. 100 09Accesorios                            R
+09774Soporte para sistemas con casette overlapping     09Accesorios                            R
+09776Soporte para sistemas accionados a manivela       09Accesorios                            R
+09777Soporte para sistemas de cortina Eclipse          09Accesorios                            R
+09780Suplementos nivelacion soportes Tecnoroll, 2.5mm  09Accesorios                            R
+09781Suplementos nivelacion soportes Tecnoroll, 5mm    09Accesorios                            R
+09782Suplementos nivelacion soportes Tecnoroll, 10mm   09Accesorios                            R
+09783Suplementos nivelacion soportes Tecnoroll, 15mm   09Accesorios                            R
+09790Terminales fijos para sistemas Tecnoroll          09Accesorios                            R
+09800Accesorios para armado sistema Tecnoroll          09Accesorios                            R
+09803Accesorios para armado sistema Eclipse            09Accesorios                            R
+09805Accesorios para cajones de 105 mm                 09Accesorios                            R
+09810Accesorios sistemas con resorte                   09Accesorios                            R
+09820Accesorios sistemas con embrague                  09Accesorios                            R
+09830Cadenas                                           09Accesorios                            R
+09833Accesorios para sistemas automatizados            09Accesorios                            R
+09835Accesorios para sistemas consecutivos             09Accesorios                            R
+09840Accesorios para sistemas con manivela             09Accesorios                            R
+09850Accesorios para automatizaciones                  09Accesorios                            R
+09860Zócalos                                           08Zocalos                               R
+09865Accesorios para zócalos                           09Accesorios                            R
+09870Telas confeccionadas para toldos                  09Accesorios                            R
+09880Accesorios especiales                             09Accesorios                            R
+09998Telas roler Sun Sreen 5% View                     00                                      R
+09999ARTICULOS NUEVOS A VERIFICAR                      09Accesorios                            R
+10010Rieles p/cortinas automatizadas con motores JA    02Sistemas                              R
+10015Rieles p/cortinas automatizadas c/motores M100    02Sistemas                              R
+10016Rieles p/cortinas automatizadas c/motores R200    02Sistemas                              R
+10017Tratamientos adicionales                          09Accesorios                            R
+10018Accesorios para riel 10270                        09Accesorios                            R
+10020Techos romanos de accionamiento manual            09Accesorios                            R
+10030Techos romanos accionamiento automatiz. sin llave 09Accesorios                            R
+10040Techos planos de accionamiento automatizado       09Accesorios                            R
+10050Techos Jumbo automatizados                        09Accesorios                            R
+10052Motores tubulares RA                              04Motores                               R
+10054Motores tubulares RA con radiofrecuencia incorp.  04Motores                               R
+10055Emisores y receptores para motores RA y R200      09accesorios                            U
+10057Motores tubulares Elero                           04Motores                               R
+10060Motores tubulares Elero con radiofrecuencia incorp04Motores                               R
+10065Motores tubulares Somfy                           04Motores                               R
+10066Motores tubulares Somfy con radiofrecuencia incorp04Motores                               R
+10067Motores tubulares Lutron                          04Motores                               R
+10070Motores p/cortinas Venecianas, Romanas y Celulares04Motores                               R
+10075Motores Reparados                                 04Motores                               R
+10080Sistemas de control remoto por radiofrecuencia    02Sistemas                              R
+10090Sistemas de control remoto por infrarrojo         02Sistemas                              R
+10100Llaves para motores - Plasnavi                    06Llaves                                R
+10110Llaves para motores - Cambre                      06Llaves                                R
+10120Llaves para motores - Clipsal                     06Llaves                                R
+10130Soportes                                          09Accesorios                            R
+10140Accesorios especiales                             09Accesorios                            R
+10150Productos promocionados hasta agotar stock        09Accesorios                            R
+10900Telas en rollo                                    09Accesorios                            R
+10999ARTICULOS NUEVOS A VERIFICAR                      09Accesorios                            R
+11010Cortinas plisadas Evenpleat 25 mm(fact. mín.:1 m2)03Cortinas                              R
+11015Cortinas plisadas Evenpleat 20 mm(fact. mín.:1 m2)03Cortinas                              R
+11020Cortinas celulares Bolero (factura mín.: 1 m2)    03Cortinas                              R
+11025Cortinas Cel Bolero Sense Black-Out 25(f.mín.:1m2)03Cortinas                              R
+11030Cortinas celulares Bolero Black-Out (f.mín.: 1 m2)03Cortinas                              R
+11032Cortinas cel Bolero Carisma Sheer 25(f.mín.:1m2)  03Cortinas                              R
+11035Cortinas celulares Bolero sheer de 3/8"(10mm)     03Cortinas                              R
+11037Cortinas celulares Bolero semi sheer de 3/4"(18mm)03Cortinas                              R
+11038Cortinas celulares Supreme                        03Cortinas                              R
+11039Cortinas Supreme Estilo                           03Cortinas                              R
+11040Cortinas Supreme Serenade                         03Cortinas                              R
+11041Cortinas Supreme Polaris Opaca                    03Cortinas                              R
+11042Cortinas celulares Premiere                       03Cortinas                              R
+11043Cortinas Premiere Soft                            03Cortinas                              R
+11045Soportes para cortinas                            09Accesorios                            R
+11047Sistema para automatizar cortinas                 02Sistemas                              R
+11050Sistemas especiales                               02Sistemas                              R
+11055Accesorios para Cortinas Celulares y/o Plisadas   09Accesorios                            R
+11060Productos promocionados hasta agotar stock        09Accesorios                            R
+11999ARTICULOS NUEVOS A VERIFICAR                      09Accesorios                            R
+12009Cortinas vencianas MicroCort                      03Cortinas                              R
+12010Cortinas venecianas Cromatika 25 mm (fac.mín:1 m2)03Cortinas                              R
+12020Cortinas venecianas Cromatika 16 mm (fac.mín:1 m2)03Cortinas                              R
+12030Cortinas ven. Cromatika perf. 25 mm (fac.mín:1 m2)03Cortinas                              R
+12035Sistema para automatizar cortinas                 02Sistemas                              R
+12037Recargos por especiales o adicionales             09Accesorios                            R
+12040Flejes                                            09Accesorios                            R
+12050Cabezales                                         09Accesorios                            R
+12060Zócalos                                           09Accesorios                            R
+12070Varillas                                          09Accesorios                            R
+12080Cordones de 1,3 mm y 2.5 mm(tipo S) de diámetro   09Accesorios                            R
+12090Fijador cordón                                    09Accesorios                            R
+12100Tapa nudos                                        09Accesorios                            R
+12110Cintas escalera                                   09Accesorios                            R
+12120Tapa cabezal                                      09Accesorios                            R
+12130Tapa base                                         09Accesorios                            R
+12140Bastones de mando de acrílico cristal             09Accesorios                            R
+12150Frenos                                            09Accesorios                            R
+12160Sujetadores de bases                              09Accesorios                            R
+12170Perilla campanita                                 09Accesorios                            R
+12180Sistemas tensionados para cortinas venecianas     09Accesorios                            R
+12185Soportes cortina Cromatika                        09Accesorios                            R
+12190Soportes varios                                   09Accesorios                            R
+12210Accesorios                                        09Accesorios                            R
+12220Productos promocionados hasta agotar stock        09Accesorios                            R
+12999ARTICULOS NUEVOS A VERIFICAR                      09Accesorios                            R
+13010Cortinas venecianas Wood-Blind 25 mm(fac.mín:1 m2)03Cortinas                              R
+13020Cortinas venecianas Wood-Blind 50 mm(fac.mín:1 m2)03Cortinas                              R
+13021Cortinas venecianas Wood Plus 50 mm(fac.mín:1 m2) 03Cortinas                              R
+13022Sistema para automatizar cortinas                 02Sistemas                              R
+13025Cenefas laterales para Wood-Blind                 09Accesorios                            R
+13030Accesorios para Wood-Blind de 25 mm               09Accesorios                            R
+13040Accesorios para Wood-Blind de 50 mm               09Accesorios                            R
+13999ARTICULOS NUEVOS A VERIFICAR                      09Accesorios                            R
+14010Colocaciones                                      09Accesorios                            R
+14020Deco I-Sistema extra chato c/cordón y contrapeso  09Accesorios                            R
+14030Deco II-Sistema con cordón y contrapeso           09Accesorios                            R
+14035Deco SV-Sistema de fijación mecánica              09Accesorios                            R
+14040Deco III-Sistema con cadena plástica y contrapeso 09Accesorios                            R
+14050Deco III-Sistema con cadena metálica y contrapeso 09Accesorios                            R
+14060Deco IV-Sistema con cadena plástica y contrapeso  09Accesorios                            R
+14070Deco IV-Sistema con cadena metálica y contrapeso  09Accesorios                            R
+14080Decorador-Sistema a cadena y contrapeso c/cordón  09Accesorios                            R
+14090Decorador-Sistema a cadena y contrapeso c/cinta   09Accesorios                            R
+14092Deco E-Sistema para romanas-fijación c/ganchos    09Accesorios                            R
+14094Sistema armado a medida Deco SV (fac.mín:1 m)     09Accesorios                            R
+14096Sistema armado a medida con 5 varillas (f.mín:1 m)02Sistemas                              R
+14097Sistema para automatizar cortinas                 02Sistemas                              R
+14098Productos promocionados hasta agotar stock        09Accesorios                            R
+14202Cort. Romanas tela Sun-Screen 1% (f.mín: 1m2)     01Telas                                 R
+14203Cort. Romanas tela Sun-Screen 1% Plus (f.mín: 1m2)01Telas                                 R
+14204Cort. Romanas tela Sun-Screen 3% (f.mín: 1m2)     01Telas                                 R
+14205Cort. Romanas tela Sun-Screen 3% Plus (f.mín: 1m2)01Telas                                 R
+14208Cort. Romanas tela Sun-Screen 5% (f.mín: 1m2)     01Telas                                 R
+14212Cort. Romanas tela Sun-Screen 5% Plus (f.mín: 1m2)01Telas                                 R
+14216Cort. Romanas tela Sun-Screen 6% (f.mín: 1m2)     01Telas                                 R
+14220Cort. Romanas tela Sun-Screen 10% Plus(f.mín: 1m2)01Telas                                 R
+14224Cort. Romanas tela Sun-Screen In&Out (f.mín: 1m2) 01Telas                                 R
+14228Cort. Romanas tela Sun-Screen Jacquard(f.mín: 1m2)01Telas                                 R
+14232Cort. Romanas tela Screen Tex (f.mín: 1m2)        01Telas                                 R
+14236Cort. Romanas tela Metallic (f.mín: 1m2)          01Telas                                 R
+14240Cort. Romanas tela Vinílica Triple (f.mín: 1m2)   01Telas                                 R
+14244Cort. Romanas tela Black-Out Vinílica (f.mín: 1m2)01Telas                                 R
+14247Cort. Romanas tela Black-Out Poliéster(f.mín: 1m2)01Telas                                 R
+14252Cort. Romanas tela B.Out Poliéster S.Wide(f.m:1m2)01Telas                                 R
+14256Cort. Romanas tela Black-Out Steel (f.mín: 1m2)   01Telas                                 R
+14260Cort. Romanas tela Black-Out Dolce (f.mín: 1m2)   01Telas                                 R
+14270Cort. Romanas tela Black-Out Art (f.mín: 1m2)     01Telas                                 R
+14275Cort. Romanas tela Black-Out Point (f.mín: 1m2)   01Telas                                 R
+14280Cort. Romanas tela Black-Out Natural (f.mín: 1m2) 01Telas                                 R
+14285Cort. Romanas tela Black-Out Estampado (f.mín:1m2)01Telas                                 R
+14290Cort. Romanas tela Black-Out Duo (f.mín: 1m2)     01Telas                                 R
+14295Cort. Romanas tela Black-Out Perlado (f.mín: 1m2) 01Telas                                 R
+14300Cort. Romanas tela Black-Out Burbujas (f.mín: 1m2)01Telas                                 R
+14305Cort. Romanas tela Black-Out Rustic (f.mín: 1m2)  01Telas                                 R
+14310Cort. Romanas tela Black-Out Globos (f.mín: 1m2)  01Telas                                 R
+14328Cort. Romanas tela S.Screen 3% Classic(f.mín: 1m2)01Telas                                 R
+14329Cort. Romanas tela S.Screen 5% Chick (f.mín: 1m2) 01Telas                                 R
+14330Cort. Romanas tela S.Screen 5% Bicolor(f.mín: 1m2)01Telas                                 R
+14332Cort. Romanas tela Enigma New (f.mín: 1m2)        01Telas                                 R
+14334Cort. Romanas tela Tree (f.mín: 1m2)              01Telas                                 R
+14336Cort. Romanas tela Cascada (f.mín: 1m2)           01Telas                                 R
+14338Cort. Romanas tela Barroco (f.mín: 1m2)           01Telas                                 R
+14340Cort. Romanas tela City (f.mín: 1m2)              01Telas                                 R
+14342Cort. Romanas tela Onix (f.mín: 1m2)              01Telas                                 R
+14344Cort. Romanas tela Aros (f.mín: 1m2)              01Telas                                 R
+14346Cort. Romanas tela Curvas (f.mín: 1m2)            01Telas                                 R
+14348Cort. Romanas tela Hojas (f.mín: 1m2)             01Telas                                 R
+14362Cort. Romanas tela Gasa Gold (f.mín: 1m2)         01Telas                                 R
+14364Cort. Romanas tela Enigma (f.mín: 1m2)            01Telas                                 R
+14368Cort. Romanas tela Crystal (f.mín: 1m2)           01Telas                                 R
+14372Cort. Romanas tela Gasa (f.mín: 1m2)              01Telas                                 R
+14376Cort. Romanas tela Capriccio (f.mín: 1m2)         01Telas                                 R
+14380Cort. Romanas tela Milano (f.mín: 1m2)            01Telas                                 R
+14384Cort. Romanas tela Allegro (f.mín: 1m2)           01Telas                                 R
+14388Cort. Romanas tela Print (f.mín: 1m2)             01Telas                                 R
+14390Cort. Romanas tela Círculos (f.mín: 1m2)          01Telas                                 R
+14392Cort. Romanas tela Diamond (f.mín: 1m2)           01Telas                                 R
+14396Cort. Romanas tela Livanto (f.mín: 1m2)           01Telas                                 R
+14400Cort. Romanas tela Poliéster (f.mín: 1m2)         01Telas                                 R
+14404Cort. Romanas tela Acuarela (f.mín: 1m2)          01Telas                                 R
+14408Cort. Romanas tela Natural Concept (f.mín: 1m2)   01Telas                                 R
+14412Cort. Romanas tela Elegance (f.mín: 1m2)          01Telas                                 R
+14416Cort. Romanas tela Mónaco (f.mín: 1m2)            01Telas                                 R
+14420Cort. Romanas tela Boheme (f.mín: 1m2)            01Telas                                 R
+14424Cort. Romanas tela Dark (f.mín: 1m2)              01Telas                                 R
+14426Cort. Romanas tela Estera-espesor 1,10(f.mín: 1m2)01Telas                                 R
+14427Cort. Romanas tela Estera-espesor 0,90(f.mín: 1m2)01Telas                                 R
+14428Cort. Romanas tela Estera-espesor 1,15(f.mín: 1m2)01Telas                                 R
+14432Cort. Romanas tela Bordados (f.mín: 1m2)          01Telas                                 R
+14500Accesorios para Deco I                            09Accesorios                            R
+14510Accesorios para Deco II                           09Accesorios                            R
+14520Accesorios para Deco III                          09Accesorios                            R
+14530Accesorios para Decorador con cordón o cinta      09Accesorios                            R
+14540Accesorios para uso en varios sistemas            09Accesorios                            R
+14550Cordones y cintas para Deco                       09Accesorios                            R
+14560Varillas para cortinas Romanas                    09Accesorios                            R
+14570Accesorios para cortinas Romanas                  09Accesorios                            R
+14940Cort. Romanas con Mecanismo (f.mín:1 m2)          09Accesorios                            R
+14999ARTICULOS NUEVOS A VERIFICAR                      09Accesorios                            R
+15002Royal Panel con cordón                            02Sistemas                              R
+15005Royal Panel con bastón                            02Sistemas                              R
+15008Royal Panel de accionamiento libre                02Sistemas                              R
+15010Paneles accionados por medio de cordones          02Sistemas                              R
+15020Paneles accionados por medio de bastones          02Sistemas                              R
+15030Paneles de accionamiento libre                    02Sistemas                              R
+15040Cenefas y soportes para cabezales orientales      09Accesorios                            R
+15050Paneles fijos                                     09Accesorios                            R
+15060Productos promocionados hasta agotar stock        09Accesorios                            R
+15101Paneles de tela Sun Screen 1%                     01Telas                                 R
+15102Paneles de tela Sun Screen 1% Plus                01Telas                                 R
+15104Paneles de tela Sun-Screen 3%                     01Telas                                 R
+15105Paneles de tela Sun-Screen 3% Plus                01Telas                                 R
+15108Paneles de tela Sun-Screen 5%                     01Telas                                 R
+15112Paneles de tela Sun-Screen 5% Plus                01Telas                                 R
+15116Paneles de tela Sun-Screen 6%                     01Telas                                 R
+15120Paneles de tela Sun-Screen 10% Plus               01Telas                                 R
+15124Paneles de tela Sun-Screen Indoor & Outdoor       01Telas                                 R
+15128Paneles de tela Sun-Screen Jacquard               01Telas                                 R
+15132Paneles de tela Screen Tex                        01Telas                                 R
+15136Paneles de tela Metallic                          01Telas                                 R
+15140Paneles de tela Vinílica Triple                   01Telas                                 R
+15144Paneles de tela Black-Out Vinílica                01Telas                                 R
+15152Paneles de tela Black-Out Poliéster               01Telas                                 R
+15154Paneles de tela Black-Out Poliéster Super Wide    01Telas                                 R
+15156Paneles de tela Black-Out Steel                   01Telas                                 R
+15160Paneles de tela Black-Out Dolce                   01Telas                                 R
+15165Paneles de tela Black-Out Art                     01Telas                                 R
+15170Paneles de tela Black-Out Point                   01Telas                                 R
+15175Paneles de tela Black-Out Natural                 01Telas                                 R
+15180Paneles de tela Black-Out Estampado               01Telas                                 R
+15185Paneles de tela Black-Out Duo                     01Telas                                 R
+15190Paneles de tela Black-Out Perlado                 01Telas                                 R
+15195Paneles de tela Black-Out Burbujas                01Telas                                 R
+15200Paneles de tela Black-Out Rustic                  01Telas                                 R
+15205Paneles de tela Black-Out Globos                  01Telas                                 R
+15210Paneles de tela Sun-Screen 3% Classic             01Telas                                 R
+15215Paneles de tela Sun-Screen 5% Chick               01Telas                                 R
+15220Paneles de tela Sun-Screen 5% Bicolor             01Telas                                 R
+15265Paneles de tela Enigma New                        01Telas                                 R
+15270Paneles de tela Tree                              01Telas                                 R
+15275Paneles de tela Cascada                           01Telas                                 R
+15280Paneles de tela Barroco                           01Telas                                 R
+15285Paneles de tela City                              01Telas                                 R
+15290Paneles de tela Onix                              01Telas                                 R
+15295Paneles de tela Moonligth Cher                    01Telas                                 R
+15300Paneles de tela Moonligth Block                   01Telas                                 R
+15305Paneles de tela Moonligth Wood                    01Telas                                 R
+15336Paneles de tela Ondas                             01Telas                                 R
+15340Paneles de tela Hilos                             01Telas                                 R
+15342Paneles de tela Bordados                          01Telas                                 R
+15344Paneles de tela Aros                              01Telas                                 R
+15352Paneles de tela Curvas                            01Telas                                 R
+15356Paneles de tela Hojas                             01Telas                                 R
+15360Paneles de tela Fibras                            01Telas                                 R
+15364Paneles de tela Pétalos                           01Telas                                 R
+15368Paneles de tela Tierra                            01Telas                                 R
+15372Paneles de tela Valencia                          01Telas                                 R
+15377Paneles de tela Moonligth Gala                    01Telas                                 R
+15378Paneles de tela Moonligth New                     01Telas                                 R
+15500Paneles de tela Gasa Gold                         01Telas                                 R
+15505Paneles de tela Enigma                            01Telas                                 R
+15510Paneles de tela Crystal                           01Telas                                 R
+15515Paneles de tela Gasa                              01Telas                                 R
+15520Paneles de tela Capriccio                         01Telas                                 R
+15525Paneles de tela Milano                            01Telas                                 R
+15530Paneles de tela Allegro                           01Telas                                 R
+15535Paneles de tela Print                             01Telas                                 R
+15540Paneles de tela Círculos                          01Telas                                 R
+15545Paneles de tela Diamond                           01Telas                                 R
+15550Paneles de tela Livanto                           01Telas                                 R
+15555Paneles de tela Poliéster                         01Telas                                 R
+15560Paneles de tela Acuarela                          01Telas                                 R
+15565Paneles de tela Natural Concept                   01Telas                                 R
+15570Paneles de tela Elegance                          01Telas                                 R
+15575Paneles de tela Mónaco                            01Telas                                 R
+15580Paneles de tela Boheme                            01Telas                                 R
+15585Paneles de tela Dark                              01Telas                                 R
+15590Paneles de tela Estera-espesor 1,10               01Telas                                 R
+15595Paneles de tela Estera-espesor 0,90               01Telas                                 R
+15598Paneles de tela Estera-espesor 1,15               01Telas                                 R
+15700Soportes                                          09Accesorios                            R
+15800Accesorios                                        09Accesorios                            R
+15999ARTICULOS NUEVOS A VERIFICAR                      09Accesorios                            R
+16010Cortinas Shimmer Screen                           03Cortinas                              R
+16999ARTICULOS NUEVOS A VERIFICAR                      09Accesorios                            R
+18010Cortinas Roll-Up Sun-Screen 14%                   03Cortinas                              R
+18020Cortinas Roll-Up Sun-Screen Jacquard              03Cortinas                              R
+18030Cortinas Roll-Up Natural Concept                  03Cortinas                              R
+18040Cortinas Roll-Up Elegance                         03Cortinas                              R
+18050Cortinas Roll-Up Mónaco                           03Cortinas                              R
+18060Cortinas Roll-Up Boheme                           03Cortinas                              R
+18070Cortinas Roll-Up Dark                             03Cortinas                              R
+18075Cortinas Roll-Up Estera-espesor 1,10              03Cortinas                              R
+18077Cortinas Roll-Up Estera-espesor 0,90              03Cortinas                              R
+18080Cortinas Roll-Up Estera-espesor 1,15              03Cortinas                              R
+18100Accesorios Cortinas Roll-Up                       09Accesorios                            R
+18999ARTICULOS NUEVOS A VERIFICAR                      09Accesorios                            R
+70005ARTICULOS ANTIGUOS A DAR DE BAJA                  09Accesorios                            R
+70010Telas para toldos: PVC Cristal                    01Telas                                 R
+70020Telas para toldos: Loneta Acrílica Lisa           01Telas                                 R
+70030Telas para toldos: Loneta Acrílica Rayada         01Telas                                 R
+70040Telas para toldos: Loneta Vinílica Lisa           01Telas                                 R
+70050Telas para toldos: Loneta Vinílica Rayada         01Telas                                 R
+70060Telas para toldos: Sun-Screen Exterior            01Telas                                 R
+70070Telas para toldos: Sun-Screen Indoor & Outdoor    01Telas                                 R
+70119Sistemas de arrollamiento para toldos Manuales    02Sistemas                              R
+70120Sistemas de arrollamiento para toldos automatizado02Sistemas                              R
+70121Elementos de terminación                          09Accesorios                            R
+70122Accesorios de fijación                            09Accesorios                            R
+70123Accesorios Genéricos para Toldos                  09Accesorios                            R
+70124Embalaje                                          09Accesorios                            R
+70125Componentes para toldos verticales                09Accesorios                            R
+70130Componentes para toldos de brazos de punto recto  09Accesorios                            R
+70140Componentes para toldos de brazos invisibles      09Accesorios                            R
+70160Accesorios para armado de toldos                  09Accesorios                            R
+70165Motores RA para Toldos con RF incorporado         04Motores                               R
+70170Motores ALTUS con radio incorporado               04Motores                               R
+70180Motores HIPRO para accionamiento con tecla        04Motores                               R
+70190Motores HIPRO CSI con asistencia manual           04Motores                               R
+70200Mandos y automatismos por radio frecuencia        05Emisores                              R
+70999ARTICULOS NUEVOS A VERIFICAR                      09Accesorios                            R
+98010Reparaciones Multistore Proligth                  12Reparacion                            R
+98015Reparaciones Orientales                           12Reparacion                            R
+98020Reparaciones Tecnoroll                            12Reparacion                            R
+98022Reparaciones Eclipse, Supreme y Premiere          12Reparacion                            R
+98025Reparaciones Plisadas y Celulares                 12Reparacion                            R
+98030Reparaciones Romanas                              12Reparacion                            R
+98040Reparaciones Cromatikas                           12Reparacion                            R
+98050Reparaciones Wood-Blind                           12Reparacion                            R
+98070Reparaciones Toldos                               12Reparacion                            R
+98080Reparaciones Rieles Automat. y Productos Espec.   12Reparacion                            R
+98999ARTICULOS NUEVOS A VERIFICAR                      12Reparacion                            R
+99010Colocaciones                                      13Colocacion                            R
+99020Productos promocionados hasta agotar stock        13Colocacion                            R
+99999ARTICULOS NUEVOS A VERIFICAR                      13Colocacion                            R

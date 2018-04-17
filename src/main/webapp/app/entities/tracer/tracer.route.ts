@@ -4,7 +4,6 @@ import { UserRouteAccessService } from '../../shared';
 import { TracerComponent } from './tracer.component';
 import { TracerWorkStationComponent } from './tracer-workstation.component';
 import { TracerDetailComponent } from './tracer-detail.component';
-import { TracerStartComponent } from './tracer-start.component';
 import { TracerStartPopupComponent, TracerStartCodeIpPopupComponent } from './tracer-start.component';
 import { TracerPopupComponent } from './tracer-dialog.component';
 import { TracerDeletePopupComponent } from './tracer-delete-dialog.component';

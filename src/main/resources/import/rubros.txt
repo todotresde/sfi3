@@ -1,0 +1,18 @@
+01RIELAMERICANO                                                R
+02RIELES DE ALUMINIO                                           R
+03RIELEUROPEO                                                  R
+05ACCESORIOS PARA RIELES Y CORTINAS                            R
+06BARRALES Y ACCESORIOS PARA BAÑO                              R
+08CORTINAS VERTICALES MULTISTORE     S                         R
+09CORTINAS ENROLLABLES TECNOROLL     S                         R
+10CORTINAS AUTOMATIZADAS             S                         R
+11CORTINAS PLISADAS Y CELULARES      S                         R
+12CORTINAS CROMATIKAS DE ALUM.16/25MMS                         R
+13CORTINAS VENECIANAS  MADERA 25/50MMS                         R
+14SISTEMAS PARA CORTINAS ROMANAS                               R
+15CORTINAS DE PANELES ORIENT. O FIJOSS                         R
+16CORTINAS DE CADENAS                                          R
+18CORTINAS ROLL-UP                                             R
+70TOLDOS                                                       R
+98REPARACIONES                                                 R
+99COLOCACIONES                                                 R

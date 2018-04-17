@@ -1,9 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
+import { HttpResponse } from '@angular/common/http';
 
 import { Observable } from 'rxjs/Rx';
-import { NgbActiveModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { DatePipe } from '@angular/common';
 import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 
@@ -12,7 +12,7 @@ import { TracerPopupService } from './tracer-popup.service';
 import { TracerService } from './tracer.service';
 import { Product, ProductService } from '../product';
 import { Supply } from '../supply/supply.model';
-import { WorkStation, WorkStationService } from '../work-station';
+import { WorkStation } from '../work-station';
 
 @Component({
     selector: 'jhi-tracer-start',
@@ -34,8 +34,7 @@ export class TracerStartComponent implements OnInit {
         private alertService: JhiAlertService,
         private tracerService: TracerService,
         private productService: ProductService,
-        private eventManager: JhiEventManager,
-        private route: ActivatedRoute
+        private eventManager: JhiEventManager
     ) {
     }
 

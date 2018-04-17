@@ -1,0 +1,266 @@
+{
+	"files" : [
+		{
+			"name" : "quotation_header",
+			"fields" : [
+				{
+					"name" : "codid", 
+					"size" : "1",
+					"match" : "codidheader",
+					"default" : "C",
+					"dataType" : "Char"
+				},{
+					"name" : "numped", 
+					"size" : "20",
+					"match" : "quotation_id",
+					"dataType" : "String"
+				},{
+					"name" : "Cliente", 
+					"size" : "6",
+					"match" : "user",
+					"dataType" : "String"
+ 				},{
+					"name" : "Fecha", 
+					"size" : "6",
+					"match" : "updated_on",
+					"dataType" : "TimeStamp"
+				},{
+					"name" : "nomclif", 
+					"size" : "25",
+					"match" : "client.name",
+					"dataType" : "String"
+				},{
+					"name" : "domclif", 
+					"size" : "25",
+					"match" : "client.address",
+					"dataType" : "String"
+				},{
+					"name" : "locclif", 
+					"size" : "25",
+					"match" : "client.town",
+					"dataType" : "String"
+				},{
+					"name" : "provclif", 
+					"size" : "25",
+					"match" : "client.state",
+					"dataType" : "String"
+				},{
+					"name" : "codpostf", 
+					"size" : "4",
+					"match" : "client.postal_code",
+					"dataType" : "String"
+				},{
+					"name" : "telclif", 
+					"size" : "20",
+					"match" : "client.phone_number",
+					"dataType" : "String"
+				},{
+					"name" : "mailclif", 
+					"size" : "50",
+					"match" : "client.email",
+					"dataType" : "String"
+				},{
+					"name" : "tipresf", 
+					"size" : "1",
+					"match" : "client.iva_condition",
+					"dataType" : "String"
+				},{
+					"name" : "numcuitf", 
+					"size" : "11",
+					"match" : "client.cuit",
+					"dataType" : "String"
+				},{
+					"name" : "obra", 
+					"size" : "40",
+					"match" : "building_site",
+					"dataType" : "String"
+				},{
+					"name" : "observac", 
+					"size" : "40",
+					"match" : "observations",
+					"dataType" : "String"
+				},{
+					"name" : "SUBNET", 
+					"size" : "11",
+					"match" : "netcost",
+					"dataType" : "Double",
+					"dec" : "2"
+				},{
+					"name" : "desexc", 
+					"size" : "9",
+					"match" : "totalExclusiveDiscount",
+					"dataType" : "Double",
+					"dec" : "2"
+				},{
+					"name" : "desvid", 
+					"size" : "9",
+					"match" : "totalDiscountWindow",
+					"dataType" : "Double",
+					"dec" : "2"
+				},{
+					"name" : "desesp", 
+					"size" : "9",
+					"match" : "totalSpecialBonus",
+					"dataType" : "Double",
+					"dec" : "2"
+				},{
+					"name" : "TOTNET", 
+					"size" : "11",
+					"match" : "total_amount",
+					"dataType" : "Double",
+					"dec" : "2"
+				},{
+					"name" : "libre", 
+					"size" : "164",
+					"match" : "",
+					"default" : "",
+					"dataType" : "String"
+				}
+			] 
+		},{
+			"name" : "quotation_body",
+			"fields" : [
+				{
+					"name" : "codid", 
+					"size" : "1",
+					"match" : "codidbody",
+					"dataType" : "Char",
+					"default" : "D"
+				},{
+					"name" : "numped", 
+					"size" : "20",
+					"match" : "quotation_id",
+					"dataType" : "String"
+				},{
+					"name" : "agrupador", 
+					"size" : "2",
+					"match" : "agrupador",
+					"dataType" : "String"
+				},{
+					"name" : "item", 
+					"size" : "15",
+					"match" : "item",
+					"dataType" : "String"
+				},{
+					"name" : "subitem", 
+					"size" : "15",
+					"match" : "subitem",
+					"dataType" : "String"
+				},{
+					"name" : "renglon", 
+					"size" : "3",
+					"match" : "renglon",
+					"dataType" : "String"
+				},{
+					"name" : "articu", 
+					"size" : "5",
+					"match" : "numart",
+					"dataType" : "String"
+				},{
+					"name" : "descrip", 
+					"size" : "60",
+					"match" : "desart",
+					"dataType" : "String"
+				},{
+					"name" : "ancho", 
+					"size" : "5",
+					"match" : "width",
+					"dataType" : "Double",
+					"dec" : "3"
+				},{
+					"name" : "alto", 
+					"size" : "4",
+					"match" : "height",
+					"dataType" : "Double",
+					"dec" : "2"
+				},{
+					"name" : "cantidad", 
+					"size" : "5",
+					"match" : "quantity",
+					"dataType" : "Integer"
+				},{
+					"name" : "tipoma", 
+					"size" : "1",
+					"match" : "control.codtip",
+					"dataType" : "String"
+				},{
+					"name" : "descma", 
+					"size" : "80",
+					"match" : "control.nomtipl",
+					"dataType" : "String"
+				},{
+					"name" : "altuma", 
+					"size" : "4",
+					"match" : "measureControl",
+					"dataType" : "Double",
+					"dec" : "2"
+				},{
+					"name" : "varselec", 
+					"size" : "20",
+					"match" : "variantesSelected",
+					"dataType" : "Object",
+					"fields" : "prenro,resnro"
+				},{
+					"name" : "listaP", 
+					"size" : "1",
+					"match" : "price_list",
+					"dataType" : "String"
+				},{
+					"name" : "Plista", 
+					"size" : "9",
+					"match" : "list_price",
+					"dataType" : "Double",
+					"dec" : "2"
+				},{
+					"name" : "Pcosto", 
+					"size" : "9",
+					"match" : "cost_price",
+					"dataType" : "Double",
+					"dec" : "2"
+				},{
+					"name" : "Pdescu", 
+					"size" : "4",
+					"match" : "marginDiscount",
+					"dataType" : "Double",
+					"dec" : "2"
+				},{
+					"name" : "Pganancia", 
+					"size" : "5",
+					"match" : "marginGain",
+					"dataType" : "Double",
+					"dec" : "2"
+				},{
+					"name" : "observac1", 
+					"size" : "50",
+					"match" : "observations",
+					"dataType" : "String",
+					"default" : ""
+				},{
+					"name" : "observac2", 
+					"size" : "50",
+					"match" : "observac2",
+					"dataType" : "String",
+					"default" : ""
+				},{
+					"name" : "observac3", 
+					"size" : "50",
+					"match" : "observac3",
+					"dataType" : "String",
+					"default" : ""
+				},{
+					"name" : "observac4", 
+					"size" : "50",
+					"match" : "observac4",
+					"dataType" : "String",
+					"default" : ""
+				},{
+					"name" : "libre", 
+					"size" : "44",
+					"match" : "",
+					"default" : "",
+					"dataType" : "String"
+				}
+			] 
+		}
+	] 
+}

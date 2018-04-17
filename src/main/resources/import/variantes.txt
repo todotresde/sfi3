@@ -1,0 +1,756 @@
+004000100Determinar el tipo de mando                       O                                   R
+004000101Tipo F - Tela por detrás y mando izquierdo                                            R
+004000102Tipo J - Caida por detrás y mando derecho                                             R
+004000103Tipo X - Caida por delante y mando izquierdo                                          R
+004000104Tipo Y - Caida por delante y mando derecho                                            R
+004000105Tipo D - Tela por detrás y un mando izq y otro der                                    R
+004000106Tipo Z - Tela por delante, un mando izq y otro der                                    R
+004010100Determinar el tipo de mando                       O                                   R
+004010101Tipo F - Tela por detrás y mando izquierdo                                            R
+004010102Tipo J - Tela por detrás y mando derecho                                              R
+004010103Tipo X - Tela por delante y mando izquierdo                                           R
+004010104Tipo Y - Tela por delante y mando derecho                                             R
+004010105Tipo D - Tela por detrás y un mando izq y otro der                                    R
+004010106Tipo Z - Tela por delante, un mando izq y otro der                                    R
+004100100Determinar el tipo de mando                       O                                   R
+004100101Tipo F - Tela por detrás y mando izquierdo                                            R
+004100102Mando J - Tela por detrás y mando derecho                                             R
+004100103Tipo X - Tela por delante y mando izquierdo                                           R
+004100104Tipo Y - Tela por delante y mando derecho                                             R
+004100105Tipo D - Tela por detrás y un mando izq y otro der                                    R
+004100106Tipo Z - Tela por delante, un mando izq y otro der                                    R
+004110100Determinar el tipo de mando                       O                                   R
+004110101Tipo F - Tela por detrás y mando izquierdo                                            R
+004110102Tipo J - Tela por detrás y mando derecho                                              R
+004110103Tipo X - Tela por delante y mando izquierdo                                           R
+004110104Tipo Y - Tela por delante y mando derecho                                             R
+004110105Tipo D - Tela por detrás y un mando izq y otro der                                    R
+004110106Tipo Z - Tela por delante, un mando izq y otro der                                    R
+004120100Determinar el tipo de mando                       O                                   R
+004120101Tipo F - Tela por detrás y mando izquierdo                                            R
+004120102Tipo J - Tela por detrás y mando derecho                                              R
+004120103Tipo X - Tela por delante y mando izquierdo                                           R
+004120104Tipo Y - Tela por delante y mando derecho                                             R
+004120105Tipo D - Tela por detrás y un mando izq y otro der                                    R
+004120106Tipo Z - Tela por delante, un mando izq y otro der                                    R
+004130100Determinar el tipo de mando                       O                                   R
+004130101Tipo F - Tela por detrás y mando izquierdo                                            R
+004130102Tipo J - Tela por detrás y mando derecho                                              R
+004130103Tipo X - Tela por delante y mando izquierdo                                           R
+004130104Tipo Y - Tela por delante y mando derecho                                             R
+004130105Tipo D - Tela por detrás y un mando izq y otro der                                    R
+004130106Tipo Z - Tela por delante, un mando izq y otro der                                    R
+004140100Se puede usar este sistema con tela Por Delante ? O                                   R
+004140101NO solo admite tela por detrás                                                        R
+004160100Se puede usar este sistema con tela Por Delante ? O                                   R
+004160101NO solo admite tela por detrás                                                        R
+005000100Determinar el tipo de mando                       O                                   R
+005000101Tipo F - Tela por detrás y mando izquierdo                                            R
+005000102Tipo J - Tela por detrás y mando derecho                                              R
+005000103Tipo X - Tela por delante y mando izquierdo                                           R
+005000104Tipo Y - Tela por delante y mando derecho                                             R
+005000105Tipo D - Tela por detrás y un mando izq y otro der                                    R
+005000106Tipo Z - Tela por delante, un mando izq y otro der                                    R
+005010100Determinar el tipo de mando                       O                                   R
+005010101Tipo F - Tela por detrás y mando izquierdo                                            R
+005010102Tipo J - Tela por detrás y mando derecho                                              R
+005010103Tipo X - Tela por delante y mando izquierdo                                           R
+005010104Tipo Y - Tela por delante y mando derecho                                             R
+005010105Tipo D - Tela por detrás y un mando izq y otro der                                    R
+005010106Tipo Z - Tela por delante, un mando izq y otro der                                    R
+005100100Determinar el tipo de mando                       O                                   R
+005100101Tipo F - Tela por detrás y mando izquierdo                                            R
+005100102Tipo J - Tela por detrás y mando derecho                                              R
+005100103Tipo X - Tela por delante y mando izquierdo                                           R
+005100104Tipo Y - Tela por delante y mando derecho                                             R
+005100105Tipo D - Tela por detrás y un mando izq y otro der                                    R
+005100106Tipo Z - Tela por delante, un mando izq y otro der                                    R
+005110100Se puede usar este sistema con tela Por Delante ? O                                   R
+005110101NO solo admite tela por detrás                                                        R
+005120100Se puede usar este sistema con tela Por Delante ? O                                   R
+005120101NO solo admite tela por detrás                                                        R
+005130100Se puede usar este sistema con tela Por Delante ? O                                   R
+005130101NO solo admite tela por detrás                                                        R
+005140100Se puede usar este sistema con tela Por Delante ? O                                   R
+005140101NO solo admite tela por detrás                                                        R
+005160100Se puede usar este sistema con tela Por Delante ? O                                   R
+005160101NO solo admite tela por detrás                                                        R
+025000100Tipo de apertura?                                 O                                   R
+025000101Central (estandar)                                                                    R
+025000102Lateral tipo F                                                                        R
+025000103Lateral tipo J                                                                        R
+025000200Tipo de cinta                                     O                                   R
+025000201Cinta Ripple paso 160 mm (6.3") (ESTANDAR)                                            R
+025000202Cinta Ripple paso 106 mm (4 1/4")                                                     R
+025000300Se utilizará con bastones?                        O                                   R
+025000301Se utilizará con bastones de Fibra de Vidrio                                          R
+025000302Se utilizara con bastones de Hierro                                                   R
+025500100Tipo de apertura?                                 O                                   R
+025500101Central (estandar)                                                                    R
+025500102Lateral tipo F                                                                        R
+025500103Lateral tipo J                                                                        R
+080360100Color del soporte?                                O                                   R
+080360101soporte color Blanco                                                                  R
+080360102soporte color Gris                                                                    R
+080360103soporte color Negro                                                                   R
+081900100Color tela poliester                              O                                   R
+081900101Poliester Nieve                                                                       R
+081900102Poliester Vainilla                                                                    R
+081900103Poliester Manzana                                                                     R
+081900104Poliester Damasco                                                                     R
+081900105Poliester Tormenta                                                                    R
+081900106Poliester Capuchino                                                                   R
+081900107Poliester Calabaza                                                                    R
+081900108Poliester Tomate                                                                      R
+081900109Poliester Violeta                                                                     R
+091020100Que terminación o Unión tienen las cadenas?       O                                   R
+091020101Color Blanco, soldada SIN FIN                                                         R
+091020102Color Beige, con tope plástico para unión                                             R
+091020103Color Gris, con tope plástico para unión                                              R
+091020104Color Negro, con tope plástico para unión                                             R
+096640100Que accionamiento posee el sistema a utilizar?    O                                   R
+096640101Manual a cadena                                                                       R
+096640102Automatizado - Corte esp para regulacion VER mando                                    R
+098120100Que tipo de cadena?                               O                                   R
+098120102Plástica de bolillas continuas                                                        R
+098120200Que color de rollo?                               O                                   R
+098120201Color Blanco                                                                          R
+098120202Color Gris                                                                            R
+098120203Color Negro                                                                           R
+098120204Color Beige                                                                           R
+117010100Que tipo de accionamiento tendrá la cortina?      O                                   R
+117010101MANUAL - Cadena plástica Blanca (Standard)                                            R
+117010102MANUAL - Cadena Metálica                                                              R
+117010103AUTOMATIZADA - Motor RA 40mm Con Radiofrecuencia                                      R
+117010104AUTOMATIZADA - Motor RA 40mm Sin Radiofrecuencia                                      R
+117010105AUTOM. - SIN MOTOR c/soportes para RA 40mm                                            R
+117010106AUTOM. - SIN MOTOR c/soportes para SOMFY 40mm                                         R
+117060100Que tipo de accionamiento tendrá la cortina?      O                                   R
+117060101MANUAL - Cadena plástica Beige (Standard)                                             R
+117060102MANUAL - Cadena Metálica                                                              R
+117060103AUTOMATIZADA - Motor RA 40mm Con Radiofrecuencia                                      R
+117060104AUTOMATIZADA - Motor RA 40mm Sin Radiofrecuencia                                      R
+117060105AUTOM. - SIN MOTOR c/soportes para RA 40mm                                            R
+117060106AUTOM. - SIN MOTOR c/soportes para SOMFY 40mm                                         R
+117090100Que tipo de accionamiento tendrá la cortina?      O                                   R
+117090101MANUAL - Cadena plástica Negra (Standard)                                             R
+117090102MANUAL - Cadena Metálica                                                              R
+117090103AUTOMATIZADA - Motor RA 40mm Con Radiofrecuencia                                      R
+117090104AUTOMATIZADA - Motor RA 40mm Sin Radiofrecuencia                                      R
+117090105AUTOM. - SIN MOTOR c/soportes para RA 40mm                                            R
+117090106AUTOM. - SIN MOTOR c/soportes para SOMFY 40mm                                         R
+117110100Que tipo de accionamiento tendrá la cortina?      O                                   R
+117110101MANUAL - Cadena plástica Blanca (Standard)                                            R
+117110102MANUAL - Cadena Metálica                                                              R
+117110103AUTOMATIZADA - Motor RA 40mm Con Radiofrecuencia                                      R
+117110104AUTOMATIZADA - Motor RA 40mm Sin Radiofrecuencia                                      R
+117110105AUTOM. - SIN MOTOR c/soportes para RA 40mm                                            R
+117110106AUTOM. - SIN MOTOR c/soportes para SOMFY 40mm                                         R
+117460100Que tipo de accionamiento tendrá la cortina?      O                                   R
+117460101MANUAL - Cadena plástica Beige (Standard)                                             R
+117460102MANUAL - Cadena Metálica                                                              R
+117460103AUTOMATIZADA - Motor RA 40mm Con Radiofrecuencia                                      R
+117460104AUTOMATIZADA - Motor RA 40mm Sin Radiofrecuencia                                      R
+117460105AUTOM. - SIN MOTOR c/soportes para RA 40mm                                            R
+117460106AUTOM. - SIN MOTOR c/soportes para SOMFY 40mm                                         R
+117470100Que tipo de accionamiento tendrá la cortina?      O                                   R
+117470101MANUAL - Cadena plástica Blanca (Standard)                                            R
+117470102MANUAL - Cadena Metálica                                                              R
+117470103AUTOMATIZADA - Motor RA 40mm Con Radiofrecuencia                                      R
+117470104AUTOMATIZADA - Motor RA 40mm Sin Radiofrecuencia                                      R
+117470105AUTOM. - SIN MOTOR c/soportes para RA 40mm                                            R
+117470106AUTOM. - SIN MOTOR c/soportes para SOMFY 40mm                                         R
+117480100Que tipo de accionamiento tendrá la cortina?      O                                   R
+117480101MANUAL - Cadena plástica Blanca (Standard)                                            R
+117480102MANUAL - Cadena Metálica                                                              R
+117480103AUTOMATIZADA - Motor RA 40mm Con Radiofrecuencia                                      R
+117480104AUTOMATIZADA - Motor RA 40mm Sin Radiofrecuencia                                      R
+117480105AUTOM. - SIN MOTOR c/soportes para RA 40mm                                            R
+117480106AUTOM. - SIN MOTOR c/soportes para SOMFY 40mm                                         R
+131280100Color del soporte segun color de cortina          O                                   R
+131280101Soporte Ambar para cortina Unfinish                                                   R
+131280102Soporte Ambar para cortina Natural                                                    R
+131280103Soporte Cedro para cortina Maple                                                      R
+131280104Soporte Cedro para cortina Golden Oak                                                 R
+131280105Soporte Cedro para cortina Cherry                                                     R
+131280106Soporte Chocolate para cortina Dark Walnut                                            R
+131280107Soporte Chocolate para cortina Mahogany                                               R
+131280108Soporte Blanco para cortina Blanca                                                    R
+131280109Soporte Negro para cortina Negra                                                      R
+131290100Color del soporte segun color de cortina          O                                   R
+131290101Soporte Ambar para cortina Unfinish                                                   R
+131290102Soporte Ambar para cortina Natural                                                    R
+131290103Soporte Cedro para cortina Maple                                                      R
+131290104Soporte Cedro para cortina Golden Oak                                                 R
+131290105Soporte Cedro para cortina Cherry                                                     R
+131290106Soporte Chocolate para cortina Dark Walnut                                            R
+131290107Soporte Chocolate para cortina Mahogany                                               R
+131290108Soporte Blanco para cortina Blanca                                                    R
+131290109Soporte Negro para cortina Negra                                                      R
+131300100Color                                             O                                   R
+131300101Para cortina color Unfinish                                                           R
+131300102Para cortina color Natural                                                            R
+131300103Para cortina color Maple                                                              R
+131300104Para cortina color Golden Oak                                                         R
+131300105Para cortina color Cherry                                                             R
+131300106Para cortina color Dark Walnut                                                        R
+131300107Para cortina color Mahogany                                                           R
+131300108Para cortina color Blanca                                                             R
+131300109Para cortina color Negra                                                              R
+131320100Color                                             O                                   R
+131320101Para cortina color Unfinish                                                           R
+131320102Para cortina color Natural                                                            R
+131320103Para cortina color Maple                                                              R
+131320104Para cortina color Golden Oak                                                         R
+131320105Para cortina color Cherry                                                             R
+131320106Para cortina color Dark Walnut                                                        R
+131320107Para cortina color Mahogany                                                           R
+131320108Para cortina color Blanca                                                             R
+131320109Para cortina color Negro                                                              R
+132000200Color                                             O                                   R
+132000201Para cortina color Unfinish                                                           R
+132000202Para cortina color Natural                                                            R
+132000203Para cortina color Maple                                                              R
+132000204Para cortina color Golden Oak                                                         R
+132000205Para cortina color Cherry                                                             R
+132000206Para cortina color Dark Walnut                                                        R
+132000207Para cortina color Mahogany                                                           R
+132000208Para cortina color Blanca                                                             R
+132000209Para cortina color Negra                                                              R
+132010100Color                                             O                                   R
+132010101Para cortina color Unfinish                                                           R
+132010102Para cortina color Natural                                                            R
+132010103Para cortina color Maple                                                              R
+132010104Para cortina color Golden Oak                                                         R
+132010105Para cortina color Cherry                                                             R
+132010106Para cortina color Dark Walnut                                                        R
+132010107Para cortina color Mahogany                                                           R
+132010108Para cortina color Blanca                                                             R
+132010109Para cortina color Negra                                                              R
+132020100Color                                             O                                   R
+132020101Para cortina color Unfinish                                                           R
+132020102Para cortina color Natural                                                            R
+132020103Para cortina color Maple                                                              R
+132020104Para cortina color Golden Oak                                                         R
+132020105Para cortina color Cherry                                                             R
+132020106Para cortina color Dark Walnut                                                        R
+132020107Para cortina color Mahogany                                                           R
+132020108Para cortina color Blanca                                                             R
+132020109Para cortina color Negra                                                              R
+132030100Color                                             O                                   R
+132030101Para cortina color Unfinish                                                           R
+132030102Para cortina color Natural                                                            R
+132030103Para cortina color Maple                                                              R
+132030104Para cortina color Golden Oak                                                         R
+132030105Para cortina color Cherry                                                             R
+132030106Para cortina color Dark Walnut                                                        R
+132030107Para cortina color Mahogany                                                           R
+132030108Para cortina color Blanca                                                             R
+132030109Para cortina color Negra                                                              R
+132510100Color                                             O                                   R
+132510101Para cortina color Unfinish                                                           R
+132510102Para cortina color Natural                                                            R
+132510103Para cortina color Maple                                                              R
+132510104Para cortina color Golden Oak                                                         R
+132510105Para cortina color Cherry                                                             R
+132510106Para cortina color Dark Walnut                                                        R
+132510107Para cortina color Mahogany                                                           R
+132510108Para cortina color Blanca                                                             R
+132510109Para cortina color Negra                                                              R
+133000100Color                                             O                                   R
+133000101Para cortina color Unfinish                                                           R
+133000102Para cortina color Natural                                                            R
+133000103Para cortina color Maple                                                              R
+133000104Para cortina color Golden Oak                                                         R
+133000105Para cortina color Cherry                                                             R
+133000106Para cortina color Dark Walnut                                                        R
+133000107Para cortina color Mahogany                                                           R
+133000108Para cortina color Blanca                                                             R
+133000109Para cortina color Negra                                                              R
+133010100Color                                             O                                   R
+133010101Para cortina color Unfinish                                                           R
+133010102Para cortina color Natural                                                            R
+133010103Para cortina color Maple                                                              R
+133010104Para cortina color Golden Oak                                                         R
+133010105Para cortina color Cherry                                                             R
+133010106Para cortina color Dark Walnut                                                        R
+133010107Para cortina color Mahogany                                                           R
+133010108Para cortina color Blanca                                                             R
+133010109Para cortina color Negra                                                              R
+133020100Color                                             O                                   R
+133020101Para cortina color Unfinish                                                           R
+133020102Para cortina color Natural                                                            R
+133020103Para cortina color Maple                                                              R
+133020104Para cortina color Golden Oak                                                         R
+133020105Para cortina color Cherry                                                             R
+133020106Para cortina color Dark Walnut                                                        R
+133020107Para cortina color Mahogany                                                           R
+133020108Para cortina color Blanca                                                             R
+133020109Para cortina color Negra                                                              R
+133030100Color                                             O                                   R
+133030101Para cortina color Unfinish                                                           R
+133030102Para cortina color Natural                                                            R
+133030103Para cortina color Maple                                                              R
+133030104Para cortina color Golden Oak                                                         R
+133030105Para cortina color Cherry                                                             R
+133030106Para cortina color Dark Walnut                                                        R
+133030107Para cortina color Mahogany                                                           R
+133030108Para cortina color Blanca                                                             R
+133030109Para cortina color Negra                                                              R
+133210100Color de cinta escalera en base Color de Cortina  O                                   R
+133210101Escalera de cordon Ambar para cortina Unfinish                                        R
+133210102Escalera de cordon Ambar para cortina Natural                                         R
+133210103Escalera de cordon Praliné para cortina Maple                                         R
+133210104Escalera de cordon Praliné para cortina Golden Oak                                    R
+133210105Escalera de cordon Praliné para cortina Cherry                                        R
+133210106Escalera de cordon Chocolate para cortina Dark Wal                                    R
+133210107Escalera de cordon Chocolate para cortina Mahogany                                    R
+133210108Escalera de cordon Blanco para cortina Blanca                                         R
+133210109Escalera de cordon Negra para cortina Negra                                           R
+133410100Color de cordon 2.3mm segun color de cortina      O                                   R
+133410101Cordon Ambar para cortina Unfinish                                                    R
+133410102Cordon Ambar para cortina Natural                                                     R
+133410103Cordon Praliné para cortina Maple                                                     R
+133410104Cordon Praliné para cortina Golden Oak                                                R
+133410105Cordon Praliné para cortinas Cherry                                                   R
+133410106Cordon Chocolate para cortina Dark Walnut                                             R
+133410107Cordon Chocolate para cortina Mahogany                                                R
+133410108Cordon Blanco para cortina Blanca                                                     R
+133410109Cordon Negro para cortina Negra                                                       R
+133610100Color Cinta escalera segun color de Cortina       O                                   R
+133610101Cinta Tela Ambar para cortina Unfinish                                                R
+133610102Cinta tela Ambar para cortina Natural                                                 R
+133610103Cinta tela Praliné para cortina Maple                                                 R
+133610104Cinta tela Praliné para cortina Golden Oak                                            R
+133610105Cinta tela Praliné para cortina Cherry                                                R
+133610106Cinta tela Chocolate para cortina Dark Walnut                                         R
+133610107Cinta tela Chocolate para cortina Mahogany                                            R
+133610108Cinta tela Blanco para cortina Blanca                                                 R
+133610109Cinta tela Negra para cortina Negra                                                   R
+133900100Color Suplemento segun color de cortina           O                                   R
+133900101Suplemento Beige para cortinas W.Blind Unfinish                                       R
+133900102Suplemento Beige para cortinas W.Blind Natural                                        R
+133900103Suplemento Chocolate para cortinas W.Blind Maple                                      R
+133900104Suplemento Chocolate para cortinas W.Blind G. Oak                                     R
+133900105Suplemento Chocolate para cortinas W.Blind Cherry                                     R
+133900106Suplemento Chocolate para cortinas W.Blind D. Waln                                    R
+133900107Suplemento Chocolate para cortinas W.Blind Mahogan                                    R
+133900108Suplemento Blanco para cortinas W.Blind Blanca                                        R
+133900109Suplemento Negro para cortinas W.Blind Negra                                          R
+133900110Suplemento Blanco para Cortinas Romanas - Plisadas                                    R
+134800100Color                                             O                                   R
+134800101Para cortina color Unfinish                                                           R
+134800102Para cortina color Natural                                                            R
+134800103Para cortina color Maple                                                              R
+134800104Para cortina color Golden Oak                                                         R
+134800105Para cortina color Cherry                                                             R
+134800106Para cortina color Dark Walnut                                                        R
+134800107Para cortina color Mahogany                                                           R
+134800108Para cortina color Blanca                                                             R
+134800109Para cortina color Negra                                                              R
+134810100Color                                             O                                   R
+134810101Para cortina color Unfinish                                                           R
+134810102Para cortina color Natural                                                            R
+134810103Para cortina color Maple                                                              R
+134810104Para cortina color Golden Oak                                                         R
+134810105Para cortina color Cherry                                                             R
+134810106Para cortina color Dark Walnut                                                        R
+134810107Para cortina color Mahogany                                                           R
+134810108Para cortina color Blanca                                                             R
+134810109Para cortina color Negra                                                              R
+136800100Color                                             O                                   R
+136800101Para cortina color Unfinish                                                           R
+136800102Para cortina color Natural                                                            R
+136800103Para cortina color Maple                                                              R
+136800104Para cortina color Golden Oak                                                         R
+136800105Para cortina color Cherry                                                             R
+136800106Para cortina color Dark Walnut                                                        R
+136800107Para cortina color Mahogany                                                           R
+136800108Para cortina color Blanca                                                             R
+136800109Para cortina color Negra                                                              R
+136810100Color                                             O                                   R
+136810101Para cortina color Unfinish                                                           R
+136810102Para cortina color Natural                                                            R
+136810103Para cortina color Maple                                                              R
+136810104Para cortina color Golden Oak                                                         R
+136810105Para cortina color Cherry                                                             R
+136810106Para cortina color Dark Walnut                                                        R
+136810107Para cortina color Mahogany                                                           R
+136810108Para cortina color Blanca                                                             R
+136810109Para cortina color Negra                                                              R
+154030100Referencia de armado Nº                           O                                   R
+154030101341                                                                                   R
+154030102342                                                                                   R
+154030103343                                                                                   R
+154030104344                                                                                   R
+154030105445                                                                                   R
+154030106446                                                                                   R
+154030107361                                                                                   R
+154030108362                                                                                   R
+154030109363                                                                                   R
+154030110364                                                                                   R
+154030111465                                                                                   R
+154030112466                                                                                   R
+1540301136111                                                                                  R
+1540301146112                                                                                  R
+154030120Especial, se adjunta plano                                                            R
+154040100Referencia de armado Nª                           O                                   R
+154040101441                                                                                   R
+154040102442                                                                                   R
+154040103443                                                                                   R
+154040104444                                                                                   R
+154040105645                                                                                   R
+154040106646                                                                                   R
+154040107461                                                                                   R
+154040108462                                                                                   R
+154040109463                                                                                   R
+154040110464                                                                                   R
+154040111665                                                                                   R
+154040112666                                                                                   R
+1540401138111                                                                                  R
+1540401148112                                                                                  R
+154040120Especial, se adjunta plano                                                            R
+154050100Referencia de armado Nº                           O                                   R
+154050101541                                                                                   R
+154050102542                                                                                   R
+154050103543                                                                                   R
+154050104544                                                                                   R
+154050105845                                                                                   R
+154050106846                                                                                   R
+154050107561                                                                                   R
+154050108562                                                                                   R
+154050109563                                                                                   R
+154050110564                                                                                   R
+154050111865                                                                                   R
+154050112866                                                                                   R
+1540501130111                                                                                  R
+1540501140112                                                                                  R
+154050120Especial, se adjunta plano                                                            R
+154230100Referencia de armado Nº                           O                                   R
+154230101301                                                                                   R
+154230102302                                                                                   R
+154230103403                                                                                   R
+154230104404                                                                                   R
+154230105505                                                                                   R
+154230106506                                                                                   R
+154230107607                                                                                   R
+154230108321                                                                                   R
+154230109322                                                                                   R
+154230110423                                                                                   R
+154230111424                                                                                   R
+154230112525                                                                                   R
+154230113526                                                                                   R
+154230114627                                                                                   R
+1542301156101                                                                                  R
+1542301166102                                                                                  R
+154230120Especial, se adjunta plano.                                                           R
+154240100Referencia de armado Nº                           O                                   R
+154240101401                                                                                   R
+154240102402                                                                                   R
+154240103603                                                                                   R
+154240104705                                                                                   R
+154240105706                                                                                   R
+154240106807                                                                                   R
+154240107421                                                                                   R
+154240108422                                                                                   R
+154240109623                                                                                   R
+154240110725                                                                                   R
+154240111426                                                                                   R
+154240112827                                                                                   R
+1542401138101                                                                                  R
+1542401148102                                                                                  R
+154240120Especial, se adjunta plano                                                            R
+154250100Referencia de armado Nº                           O                                   R
+154250101501                                                                                   R
+154250102502                                                                                   R
+154250103803                                                                                   R
+154250104905                                                                                   R
+154250105906                                                                                   R
+1542501061007                                                                                  R
+154250107521                                                                                   R
+154250108522                                                                                   R
+154250109823                                                                                   R
+154250110925                                                                                   R
+154250111926                                                                                   R
+1542501121027                                                                                  R
+1542501130101                                                                                  R
+1542501140102                                                                                  R
+154250120Especial, se adjunta plano                                                            R
+154330100Referencia de armado Nº                           O                                   R
+154330101381                                                                                   R
+154330102682                                                                                   R
+154330103583                                                                                   R
+154330104584                                                                                   R
+154330120Especial, se adjunta plano                                                            R
+154340100Referencia de armado Nº                           O                                   R
+154340101481                                                                                   R
+154340102882                                                                                   R
+154340103783                                                                                   R
+154340104784                                                                                   R
+154340120Especial, se adjunta plano                                                            R
+154350100Referencia de armado Nº                           O                                   R
+154350101581                                                                                   R
+1543501021082                                                                                  R
+154350103983                                                                                   R
+154350104984                                                                                   R
+154350120Especial, se adjunta plano                                                            R
+154730100Referencia de armado Nº                           O                                   R
+154730101341                                                                                   R
+154730102342                                                                                   R
+154730103343                                                                                   R
+154730104344                                                                                   R
+154730105445                                                                                   R
+154730106446                                                                                   R
+154730107361                                                                                   R
+154730108362                                                                                   R
+154730109363                                                                                   R
+154730110364                                                                                   R
+154730111465                                                                                   R
+154730112466                                                                                   R
+1547301136111                                                                                  R
+1547301146112                                                                                  R
+154730120Especial, se adjunta plano                                                            R
+154740100Referencia de armado Nª                           O                                   R
+154740101441                                                                                   R
+154740102442                                                                                   R
+154740103443                                                                                   R
+154740104444                                                                                   R
+154740105645                                                                                   R
+154740106646                                                                                   R
+154740107461                                                                                   R
+154740108462                                                                                   R
+154740109463                                                                                   R
+154740110464                                                                                   R
+154740111665                                                                                   R
+154740112666                                                                                   R
+1547401138111                                                                                  R
+1547401148112                                                                                  R
+154740120Especial, se adjunta plano                                                            R
+154750100Referencia de armado Nº                           O                                   R
+154750101541                                                                                   R
+154750102542                                                                                   R
+154750103543                                                                                   R
+154750104544                                                                                   R
+154750105845                                                                                   R
+154750106846                                                                                   R
+154750107561                                                                                   R
+154750108562                                                                                   R
+154750109563                                                                                   R
+154750110564                                                                                   R
+154750111865                                                                                   R
+154750112866                                                                                   R
+1547501130111                                                                                  R
+1547501140112                                                                                  R
+154750120Especial, se adjunta plano                                                            R
+154830100Referencia de armado Nº                           O                                   R
+154830101301                                                                                   R
+154830102302                                                                                   R
+154830103403                                                                                   R
+154830104404                                                                                   R
+154830105505                                                                                   R
+154830106506                                                                                   R
+154830107607                                                                                   R
+154830108321                                                                                   R
+154830109322                                                                                   R
+154830110423                                                                                   R
+154830111424                                                                                   R
+154830112525                                                                                   R
+154830113526                                                                                   R
+154830114627                                                                                   R
+1548301156101                                                                                  R
+1548301166102                                                                                  R
+154830120Especial, se adjunta plano.                                                           R
+154840100Referencia de armado Nº                           O                                   R
+154840101401                                                                                   R
+154840102402                                                                                   R
+154840103603                                                                                   R
+154840104705                                                                                   R
+154840105706                                                                                   R
+154840106807                                                                                   R
+154840107421                                                                                   R
+154840108422                                                                                   R
+154840109623                                                                                   R
+154840110725                                                                                   R
+154840111426                                                                                   R
+154840112827                                                                                   R
+1548401138101                                                                                  R
+1548401148102                                                                                  R
+154840120Especial, se adjunta plano                                                            R
+154850100Referencia de armado Nº                           O                                   R
+154850101501                                                                                   R
+154850102502                                                                                   R
+154850103803                                                                                   R
+154850104905                                                                                   R
+154850105906                                                                                   R
+1548501061007                                                                                  R
+154850107521                                                                                   R
+154850108522                                                                                   R
+154850109823                                                                                   R
+154850110925                                                                                   R
+154850111926                                                                                   R
+1548501121027                                                                                  R
+1548501130101                                                                                  R
+1548501140102                                                                                  R
+154850120Especial, se adjunta plano                                                            R
+154930100Referencia de armado Nº                           O                                   R
+154930101381                                                                                   R
+154930102682                                                                                   R
+154930103583                                                                                   R
+154930104584                                                                                   R
+154930120Especial, se adjunta plano                                                            R
+154940100Referencia de armado Nº                           O                                   R
+154940101481                                                                                   R
+154940102882                                                                                   R
+154940103783                                                                                   R
+154940104784                                                                                   R
+154940120Especial, se adjunta plano                                                            R
+154950100Referencia de armado Nº                           O                                   R
+154950101581                                                                                   R
+1549501021082                                                                                  R
+154950103983                                                                                   R
+154950104984                                                                                   R
+154950120Especial, se adjunta plano                                                            R
+700350100Para que motor estan adaptados los terminales?    O                                   R
+700350101Para motor RA                                                                         R
+700350102Para motor Somfy                                                                      R
+904000100Determinar el tipo de mando                       O                                   R
+904000101Tipo F ó X - Piezas para mando izquierdo                                              R
+904000102Tipo J ó Y - Piezas para mando derecho                                                R
+904010100Determinar el tipo de mando                       O                                   R
+904010101Tipo F ó X - Piezas para mando izquierdo                                              R
+904010102Tipo J ó Y - Piezas para mando derecho                                                R
+904100100Determinar el tipo de mando                       O                                   R
+904100101Tipo F ó X - Piezas para mando izquierdo                                              R
+904100102Tipo J ó Y - Piezas para mando derecho                                                R
+904110100Determinar el tipo de mando                       O                                   R
+904110101Tipo F ó X - Piezas para mando izquierdo                                              R
+904110102Tipo J ó Y - Piezas para mando derecho                                                R
+904120100Determinar el tipo de mando                       O                                   R
+904120101Tipo F ó X - Piezas para mando izquierdo                                              R
+904120102Tipo J ó Y - Piezas para mando derecho                                                R
+904130100Determinar el tipo de mando                       O                                   R
+904130101Tipo F ó X - Piezas para mando izquierdo                                              R
+904130102Tipo J ó Y - Piezas para mando derecho                                                R
+904140100Determinar el tipo de mando                       O                                   R
+904140101Tipo F ó X - Piezas para mando izquierdo                                              R
+904140102Tipo J ó Y - Piezas para mando derecho                                                R
+904160100Determinar el tipo de mando                       O                                   R
+904160101Tipo F ó X - Piezas para mando izquierdo                                              R
+904160102Tipo J ó Y - Piezas para mando derecho                                                R
+905000100Determinar el tipo de mando                       O                                   R
+905000101Tipo F ó X - Piezas para mando izquierdo                                              R
+905000102Tipo J ó Y - Piezas para mando derecho                                                R
+905010100Determinar el tipo de mando                       O                                   R
+905010101Tipo F ó X - Piezas para mando izquierdo                                              R
+905010102Tipo J ó Y - Piezas para mando derecho                                                R
+905100100Determinar el tipo de mando                       O                                   R
+905100101Tipo F ó X - Piezas para mando izquierdo                                              R
+905100102Tipo J ó Y - Piezas para mando derecho                                                R
+905110100Determinar el tipo de mando                       O                                   R
+905110101Tipo F ó X - Piezas para mando izquierdo                                              R
+905110102Tipo J ó Y - Piezas para mando derecho                                                R
+905120100Determinar el tipo de mando                       O                                   R
+905120101Tipo F ó X - Piezas para mando izquierdo                                              R
+905120102Tipo J ó Y - Piezas para mando derecho                                                R
+905130100Determinar el tipo de mando                       O                                   R
+905130101Tipo F ó X - Piezas para mando izquierdo                                              R
+905130102Tipo J ó Y - Piezas para mando derecho                                                R
+905140100Determinar el tipo de mando                       O                                   R
+905140101Tipo F ó X - Piezas para mando izquierdo                                              R
+905140102Tipo J ó Y - Piezas para mando derecho                                                R
+905160100Determinar el tipo de mando                       O                                   R
+905160101Tipo F ó X - Piezas para mando izquierdo                                              R
+905160102Tipo J ó Y - Piezas para mando derecho                                                R
+907550100Determinar el tipo de mando                       O                                   R
+907550101Tipo F ó X - Piezas para mando izquierdo                                              R
+907550102Tipo J ó Y - Piezas para mando derecho                                                R
+907550200Color de Piezas                                   O                                   R
+907550201Piezas inyectadas en color Blanco                                                     R
+907550202Piezas inyectadas en color Champagne                                                  R
+907550203Piezas inyectadas en color Avellana                                                   R
+907550204Piezas inyectadas en color Marrón                                                     R
+907550205Piezas inyectadas en color Tiza                                                       R
+907550206Piezas inyectadas en color Gris Alpino                                                R
+907550207Piezas inyectadas en color Negro                                                      R
+907580100Determinar el tipo de mando                       O                                   R
+907580101Tipo F ó X - Piezas para mando izquierdo                                              R
+907580102Tipo J ó Y - Piezas para mando derecho                                                R
+907580200Color de Piezas                                   O                                   R
+907580201Piezas inyectadas en color Blanco                                                     R
+907580202Piezas inyectadas en color Champagne                                                  R
+907580203Piezas inyectadas en color Avellana                                                   R
+907580204Piezas inyectadas en color Marrón                                                     R
+907580205Piezas inyectadas en color Tiza                                                       R
+907580206Piezas inyectadas en color Gris Alpino                                                R
+907580207Piezas inyectadas en color Negro                                                      R
+914000100Determinar el tipo de mando                       O                                   R
+914000101Tipo F ó X - Piezas para mando izquierdo                                              R
+914000102Tipo J ó Y - Piezas para mando derecho                                                R
+914010100Determinar el tipo de mando                       O                                   R
+914010101Tipo F ó X - Piezas para mando izquierdo                                              R
+914010102Tipo J ó Y - Piezas para mando derecho                                                R
+914100100Determinar el tipo de mando                       O                                   R
+914100101Tipo F ó X - Piezas para mando izquierdo                                              R
+914100102Tipo J ó Y - Piezas para mando derecho                                                R
+914110100Determinar el tipo de mando                       O                                   R
+914110101Tipo F ó X - Piezas para mando izquierdo                                              R
+914110102Tipo J ó Y - Piezas para mando derecho                                                R
+914120100Determinar el tipo de mando                       O                                   R
+914120101Tipo F ó X - Piezas para mando izquierdo                                              R
+914120102Tipo J ó Y - Piezas para mando derecho                                                R
+914130100Determinar el tipo de mando                       O                                   R
+914130101Tipo F ó X - Piezas para mando izquierdo                                              R
+914130102Tipo J ó Y - Piezas para mando derecho                                                R
+914140100Determinar el tipo de mando                       O                                   R
+914140101Tipo F ó X - Piezas para mando izquierdo                                              R
+914140102Tipo J ó Y - Piezas para mando derecho                                                R
+914160100Determinar el tipo de mando                       O                                   R
+914160101Tipo F ó X - Piezas para mando izquierdo                                              R
+914160102Tipo J ó Y - Piezas para mando derecho                                                R
+915000100Determinar el tipo de mando                       O                                   R
+915000101Tipo F ó X - Piezas para mando izquierdo                                              R
+915000102Tipo J ó Y - Piezas para mando derecho                                                R
+915010100Determinar el tipo de mando                       O                                   R
+915010101Tipo F ó X - Piezas para mando izquierdo                                              R
+915010102Tipo J ó Y - Piezas para mando derecho                                                R
+915100100Determinar el tipo de mando                       O                                   R
+915100101Tipo F ó X - Piezas para mando izquierdo                                              R
+915100102Tipo J ó Y - Piezas para mando derecho                                                R
+915110100Determinar el tipo de mando                       O                                   R
+915110101Tipo F ó X - Piezas para mando izquierdo                                              R
+915110102Tipo J ó Y - Piezas para mando derecho                                                R
+915120100Determinar el tipo de mando                       O                                   R
+915120101Tipo F ó X - Piezas para mando izquierdo                                              R
+915120102Tipo J ó Y - Piezas para mando derecho                                                R
+915130100Determinar el tipo de mando                       O                                   R
+915130101Tipo F ó X - Piezas para mando izquierdo                                              R
+915130102Tipo J ó Y - Piezas para mando derecho                                                R
+915140100Determinar el tipo de mando                       O                                   R
+915140101Tipo F ó X - Piezas para mando izquierdo                                              R
+915140102Tipo J ó Y - Piezas para mando derecho                                                R
+915160100Determinar el tipo de mando                       O                                   R
+915160101Tipo F ó X - Piezas para mando izquierdo                                              R
+915160102Tipo J ó Y - Piezas para mando derecho                                                R
+917550100Determinar el tipo de mando                       O                                   R
+917550103Tipo F ó X - Piezas para mando izquierdo                                              R
+917550105Tipo J ó Y - Piezas para mando derecho                                                R
+917550200Color de Piezas                                   O                                   R
+917550201Piezas inyectadas en color Blanco                                                     R
+917550202Piezas inyectadas en color Champagne                                                  R
+917550203Piezas inyectadas en color Avellana                                                   R
+917550204Piezas inyectadas en color Marrón                                                     R
+917550205Piezas inyectadas en color Tiza                                                       R
+917550206Piezas inyectadas en color Gris Alpino                                                R
+917550207Piezas inyectadas en color Negro                                                      R
+917580100Determinar el tipo de mando                       O                                   R
+917580101Tipo F ó X - Piezas para mando izquierdo                                              R
+917580102Tipo J ó Y - Piezas para mando derecho                                                R
+917580200Color de Piezas                                   O                                   R
+917580201Piezas inyectadas en color Blanco                                                     R
+917580202Piezas inyectadas en color Champagne                                                  R
+917580203Piezas inyectadas en color Avellana                                                   R
+917580204Piezas inyectadas en color Marrón                                                     R
+917580205Piezas inyectadas en color Tiza                                                       R
+917580206Piezas inyectadas en color Gris Alpino                                                R
+917580207Piezas inyectadas en color Negro                                                      R
+s

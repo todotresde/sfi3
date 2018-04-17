@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 
@@ -83,8 +83,8 @@ export class ManufacturingOrderFullDialogComponent implements OnInit {
         this.attributeValues[productPosition].splice(supplyPosition, 1);
     }
 
-    onChangeSupply(supplyOptionId: number, productPosition: number, supplyPosition: number) {
-        const updateSupply: Supply = this.supplies.filter((res: Supply) => res.id == supplyOptionId).pop();
+    onChangeSupply(supplyOptionId: string, productPosition: number, supplyPosition: number) {
+        const updateSupply: Supply = this.supplies.filter((res: Supply) => res.id === parseInt(supplyOptionId, 10)).pop();
 
         this.supplyTypeService.find(updateSupply.supplyType.id).subscribe(
             (res: HttpResponse<SupplyType>) => {

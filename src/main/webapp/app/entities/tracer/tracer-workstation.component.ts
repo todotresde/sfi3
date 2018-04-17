@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Rx';
-import { JhiEventManager, JhiParseLinks, JhiPaginationUtil, JhiLanguageService, JhiAlertService } from 'ng-jhipster';
+import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Rx';
 
@@ -10,8 +10,7 @@ import { TracerService } from './tracer.service';
 import { WorkStation } from '../work-station/work-station.model';
 import { WorkStationService } from '../work-station/work-station.service';
 import { UserService } from '../../shared/user/user.service';
-import { ITEMS_PER_PAGE, Principal } from '../../shared';
-import { PaginationConfig } from '../../blocks/config/uib-pagination.config';
+import { Principal } from '../../shared';
 
 @Component({
     selector: 'jhi-tracer-workstation',
