@@ -39,6 +39,7 @@ export class ManufacturingOrderComponent implements OnInit, OnDestroy {
         private router: Router
     ) {
         this.statusCreated = STATUS_CREATED;
+        // Paging
         this.itemsPerPage = ITEMS_PER_PAGE;
         this.routeData = this.activatedRoute.data.subscribe((data) => {
             this.page = data.pagingParams.page;
@@ -46,6 +47,7 @@ export class ManufacturingOrderComponent implements OnInit, OnDestroy {
             this.reverse = data.pagingParams.ascending;
             this.predicate = data.pagingParams.predicate;
         });
+        // Paging
     }
 
     loadAll() {
@@ -57,6 +59,7 @@ export class ManufacturingOrderComponent implements OnInit, OnDestroy {
             (res: HttpErrorResponse) => this.onError(res.message)
         );
     }
+
     ngOnInit() {
         this.loadAll();
         this.principal.identity().then((account) => {

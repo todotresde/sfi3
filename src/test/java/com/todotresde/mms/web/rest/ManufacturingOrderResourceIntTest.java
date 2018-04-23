@@ -4,6 +4,7 @@ import com.todotresde.mms.MMSApp;
 
 import com.todotresde.mms.domain.ManufacturingOrder;
 import com.todotresde.mms.repository.ManufacturingOrderRepository;
+import com.todotresde.mms.service.ManufacturingOrderService;
 import com.todotresde.mms.web.rest.errors.ExceptionTranslator;
 
 import org.junit.Before;
@@ -56,6 +57,9 @@ public class ManufacturingOrderResourceIntTest {
     private ManufacturingOrderRepository manufacturingOrderRepository;
 
     @Autowired
+    ManufacturingOrderService manufacturingOrderService;
+
+    @Autowired
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
 
     @Autowired
@@ -74,7 +78,7 @@ public class ManufacturingOrderResourceIntTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final ManufacturingOrderResource manufacturingOrderResource = new ManufacturingOrderResource(manufacturingOrderRepository);
+        final ManufacturingOrderResource manufacturingOrderResource = new ManufacturingOrderResource(manufacturingOrderRepository, manufacturingOrderService);
         this.restManufacturingOrderMockMvc = MockMvcBuilders.standaloneSetup(manufacturingOrderResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)
@@ -93,7 +97,7 @@ public class ManufacturingOrderResourceIntTest {
             .code(DEFAULT_CODE)
             .orderDate(DEFAULT_ORDER_DATE)
             .status(DEFAULT_STATUS)
-            .name(DEFAULT_NAME);
+            .description(DEFAULT_NAME);
         return manufacturingOrder;
     }
 
@@ -120,7 +124,7 @@ public class ManufacturingOrderResourceIntTest {
         assertThat(testManufacturingOrder.getCode()).isEqualTo(DEFAULT_CODE);
         assertThat(testManufacturingOrder.getOrderDate()).isEqualTo(DEFAULT_ORDER_DATE);
         assertThat(testManufacturingOrder.getStatus()).isEqualTo(DEFAULT_STATUS);
-        assertThat(testManufacturingOrder.getName()).isEqualTo(DEFAULT_NAME);
+        assertThat(testManufacturingOrder.getDescription()).isEqualTo(DEFAULT_NAME);
     }
 
     @Test
@@ -253,7 +257,7 @@ public class ManufacturingOrderResourceIntTest {
             .code(UPDATED_CODE)
             .orderDate(UPDATED_ORDER_DATE)
             .status(UPDATED_STATUS)
-            .name(UPDATED_NAME);
+            .description(UPDATED_NAME);
 
         restManufacturingOrderMockMvc.perform(put("/api/manufacturing-orders")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -267,7 +271,7 @@ public class ManufacturingOrderResourceIntTest {
         assertThat(testManufacturingOrder.getCode()).isEqualTo(UPDATED_CODE);
         assertThat(testManufacturingOrder.getOrderDate()).isEqualTo(UPDATED_ORDER_DATE);
         assertThat(testManufacturingOrder.getStatus()).isEqualTo(UPDATED_STATUS);
-        assertThat(testManufacturingOrder.getName()).isEqualTo(UPDATED_NAME);
+        assertThat(testManufacturingOrder.getDescription()).isEqualTo(UPDATED_NAME);
     }
 
     @Test

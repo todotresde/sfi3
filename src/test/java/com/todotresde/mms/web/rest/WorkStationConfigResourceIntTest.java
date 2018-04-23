@@ -6,6 +6,7 @@ import com.todotresde.mms.domain.WorkStationConfig;
 import com.todotresde.mms.domain.WorkStation;
 import com.todotresde.mms.domain.Line;
 import com.todotresde.mms.repository.WorkStationConfigRepository;
+import com.todotresde.mms.service.WorkStationConfigService;
 import com.todotresde.mms.web.rest.errors.ExceptionTranslator;
 
 import org.junit.Before;
@@ -50,6 +51,9 @@ public class WorkStationConfigResourceIntTest {
     private WorkStationConfigRepository workStationConfigRepository;
 
     @Autowired
+    private WorkStationConfigService workStationConfigService;
+
+    @Autowired
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
 
     @Autowired
@@ -68,7 +72,7 @@ public class WorkStationConfigResourceIntTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final WorkStationConfigResource workStationConfigResource = new WorkStationConfigResource(workStationConfigRepository);
+        final WorkStationConfigResource workStationConfigResource = new WorkStationConfigResource(workStationConfigRepository, workStationConfigService);
         this.restWorkStationConfigMockMvc = MockMvcBuilders.standaloneSetup(workStationConfigResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)

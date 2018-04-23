@@ -13,6 +13,7 @@ import {
     SupplyDeleteDialogComponent,
     supplyRoute,
     supplyPopupRoute,
+    SupplyResolvePagingParams
 } from './';
 
 const ENTITY_STATES = [
@@ -43,6 +44,7 @@ const ENTITY_STATES = [
     providers: [
         SupplyService,
         SupplyPopupService,
+        SupplyResolvePagingParams
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

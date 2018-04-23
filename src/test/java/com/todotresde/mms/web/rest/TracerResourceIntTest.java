@@ -8,6 +8,9 @@ import com.todotresde.mms.domain.ManufacturingOrder;
 import com.todotresde.mms.domain.Line;
 import com.todotresde.mms.domain.WorkStation;
 import com.todotresde.mms.repository.TracerRepository;
+import com.todotresde.mms.repository.WorkStationRepository;
+import com.todotresde.mms.service.LineService;
+import com.todotresde.mms.service.TracerService;
 import com.todotresde.mms.web.rest.errors.ExceptionTranslator;
 
 import org.junit.Before;
@@ -66,6 +69,15 @@ public class TracerResourceIntTest {
     private TracerRepository tracerRepository;
 
     @Autowired
+    private WorkStationRepository workStationRepository;
+
+    @Autowired
+    private LineService lineService;
+
+    @Autowired
+    private TracerService tracerService;
+
+    @Autowired
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
 
     @Autowired
@@ -84,7 +96,7 @@ public class TracerResourceIntTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final TracerResource tracerResource = new TracerResource(tracerRepository);
+        final TracerResource tracerResource = new TracerResource(tracerRepository, workStationRepository, lineService, tracerService);
         this.restTracerMockMvc = MockMvcBuilders.standaloneSetup(tracerResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)

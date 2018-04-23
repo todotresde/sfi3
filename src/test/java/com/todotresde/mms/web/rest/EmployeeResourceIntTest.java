@@ -44,9 +44,6 @@ public class EmployeeResourceIntTest {
     private static final String DEFAULT_LAST_NAME = "AAAAAAAAAA";
     private static final String UPDATED_LAST_NAME = "BBBBBBBBBB";
 
-    private static final String DEFAULT_USER_ID = "AAAAAAAAAA";
-    private static final String UPDATED_USER_ID = "BBBBBBBBBB";
-
     @Autowired
     private EmployeeRepository employeeRepository;
 
@@ -86,8 +83,7 @@ public class EmployeeResourceIntTest {
     public static Employee createEntity(EntityManager em) {
         Employee employee = new Employee()
             .name(DEFAULT_NAME)
-            .lastName(DEFAULT_LAST_NAME)
-            .userId(DEFAULT_USER_ID);
+            .lastName(DEFAULT_LAST_NAME);
         return employee;
     }
 
@@ -113,7 +109,6 @@ public class EmployeeResourceIntTest {
         Employee testEmployee = employeeList.get(employeeList.size() - 1);
         assertThat(testEmployee.getName()).isEqualTo(DEFAULT_NAME);
         assertThat(testEmployee.getLastName()).isEqualTo(DEFAULT_LAST_NAME);
-        assertThat(testEmployee.getUserId()).isEqualTo(DEFAULT_USER_ID);
     }
 
     @Test
@@ -155,24 +150,6 @@ public class EmployeeResourceIntTest {
 
     @Test
     @Transactional
-    public void checkUserIdIsRequired() throws Exception {
-        int databaseSizeBeforeTest = employeeRepository.findAll().size();
-        // set the field null
-        employee.setUserId(null);
-
-        // Create the Employee, which fails.
-
-        restEmployeeMockMvc.perform(post("/api/employees")
-            .contentType(TestUtil.APPLICATION_JSON_UTF8)
-            .content(TestUtil.convertObjectToJsonBytes(employee)))
-            .andExpect(status().isBadRequest());
-
-        List<Employee> employeeList = employeeRepository.findAll();
-        assertThat(employeeList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
     public void getAllEmployees() throws Exception {
         // Initialize the database
         employeeRepository.saveAndFlush(employee);
@@ -183,8 +160,7 @@ public class EmployeeResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(employee.getId().intValue())))
             .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
-            .andExpect(jsonPath("$.[*].lastName").value(hasItem(DEFAULT_LAST_NAME.toString())))
-            .andExpect(jsonPath("$.[*].userId").value(hasItem(DEFAULT_USER_ID.toString())));
+            .andExpect(jsonPath("$.[*].lastName").value(hasItem(DEFAULT_LAST_NAME.toString())));
     }
 
     @Test
@@ -199,8 +175,7 @@ public class EmployeeResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(employee.getId().intValue()))
             .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
-            .andExpect(jsonPath("$.lastName").value(DEFAULT_LAST_NAME.toString()))
-            .andExpect(jsonPath("$.userId").value(DEFAULT_USER_ID.toString()));
+            .andExpect(jsonPath("$.lastName").value(DEFAULT_LAST_NAME.toString()));
     }
 
     @Test
@@ -224,8 +199,7 @@ public class EmployeeResourceIntTest {
         em.detach(updatedEmployee);
         updatedEmployee
             .name(UPDATED_NAME)
-            .lastName(UPDATED_LAST_NAME)
-            .userId(UPDATED_USER_ID);
+            .lastName(UPDATED_LAST_NAME);
 
         restEmployeeMockMvc.perform(put("/api/employees")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -238,7 +212,6 @@ public class EmployeeResourceIntTest {
         Employee testEmployee = employeeList.get(employeeList.size() - 1);
         assertThat(testEmployee.getName()).isEqualTo(UPDATED_NAME);
         assertThat(testEmployee.getLastName()).isEqualTo(UPDATED_LAST_NAME);
-        assertThat(testEmployee.getUserId()).isEqualTo(UPDATED_USER_ID);
     }
 
     @Test

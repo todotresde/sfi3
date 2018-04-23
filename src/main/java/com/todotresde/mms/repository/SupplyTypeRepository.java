@@ -19,4 +19,6 @@ public interface SupplyTypeRepository extends JpaRepository<SupplyType, Long> {
     @Query("select supply_type from SupplyType supply_type left join fetch supply_type.supplyTypeAttrs where supply_type.id =:id")
     SupplyType findOneWithEagerRelationships(@Param("id") Long id);
 
+    SupplyType findByName(String name);
+
 }

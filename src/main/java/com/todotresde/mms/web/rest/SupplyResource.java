@@ -4,11 +4,17 @@ import com.codahale.metrics.annotation.Timed;
 import com.todotresde.mms.domain.Supply;
 
 import com.todotresde.mms.repository.SupplyRepository;
+import com.todotresde.mms.service.SupplyService;
 import com.todotresde.mms.web.rest.errors.BadRequestAlertException;
+import com.todotresde.mms.web.rest.util.PaginationUtil;
 import com.todotresde.mms.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,8 +38,11 @@ public class SupplyResource {
 
     private final SupplyRepository supplyRepository;
 
-    public SupplyResource(SupplyRepository supplyRepository) {
+    private final SupplyService supplyService;
+
+    public SupplyResource(SupplyRepository supplyRepository, SupplyService supplyService) {
         this.supplyRepository = supplyRepository;
+        this.supplyService = supplyService;
     }
 
     /**
@@ -81,14 +90,29 @@ public class SupplyResource {
     /**
      * GET  /supplies : get all the supplies.
      *
-     * @return the ResponseEntity with status 200 (OK) and the list of supplies in body
+     * @param pageable the pagination information
+     * @return the ResponseEntity with status 200 (OK) and the list of manufacturingOrders in body
      */
     @GetMapping("/supplies")
     @Timed
-    public List<Supply> getAllSupplies() {
-        log.debug("REST request to get all Supplies");
-        return supplyRepository.findAll();
+    public ResponseEntity<List<Supply>> getAllSupplies(Pageable pageable) {
+        log.debug("REST request to get a page of Supply");
+        Page<Supply> page = supplyRepository.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/paginados");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
         }
+
+    /**
+     * GET  /supplies/import : import supplies from file.
+     *
+     * @return the ResponseEntity with status 200 (OK) and the list of supplies in body
+     */
+    @GetMapping("/supplies/import")
+    @Timed
+    public List<Supply> importSupplies() {
+        log.debug("REST import all Supplies from file");
+        return supplyService.importSupplies();
+    }
 
     /**
      * GET  /supplies/:id : get the "id" supply.

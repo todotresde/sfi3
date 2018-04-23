@@ -43,8 +43,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = MMSApp.class)
 public class SupplyTypeAttrValueResourceIntTest {
 
-    private static final String DEFAULT_NAME = "AAAAAAAAAA";
-    private static final String UPDATED_NAME = "BBBBBBBBBB";
+    private static final String DEFAULT_VALUE = "AAAAAAAAAA";
+    private static final String UPDATED_VALUE = "BBBBBBBBBB";
 
     @Autowired
     private SupplyTypeAttrValueRepository supplyTypeAttrValueRepository;
@@ -84,7 +84,7 @@ public class SupplyTypeAttrValueResourceIntTest {
      */
     public static SupplyTypeAttrValue createEntity(EntityManager em) {
         SupplyTypeAttrValue supplyTypeAttrValue = new SupplyTypeAttrValue()
-            .name(DEFAULT_NAME);
+            .value(DEFAULT_VALUE);
         // Add required entity
         Product product = ProductResourceIntTest.createEntity(em);
         em.persist(product);
@@ -133,7 +133,7 @@ public class SupplyTypeAttrValueResourceIntTest {
         List<SupplyTypeAttrValue> supplyTypeAttrValueList = supplyTypeAttrValueRepository.findAll();
         assertThat(supplyTypeAttrValueList).hasSize(databaseSizeBeforeCreate + 1);
         SupplyTypeAttrValue testSupplyTypeAttrValue = supplyTypeAttrValueList.get(supplyTypeAttrValueList.size() - 1);
-        assertThat(testSupplyTypeAttrValue.getName()).isEqualTo(DEFAULT_NAME);
+        assertThat(testSupplyTypeAttrValue.getValue()).isEqualTo(DEFAULT_VALUE);
     }
 
     @Test
@@ -157,10 +157,10 @@ public class SupplyTypeAttrValueResourceIntTest {
 
     @Test
     @Transactional
-    public void checkNameIsRequired() throws Exception {
+    public void checkValueIsRequired() throws Exception {
         int databaseSizeBeforeTest = supplyTypeAttrValueRepository.findAll().size();
         // set the field null
-        supplyTypeAttrValue.setName(null);
+        supplyTypeAttrValue.setValue(null);
 
         // Create the SupplyTypeAttrValue, which fails.
 
@@ -184,7 +184,7 @@ public class SupplyTypeAttrValueResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(supplyTypeAttrValue.getId().intValue())))
-            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())));
+            .andExpect(jsonPath("$.[*].value").value(hasItem(DEFAULT_VALUE.toString())));
     }
 
     @Test
@@ -198,7 +198,7 @@ public class SupplyTypeAttrValueResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(supplyTypeAttrValue.getId().intValue()))
-            .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()));
+            .andExpect(jsonPath("$.value").value(DEFAULT_VALUE.toString()));
     }
 
     @Test
@@ -221,7 +221,7 @@ public class SupplyTypeAttrValueResourceIntTest {
         // Disconnect from session so that the updates on updatedSupplyTypeAttrValue are not directly saved in db
         em.detach(updatedSupplyTypeAttrValue);
         updatedSupplyTypeAttrValue
-            .name(UPDATED_NAME);
+            .value(UPDATED_VALUE);
 
         restSupplyTypeAttrValueMockMvc.perform(put("/api/supply-type-attr-values")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -232,7 +232,7 @@ public class SupplyTypeAttrValueResourceIntTest {
         List<SupplyTypeAttrValue> supplyTypeAttrValueList = supplyTypeAttrValueRepository.findAll();
         assertThat(supplyTypeAttrValueList).hasSize(databaseSizeBeforeUpdate);
         SupplyTypeAttrValue testSupplyTypeAttrValue = supplyTypeAttrValueList.get(supplyTypeAttrValueList.size() - 1);
-        assertThat(testSupplyTypeAttrValue.getName()).isEqualTo(UPDATED_NAME);
+        assertThat(testSupplyTypeAttrValue.getValue()).isEqualTo(UPDATED_VALUE);
     }
 
     @Test
