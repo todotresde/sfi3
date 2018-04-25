@@ -38,6 +38,17 @@ export class SupplyService {
             .map((res: HttpResponse<Supply[]>) => this.convertArrayResponse(res));
     }
 
+    queryAll(req?: any): Observable<HttpResponse<Supply[]>> {
+        const options = createRequestOption(req);
+        return this.http.get<Supply[]>(`${this.resourceUrl}/all`, { params: options, observe: 'response' })
+            .map((res: HttpResponse<Supply[]>) => this.convertArrayResponse(res));
+    }
+
+    queryAllByNameContaining(name: string): Observable<HttpResponse<Supply[]>> {
+        return this.http.get<Supply[]>(`${this.resourceUrl}/allByNameContaining/${name}/`, { observe: 'response' })
+            .map((res: HttpResponse<Supply[]>) => this.convertArrayResponse(res));
+    }
+
     delete(id: number): Observable<HttpResponse<any>> {
         return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response'});
     }

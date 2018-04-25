@@ -9,6 +9,18 @@
         <jhi-alert-error></jhi-alert-error>
         <input type="hidden" id="id" name="id" [(ngModel)]="supply.id" />
         <div class="form-group">
+            <label class="form-control-label" jhiTranslate="mmsApp.supply.code" for="field_code">Code</label>
+            <input type="text" class="form-control" name="code" id="field_code"
+                [(ngModel)]="supply.code" required/>
+            <div [hidden]="!(editForm.controls.code?.dirty && editForm.controls.code?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.code?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
             <label class="form-control-label" jhiTranslate="mmsApp.supply.name" for="field_name">Name</label>
             <input type="text" class="form-control" name="name" id="field_name"
                 [(ngModel)]="supply.name" required/>

@@ -43,13 +43,18 @@ public class SupplyService {
 
             lines.forEach(line -> {
                 String supplyTypeName = line.substring(178, 193).replaceAll("\\s+$", "");
+                String supplyCode = line.substring(0, 5).replaceAll("\\s+$", "") + line.substring(117, 120).replaceAll("\\s+$", "");
+                String supplyName = line.substring(5, 65).replaceAll("\\s+$", "");
 
                 if(!supplyTypeName.equals("")) {
                     SupplyType supplyType = supplyTypeRepository.findByName(supplyTypeName);
+                    Supply supplyDB = supplyRepository.findOneByName(supplyName);
 
                     if(null != supplyType){
-                        Supply supply = new Supply();
-                        supply.setName(line.substring(5, 59).replaceAll("\\s+$", ""));
+                        Supply supply;
+                        supply = (null != supplyDB) ? supply = supplyDB : new Supply();
+                        supply.setCode(supplyCode);
+                        supply.setName(supplyName);
                         supply.setSupplyType(supplyType);
                         supplies.add(supply);
                     }
@@ -61,7 +66,7 @@ public class SupplyService {
             e.printStackTrace();
         }
 
-        //this.save(supplies);
+        this.save(supplies);
 
         return supplies;
     }

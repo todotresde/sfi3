@@ -30,7 +30,7 @@ public class ProductService {
     }
 
     public List<Product> getByManufacturingOrder(ManufacturingOrder manufacturingOrder) {
-        return this.productRepository.findByManufacturingOrder(manufacturingOrder);
+        return this.productRepository.findAllWithEagerRelationshipsByManufacturingOrderId(manufacturingOrder.getId());
     }
 
     public List<SupplyType> getSupplyTypes(Product product) {

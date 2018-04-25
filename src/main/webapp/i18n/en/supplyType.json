@@ -16,6 +16,7 @@
             "detail": {
                 "title": "Supply Type"
             },
+            "code": "Code",
             "name": "Name",
             "supply": "Supply",
             "supplyTypeAttr": "Supply Type Attr",

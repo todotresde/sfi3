@@ -9,6 +9,7 @@ import { SupplyService } from '../supply/supply.service';
 import { ManufacturingOrderDTO } from '../manufacturing-order-dto/manufacturing-order-dto.model';
 import { SupplyTypeAttrValue } from '../supply-type-attr-value/supply-type-attr-value.model';
 import { Supply } from '../supply/supply.model';
+import { SupplyType } from '../supply-type/supply-type.model';
 import { SupplyTypeAttr } from '../supply-type-attr/supply-type-attr.model';
 import { Product } from '../product/product.model';
 import { JhiAlertService } from 'ng-jhipster';
@@ -68,6 +69,38 @@ export class ManufacturingOrderPopupService {
         modalRef.componentInstance.attributeValues = [];
         modalRef.componentInstance.supplies = this.supplies;
 
+        for (let productPosition = 0; productPosition < modalRef.componentInstance.products.length; productPosition++) {
+            const product: Product = modalRef.componentInstance.products[productPosition];
+            const supplies: Supply[] = modalRef.componentInstance.products[productPosition].supplies;
+            for (let supplyPosition = 0; supplyPosition < supplies.length; supplyPosition++) {
+                const supply: Supply = supplies[supplyPosition];
+                const supplyType: SupplyType = supply.supplyType;
+                const supplyTypeAttrs: SupplyTypeAttr[] = supplyType.supplyTypeAttrs;
+
+                for (let supplyTypeAttrPosition = 0; supplyTypeAttrPosition < supplyTypeAttrs.length; supplyTypeAttrPosition++) {
+                    const supplyTypeAttr: SupplyTypeAttr = supplyTypeAttrs[supplyTypeAttrPosition];
+
+                    for (let supplyTypeAttrValuePosition = 0; supplyTypeAttrValuePosition < modalRef.componentInstance.supplyTypeAttrValues.length; supplyTypeAttrValuePosition++) {
+                        const supplyTypeAttrValue: SupplyTypeAttrValue = modalRef.componentInstance.supplyTypeAttrValues[supplyTypeAttrValuePosition];
+
+                        if (supplyTypeAttrValue.product.id === product.id
+                            && supplyTypeAttrValue.supply.id === supply.id
+                            && supplyTypeAttrValue.supplyTypeAttr.id === supplyTypeAttr.id ) {
+                            if (!modalRef.componentInstance.attributeValues[productPosition]) {
+                                modalRef.componentInstance.attributeValues[productPosition] = [];
+                            }
+                            if (!modalRef.componentInstance.attributeValues[productPosition][supplyPosition]) {
+                                modalRef.componentInstance.attributeValues[productPosition][supplyPosition] = {};
+                            }
+
+                            modalRef.componentInstance.attributeValues[productPosition][supplyPosition][supplyTypeAttr.name] = supplyTypeAttrValue.value;
+                        }
+                    }
+                }
+            }
+        }
+
+        /*
         let productPosition = -1;
         let supplyPosition = -1;
         let productId = -1;
@@ -109,7 +142,6 @@ export class ManufacturingOrderPopupService {
             modalRef.componentInstance.products[productPosition]
                 .supplies[modalRef.componentInstance.products[productPosition]
                 .supplies.length - 1].supplyType.supplyTypeAttrs.push(supplyTypeAttr);
-
             if (!modalRef.componentInstance.attributeValues[productPosition]) {
                 modalRef.componentInstance.attributeValues[productPosition] = [];
             }
@@ -119,6 +151,8 @@ export class ManufacturingOrderPopupService {
 
             modalRef.componentInstance.attributeValues[productPosition][supplyPosition][supplyTypeAttr.name] = supplyTypeAttrValue.value;
         }
+        */
+        console.log('LEO', modalRef.componentInstance);
 
         modalRef.result.then((result) => {
             this.router.navigate([{ outlets: { popup: null }}], { replaceUrl: true, queryParamsHandling: 'merge' });
@@ -147,7 +181,7 @@ export class ManufacturingOrderPopupService {
     }
 
     private loadSupplies() {
-        this.supplyService.query().subscribe(
+        this.supplyService.queryAll().subscribe(
             (res: HttpResponse<Supply[]>) => {
                 this.supplies = res.body;
             },

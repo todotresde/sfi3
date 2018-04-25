@@ -88,19 +88,43 @@ public class SupplyResource {
     }
 
     /**
-     * GET  /supplies : get all the supplies.
+     * GET  /supplies : get all the supplies by page.
      *
      * @param pageable the pagination information
      * @return the ResponseEntity with status 200 (OK) and the list of manufacturingOrders in body
      */
     @GetMapping("/supplies")
     @Timed
-    public ResponseEntity<List<Supply>> getAllSupplies(Pageable pageable) {
+    public ResponseEntity<List<Supply>> getAllSuppliesByPage(Pageable pageable) {
         log.debug("REST request to get a page of Supply");
         Page<Supply> page = supplyRepository.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/paginados");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
         }
+
+    /**
+     * GET  /supplies/all : get all the supplies.
+     *
+     * @return the ResponseEntity with status 200 (OK) and the list of supplies in body
+     */
+    @GetMapping("/supplies/all")
+    @Timed
+    public List<Supply> getAllSupplies() {
+        log.debug("REST request to get all Supplies");
+        return supplyRepository.findAll();
+    }
+
+    /**
+     * GET  /supplies/allByNameContaining/:name/ : get all the supplies by name containing some name.
+     *
+     * @return the ResponseEntity with status 200 (OK) and the list of supplies in body
+     */
+    @GetMapping("/supplies/allByNameContaining/{name}/")
+    @Timed
+    public List<Supply> getAllSuppliesByNameContaining(@PathVariable String name) {
+        log.debug("REST request to get all Supplies");
+        return supplyRepository.findByNameContaining(name);
+    }
 
     /**
      * GET  /supplies/import : import supplies from file.

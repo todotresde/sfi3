@@ -27,6 +27,10 @@ public class Supply implements Serializable {
     private Long id;
 
     @NotNull
+    @Column(name = "code", nullable = false)
+    private String code;
+
+    @NotNull
     @Column(name = "name", nullable = false)
     private String name;
 
@@ -46,6 +50,19 @@ public class Supply implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public Supply code(String code) {
+        this.code = code;
+        return this;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public String getName() {
@@ -124,6 +141,7 @@ public class Supply implements Serializable {
     public String toString() {
         return "Supply{" +
             "id=" + getId() +
+            ", code='" + getCode() + "'" +
             ", name='" + getName() + "'" +
             "}";
     }

@@ -65,6 +65,7 @@ export class ManufacturingOrderFullDialogComponent implements OnInit {
     addProduct() {
         const product: Product = new Product();
         product.supplies = [];
+        product.id = Math.round(Math.random() * 100000);
         this.products.push(product);
         this.addSupply(product);
     }
@@ -140,7 +141,7 @@ export class ManufacturingOrderFullDialogComponent implements OnInit {
     }
 
     private loadSupplies() {
-        this.supplyService.query().subscribe(
+        this.supplyService.queryAll().subscribe(
             (res: HttpResponse<Supply[]>) => {
                 this.supplies = res.body;
             },

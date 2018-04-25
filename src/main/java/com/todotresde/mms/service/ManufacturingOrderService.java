@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import sun.text.resources.uk.JavaTimeSupplementary_uk;
 
 import java.util.List;
 
@@ -58,13 +59,14 @@ public class ManufacturingOrderService {
 
     public ManufacturingOrder saveWithProductsAndSTAttributeValues(ManufacturingOrder manufacturingOrder, List<Product> products, List<SupplyTypeAttrValue> supplyTypeAttrValues) {
         manufacturingOrder = manufacturingOrderRepository.save(manufacturingOrder);
-        Integer stAttributeValueIndex = 0;
         for(Product product : products) {
+            Long oldProductId = product.getId();
+
             product.setId(null);
             product.setManufacturingOrder(manufacturingOrder);
             product.setDescription("");
 
-            productService.save(product);
+            product = productService.save(product);
 
             for(Supply supply : product.getSupplies()) {
                 for(SupplyTypeAttr supplyTypeAttr : supply.getSupplyType().getSupplyTypeAttrs()) {
@@ -74,17 +76,30 @@ public class ManufacturingOrderService {
                     supplyTypeAttrValue.setSupplyTypeAttr(supplyTypeAttr);
                     supplyTypeAttrValue.setSupply(supply);
                     supplyTypeAttrValue.setSupplyType(supply.getSupplyType());
-                    supplyTypeAttrValue.setValue(supplyTypeAttrValues.get(stAttributeValueIndex).getValue());
+                    supplyTypeAttrValue.setValue(this.getFromList(supplyTypeAttrValues, oldProductId, supply, supplyTypeAttr).getValue());
 
                     supplyTypeAttrValueService.save(supplyTypeAttrValue);
-
-                    stAttributeValueIndex++;
                 }
 
             }
         }
 
         return manufacturingOrder;
+    }
+
+    private SupplyTypeAttrValue getFromList(List<SupplyTypeAttrValue> supplyTypeAttrValues, Long oldProductId, Supply supply, SupplyTypeAttr supplyTypeAttr) {
+        SupplyTypeAttrValue result = null;
+        for(SupplyTypeAttrValue supplyTypeAttrValue : supplyTypeAttrValues) {
+            if(
+                supplyTypeAttrValue.getProduct().getId().equals(oldProductId) &&
+                    supplyTypeAttrValue.getSupply().getId().equals(supply.getId()) &&
+                        supplyTypeAttrValue.getSupplyTypeAttr().getId().equals(supplyTypeAttr.getId())
+                ){
+                result = supplyTypeAttrValue;
+            }
+        }
+
+        return result;
     }
 
     public ManufacturingOrderDTO findOneFull(Long id) {
