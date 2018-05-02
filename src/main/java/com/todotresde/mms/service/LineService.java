@@ -39,13 +39,13 @@ public class LineService {
     }
 
     public Tracer sendFromWorkStationIP(String ip, Tracer tracer){
-        WorkStationConfig nextWorkStationConfig = this.getNextWorkStationConfig(tracer.getWorkStationConfig(), tracer.getProduct(), this.productService.nextSupply(tracer.getProduct(), tracer.getSupply()));
+        WorkStationConfig nextWorkStationConfig = this.getNextWorkStationConfig(tracer.getWorkStationConfig(), tracer.getProduct(), tracer.getSupply());//this.productService.nextSupply(tracer.getProduct(), tracer.getSupply()));
 
         return this.tracerService.sendFromWorkStationIP(nextWorkStationConfig, ip, tracer);
     }
 
     public Tracer send(Tracer tracer){
-        WorkStationConfig nextWorkStationConfig = this.getNextWorkStationConfig(tracer.getWorkStationConfig(), tracer.getProduct(), this.productService.nextSupply(tracer.getProduct(), tracer.getSupply()));
+        WorkStationConfig nextWorkStationConfig = this.getNextWorkStationConfig(tracer.getWorkStationConfig(), tracer.getProduct(), tracer.getSupply());//this.productService.nextSupply(tracer.getProduct(), tracer.getSupply()));
 
         return this.tracerService.send(nextWorkStationConfig, tracer);
     }
@@ -67,7 +67,7 @@ public class LineService {
         for(Line line: lines){
             List<SupplyType> lineSupplyTypes = this.getSupplyTypesForLine(line);
 
-            if(lineSupplyTypes.equals(productSupplyTypes)){
+            if(lineSupplyTypes.containsAll(productSupplyTypes)){
                 linesForProduct.add(line);
             }
         }

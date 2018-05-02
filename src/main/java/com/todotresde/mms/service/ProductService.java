@@ -53,6 +53,7 @@ public class ProductService {
         return this.nextSupply(product, (supply != null) ? supply.getSupplyType() : null);
     }
 
+    @Deprecated
     public Supply nextSupply(Product product, SupplyType supplyType) {
         Supply nextSupply = null;
         Boolean foundSupply = false;
@@ -70,6 +71,5 @@ public class ProductService {
 
         return nextSupply;
     }
-
 }
 

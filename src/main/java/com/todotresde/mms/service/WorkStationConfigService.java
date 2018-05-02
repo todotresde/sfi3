@@ -56,25 +56,51 @@ public class WorkStationConfigService {
 
         if(workStationConfig.getNextWorkStations().size() > 0) {
             if (null != supply) {
-                workStationConfigs = this.workStationConfigRepository.getByLineAndRowAndSupplyTypeId(workStationConfig.getLine(), workStationConfig.getRow(), supply.getSupplyType().getId());
+                workStationConfigs = this.workStationConfigRepository.getByLineAndRowAndColGreaterThanAndNotSupplyTypeId(workStationConfig.getLine(), workStationConfig.getRow(), workStationConfig.getCol(), supply.getSupplyType().getId());
             } else {
-                workStationConfigs = this.workStationConfigRepository.getByLineAndRowAndColAndSupplyTypeIsNull(workStationConfig.getLine(), workStationConfig.getRow(), workStationConfig.getCol() + 1);
+                workStationConfigs = this.workStationConfigRepository.getByLineAndRowAndColGreaterThanAndSupplyTypeIsNull(workStationConfig.getLine(), workStationConfig.getRow(), workStationConfig.getCol());
             }
+
+            SupplyType suppyType = this.getNextSupplyType(product, supply, workStationConfig, workStationConfigs);
 
             if (!workStationConfigs.isEmpty()) {
                 Integer time = 999999999;
 
                 for (WorkStationConfig workStationConfig1 : workStationConfigs) {
-                    Integer workStationConfigTime = this.getTimeForWorkStationConfig(workStationConfig1);
-                    if (workStationConfigTime < time) {
-                        time = workStationConfigTime;
-                        bestWorkStationConfig = workStationConfig1;
+                    if(workStationConfig1.getSupplyTypes().contains(suppyType)) {
+                        Integer workStationConfigTime = this.getTimeForWorkStationConfig(workStationConfig1);
+                        if (workStationConfigTime < time) {
+                            time = workStationConfigTime;
+                            bestWorkStationConfig = workStationConfig1;
+                        }
                     }
                 }
             }
         }
 
         return bestWorkStationConfig;
+    }
+
+    public SupplyType getNextSupplyType(Product product, Supply supply, WorkStationConfig workStationConfig, List<WorkStationConfig> workStationConfigs) {
+        List<SupplyType> supplyTypes = productService.getSupplyTypes(product);
+        SupplyType supplyType = null;
+        Double minDist = 999999.0;
+
+        for (Supply supply1 : product.getSupplies()) {
+            if(!supply.getId().equals(supply1.getId())){
+                for (WorkStationConfig workStationConfig1 : workStationConfigs) {
+                    Double dist = Math.sqrt(
+                        Math.pow(workStationConfig1.getRow() - workStationConfig.getRow(),2) +
+                        Math.pow(workStationConfig1.getCol() - workStationConfig.getCol(),2));
+                    SupplyType supplyTypeSelected = workStationConfig1.getSupplyTypes().iterator().next();
+                    if(dist < minDist && supplyTypes.contains(supplyTypeSelected)){
+                        minDist = dist;
+                        supplyType = supplyTypeSelected;
+                    }
+                }
+            }
+        }
+        return supplyType;
     }
 
     public WorkStation getNextWorkStation(WorkStationConfig workStationConfig){
