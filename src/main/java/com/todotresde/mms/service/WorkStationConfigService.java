@@ -61,13 +61,13 @@ public class WorkStationConfigService {
                 workStationConfigs = this.workStationConfigRepository.getByLineAndRowAndColGreaterThanAndSupplyTypeIsNull(workStationConfig.getLine(), workStationConfig.getRow(), workStationConfig.getCol());
             }
 
-            SupplyType suppyType = this.getNextSupplyType(product, supply, workStationConfig, workStationConfigs);
+            SupplyType supplyType = this.getNextSupplyType(product, supply, workStationConfig, workStationConfigs);
 
             if (!workStationConfigs.isEmpty()) {
                 Integer time = 999999999;
 
                 for (WorkStationConfig workStationConfig1 : workStationConfigs) {
-                    if(workStationConfig1.getSupplyTypes().contains(suppyType)) {
+                    if(workStationConfig1.getSupplyTypes().contains(supplyType) || ((supplyType == null) && workStationConfig1.getSupplyTypes().size() == 0)) {
                         Integer workStationConfigTime = this.getTimeForWorkStationConfig(workStationConfig1);
                         if (workStationConfigTime < time) {
                             time = workStationConfigTime;
@@ -92,7 +92,7 @@ public class WorkStationConfigService {
                     Double dist = Math.sqrt(
                         Math.pow(workStationConfig1.getRow() - workStationConfig.getRow(),2) +
                         Math.pow(workStationConfig1.getCol() - workStationConfig.getCol(),2));
-                    SupplyType supplyTypeSelected = workStationConfig1.getSupplyTypes().iterator().next();
+                    SupplyType supplyTypeSelected = (workStationConfig1.getSupplyTypes().size() > 0) ? workStationConfig1.getSupplyTypes().iterator().next() : null;
                     if(dist < minDist && supplyTypes.contains(supplyTypeSelected)){
                         minDist = dist;
                         supplyType = supplyTypeSelected;

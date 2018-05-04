@@ -33,7 +33,7 @@ public interface WorkStationConfigRepository extends JpaRepository<WorkStationCo
         "WHERE work_station_config.line = :line AND " +
         "work_station_config.row = :row AND " +
         "work_station_config.col > :col AND " +
-        "supply_types.id != :supplyTypeId " +
+        "(supply_types.id != :supplyTypeId OR supply_types.id is null)" +
         "order by work_station_config.col asc")
     List<WorkStationConfig> getByLineAndRowAndColGreaterThanAndNotSupplyTypeId(@Param("line") Line line, @Param("row") Integer row, @Param("col") Integer col, @Param("supplyTypeId") Long supplyTypeId);
 
