@@ -2,6 +2,7 @@ import { element, by, ElementFinder } from 'protractor';
 
 export class NavBarPage {
     entityMenu = element(by.id('entity-menu'));
+    salesMenu = element(by.id('sales-menu'));
     accountMenu = element(by.id('account-menu'));
     adminMenu: ElementFinder;
     signIn = element(by.id('login'));
@@ -14,6 +15,10 @@ export class NavBarPage {
         if (asAdmin) {
             this.adminMenu = element(by.id('admin-menu'));
         }
+    }
+
+    clickOnSalesMenu() {
+        return this.salesMenu.click();
     }
 
     clickOnEntityMenu() {
@@ -75,6 +80,11 @@ export class NavBarPage {
 
     goToEntity(entityName: string) {
         this.clickOnEntityMenu();
+        return this.clickOnEntity(entityName);
+    }
+
+    goToSales(entityName: string) {
+        this.clickOnSalesMenu();
         return this.clickOnEntity(entityName);
     }
 

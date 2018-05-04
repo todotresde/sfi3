@@ -89,7 +89,7 @@
                     <tr *ngFor="let supply of product.supplies ;trackBy: trackId; let supplyPosition = index;">
                         <td>
                             <div class="form-group select-editable">
-                                <select class="form-control" id="field_supply" name="supply" (change)="onChangeSupply($event.target.value, productPosition, supplyPosition)" required>
+                                <select class="form-control" id="field_supply[{{supplyPosition}}]" name="supply" (change)="onChangeSupply($event.target.value, productPosition, supplyPosition)" required>
                                     <option ></option>
                                     <option [selected]="supplyOption.id === supply.id" [value]="supplyOption.id" *ngFor="let supplyOption of supplies; trackBy: trackSupplyById">{{supplyOption.name}}</option>
                                 </select>
