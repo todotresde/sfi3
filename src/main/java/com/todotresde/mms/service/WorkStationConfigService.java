@@ -142,10 +142,10 @@ public class WorkStationConfigService {
 
     public Integer getPendingRowTimeFromWorkStationConfig(WorkStationConfig workStationConfig, Product product, Supply supply) {
         Integer rowTimePending;
-        Supply nextSupply = this.productService.nextSupply(product, supply);
-        WorkStationConfig nextWorkStationConfig = this.getNextWorkStationConfig(workStationConfig, product, nextSupply);
+        WorkStationConfig nextWorkStationConfig = this.getNextWorkStationConfig(workStationConfig, product, supply);
         rowTimePending = this.tracerService.getTotalTimeForWorkStationConfig(workStationConfig);
         if(nextWorkStationConfig != null){
+            Supply nextSupply = this.productService.nextSupply(product, supply, nextWorkStationConfig);
             rowTimePending += this.getPendingRowTimeFromWorkStationConfig(nextWorkStationConfig, product, nextSupply);
         }
         return rowTimePending;
@@ -156,15 +156,18 @@ public class WorkStationConfigService {
     }
 
     public Integer getAverageTimeForWorkStationConfig(WorkStationConfig workStationConfig) {
-        Integer averageTime = 0;
+        Integer totalTime = 0;
         List<Tracer> tracers = this.tracerService.getFinishedForWorkStationConfig(workStationConfig);
-        for(Tracer tracer: tracers) {
-            averageTime += tracer.getTime();
-        }
-        if(tracers.size() > 0)
-            return (averageTime / tracers.size());
-        else
+
+        if(tracers.size() > 0) {
+            for (Tracer tracer : tracers) {
+                totalTime += tracer.getTime();
+            }
+
+            return (totalTime / tracers.size());
+        } else {
             return 300; // 5 min.
+        }
     }
 
     public List<WorkStationConfigDTO> findAllWithTime() {

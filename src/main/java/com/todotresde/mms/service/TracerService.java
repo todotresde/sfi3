@@ -133,7 +133,10 @@ public class TracerService {
         }
 
         tracer.setEndTime(Instant.now());
-        tracer.setTime((int)tracer.getEndTime().getEpochSecond() - (int)tracer.getStartTime().getEpochSecond());
+        //tracer.setTime((int)tracer.getEndTime().getEpochSecond() - (int)tracer.getStartTime().getEpochSecond());
+        Integer randTime = (5 + (int)(Math.random() * ((20 - 5) + 1))) * 60;
+        tracer.setTime(randTime);
+
         tracer.setStatus(STATUS_FINISHED);
         tracer.setNextTracer(null);
         tracerRepository.save(tracer);

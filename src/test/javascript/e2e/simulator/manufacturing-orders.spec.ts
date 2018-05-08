@@ -5,6 +5,7 @@ describe('manufacturing-orders', () => {
 	let navBarPage: NavBarPage;
 	let manufacturingOrderComponentsPage: ManufacturingOrderComponentsPage;
 	let manufacturingOrderDialogPage: ManufacturingOrderDialogPage;
+	let numberOfManufacturinOrders = 10;
 
 	beforeAll(() => {
         browser.get('/');
@@ -14,35 +15,60 @@ describe('manufacturing-orders', () => {
         browser.waitForAngular();
     });
 
-    it('create MO', () => {
-    	navBarPage.goToSales('manufacturing-order');
-    	manufacturingOrderComponentsPage = new ManufacturingOrderComponentsPage();
-    	manufacturingOrderComponentsPage.clickOnCreateButton();
+	for(let i=0; i < numberOfManufacturinOrders; i++){
+		
+		(function (numberOfManufacturingOrder) {  
+		    it('create MO' + numberOfManufacturingOrder, () => {
+		    	navBarPage.goToSales('manufacturing-order');
+		    	manufacturingOrderComponentsPage = new ManufacturingOrderComponentsPage();
+		    	manufacturingOrderComponentsPage.clickOnCreateButton();
 
-    	let code = Math.round(Math.random()*1000);
-    	manufacturingOrderDialogPage = new ManufacturingOrderDialogPage();
-    	manufacturingOrderDialogPage.setCodeInput(code);
-    	manufacturingOrderDialogPage.setDescriptionInput('Descripción de Prueba' + code);
-    	manufacturingOrderDialogPage.addProduct();
-    	manufacturingOrderDialogPage.setQuantityInput(5);
-    	manufacturingOrderDialogPage.selectSupply(0, 'Tela roler Acuarela Acero',[3,3]);
-    	manufacturingOrderDialogPage.addSupply();
-    	manufacturingOrderDialogPage.selectSupply(1, 'Sistema Tecno cadena metálica c/cenefa frente curvo de 60 mm',[3]);
-    	manufacturingOrderDialogPage.addSupply();
-    	manufacturingOrderDialogPage.selectSupply(2, 'Motor RA para Multistore Prolight automatizado con emisor',[3]);
-    	manufacturingOrderDialogPage.addSupply();
-    	manufacturingOrderDialogPage.selectSupply(3, 'Acces.60 mm p/sistema Tecno c/base suj. Blanco para S.214',[]);
+		    	let code = Math.round(Math.random()*1000);
+		    	let count = Math.floor(Math.random()*10) + 1;
+		    	let width = Math.floor(Math.random()*10) + 1;
+		    	let height = Math.floor(Math.random()*10) + 1;
 
-    	manufacturingOrderDialogPage.save();
-    })
+		    	manufacturingOrderDialogPage = new ManufacturingOrderDialogPage();
+		    	manufacturingOrderDialogPage.setCodeInput(code);
+		    	manufacturingOrderDialogPage.setDescriptionInput('Descripción de Prueba' + code);
+		    	manufacturingOrderDialogPage.addProduct();
+		    	manufacturingOrderDialogPage.setQuantityInput(count);
+		    	manufacturingOrderDialogPage.selectSupply(0, 'Tela roler Acuarela Acero',[width, height]);
+		    	manufacturingOrderDialogPage.addSupply();
+		    	manufacturingOrderDialogPage.selectSupply(1, 'Sistema Tecno cadena metálica c/cenefa frente curvo de 60 mm',[width]);
+		    	manufacturingOrderDialogPage.addSupply();
+		    	manufacturingOrderDialogPage.selectSupply(2, 'Motor RA para Multistore Prolight automatizado con emisor',[]);
+		    	manufacturingOrderDialogPage.addSupply();
+		    	manufacturingOrderDialogPage.selectSupply(3, 'Acces.60 mm p/sistema Tecno c/base suj. Blanco para S.214',[]);
+
+		    	manufacturingOrderDialogPage.save();
+
+		    	manufacturingOrderComponentsPage.sendFirst();
+		    })
+		})(i);
+	}
 });
 
 export class ManufacturingOrderComponentsPage {
     createButton = element(by.css('.jh-create-entity'));
+    sendButton = element(by.css('.modal-footer .btn.btn-danger'));
     title = element.all(by.css('jhi-employee div h2 span')).first();
 
     clickOnCreateButton() {
         return this.createButton.click();
+    }
+
+    clickOnFirstSendButton() {
+        return element(by.cssContainingText('tr .btn.btn-primary.btn-sm', 'Send')).click();
+    }
+
+    clickOnSendButton() {
+        return this.sendButton.click();
+    }
+
+    sendFirst(){
+    	this.clickOnFirstSendButton();
+    	this.clickOnSendButton();
     }
 
     getTitle() {

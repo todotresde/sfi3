@@ -39,7 +39,8 @@ public class ProductService {
         List<SupplyType> supplyTypes = new ArrayList<>();
 
         for(Supply supply: product.getSupplies()){
-            supplyTypes.add(supply.getSupplyType());
+            if(!supplyTypes.contains(supply.getSupplyType()))
+                supplyTypes.add(supply.getSupplyType());
         }
 
         return supplyTypes;
@@ -49,22 +50,19 @@ public class ProductService {
         this.productRepository.delete(product.getId());
     }
 
-    public Supply nextSupply(Product product, Supply supply) {
-        return this.nextSupply(product, (supply != null) ? supply.getSupplyType() : null);
+    public Supply nextSupply(Product product, Supply currentSupply, WorkStationConfig nextWorkStationConfig) {
+        return this.nextSupply(product, (currentSupply != null) ? currentSupply.getSupplyType() : null, nextWorkStationConfig);
     }
 
     @Deprecated
-    public Supply nextSupply(Product product, SupplyType supplyType) {
+    public Supply nextSupply(Product product, SupplyType currentSupply, WorkStationConfig nextWorkStationConfig) {
         Supply nextSupply = null;
         Boolean foundSupply = false;
 
-        if (supplyType != null) {
+        if (currentSupply != null) {
             for (Supply productSupply : product.getSupplies()) {
-                if (foundSupply) {
+                if(nextWorkStationConfig.getSupplyTypes().contains(productSupply.getSupplyType())) {
                     nextSupply = productSupply;
-                }
-                if (productSupply.getSupplyType().getId().equals(supplyType.getId())) {
-                    foundSupply = true;
                 }
             }
         }
