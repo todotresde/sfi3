@@ -152,7 +152,6 @@ export class ManufacturingOrderPopupService {
             modalRef.componentInstance.attributeValues[productPosition][supplyPosition][supplyTypeAttr.name] = supplyTypeAttrValue.value;
         }
         */
-        console.log('LEO', modalRef.componentInstance);
 
         modalRef.result.then((result) => {
             this.router.navigate([{ outlets: { popup: null }}], { replaceUrl: true, queryParamsHandling: 'merge' });

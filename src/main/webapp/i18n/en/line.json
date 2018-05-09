@@ -19,7 +19,8 @@
             "name": "Name",
             "workStationConfig": "Work Station Config",
             "status": {
-                "title": "Lines Status"
+                "title": "Lines Status",
+                "manufacturingOrder": "Lines Status for Manufacturing Order: "
             }
         }
     }

@@ -5,6 +5,7 @@ export * from './manufacturing-order-dialog.component';
 export * from './manufacturing-order-full-dialog.component';
 export * from './manufacturing-order-delete-dialog.component';
 export * from './manufacturing-order-send-dialog.component';
+export * from './manufacturing-order-tracer-status.component';
 export * from './manufacturing-order-detail.component';
 export * from './manufacturing-order.component';
 export * from './manufacturing-order.route';

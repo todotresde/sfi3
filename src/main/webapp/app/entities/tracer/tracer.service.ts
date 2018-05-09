@@ -29,6 +29,12 @@ export class TracerService {
             .map((res: EntityResponseType) => this.convertItemFromServer(res));
     }
 
+    start(tracer: Tracer): Observable<Tracer> {
+        const copy = this.convert(tracer);
+        return this.http.post<Tracer>(`${this.resourceUrl}/start`, copy)
+            .map((res: EntityResponseType) => this.convertItemFromServer(res));
+    }
+
     update(tracer: Tracer): Observable<EntityResponseType> {
         const copy = this.convert(tracer);
         return this.http.put<Tracer>(this.resourceUrl, copy, { observe: 'response' })
@@ -51,14 +57,24 @@ export class TracerService {
             .map((res: HttpResponse<Tracer[]>) => this.convertArrayResponse(res));
     }
 
+    queryByManufacturingOrderId(manufacturingOrderId: string): Observable<HttpResponse<Tracer[]>> {
+        return this.http.get<Tracer[]>(`${this.resourceUrl}/manufacturing-order/${manufacturingOrderId}/`, { observe: 'response' })
+            .map((res: HttpResponse<Tracer[]>) => this.convertArrayResponse(res));
+    }
+
     queryByWorkStationIP(ip: string): Observable<HttpResponse<Tracer[]>> {
         return this.http.get<Tracer[]>(`${this.resourceUrl}/workStationIP/${ip}/`, { observe: 'response' })
             .map((res: HttpResponse<Tracer[]>) => this.convertArrayResponse(res));
     }
 
-    queryOpen(): Observable<HttpResponse<Tracer[]>> {
-        return this.http.get<Tracer[]>(`${this.resourceUrl}/open/`, { observe: 'response' })
+    queryOpen(manufacturingOrderId: string): Observable<HttpResponse<Tracer[]>> {
+        if (manufacturingOrderId) {
+            return this.http.get<Tracer[]>(`${this.resourceUrl}/open/manufacturing-order/${manufacturingOrderId}/`, { observe: 'response' })
             .map((res: HttpResponse<Tracer[]>) => this.convertArrayResponse(res));
+        } else {
+            return this.http.get<Tracer[]>(`${this.resourceUrl}/open/`, { observe: 'response' })
+                .map((res: HttpResponse<Tracer[]>) => this.convertArrayResponse(res));
+        }
     }
 
     delete(id: number): Observable<HttpResponse<any>> {

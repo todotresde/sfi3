@@ -97,6 +97,11 @@ public class TracerService {
         return null;
     }
 
+    public Tracer start(Tracer tracer){
+        tracer.setStatus(Constants.STATUS_STARTED);
+        return this.tracerRepository.save(tracer);
+    }
+
     public Tracer moveNext(WorkStationConfig workStationConfig, Tracer tracer){
         Tracer nextTracer = new Tracer();
 

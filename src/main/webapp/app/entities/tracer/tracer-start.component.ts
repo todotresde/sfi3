@@ -42,6 +42,7 @@ export class TracerStartComponent implements OnInit {
         this.isSending = false;
         this.tracer.startTime = this.datePipe.transform(new Date(), 'yyyy-MM-ddTHH:mm:ss');
 
+        this.start();
         this.findProduct(this.tracer.product);
     }
 
@@ -52,8 +53,12 @@ export class TracerStartComponent implements OnInit {
     send() {
         this.isSending = true;
         this.tracer.endTime = this.datePipe.transform(new Date(), 'yyyy-MM-ddTHH:mm:ss');
-        this.subscribeToSendResponse(
-                this.tracerService.send(this.tracer));
+        this.subscribeToSendResponse(this.tracerService.send(this.tracer));
+    }
+
+    private start() {
+        this.tracerService.start(this.tracer)
+            .subscribe((tracerResponse: HttpResponse<Tracer>) => {});
     }
 
     private findProduct(product: Product) {

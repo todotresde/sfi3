@@ -36,6 +36,13 @@
                 "supply": "Supply",
                 "atributes": "Attributes",
                 "add.supply": "Add Supply" 
+            },
+            "line": {
+                "status": "Line Status"
+            },
+            "tracers": {
+                "title": "M.O. Tracers Status for: ",
+                "status": "Tracers Status"
             }
         }
     }

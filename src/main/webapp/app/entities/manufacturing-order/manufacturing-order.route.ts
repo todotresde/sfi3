@@ -5,6 +5,7 @@ import { JhiPaginationUtil } from 'ng-jhipster';
 import { UserRouteAccessService } from '../../shared';
 import { ManufacturingOrderComponent } from './manufacturing-order.component';
 import { ManufacturingOrderDetailComponent } from './manufacturing-order-detail.component';
+import { ManufacturingOrderTracerStatusComponent } from './manufacturing-order-tracer-status.component';
 import { ManufacturingOrderPopupComponent } from './manufacturing-order-dialog.component';
 import { ManufacturingOrderFullPopupComponent } from './manufacturing-order-full-dialog.component';
 import { ManufacturingOrderDeletePopupComponent } from './manufacturing-order-delete-dialog.component';
@@ -46,7 +47,16 @@ export const manufacturingOrderRoute: Routes = [
             pageTitle: 'mmsApp.manufacturingOrder.home.title'
         },
         canActivate: [UserRouteAccessService]
+    }, {
+        path: 'manufacturing-order/tracer-status/:id',
+        component: ManufacturingOrderTracerStatusComponent,
+        data: {
+            authorities: ['ROLE_ADMIN', 'ROLE_SALES', 'ROLE_CHIEF'],
+            pageTitle: 'mmsApp.manufacturingOrder.tracers.title'
+        },
+        canActivate: [UserRouteAccessService]
     }
+
 ];
 
 export const manufacturingOrderPopupRoute: Routes = [

@@ -14,10 +14,10 @@ import { TracerService } from '../tracer/tracer.service';
 import { Principal } from '../../shared';
 
 @Component({
-    selector: 'jhi-line-status',
-    templateUrl: './line-status.component.html'
+    selector: 'jhi-manufacturing-order-tracer-status',
+    templateUrl: './manufacturing-order-tracer-status.component.html'
 })
-export class LineStatusComponent implements OnInit, OnDestroy {
+export class ManufacturingOrderTracerStatusComponent implements OnInit, OnDestroy {
     tracers: Tracer[];
     linesDTO: any = {};
     linesDTOArray: any = [];
@@ -70,7 +70,7 @@ export class LineStatusComponent implements OnInit, OnDestroy {
             this.manufacturingOrderId = params['id'];
         });
 
-        this.tracerService.queryOpen(this.manufacturingOrderId).subscribe(
+        this.tracerService.queryByManufacturingOrderId(this.manufacturingOrderId).subscribe(
             (res: HttpResponse<Tracer[]>) => {
                 this.pushTracersIntoWorkStation(res.body);
                 this.loadAllWorkStationConfigs();
@@ -81,35 +81,6 @@ export class LineStatusComponent implements OnInit, OnDestroy {
 
     loadTracersForWorkStation(workStationId: number) {
         this.tracers = this.workStationsDTO[workStationId];
-    }
-
-    delayTimeForWorkStationConfig(workStationConfig: any) {
-        const now = new Date();
-        const maxTime = 9999999999;
-        let minTime = maxTime;
-        const tracers = this.workStationsDTO[workStationConfig.workStation.id];
-
-        if (tracers) {
-            tracers.forEach(function(tracer){
-                if (tracer.startTime) {
-                    const startTime = new Date(tracer.startTime);
-                    const delay = now.getTime() - startTime.getTime();
-                    if (delay < minTime) {
-                        minTime = delay;
-                    }
-                }
-            });
-            minTime = minTime / 1000;
-            // console.log('WS', workStationConfig.workStation.name, 'Min', minTime, 'AVG', workStationConfig.averageTime);
-            if (minTime > workStationConfig.averageTime && minTime !== maxTime / 1000) {
-                return 'bg-danger' ;
-            }
-            if (minTime > workStationConfig.averageTime && minTime === maxTime / 1000) {
-                return 'bg-warning';
-            }
-            return 'bg-success';
-        }
-        return '';
     }
 
     trackWorkStationConfigId(index: number, item: WorkStationConfig) {

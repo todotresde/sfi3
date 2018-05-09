@@ -1,6 +1,16 @@
 
 <div *ngIf="manufacturingOrder">
-    <h2><span jhiTranslate="mmsApp.manufacturingOrder.detail.title">Manufacturing Order</span> {{manufacturingOrder.code}} - ({{manufacturingOrderTimeToFinishDays}} days - {{manufacturingOrderTimeToFinishHours}} hours - {{manufacturingOrderTimeToFinishMinutes}} minutes)</h2>
+    <h2>
+        <span jhiTranslate="mmsApp.manufacturingOrder.detail.title">Manufacturing Order</span> {{manufacturingOrder.code}} - ({{manufacturingOrderTimeToFinishDays}} days - {{manufacturingOrderTimeToFinishHours}} hours - {{manufacturingOrderTimeToFinishMinutes}} minutes)
+        <button *ngIf="manufacturingOrder.status!=statusCreated && manufacturingOrder.status!=statusFinished" 
+            class="btn btn-primary float-right jh-create-entity create-manufacturing-order" 
+            [routerLink]="['/line-status/manufacturing-order', manufacturingOrder.id ]" >
+            <span class="fa fa-cogs"></span>
+            <span  jhiTranslate="mmsApp.manufacturingOrder.line.status">
+                Line Status
+            </span>
+        </button>
+    </h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <div class='row'>

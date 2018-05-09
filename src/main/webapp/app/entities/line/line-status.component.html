@@ -1,5 +1,17 @@
 <div>
     <jhi-alert></jhi-alert>
+    <h2>
+        <span *ngIf="!manufacturingOrderId" jhiTranslate="mmsApp.line.status.title">Line Status</span>
+        <span *ngIf="manufacturingOrderId" jhiTranslate="mmsApp.line.status.manufacturingOrder">Line Status for:</span>{{manufacturingOrderId}}
+        <button *ngIf="manufacturingOrderId" 
+            class="btn btn-primary float-right jh-create-entity create-manufacturing-order" 
+            [routerLink]="['/manufacturing-order/tracer-status', manufacturingOrderId ]" >
+            <span class="fa fa-cogs"></span>
+            <span  jhiTranslate="mmsApp.manufacturingOrder.tracers.status">
+                Line Status
+            </span>
+        </button>
+    </h2>
     <div class="table-responsive" *ngFor="let lineDTO of linesDTOArray">
         <h4>
             <span>Status: {{lineDTO.name}}</span>
@@ -8,7 +20,7 @@
             <tbody>
             <tr *ngFor="let workStationConfigRow of lineDTO.workStationConfigs">
                 <td *ngFor="let workStationConfig of workStationConfigRow">
-                    <div *ngIf="workStationConfig" >
+                    <div *ngIf="workStationConfig" class="{{delayTimeForWorkStationConfig(workStationConfig)}}">
                         (<a (click)="loadTracersForWorkStation(workStationConfig.workStation.id)" >{{workStationsDTO[workStationConfig.workStation.id] ? workStationsDTO[workStationConfig.workStation.id].length : 0}}</a>)
                         {{workStationConfig.workStation.name}} 
                         (<i *ngFor="let supplyType of workStationConfig.supplyTypes">{{supplyType.name}}</i>)
@@ -30,6 +42,7 @@
             <th><span jhiTranslate="mmsApp.tracer.code">Code</span></th>
             <th><span jhiTranslate="mmsApp.tracer.inTime">In Time</span></th>
             <th><span jhiTranslate="mmsApp.tracer.manufacturingOrder">Manufacturing Order</span></th>
+            <th><span jhiTranslate="mmsApp.tracer.product">Product</span></th>
             <th><span jhiTranslate="mmsApp.tracer.supply">Supply</span></th>
             </tr>
             </thead>
@@ -39,9 +52,10 @@
                 <td>{{tracer.inTime | date:'short':'-0300'}}</td>
                 <td>
                     <div *ngIf="tracer.manufacturingOrder">
-                        <a [routerLink]="['../manufacturing-order', tracer.manufacturingOrder?.id ]" >{{tracer.manufacturingOrder?.code}}</a>
+                        <a [routerLink]="['/manufacturing-order', tracer.manufacturingOrder?.id ]" >{{tracer.manufacturingOrder?.code}}</a>
                     </div>
                 </td>
+                <td>{{tracer?.product?.id}}</td>
                 <td>{{tracer?.supply?.name}}</td>
             </tr>
             </tbody>

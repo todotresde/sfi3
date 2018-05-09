@@ -25,6 +25,14 @@ export const lineRoute: Routes = [
         },
         canActivate: [UserRouteAccessService]
     }, {
+        path: 'line-status/manufacturing-order/:id',
+        component: LineStatusComponent,
+        data: {
+            authorities: ['ROLE_ADMIN', 'ROLE_CHIEF'],
+            pageTitle: 'mmsApp.line.status.title'
+        },
+        canActivate: [UserRouteAccessService]
+    }, {
         path: 'line-status',
         component: LineStatusComponent,
         data: {

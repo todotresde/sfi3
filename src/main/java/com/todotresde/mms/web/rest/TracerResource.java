@@ -2,6 +2,7 @@ package com.todotresde.mms.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import com.todotresde.mms.config.Constants;
+import com.todotresde.mms.domain.ManufacturingOrder;
 import com.todotresde.mms.domain.Tracer;
 
 import com.todotresde.mms.domain.WorkStation;
@@ -116,6 +117,30 @@ public class TracerResource {
     }
 
     /**
+     * GET  /tracers/manufacturing-order/:id : get all tracers by Manufacturing Order.
+     *
+     * @return the ResponseEntity with status 200 (OK) and the list of open tracers in body
+     */
+    @GetMapping("/tracers/manufacturing-order/{id}")
+    @Timed
+    public List<Tracer> getAllTracersByManufacturingOrder(@PathVariable Long id) {
+        log.debug("REST request to get all Tracers by Manufacturing Order");
+        return tracerRepository.findByManufacturingOrderId(id);
+    }
+
+    /**
+     * GET  /tracers/open/manufacturing-order/:id : get all open the tracers for Manufacturing Order
+     *
+     * @return the ResponseEntity with status 200 (OK) and the list of open tracers in body
+     */
+    @GetMapping("/tracers/open/manufacturing-order/{id}")
+    @Timed
+    public List<Tracer> getAllOpenTracersForManufacturingOrder(@PathVariable Long id) {
+        log.debug("REST request to get all open Tracers for Manufacturing Order");
+        return tracerRepository.findByStatusAndManufacturingOrderId(Constants.STATUS_CREATED, id);
+    }
+
+    /**
      * GET  /tracers/workStationIP/:ip : get all the tracers by WorkStation IP.
      *
      * @param ip the ip of the workstation
@@ -164,6 +189,24 @@ public class TracerResource {
     public ResponseEntity<Tracer> send(@Valid @RequestBody Tracer tracer) throws URISyntaxException {
         log.debug("REST request to send Tracer : {}", tracer);
         Tracer result = this.lineService.send(tracer);
+
+        return ResponseEntity.ok()
+            .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, tracer.getId().toString()))
+            .body(result);
+    }
+
+    /**
+     * POST  /tracers/start : Update startTime for tracer.
+     *
+     * @param tracer the tracer to move
+     * @return the ResponseEntity with status 201 (Created) and with body the new tracer, or with status 400 (Bad Request) if the tracer has already an ID
+     * @throws URISyntaxException if the Location URI syntax is incorrect
+     */
+    @PostMapping("/tracers/start")
+    @Timed
+    public ResponseEntity<Tracer> start(@Valid @RequestBody Tracer tracer) throws URISyntaxException {
+        log.debug("REST request to start Tracer : {}", tracer);
+        Tracer result = this.tracerService.start(tracer);
 
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, tracer.getId().toString()))

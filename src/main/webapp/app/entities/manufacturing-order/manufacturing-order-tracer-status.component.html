@@ -1,0 +1,55 @@
+<div>
+    <jhi-alert></jhi-alert>
+    <h2>
+        <span jhiTranslate="mmsApp.manufacturingOrder.tracers.title">M.O. Tracer Status for:</span>{{manufacturingOrderId}}
+        <button 
+            class="btn btn-primary float-right jh-create-entity create-manufacturing-order" 
+            [routerLink]="['/line-status/manufacturing-order', manufacturingOrderId ]" >
+            <span class="fa fa-cogs"></span>
+            <span  jhiTranslate="mmsApp.manufacturingOrder.line.status">
+                Line Status
+            </span>
+        </button>
+    </h2>
+    <div class="table-responsive" *ngFor="let lineDTO of linesDTOArray">
+        <h4>
+            <span>Line: {{lineDTO.name}}</span>
+        </h4>
+        <div *ngIf="lineDTO.workStationConfigs">
+            <div *ngFor="let workStationConfigRow of lineDTO.workStationConfigs">
+                <div *ngFor="let workStationConfig of workStationConfigRow">
+                    <div *ngIf="workStationsDTO[workStationConfig.workStation.id] && workStationsDTO[workStationConfig.workStation.id].length > 0">
+                        <h4>
+                            <span>WorkStation: {{workStationsDTO[workStationConfig.workStation.id][0].workStation.name}}</span>
+                        </h4>
+                        <table class="table table-striped" >
+                            <thead>
+                            <tr>
+                            <th><span jhiTranslate="mmsApp.tracer.code">Code</span></th>
+                            <th><span jhiTranslate="mmsApp.tracer.inTime">In Time</span></th>
+                            <th><span jhiTranslate="mmsApp.tracer.startTime">Start Time</span></th>
+                            <th><span jhiTranslate="mmsApp.tracer.endTime">End Time</span></th>
+                            <th><span jhiTranslate="mmsApp.tracer.product">Product</span></th>
+                            <th><span jhiTranslate="mmsApp.tracer.supply">Supply</span></th>
+                            <th><span jhiTranslate="mmsApp.tracer.status">Status</span></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let tracer of workStationsDTO[workStationConfig.workStation.id]">
+                                <td>{{tracer.code | smallUUID }}</td>
+                                <td>{{tracer.inTime | date:'short':'-0300'}}</td>
+                                <td>{{tracer.startTime | date:'short':'-0300'}}</td>
+                                <td>{{tracer.endTime | date:'short':'-0300'}}</td>
+                                <td>{{tracer?.product?.id}}</td>
+                                <td>{{tracer?.supply?.name}}</td>
+                                <td>{{tracer.status | status}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

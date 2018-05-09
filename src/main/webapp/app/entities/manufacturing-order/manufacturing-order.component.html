@@ -60,6 +60,20 @@
                             <span class="fa fa-cogs"></span>
                             <span class="d-none d-md-inline" jhiTranslate="mmsApp.manufacturingOrder.send.send">Send</span>
                         </button>
+                        <button type="submit"
+                                [routerLink]="['../line-status/manufacturing-order', manufacturingOrder.id ]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm" *ngIf="manufacturingOrder.status!=statusCreated && manufacturingOrder.status!=statusFinished" >
+                            <span class="fa fa-cogs"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="mmsApp.manufacturingOrder.line.status">Line Status</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['../manufacturing-order/tracer-status', manufacturingOrder.id ]"
+                                replaceUrl="true"
+                                class="btn btn-warning btn-sm" *ngIf="manufacturingOrder.status!=statusCreated" >
+                            <span class="fa fa-cogs"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="mmsApp.manufacturingOrder.tracers.status">Tracer Status</span>
+                        </button>
                     </div>
                 </td>
             </tr>
