@@ -5,7 +5,7 @@ describe('manufacturing-orders', () => {
 	let navBarPage: NavBarPage;
 	let manufacturingOrderComponentsPage: ManufacturingOrderComponentsPage;
 	let manufacturingOrderDialogPage: ManufacturingOrderDialogPage;
-	let numberOfManufacturinOrders = 10;
+	let numberOfManufacturinOrders = 20;
 
 	beforeAll(() => {
         browser.get('/');
