@@ -24,7 +24,7 @@ describe('manufacturing-orders', () => {
 		    	manufacturingOrderComponentsPage.clickOnCreateButton();
 
 		    	let code = Math.round(Math.random()*1000);
-		    	let count = Math.floor(Math.random()*10) + 1;
+		    	let count = Math.floor(Math.random()*30) + 1;
 		    	let width = Math.floor(Math.random()*10) + 1;
 		    	let height = Math.floor(Math.random()*10) + 1;
 

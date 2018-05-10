@@ -1,14 +1,14 @@
 import { browser, element, by } from 'protractor';
 import { NavBarPage } from './../page-objects/jhi-page-objects';
 
-let workStations: string[];
-let numberOfTracers = 1;
+let workStations: string[] = ['192.168.1.1','192.168.1.2','192.168.1.3','192.168.1.4','192.168.1.5'];
+let numberOfTracers = 20;
 
 describe('tracers-for-workstation', () => {
-	let navBarPage: NavBarPage;
+    let navBarPage: NavBarPage;
     let workstationComponentsPage: WorkstationComponentsPage;
-	let tracerForWorkstationComponentsPage: TracerForWorkstationComponentsPage;
-	let tracerForWorkstationDialogPage: TracerForWorkstationDialogPage;
+    let tracerForWorkstationComponentsPage: TracerForWorkstationComponentsPage;
+    let tracerForWorkstationDialogPage: TracerForWorkstationDialogPage;
     /*
     let workStations: string[][] = [
         ['192.168.1.1','192.168.1.2','192.168.1.3','192.168.1.4','192.168.1.5'],
@@ -17,7 +17,7 @@ describe('tracers-for-workstation', () => {
     ];
     */
     
-	beforeAll(() => {
+    beforeAll(() => {
         browser.get('/');
         browser.waitForAngular();
         navBarPage = new NavBarPage();
@@ -40,9 +40,9 @@ describe('tracers-for-workstation', () => {
                     browser.waitForAngularEnabled(false);
 
                     browser.sleep(2000);
-                	navBarPage.goToLineAdministration('work-station');
+                    navBarPage.goToLineAdministration('work-station');
                     workstationComponentsPage = new WorkstationComponentsPage();
-                	workstationComponentsPage.clickOnWorkButton(workStation);
+                    workstationComponentsPage.clickOnWorkButton(workStation);
 
                     tracerForWorkstationComponentsPage = new TracerForWorkstationComponentsPage();
                     tracerForWorkstationComponentsPage.clickOnFirstStartButton();
@@ -84,3 +84,4 @@ export class TracerForWorkstationDialogPage {
         this.finishButton.click();
     }
 }
+
