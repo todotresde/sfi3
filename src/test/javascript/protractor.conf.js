@@ -1,6 +1,5 @@
 const HtmlScreenshotReporter = require('protractor-jasmine2-screenshot-reporter');
 const JasmineReporters = require('jasmine-reporters');
-let workStationIndex = 0;
 
 exports.config = {
     //seleniumAddress: 'http://127.0.0.1:4444/wd/hub',
@@ -51,6 +50,7 @@ exports.config = {
             specs: ['./e2e/simulator/tracers-for-workstation-3.spec.ts']
         }
     ],
+    
     
     directConnect: true,
 

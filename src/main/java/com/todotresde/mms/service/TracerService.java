@@ -12,10 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Instant;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 import static com.todotresde.mms.config.Constants.STATUS_FINISHED;
 
@@ -140,8 +137,7 @@ public class TracerService {
 
         tracer.setEndTime(Instant.now());
         //tracer.setTime((int)tracer.getEndTime().getEpochSecond() - (int)tracer.getStartTime().getEpochSecond());
-        Integer randTime = (5 + (int)(Math.random() * ((20 - 5) + 1))) * 60;
-        tracer.setTime(randTime);
+        tracer.setTime(generateRandomTime(tracer.getSupplyTypeAttrValues()));
 
         tracer.setStatus(STATUS_FINISHED);
         tracer.setNextTracer(null);
@@ -152,6 +148,30 @@ public class TracerService {
         }
 
         return nextTracer;
+    }
+
+    private Integer generateRandomTime(Set<SupplyTypeAttrValue> supplyTypeAttrValues){
+        Integer minTime, maxTime;
+        Double measure = 1.0;
+        for( SupplyTypeAttrValue supplyTypeAttrValue: supplyTypeAttrValues) {
+            measure *= Double.parseDouble(supplyTypeAttrValue.getValue());
+        }
+
+        if(measure > 30){
+            minTime = 15; maxTime = 25;
+        }else if(measure > 20){
+            minTime = 10; maxTime = 20;
+        }else if(measure > 10){
+            minTime = 5; maxTime = 15;
+        }else if(measure > 5){
+            minTime = 2; maxTime = 10;
+        }else {
+            minTime = 1; maxTime = 5;
+        }
+        minTime*=60;
+        maxTime*=60;
+        Integer randTime = (int)(minTime + (Math.random() * ((maxTime - minTime) + 1)));
+        return randTime;
     }
 
     public List<Tracer> getTracersForWorkStation(WorkStation workStation){

@@ -1,6 +1,7 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { SmallUUID, Status, Sort } from '../app.pipes';
+import { HighchartsChartComponent } from './components/highcharts-chart.component';
 
 import {
     MMSSharedLibsModule,
@@ -27,7 +28,8 @@ import {
         HasAnyAuthorityDirective,
         SmallUUID,
         Status,
-        Sort
+        Sort,
+        HighchartsChartComponent
     ],
     providers: [
         LoginService,
@@ -41,7 +43,8 @@ import {
         DatePipe,
         SmallUUID,
         Status,
-        Sort
+        Sort,
+        HighchartsChartComponent
     ],
     entryComponents: [JhiLoginModalComponent],
     exports: [
@@ -51,7 +54,8 @@ import {
         DatePipe,
         SmallUUID,
         Status,
-        Sort
+        Sort,
+        HighchartsChartComponent
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 

@@ -5,7 +5,7 @@ describe('manufacturing-orders', () => {
 	let navBarPage: NavBarPage;
 	let manufacturingOrderComponentsPage: ManufacturingOrderComponentsPage;
 	let manufacturingOrderDialogPage: ManufacturingOrderDialogPage;
-	let numberOfManufacturinOrders = 20;
+	let numberOfManufacturinOrders = 70;
 
 	beforeAll(() => {
         browser.get('/');
@@ -24,9 +24,9 @@ describe('manufacturing-orders', () => {
 		    	manufacturingOrderComponentsPage.clickOnCreateButton();
 
 		    	let code = Math.round(Math.random()*1000);
-		    	let count = Math.floor(Math.random()*30) + 1;
-		    	let width = Math.floor(Math.random()*10) + 1;
-		    	let height = Math.floor(Math.random()*10) + 1;
+		    	let count = Math.floor(Math.random()*3) + 1;
+		    	let width = parseFloat((Math.random()*10+1).toFixed(2));
+		    	let height = parseFloat((Math.random()*10+1).toFixed(2));
 
 		    	manufacturingOrderDialogPage = new ManufacturingOrderDialogPage();
 		    	manufacturingOrderDialogPage.setCodeInput(code);
