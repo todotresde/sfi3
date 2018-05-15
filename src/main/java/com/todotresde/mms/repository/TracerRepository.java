@@ -3,16 +3,13 @@ package com.todotresde.mms.repository;
 import com.todotresde.mms.domain.ManufacturingOrder;
 import com.todotresde.mms.domain.Tracer;
 import com.todotresde.mms.domain.WorkStation;
+import com.todotresde.mms.service.dto.TracerTimeProjection;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import org.springframework.data.jpa.repository.*;
 
 import java.util.List;
-
-import static com.todotresde.mms.config.Constants.STATUS_CREATED;
-import static com.todotresde.mms.config.Constants.STATUS_STARTED;
-
 
 /**
  * Spring Data JPA repository for the Tracer entity.
@@ -34,4 +31,12 @@ public interface TracerRepository extends JpaRepository<Tracer, Long> {
     //TODO - Change 0 and 1 to constants
     @Query(value = "SELECT tracer from Tracer tracer WHERE tracer.workStation = :workStation AND ( tracer.status = 0 OR tracer.status = 1 )")
     List<Tracer> findByWorkStationAndOpen(@Param("workStation") WorkStation workStation);
+
+    @Query(value = "SELECT tracer.employee.id as employeeId, tracer.id as tracerId, tracer.workStation.id as workStationId, tracer.supply.id as supplyId, tracer.time as time, supplyTypeAttr.name as name, supplyTypeAttrValue.value as value " +
+        "FROM Tracer tracer " +
+        "JOIN tracer.supplyTypeAttrValues supplyTypeAttrValue " +
+        "JOIN supplyTypeAttrValue.supplyTypeAttr supplyTypeAttr " +
+        "WHERE tracer.status = 2 AND tracer.employee.id = :employeeId " +
+        "ORDER BY tracer.employee.id, tracer.id, tracer.workStation.id, tracer.supply.id")
+    List<TracerTimeProjection> findTracerTimesForEmployee(@Param("employeeId") Long employeeId);
 }

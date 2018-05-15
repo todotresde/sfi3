@@ -4,6 +4,8 @@ import com.codahale.metrics.annotation.Timed;
 import com.todotresde.mms.domain.Employee;
 
 import com.todotresde.mms.repository.EmployeeRepository;
+import com.todotresde.mms.service.EmployeeService;
+import com.todotresde.mms.service.dto.TracerTimeDTO;
 import com.todotresde.mms.web.rest.errors.BadRequestAlertException;
 import com.todotresde.mms.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
@@ -31,9 +33,11 @@ public class EmployeeResource {
     private static final String ENTITY_NAME = "employee";
 
     private final EmployeeRepository employeeRepository;
+    private final EmployeeService employeeService;
 
-    public EmployeeResource(EmployeeRepository employeeRepository) {
+    public EmployeeResource(EmployeeRepository employeeRepository, EmployeeService employeeService) {
         this.employeeRepository = employeeRepository;
+        this.employeeService = employeeService;
     }
 
     /**

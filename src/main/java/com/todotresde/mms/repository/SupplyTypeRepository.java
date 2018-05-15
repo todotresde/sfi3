@@ -13,10 +13,13 @@ import java.util.List;
 @SuppressWarnings("unused")
 @Repository
 public interface SupplyTypeRepository extends JpaRepository<SupplyType, Long> {
-    @Query("select distinct supply_type from SupplyType supply_type left join fetch supply_type.supplyTypeAttrs")
+    @Query("select distinct supply_type from SupplyType supply_type " +
+        "left join fetch supply_type.supplyTypeAttrs")
     List<SupplyType> findAllWithEagerRelationships();
 
-    @Query("select supply_type from SupplyType supply_type left join fetch supply_type.supplyTypeAttrs where supply_type.id =:id")
+    @Query("select supply_type from SupplyType supply_type " +
+        "left join fetch supply_type.supplyTypeAttrs " +
+        "where supply_type.id =:id")
     SupplyType findOneWithEagerRelationships(@Param("id") Long id);
 
     SupplyType findByName(String name);

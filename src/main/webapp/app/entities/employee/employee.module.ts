@@ -6,6 +6,7 @@ import {
     EmployeeService,
     EmployeePopupService,
     EmployeeComponent,
+    EmployeeTimeComponent,
     EmployeeDetailComponent,
     EmployeeDialogComponent,
     EmployeePopupComponent,
@@ -14,6 +15,8 @@ import {
     employeeRoute,
     employeePopupRoute,
 } from './';
+
+import { HighchartsChartComponent } from 'highcharts-angular';
 
 const ENTITY_STATES = [
     ...employeeRoute,
@@ -27,18 +30,22 @@ const ENTITY_STATES = [
     ],
     declarations: [
         EmployeeComponent,
+        EmployeeTimeComponent,
         EmployeeDetailComponent,
         EmployeeDialogComponent,
         EmployeeDeleteDialogComponent,
         EmployeePopupComponent,
         EmployeeDeletePopupComponent,
+        HighchartsChartComponent
     ],
     entryComponents: [
         EmployeeComponent,
+        EmployeeTimeComponent,
         EmployeeDialogComponent,
         EmployeePopupComponent,
         EmployeeDeleteDialogComponent,
         EmployeeDeletePopupComponent,
+        HighchartsChartComponent
     ],
     providers: [
         EmployeeService,

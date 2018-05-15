@@ -16,10 +16,19 @@ import java.util.List;
 @SuppressWarnings("unused")
 @Repository
 public interface WorkStationConfigRepository extends JpaRepository<WorkStationConfig, Long> {
-    @Query("select distinct work_station_config from WorkStationConfig work_station_config left join fetch work_station_config.supplyTypes left join fetch work_station_config.employees left join fetch work_station_config.prevWorkStations left join fetch work_station_config.nextWorkStations")
+    @Query("select distinct work_station_config from WorkStationConfig work_station_config " +
+        "left join fetch work_station_config.supplyTypes " +
+        "left join fetch work_station_config.employees " +
+        "left join fetch work_station_config.prevWorkStations " +
+        "left join fetch work_station_config.nextWorkStations")
     List<WorkStationConfig> findAllWithEagerRelationships();
 
-    @Query("select work_station_config from WorkStationConfig work_station_config left join fetch work_station_config.supplyTypes left join fetch work_station_config.employees left join fetch work_station_config.prevWorkStations left join fetch work_station_config.nextWorkStations where work_station_config.id =:id")
+    @Query("select work_station_config from WorkStationConfig work_station_config " +
+        "left join fetch work_station_config.supplyTypes " +
+        "left join fetch work_station_config.employees " +
+        "left join fetch work_station_config.prevWorkStations " +
+        "left join fetch work_station_config.nextWorkStations " +
+        "where work_station_config.id =:id")
     WorkStationConfig findOneWithEagerRelationships(@Param("id") Long id);
 
     List<WorkStationConfig> findByLine(Line line);

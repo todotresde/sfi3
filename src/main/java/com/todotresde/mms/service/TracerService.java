@@ -4,6 +4,7 @@ import com.todotresde.mms.config.Constants;
 import com.todotresde.mms.domain.*;
 import com.todotresde.mms.repository.TracerRepository;
 import com.todotresde.mms.repository.WorkStationRepository;
+import com.todotresde.mms.service.dto.TracerTimeProjection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Lazy;
@@ -209,6 +210,10 @@ public class TracerService {
     public Tracer findByCodeAndIp(String code, String ip) {
         WorkStation workStation = this.workStationRepository.findByIp(ip);
         return this.tracerRepository.findByWorkStationAndCode(workStation, code);
+    }
+
+    public List<TracerTimeProjection> getTimesFromEmployee(Long employeeId) {
+        return this.tracerRepository.findTracerTimesForEmployee(employeeId);
     }
 }
 

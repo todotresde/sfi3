@@ -10,6 +10,8 @@ import com.todotresde.mms.repository.TracerRepository;
 import com.todotresde.mms.repository.WorkStationRepository;
 import com.todotresde.mms.service.LineService;
 import com.todotresde.mms.service.TracerService;
+import com.todotresde.mms.service.dto.TracerTimeDTO;
+import com.todotresde.mms.service.dto.TracerTimeProjection;
 import com.todotresde.mms.service.util.NetworkUtil;
 import com.todotresde.mms.web.rest.errors.BadRequestAlertException;
 import com.todotresde.mms.web.rest.util.HeaderUtil;
@@ -153,6 +155,20 @@ public class TracerResource {
         if(!NetworkUtil.validate(ip)) { ip = request.getRemoteHost(); }
         WorkStation workStation = workStationRepository.findByIp(ip);
         return tracerRepository.findByWorkStationAndStatus(workStation,Constants.STATUS_CREATED);
+    }
+
+    /**
+     * GET  /tracers/time/employee/:id : get the time for "id" employee.
+     *
+     * @param id the id of the employee to retrieve
+     * @return the ResponseEntity with status 200 (OK) and with body the employee, or with status 404 (Not Found)
+     */
+    @GetMapping("/tracers/time/employee/{id}")
+    @Timed
+    public List<TracerTimeProjection> getTimesFromEmployee(@PathVariable Long id) {
+        log.debug("REST request to get Employee Time: {}", id);
+        List<TracerTimeProjection> tracerTimeProjection = tracerService.getTimesFromEmployee(id);
+        return tracerTimeProjection;
     }
 
     /**

@@ -5,4 +5,5 @@ export * from './employee-dialog.component';
 export * from './employee-delete-dialog.component';
 export * from './employee-detail.component';
 export * from './employee.component';
+export * from './employee-time.component';
 export * from './employee.route';

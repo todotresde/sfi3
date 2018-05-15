@@ -5,6 +5,7 @@ import { SERVER_API_URL } from '../../app.constants';
 
 import { JhiDateUtils } from 'ng-jhipster';
 
+import { TracerTimeDTO } from '../tracer-time-dto/tracer-time-dto.model';
 import { Tracer } from './tracer.model';
 import { createRequestOption } from '../../shared';
 
@@ -75,6 +76,11 @@ export class TracerService {
             return this.http.get<Tracer[]>(`${this.resourceUrl}/open/`, { observe: 'response' })
                 .map((res: HttpResponse<Tracer[]>) => this.convertArrayResponse(res));
         }
+    }
+
+    queryTimeForEmployee(employeeId: string): Observable<HttpResponse<TracerTimeDTO[]>> {
+        return this.http.get<TracerTimeDTO[]>(`${this.resourceUrl}/time/employee/${employeeId}/`, { observe: 'response' })
+            .map((res: HttpResponse<Tracer[]>) => this.convertArrayResponse(res));
     }
 
     delete(id: number): Observable<HttpResponse<any>> {
