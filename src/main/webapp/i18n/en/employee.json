@@ -19,7 +19,8 @@
             "name": "Name",
             "lastName": "Last Name",
             "user": "User",
-            "workStationConfig": "Work Station Config"
+            "workStationConfig": "Work Station Config",
+            "times": "Times"
         }
     }
 }

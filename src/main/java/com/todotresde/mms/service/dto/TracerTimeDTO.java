@@ -5,6 +5,7 @@ public class TracerTimeDTO implements TracerTimeProjection {
     private Long tracerId;
     private Long workStationId;
     private Long supplyId;
+    private Long supplyTypeId;
     private Integer time;
     private String name;
     private String value;
@@ -34,6 +35,14 @@ public class TracerTimeDTO implements TracerTimeProjection {
 
     public void setWorkStationId(Long workStationId) {
         this.workStationId = workStationId;
+    }
+
+    public Long getSupplyTypeId() {
+        return supplyTypeId;
+    }
+
+    public void setSupplyTypeId(Long supplyTypeId) {
+        this.supplyTypeId = supplyTypeId;
     }
 
     public Long getSupplyId() {

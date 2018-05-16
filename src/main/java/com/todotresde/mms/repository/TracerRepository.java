@@ -32,7 +32,7 @@ public interface TracerRepository extends JpaRepository<Tracer, Long> {
     @Query(value = "SELECT tracer from Tracer tracer WHERE tracer.workStation = :workStation AND ( tracer.status = 0 OR tracer.status = 1 )")
     List<Tracer> findByWorkStationAndOpen(@Param("workStation") WorkStation workStation);
 
-    @Query(value = "SELECT tracer.employee.id as employeeId, tracer.id as tracerId, tracer.workStation.id as workStationId, tracer.supply.id as supplyId, tracer.time as time, supplyTypeAttr.name as name, supplyTypeAttrValue.value as value " +
+    @Query(value = "SELECT tracer.employee.id as employeeId, tracer.id as tracerId, tracer.workStation.id as workStationId, tracer.supply.id as supplyId, supplyTypeAttrValue.supplyType.id as supplyTypeId, tracer.time as time, supplyTypeAttr.name as name, supplyTypeAttrValue.value as value " +
         "FROM Tracer tracer " +
         "JOIN tracer.supplyTypeAttrValues supplyTypeAttrValue " +
         "JOIN supplyTypeAttrValue.supplyTypeAttr supplyTypeAttr " +

@@ -41,7 +41,8 @@
                                 [routerLink]="['/', { outlets: { popup: 'manufacturing-order-full/'+ manufacturingOrder.id + '/edit'} }]"
                                 replaceUrl="true"
                                 queryParamsHandling="merge"
-                                class="btn btn-primary btn-sm">
+                                class="btn btn-primary btn-sm" 
+                                *ngIf="manufacturingOrder.status!=statusStarted && manufacturingOrder.status!=statusFinished">
                             <span class="fa fa-pencil"></span>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
                         </button>
@@ -49,7 +50,8 @@
                                 [routerLink]="['/', { outlets: { popup: 'manufacturing-order/'+ manufacturingOrder.id + '/delete'} }]"
                                 replaceUrl="true"
                                 queryParamsHandling="merge"
-                                class="btn btn-danger btn-sm">
+                                class="btn btn-danger btn-sm"
+                                *ngIf="manufacturingOrder.status===statusreated">
                             <span class="fa fa-remove"></span>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
                         </button>
@@ -63,7 +65,8 @@
                         <button type="submit"
                                 [routerLink]="['../line-status/manufacturing-order', manufacturingOrder.id ]"
                                 replaceUrl="true"
-                                class="btn btn-primary btn-sm" *ngIf="manufacturingOrder.status!=statusCreated && manufacturingOrder.status!=statusFinished" >
+                                class="btn btn-primary btn-sm" 
+                                *ngIf="manufacturingOrder.status!=statusCreated && manufacturingOrder.status!=statusFinished" >
                             <span class="fa fa-cogs"></span>
                             <span class="d-none d-md-inline" jhiTranslate="mmsApp.manufacturingOrder.line.status">Line Status</span>
                         </button>

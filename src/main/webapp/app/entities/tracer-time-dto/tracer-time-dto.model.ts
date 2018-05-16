@@ -7,6 +7,7 @@ export class TracerTimeDTO implements BaseEntity {
     	public tracerId?: number,
     	public workStationId?: number,
     	public supplyId?: number,
+        public supplyTypeId?: number,
    		public time?: number,
     	public name?: string,
     	public value?: string,

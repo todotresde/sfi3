@@ -18,7 +18,8 @@
             },
             "name": "Name",
             "supplyType": "Supply Type",
-            "product": "Product"
+            "product": "Product",
+            "code": "Code"
         }
     }
 }

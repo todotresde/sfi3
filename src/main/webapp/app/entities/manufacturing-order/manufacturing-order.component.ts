@@ -6,7 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { ManufacturingOrder } from './manufacturing-order.model';
 import { ManufacturingOrderService } from './manufacturing-order.service';
-import { ITEMS_PER_PAGE, STATUS_CREATED, STATUS_FINISHED, Principal } from '../../shared';
+import { ITEMS_PER_PAGE, STATUS_CREATED, STATUS_STARTED, STATUS_FINISHED, Principal } from '../../shared';
 
 @Component({
     selector: 'jhi-manufacturing-order',
@@ -17,6 +17,7 @@ export class ManufacturingOrderComponent implements OnInit, OnDestroy {
     currentAccount: any;
     eventSubscriber: Subscription;
     statusCreated: any;
+    statusStarted: any;
     statusFinished: any;
     // Paging
     routeData: any;
@@ -40,6 +41,7 @@ export class ManufacturingOrderComponent implements OnInit, OnDestroy {
         private router: Router
     ) {
         this.statusCreated = STATUS_CREATED;
+        this.statusStarted = STATUS_STARTED;
         this.statusFinished = STATUS_FINISHED;
         // Paging
         this.itemsPerPage = ITEMS_PER_PAGE;

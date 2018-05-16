@@ -4,6 +4,24 @@
     </h2>
     <jhi-alert></jhi-alert>
     <div class="row">
+        <div class="col form-group">
+            <label class="form-control-label" jhiTranslate="mmsApp.workStationConfig.line" for="field_line">Line</label>
+            <select class="form-control" id="field_line" name="line" [(ngModel)]="line" (change)="setFilter(line, workStation, supplyType)" >
+                <option [ngValue]="lineOption.id === line?.id ? line : lineOption" *ngFor="let lineOption of lines; trackBy: trackLineById">{{lineOption.name}}</option>
+            </select>
+        </div>
+        <div class="col form-group">
+            <label class="form-control-label" jhiTranslate="mmsApp.workStationConfig.workStation" for="field_workStation">Work Station</label>
+            <select class="form-control" id="field_workStation" name="workStation" [(ngModel)]="workStation" (change)="setFilter(line, workStation, supplyType)" >
+                <option [ngValue]="workStationOption.id === workStation?.id ? workStation : workStationOption" *ngFor="let workStationOption of workStations; trackBy: trackWorkStationById">{{workStationOption.name}}</option>
+            </select>
+        </div>
+        <div class="col form-group">
+            <label class="form-control-label" jhiTranslate="mmsApp.workStationConfig.supplyType" for="field_supplyType">Supply Type</label>
+            <select class="form-control" id="field_supplyType" name="supplyType" [(ngModel)]="supplyType" (change)="setFilter(line, workStation, supplyType)">
+                <option [ngValue]="supplyTypeOption.id === supplyType?.id ? supplyType : supplyTypeOption" *ngFor="let supplyTypeOption of supplyTypes; trackBy: trackSupplyTypeById">{{supplyTypeOption.name}}</option>
+            </select>
+        </div>
     </div>
     <br/>
     <jhi-highcharts-chart 

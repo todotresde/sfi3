@@ -17,6 +17,10 @@ public interface TracerTimeProjection {
 
     void setSupplyId(Long supplyId);
 
+    Long getSupplyTypeId();
+
+    void setSupplyTypeId(Long supplyTypeId);
+
     Integer getTime();
 
     void setTime(Integer time);

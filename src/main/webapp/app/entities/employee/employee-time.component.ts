@@ -9,7 +9,9 @@ import { EmployeeService } from './employee.service';
 import { TracerTimeDTO } from '../tracer-time-dto/tracer-time-dto.model';
 import { TracerService } from '../tracer/tracer.service';
 import { Principal } from '../../shared';
-
+import { WorkStation, WorkStationService } from '../work-station';
+import { SupplyType, SupplyTypeService } from '../supply-type';
+import { Line, LineService } from '../line';
 import * as Highcharts from 'highcharts';
 
 @Component({
@@ -22,9 +24,19 @@ export class EmployeeTimeComponent implements OnInit, OnDestroy {
     tracerTimeDTOs: TracerTimeDTO[];
     Highcharts = Highcharts;
     chartOptions: any;
+    workStations: WorkStation[];
+    workStation: WorkStation;
+    supplyTypes: SupplyType[];
+    supplyType: SupplyType;
+    lines: Line[];
+    line: Line;
+    filter: any;
 
     constructor(
         private employeeService: EmployeeService,
+        private workStationService: WorkStationService,
+        private supplyTypeService: SupplyTypeService,
+        private lineService: LineService,
         private tracerService: TracerService,
         private jhiAlertService: JhiAlertService,
         private eventManager: JhiEventManager,
@@ -34,6 +46,13 @@ export class EmployeeTimeComponent implements OnInit, OnDestroy {
     }
 
     loadAll() {
+        this.workStationService.query()
+            .subscribe((res: HttpResponse<WorkStation[]>) => { this.workStations = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
+        this.supplyTypeService.query()
+            .subscribe((res: HttpResponse<SupplyType[]>) => { this.supplyTypes = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
+        this.lineService.query()
+            .subscribe((res: HttpResponse<Line[]>) => { this.lines = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
+
         this.tracerService.queryTimeForEmployee(this.employeeId).subscribe(
             (res: HttpResponse<TracerTimeDTO[]>) => {
                 this.tracerTimeDTOs = res.body;
@@ -54,9 +73,28 @@ export class EmployeeTimeComponent implements OnInit, OnDestroy {
         this.eventManager.destroy(this.eventSubscriber);
     }
 
+    setFilter(line: Line, workStation: WorkStation, supplyType: SupplyType) {
+        if (workStation && supplyType) {
+            this.prepareDataForChart();
+        }
+    }
+
     trackId(index: number, item: Employee) {
         return item.id;
     }
+
+    trackWorkStationById(index: number, item: WorkStation) {
+        return item.id;
+    }
+
+    trackSupplyTypeById(index: number, item: SupplyType) {
+        return item.id;
+    }
+
+    trackLineById(index: number, item: Line) {
+        return item.id;
+    }
+
     registerChangeInEmployees() {
         this.eventSubscriber = this.eventManager.subscribe('employeeListModification', (response) => this.loadAll());
     }
@@ -70,28 +108,78 @@ export class EmployeeTimeComponent implements OnInit, OnDestroy {
         let lastTracer: TracerTimeDTO;
         let measure = 1;
         this.tracerTimeDTOs.forEach((res) => {
-            if (!lastTracer) {
-                lastTracer = res;
+            if ((this.workStation && this.workStation.id === res.workStationId) &&
+                (this.supplyType && this.supplyType.id === res.supplyTypeId)) {
+                if (!lastTracer) {
+                    lastTracer = res;
+                }
+                if (lastTracer.tracerId !== res.tracerId) {
+                    data.push({'x': measure, 'y': parseFloat((lastTracer.time / 60).toFixed(2)), 'data': lastTracer});
+                    lastTracer = res;
+                    measure = 1;
+                }
+                measure *= parseFloat(res.value);
+                measure = parseFloat(measure.toFixed(2));
             }
-            if (lastTracer.tracerId !== res.tracerId) {
-                data.push([measure, parseFloat((lastTracer.time / 60).toFixed(2))]);
-                lastTracer = res;
-                measure = 1;
-            }
-            measure *= parseFloat(parseFloat(res.value).toFixed(2));
         });
 
         this.loadChart(data);
     }
 
     private loadChart(data: any[]) {
-        const dots = this.linearRegression(data);
+        const linearRegressionDots = this.linearRegression(data);
 
         this.chartOptions = {
+            title: {
+                text: '',
+                style: {
+                    display: 'none'
+                }
+            },
+            xAxis: {
+                title: {
+                    enabled: true,
+                    text: 'Surface (m2)'
+                },
+                startOnTick: true,
+                endOnTick: true,
+                showLastLabel: true
+            },
+            yAxis: {
+                title: {
+                    text: 'Time (min)'
+                }
+            },
+            plotOptions: {
+                scatter: {
+                    marker: {
+                        radius: 5,
+                        states: {
+                            hover: {
+                                enabled: true,
+                                lineColor: 'rgb(100,100,100)'
+                            }
+                        }
+                    },
+                    states: {
+                        hover: {
+                            marker: {
+                                enabled: false
+                            }
+                        }
+                    },
+                    tooltip: {
+                        headerFormat: '<b>{series.name}</b><br>',
+                        pointFormat: '{point.x} m2, {point.y} min.'
+                    }
+                }
+            },
             series: [{
+                name: 'Linear Regression',
                 type: 'line',
-                data: dots
+                data: linearRegressionDots
             }, {
+                name: 'Production',
                 type: 'scatter',
                 data
             }]
@@ -107,8 +195,8 @@ export class EmployeeTimeComponent implements OnInit, OnDestroy {
         // first pass: read in data, compute xbar and ybar
         let sumx = 0.0, sumy = 0.0, sumx2 = 0.0;
         data.forEach((res) => {
-            x[n] = res[0];
-            y[n] = res[1];
+            x[n] = res.x;
+            y[n] = res.y;
             sumx  += x[n];
             sumx2 += x[n] * x[n];
             sumy  += y[n];
@@ -132,9 +220,9 @@ export class EmployeeTimeComponent implements OnInit, OnDestroy {
         const beta0 = ybar - beta1 * xbar;
 
         // print results
-        console.log('y   = ' + beta1 + ' * x + ' + beta0);
-        console.log('x: 3 y:' + (beta1 * 3 + beta0) );
-        console.log('x: ' + max + ' y:' + (beta1 * max + beta0));
+        // console.log('y   = ' + beta1 + ' * x + ' + beta0);
+        // console.log('x: 3 y:' + (beta1 * 3 + beta0) );
+        // console.log('x: ' + max + ' y:' + (beta1 * max + beta0));
 
         // analyze results
         const df = n - 2;
@@ -149,15 +237,15 @@ export class EmployeeTimeComponent implements OnInit, OnDestroy {
         const svar  = rss / df;
         const svar1 = svar / xxbar;
         let svar0 = svar / n + xbar * xbar * svar1;
-        console.log('R^2                 = ' + R2);
-        console.log('std error of beta_1 = ' + Math.sqrt(svar1));
-        console.log('std error of beta_0 = ' + Math.sqrt(svar0));
+        // console.log('R^2                 = ' + R2);
+        // console.log('std error of beta_1 = ' + Math.sqrt(svar1));
+        // console.log('std error of beta_0 = ' + Math.sqrt(svar0));
         svar0 = svar * sumx2 / (n * xxbar);
-        console.log('std error of beta_0 = ' + Math.sqrt(svar0));
+        // console.log('std error of beta_0 = ' + Math.sqrt(svar0));
 
-        console.log('SSTO = ' + yybar);
-        console.log('SSE  = ' + rss);
-        console.log('SSR  = ' + ssr);
+        // console.log('SSTO = ' + yybar);
+        // console.log('SSE  = ' + rss);
+        // console.log('SSR  = ' + ssr);
 
         return[{
             x: 3, y: (beta1 * 3 + beta0)
