@@ -91,6 +91,7 @@ export class LineStatusComponent implements OnInit, OnDestroy {
 
         if (tracers) {
             tracers.forEach(function(tracer){
+                // The tracer is in progress
                 if (tracer.startTime) {
                     const startTime = new Date(tracer.startTime);
                     const delay = now.getTime() - startTime.getTime();
@@ -100,13 +101,15 @@ export class LineStatusComponent implements OnInit, OnDestroy {
                 }
             });
             minTime = minTime / 1000;
-            // console.log('WS', workStationConfig.workStation.name, 'Min', minTime, 'AVG', workStationConfig.averageTime);
+            // There is a tracer in progress with more time than expected
             if (minTime > workStationConfig.averageTime && minTime !== maxTime / 1000) {
                 return 'bg-danger' ;
             }
+            // There is no tracer in progress, but yes in queue
             if (minTime > workStationConfig.averageTime && minTime === maxTime / 1000) {
                 return 'bg-warning';
             }
+            // Ther is a tracer in progress in time
             return 'bg-success';
         }
         return '';

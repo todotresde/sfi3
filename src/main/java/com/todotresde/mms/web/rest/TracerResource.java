@@ -115,7 +115,7 @@ public class TracerResource {
     @Timed
     public List<Tracer> getAllOpenTracers() {
         log.debug("REST request to get all open Tracers");
-        return tracerRepository.findByStatus(Constants.STATUS_CREATED);
+        return tracerRepository.findByStatusNot(Constants.STATUS_FINISHED);
     }
 
     /**
@@ -139,7 +139,7 @@ public class TracerResource {
     @Timed
     public List<Tracer> getAllOpenTracersForManufacturingOrder(@PathVariable Long id) {
         log.debug("REST request to get all open Tracers for Manufacturing Order");
-        return tracerRepository.findByStatusAndManufacturingOrderId(Constants.STATUS_CREATED, id);
+        return tracerRepository.findByStatusNotAndManufacturingOrderId(Constants.STATUS_FINISHED, id);
     }
 
     /**
@@ -154,7 +154,7 @@ public class TracerResource {
         log.debug("REST request to get all Tracers by WorkStation IP");
         if(!NetworkUtil.validate(ip)) { ip = request.getRemoteHost(); }
         WorkStation workStation = workStationRepository.findByIp(ip);
-        return tracerRepository.findByWorkStationAndStatus(workStation,Constants.STATUS_CREATED);
+        return tracerRepository.findByWorkStationAndStatusNot(workStation,Constants.STATUS_FINISHED);
     }
 
     /**

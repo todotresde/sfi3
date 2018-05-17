@@ -19,17 +19,21 @@ import java.util.List;
 public interface TracerRepository extends JpaRepository<Tracer, Long> {
     List<Tracer> findByWorkStation(WorkStation workstation);
     List<Tracer> findByWorkStationAndStatus(WorkStation workstation, Integer status);
+    List<Tracer> findByWorkStationAndStatusNot(WorkStation workstation, Integer status);
     List<Tracer> findByStatus(Integer status);
+    List<Tracer> findByStatusNot(Integer status);
     List<Tracer> findByManufacturingOrder(ManufacturingOrder manufacturingOrder);
     List<Tracer> findByManufacturingOrderId(Long manufacturingOrderId);
     List<Tracer> findByStatusAndManufacturingOrderId(Integer status, Long manufacturingOrder);
+    List<Tracer> findByStatusNotAndManufacturingOrderId(Integer status, Long manufacturingOrder);
 
     Tracer findByWorkStationAndCode(WorkStation workstation, String code);
     Integer countByManufacturingOrder(ManufacturingOrder manufacturingOrder);
     Integer countByManufacturingOrderAndStatus(ManufacturingOrder manufacturingOrder, Integer status);
 
     //TODO - Change 0 and 1 to constants
-    @Query(value = "SELECT tracer from Tracer tracer WHERE tracer.workStation = :workStation AND ( tracer.status = 0 OR tracer.status = 1 )")
+    @Query(value = "SELECT tracer from Tracer tracer " +
+        "WHERE tracer.workStation = :workStation AND ( tracer.status = 0 OR tracer.status = 1 )")
     List<Tracer> findByWorkStationAndOpen(@Param("workStation") WorkStation workStation);
 
     @Query(value = "SELECT tracer.employee.id as employeeId, tracer.id as tracerId, tracer.workStation.id as workStationId, tracer.supply.id as supplyId, supplyTypeAttrValue.supplyType.id as supplyTypeId, tracer.time as time, supplyTypeAttr.name as name, supplyTypeAttrValue.value as value " +
