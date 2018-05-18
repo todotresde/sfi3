@@ -18,7 +18,7 @@ public interface TracerRepository extends JpaRepository<Tracer, Long> {
     List<Tracer> findByWorkStation(WorkStation workstation);
     List<Tracer> findByWorkStationAndStatus(WorkStation workstation, Integer status);
     List<Tracer> findByWorkStationAndStatusNot(WorkStation workstation, Integer status);
-    List<Tracer> findByWorkStationAndEmployeeAndSupplyTypeAndStatusNot(WorkStation workstation, Employee employee, SupplyType supplyType, Integer status);
+    List<Tracer> findByWorkStationAndEmployeeAndStatusNot(WorkStation workstation, Employee employee, Integer status);
     List<Tracer> findByStatus(Integer status);
     List<Tracer> findByStatusNot(Integer status);
     List<Tracer> findByManufacturingOrder(ManufacturingOrder manufacturingOrder);

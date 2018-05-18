@@ -11,6 +11,8 @@ import {
     LinearRegressionPopupComponent,
     LinearRegressionDeletePopupComponent,
     LinearRegressionDeleteDialogComponent,
+    LinearRegressionLearnPopupComponent,
+    LinearRegressionLearnDialogComponent,
     linearRegressionRoute,
     linearRegressionPopupRoute,
     LinearRegressionResolvePagingParams
@@ -31,6 +33,8 @@ const ENTITY_STATES = [
         LinearRegressionDetailComponent,
         LinearRegressionDialogComponent,
         LinearRegressionDeleteDialogComponent,
+        LinearRegressionLearnPopupComponent,
+        LinearRegressionLearnDialogComponent,
         LinearRegressionPopupComponent,
         LinearRegressionDeletePopupComponent,
     ],
@@ -40,6 +44,8 @@ const ENTITY_STATES = [
         LinearRegressionPopupComponent,
         LinearRegressionDeleteDialogComponent,
         LinearRegressionDeletePopupComponent,
+        LinearRegressionLearnPopupComponent,
+        LinearRegressionLearnDialogComponent
     ],
     providers: [
         LinearRegressionService,

@@ -30,18 +30,29 @@ export class LinearRegressionComponent implements OnInit, OnDestroy {
     constructor(
         private linearRegressionService: LinearRegressionService,
         private jhiAlertService: JhiAlertService,
+        private parseLinks: JhiParseLinks,
         private eventManager: JhiEventManager,
         private principal: Principal,
         private activatedRoute: ActivatedRoute,
         private router: Router
     ) {
+        // Paging
+        this.itemsPerPage = ITEMS_PER_PAGE;
+        this.routeData = this.activatedRoute.data.subscribe((data) => {
+            this.page = data.pagingParams.page;
+            this.previousPage = data.pagingParams.page;
+            this.reverse = data.pagingParams.ascending;
+            this.predicate = data.pagingParams.predicate;
+        });
+        // Paging
     }
 
     loadAll() {
-        this.linearRegressionService.query().subscribe(
-            (res: HttpResponse<LinearRegression[]>) => {
-                this.linearRegressions = res.body;
-            },
+        this.linearRegressionService.query({
+            page: this.page - 1,
+            size: this.itemsPerPage,
+            sort: this.sort()}).subscribe(
+            (res: HttpResponse<LinearRegression[]>) => this.onSuccess(res.body, res.headers),
             (res: HttpErrorResponse) => this.onError(res.message)
         );
     }
@@ -74,7 +85,7 @@ export class LinearRegressionComponent implements OnInit, OnDestroy {
     }
 
     transition() {
-        this.router.navigate(['/manufacturing-order'], {queryParams:
+        this.router.navigate(['/linear-regression'], {queryParams:
             {
                 page: this.page,
                 size: this.itemsPerPage,
@@ -86,7 +97,7 @@ export class LinearRegressionComponent implements OnInit, OnDestroy {
 
     clear() {
         this.page = 0;
-        this.router.navigate(['/manufacturing-order', {
+        this.router.navigate(['/linear-regression', {
             page: this.page,
             sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
         }]);
@@ -101,6 +112,14 @@ export class LinearRegressionComponent implements OnInit, OnDestroy {
         return result;
     }
     // Paging
+
+    private onSuccess(data, headers) {
+        this.links = this.parseLinks.parse(headers.get('link'));
+        this.totalItems = headers.get('X-Total-Count');
+        this.queryCount = this.totalItems;
+        // this.page = pagingParams.page;
+        this.linearRegressions = data;
+    }
 
     private onError(error) {
         this.jhiAlertService.error(error.message, null, null);

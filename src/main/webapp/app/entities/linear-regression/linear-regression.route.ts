@@ -7,6 +7,7 @@ import { LinearRegressionComponent } from './linear-regression.component';
 import { LinearRegressionDetailComponent } from './linear-regression-detail.component';
 import { LinearRegressionPopupComponent } from './linear-regression-dialog.component';
 import { LinearRegressionDeletePopupComponent } from './linear-regression-delete-dialog.component';
+import { LinearRegressionLearnPopupComponent } from './linear-regression-learn-dialog.component';
 
 @Injectable()
 export class LinearRegressionResolvePagingParams implements Resolve<any> {
@@ -74,6 +75,16 @@ export const linearRegressionPopupRoute: Routes = [
         data: {
             authorities: ['ROLE_ADMIN'],
             pageTitle: 'mmsApp.linearRegression.home.title'
+        },
+        canActivate: [UserRouteAccessService],
+        outlet: 'popup'
+    },
+    {
+        path: 'linear-regression/learn',
+        component: LinearRegressionLearnPopupComponent,
+        data: {
+            authorities: ['ROLE_ADMIN'],
+            pageTitle: 'mmsApp.linearRegression.learn'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'

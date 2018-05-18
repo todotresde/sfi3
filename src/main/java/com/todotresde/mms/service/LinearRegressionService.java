@@ -28,33 +28,37 @@ public class LinearRegressionService {
         this.tracerService = tracerService;
     }
 
-    public void generate() {
+    public List<LinearRegression> generate() {
         this.linearRegressionRepository.deleteAll();
         List<WorkStationConfig> workStationConfigs = this.workStationConfigService.findAll();
         for(WorkStationConfig workStationConfig : workStationConfigs) {
             for(Employee employee : workStationConfig.getEmployees()) {
                 for(SupplyType supplyType : workStationConfig.getSupplyTypes()) {
-                    List<Tracer> tracers = this.tracerService.getTracersForWorkStationAndEmployeeAndSupplyType(workStationConfig.getWorkStation(), employee, supplyType);
+                    List<Tracer> tracers = this.tracerService.getTracersForWorkStationAndEmployee(workStationConfig.getWorkStation(), employee);
 
-                    Double[] betas = this.generateLinearRegression(tracers);
-                    Double x = this.executeLinearRegression(1.0, betas);
+                    if(tracers.size() > 0) {
+                        Double[] betas = this.generateLinearRegression(tracers);
+                        Double x = this.executeLinearRegression(1.0, betas);
 
-                    LinearRegression linearRegression = new LinearRegression();
-                    linearRegression.setBeta0(betas[0]);
-                    linearRegression.setBeta1(betas[1]);
-                    linearRegression.setX(x);
-                    linearRegression.setDimension(1);
-                    linearRegression.setLine(workStationConfig.getLine());
-                    linearRegression.setWorkStationConfig(workStationConfig);
-                    linearRegression.setWorkStation(workStationConfig.getWorkStation());
-                    linearRegression.setSupply(null);
-                    linearRegression.setSupplyType(supplyType);
-                    linearRegression.setEmployee(employee);
+                        LinearRegression linearRegression = new LinearRegression();
+                        linearRegression.setBeta0(betas[0]);
+                        linearRegression.setBeta1(betas[1]);
+                        linearRegression.setX(x);
+                        linearRegression.setDimension(tracers.size());
+                        linearRegression.setLine(workStationConfig.getLine());
+                        linearRegression.setWorkStationConfig(workStationConfig);
+                        linearRegression.setWorkStation(workStationConfig.getWorkStation());
+                        linearRegression.setSupply(tracers.iterator().next().getSupply());
+                        linearRegression.setSupplyType(supplyType);
+                        linearRegression.setEmployee(employee);
 
-                    this.linearRegressionRepository.save(linearRegression);
+                        this.linearRegressionRepository.save(linearRegression);
+                    }
                 }
             }
         }
+
+        return this.linearRegressionRepository.findAll();
     }
 
     private Double executeLinearRegression(Double x, Double[] betas) {

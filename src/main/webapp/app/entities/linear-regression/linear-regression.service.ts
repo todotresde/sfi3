@@ -38,6 +38,12 @@ export class LinearRegressionService {
             .map((res: HttpResponse<LinearRegression[]>) => this.convertArrayResponse(res));
     }
 
+    learn(req?: any): Observable<HttpResponse<LinearRegression[]>> {
+        const options = createRequestOption(req);
+        return this.http.get<LinearRegression[]>(`${this.resourceUrl}/generate`, { params: options, observe: 'response' })
+            .map((res: HttpResponse<LinearRegression[]>) => this.convertArrayResponse(res));
+    }
+
     delete(id: number): Observable<HttpResponse<any>> {
         return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response'});
     }

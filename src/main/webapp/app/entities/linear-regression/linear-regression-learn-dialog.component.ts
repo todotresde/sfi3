@@ -27,11 +27,11 @@ export class LinearRegressionLearnDialogComponent {
         this.activeModal.dismiss('cancel');
     }
 
-    confirmLearn(id: number) {
-        this.linearRegressionService.delete(id).subscribe((response) => {
+    confirmLearn() {
+        this.linearRegressionService.learn().subscribe((response) => {
             this.eventManager.broadcast({
                 name: 'linearRegressionListModification',
-                content: 'Deleted an linearRegression'
+                content: 'Learn'
             });
             this.activeModal.dismiss(true);
         });
@@ -54,7 +54,7 @@ export class LinearRegressionLearnPopupComponent implements OnInit, OnDestroy {
     ngOnInit() {
         this.routeSub = this.route.params.subscribe((params) => {
             this.linearRegressionPopupService
-                .open(LinearRegressionLearnPopupComponent as Component, params['id']);
+                .open(LinearRegressionLearnDialogComponent as Component);
         });
     }
 
