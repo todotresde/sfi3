@@ -1,0 +1,31 @@
+
+{
+    "mmsApp": {
+        "linearRegression" : {
+            "home": {
+                "title": "Linear Regressions",
+                "createLabel": "Crear nuevo Linear Regression",
+                "createOrEditLabel": "Crear o editar Linear Regression"
+            },
+            "created": "Un nuevo Linear Regression ha sido creado con el identificador {{ param }}",
+            "updated": "Un Linear Regression ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Linear Regression ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Linear Regression {{ id }}?"
+            },
+            "detail": {
+                "title": "Linear Regression"
+            },
+            "dimension": "Dimension",
+            "x": "X",
+            "beta0": "Beta 0",
+            "beta1": "Beta 1",
+            "line": "Line",
+            "workStationConfig": "Work Station Config",
+            "workStation": "Work Station",
+            "supply": "Supply",
+            "supplyType": "Supply Type",
+            "employee": "Employee"
+        }
+    }
+}

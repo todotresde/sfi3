@@ -1,8 +1,6 @@
 package com.todotresde.mms.repository;
 
-import com.todotresde.mms.domain.ManufacturingOrder;
-import com.todotresde.mms.domain.Tracer;
-import com.todotresde.mms.domain.WorkStation;
+import com.todotresde.mms.domain.*;
 import com.todotresde.mms.service.dto.TracerTimeProjection;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -20,6 +18,7 @@ public interface TracerRepository extends JpaRepository<Tracer, Long> {
     List<Tracer> findByWorkStation(WorkStation workstation);
     List<Tracer> findByWorkStationAndStatus(WorkStation workstation, Integer status);
     List<Tracer> findByWorkStationAndStatusNot(WorkStation workstation, Integer status);
+    List<Tracer> findByWorkStationAndEmployeeAndSupplyTypeAndStatusNot(WorkStation workstation, Employee employee, SupplyType supplyType, Integer status);
     List<Tracer> findByStatus(Integer status);
     List<Tracer> findByStatusNot(Integer status);
     List<Tracer> findByManufacturingOrder(ManufacturingOrder manufacturingOrder);

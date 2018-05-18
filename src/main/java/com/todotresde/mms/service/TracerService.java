@@ -175,7 +175,11 @@ public class TracerService {
     }
 
     public List<Tracer> getTracersForWorkStation(WorkStation workStation){
-        return this.tracerRepository.findByWorkStationAndStatus(workStation, Constants.STATUS_CREATED);
+        return this.tracerRepository.findByWorkStationAndStatusNot(workStation, Constants.STATUS_FINISHED);
+    }
+
+    public List<Tracer> getTracersForWorkStationAndEmployeeAndSupplyType(WorkStation workStation, Employee employee, SupplyType supplyType){
+        return this.tracerRepository.findByWorkStationAndEmployeeAndSupplyTypeAndStatusNot(workStation, employee, supplyType, Constants.STATUS_FINISHED);
     }
 
     public Supply getSupplyForWorkStationConfig(WorkStationConfig workStationConfig, Product product) {

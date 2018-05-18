@@ -1,0 +1,111 @@
+<div>
+    <h2>
+        <span jhiTranslate="mmsApp.linearRegression.home.title">Linear Regressions</span>
+        <button class="btn btn-primary float-right jh-create-entity create-linear-regression" 
+            [routerLink]="['/', { outlets: { popup: 'linear-regression/'+ linearRegression.id + '/learn'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="mmsApp.linearRegression.learn">
+            Learn
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="linearRegressions">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="dimension"><span jhiTranslate="mmsApp.linearRegression.dimension">Dimension</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="x"><span jhiTranslate="mmsApp.linearRegression.x">X</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="beta0"><span jhiTranslate="mmsApp.linearRegression.beta0">Beta 0</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="beta1"><span jhiTranslate="mmsApp.linearRegression.beta1">Beta 1</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="line.id"><span jhiTranslate="mmsApp.linearRegression.line">Line</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="workStationConfig.id"><span jhiTranslate="mmsApp.linearRegression.workStationConfig">Work Station Config</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="workStation.id"><span jhiTranslate="mmsApp.linearRegression.workStation">Work Station</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="supply.id"><span jhiTranslate="mmsApp.linearRegression.supply">Supply</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="supplyType.id"><span jhiTranslate="mmsApp.linearRegression.supplyType">Supply Type</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="employee.id"><span jhiTranslate="mmsApp.linearRegression.employee">Employee</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let linearRegression of linearRegressions ;trackBy: trackId">
+                <td><a [routerLink]="['../linear-regression', linearRegression.id ]">{{linearRegression.id}}</a></td>
+                <td>{{linearRegression.dimension}}</td>
+                <td>{{linearRegression.x}}</td>
+                <td>{{linearRegression.beta0}}</td>
+                <td>{{linearRegression.beta1}}</td>
+                <td>
+                    <div *ngIf="linearRegression.line">
+                        <a [routerLink]="['../line', linearRegression.line?.id ]" >{{linearRegression.line?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="linearRegression.workStationConfig">
+                        <a [routerLink]="['../work-station-config', linearRegression.workStationConfig?.id ]" >{{linearRegression.workStationConfig?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="linearRegression.workStation">
+                        <a [routerLink]="['../work-station', linearRegression.workStation?.id ]" >{{linearRegression.workStation?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="linearRegression.supply">
+                        <a [routerLink]="['../supply', linearRegression.supply?.id ]" >{{linearRegression.supply?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="linearRegression.supplyType">
+                        <a [routerLink]="['../supply-type', linearRegression.supplyType?.id ]" >{{linearRegression.supplyType?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="linearRegression.employee">
+                        <a [routerLink]="['../employee', linearRegression.employee?.id ]" >{{linearRegression.employee?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../linear-regression', linearRegression.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'linear-regression/'+ linearRegression.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'linear-regression/'+ linearRegression.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="linearRegressions && linearRegressions.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

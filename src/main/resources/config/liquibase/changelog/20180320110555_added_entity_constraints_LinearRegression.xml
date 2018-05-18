@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity LinearRegression.
+    -->
+    <changeSet id="20180320110555-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="line_id"
+                                 baseTableName="linear_regression"
+                                 constraintName="fk_linear_regression_line_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="line"/>
+
+        <addForeignKeyConstraint baseColumnNames="work_station_config_id"
+                                 baseTableName="linear_regression"
+                                 constraintName="fk_linear_regression_work_station_config_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="work_station_config"/>
+
+        <addForeignKeyConstraint baseColumnNames="work_station_id"
+                                 baseTableName="linear_regression"
+                                 constraintName="fk_linear_regression_work_station_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="work_station"/>
+
+        <addForeignKeyConstraint baseColumnNames="supply_id"
+                                 baseTableName="linear_regression"
+                                 constraintName="fk_linear_regression_supply_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="supply"/>
+
+        <addForeignKeyConstraint baseColumnNames="supply_type_id"
+                                 baseTableName="linear_regression"
+                                 constraintName="fk_linear_regression_supply_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="supply_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="employee_id"
+                                 baseTableName="linear_regression"
+                                 constraintName="fk_linear_regression_employee_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="employee"/>
+
+    </changeSet>
+</databaseChangeLog>

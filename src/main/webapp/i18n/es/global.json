@@ -18,6 +18,7 @@
                 "supplyTypeAttrValue": "Supply Type Attr Value",
                 "product": "Product",
                 "tracer": "Tracer",
+                "linearRegression": "Linear Regression",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

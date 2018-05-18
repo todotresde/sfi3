@@ -1,0 +1,163 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myLinearRegressionLabel" jhiTranslate="mmsApp.linearRegression.home.createOrEditLabel">Create or edit a Linear Regression</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!linearRegression.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="linearRegression.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="mmsApp.linearRegression.dimension" for="field_dimension">Dimension</label>
+            <input type="number" class="form-control" name="dimension" id="field_dimension"
+                [(ngModel)]="linearRegression.dimension" required/>
+            <div [hidden]="!(editForm.controls.dimension?.dirty && editForm.controls.dimension?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.dimension?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.dimension?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="mmsApp.linearRegression.x" for="field_x">X</label>
+            <input type="number" class="form-control" name="x" id="field_x"
+                [(ngModel)]="linearRegression.x" required/>
+            <div [hidden]="!(editForm.controls.x?.dirty && editForm.controls.x?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.x?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.x?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="mmsApp.linearRegression.beta0" for="field_beta0">Beta 0</label>
+            <input type="number" class="form-control" name="beta0" id="field_beta0"
+                [(ngModel)]="linearRegression.beta0" required/>
+            <div [hidden]="!(editForm.controls.beta0?.dirty && editForm.controls.beta0?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.beta0?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.beta0?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="mmsApp.linearRegression.beta1" for="field_beta1">Beta 1</label>
+            <input type="number" class="form-control" name="beta1" id="field_beta1"
+                [(ngModel)]="linearRegression.beta1" required/>
+            <div [hidden]="!(editForm.controls.beta1?.dirty && editForm.controls.beta1?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.beta1?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.beta1?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="mmsApp.linearRegression.line" for="field_line">Line</label>
+            <select class="form-control" id="field_line" name="line" [(ngModel)]="linearRegression.line"  required>
+                <option *ngIf="!editForm.value.line" [ngValue]="null" selected></option>
+                <option [ngValue]="lineOption.id === linearRegression.line?.id ? linearRegression.line : lineOption" *ngFor="let lineOption of lines; trackBy: trackLineById">{{lineOption.id}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.line?.dirty && editForm.controls.line?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.line?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="mmsApp.linearRegression.workStationConfig" for="field_workStationConfig">Work Station Config</label>
+            <select class="form-control" id="field_workStationConfig" name="workStationConfig" [(ngModel)]="linearRegression.workStationConfig"  required>
+                <option *ngIf="!editForm.value.workStationConfig" [ngValue]="null" selected></option>
+                <option [ngValue]="workStationConfigOption.id === linearRegression.workStationConfig?.id ? linearRegression.workStationConfig : workStationConfigOption" *ngFor="let workStationConfigOption of workstationconfigs; trackBy: trackWorkStationConfigById">{{workStationConfigOption.id}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.workStationConfig?.dirty && editForm.controls.workStationConfig?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.workStationConfig?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="mmsApp.linearRegression.workStation" for="field_workStation">Work Station</label>
+            <select class="form-control" id="field_workStation" name="workStation" [(ngModel)]="linearRegression.workStation"  required>
+                <option *ngIf="!editForm.value.workStation" [ngValue]="null" selected></option>
+                <option [ngValue]="workStationOption.id === linearRegression.workStation?.id ? linearRegression.workStation : workStationOption" *ngFor="let workStationOption of workstations; trackBy: trackWorkStationById">{{workStationOption.id}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.workStation?.dirty && editForm.controls.workStation?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.workStation?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="mmsApp.linearRegression.supply" for="field_supply">Supply</label>
+            <select class="form-control" id="field_supply" name="supply" [(ngModel)]="linearRegression.supply"  required>
+                <option *ngIf="!editForm.value.supply" [ngValue]="null" selected></option>
+                <option [ngValue]="supplyOption.id === linearRegression.supply?.id ? linearRegression.supply : supplyOption" *ngFor="let supplyOption of supplies; trackBy: trackSupplyById">{{supplyOption.id}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.supply?.dirty && editForm.controls.supply?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.supply?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="mmsApp.linearRegression.supplyType" for="field_supplyType">Supply Type</label>
+            <select class="form-control" id="field_supplyType" name="supplyType" [(ngModel)]="linearRegression.supplyType"  required>
+                <option *ngIf="!editForm.value.supplyType" [ngValue]="null" selected></option>
+                <option [ngValue]="supplyTypeOption.id === linearRegression.supplyType?.id ? linearRegression.supplyType : supplyTypeOption" *ngFor="let supplyTypeOption of supplytypes; trackBy: trackSupplyTypeById">{{supplyTypeOption.id}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.supplyType?.dirty && editForm.controls.supplyType?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.supplyType?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="mmsApp.linearRegression.employee" for="field_employee">Employee</label>
+            <select class="form-control" id="field_employee" name="employee" [(ngModel)]="linearRegression.employee"  required>
+                <option *ngIf="!editForm.value.employee" [ngValue]="null" selected></option>
+                <option [ngValue]="employeeOption.id === linearRegression.employee?.id ? linearRegression.employee : employeeOption" *ngFor="let employeeOption of employees; trackBy: trackEmployeeById">{{employeeOption.id}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.employee?.dirty && editForm.controls.employee?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.employee?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

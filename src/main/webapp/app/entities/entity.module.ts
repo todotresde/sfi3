@@ -11,6 +11,7 @@ import { MMSSupplyTypeAttrModule } from './supply-type-attr/supply-type-attr.mod
 import { MMSSupplyTypeAttrValueModule } from './supply-type-attr-value/supply-type-attr-value.module';
 import { MMSProductModule } from './product/product.module';
 import { MMSTracerModule } from './tracer/tracer.module';
+import { MMSLinearRegressionModule } from './linear-regression/linear-regression.module';
 /* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
 
 @NgModule({
@@ -26,6 +27,7 @@ import { MMSTracerModule } from './tracer/tracer.module';
         MMSSupplyTypeAttrValueModule,
         MMSProductModule,
         MMSTracerModule,
+        MMSLinearRegressionModule,
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
     ],
     declarations: [],

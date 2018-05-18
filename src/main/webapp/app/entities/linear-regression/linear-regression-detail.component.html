@@ -1,0 +1,74 @@
+
+<div *ngIf="linearRegression">
+    <h2><span jhiTranslate="mmsApp.linearRegression.detail.title">Linear Regression</span> {{linearRegression.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="mmsApp.linearRegression.dimension">Dimension</span></dt>
+        <dd>
+            <span>{{linearRegression.dimension}}</span>
+        </dd>
+        <dt><span jhiTranslate="mmsApp.linearRegression.x">X</span></dt>
+        <dd>
+            <span>{{linearRegression.x}}</span>
+        </dd>
+        <dt><span jhiTranslate="mmsApp.linearRegression.beta0">Beta 0</span></dt>
+        <dd>
+            <span>{{linearRegression.beta0}}</span>
+        </dd>
+        <dt><span jhiTranslate="mmsApp.linearRegression.beta1">Beta 1</span></dt>
+        <dd>
+            <span>{{linearRegression.beta1}}</span>
+        </dd>
+        <dt><span jhiTranslate="mmsApp.linearRegression.line">Line</span></dt>
+        <dd>
+            <div *ngIf="linearRegression.line">
+                <a [routerLink]="['/line', linearRegression.line?.id]">{{linearRegression.line?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="mmsApp.linearRegression.workStationConfig">Work Station Config</span></dt>
+        <dd>
+            <div *ngIf="linearRegression.workStationConfig">
+                <a [routerLink]="['/work-station-config', linearRegression.workStationConfig?.id]">{{linearRegression.workStationConfig?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="mmsApp.linearRegression.workStation">Work Station</span></dt>
+        <dd>
+            <div *ngIf="linearRegression.workStation">
+                <a [routerLink]="['/work-station', linearRegression.workStation?.id]">{{linearRegression.workStation?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="mmsApp.linearRegression.supply">Supply</span></dt>
+        <dd>
+            <div *ngIf="linearRegression.supply">
+                <a [routerLink]="['/supply', linearRegression.supply?.id]">{{linearRegression.supply?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="mmsApp.linearRegression.supplyType">Supply Type</span></dt>
+        <dd>
+            <div *ngIf="linearRegression.supplyType">
+                <a [routerLink]="['/supply-type', linearRegression.supplyType?.id]">{{linearRegression.supplyType?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="mmsApp.linearRegression.employee">Employee</span></dt>
+        <dd>
+            <div *ngIf="linearRegression.employee">
+                <a [routerLink]="['/employee', linearRegression.employee?.id]">{{linearRegression.employee?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'linear-regression/'+ linearRegression.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

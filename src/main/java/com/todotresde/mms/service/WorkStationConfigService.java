@@ -183,5 +183,9 @@ public class WorkStationConfigService {
 
         return workStationConfigDTOs;
     }
+
+    public List<WorkStationConfig> findAll() {
+        return this.workStationConfigRepository.findAllWithEagerRelationships();
+    }
 }
 
