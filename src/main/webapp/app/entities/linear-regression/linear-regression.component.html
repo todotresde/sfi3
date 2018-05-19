@@ -41,7 +41,9 @@
                 </td>
                 <td>
                     <div *ngIf="linearRegression.workStationConfig">
-                        <a [routerLink]="['../work-station-config', linearRegression.workStationConfig?.id ]" >{{linearRegression.workStationConfig?.name}}</a>
+                        <a [routerLink]="['../work-station-config', linearRegression.workStationConfig?.id ]" >
+                            {{linearRegression.workStationConfig?.row}}-{{linearRegression.workStationConfig?.col}}
+                        </a>
                     </div>
                 </td>
                 <td>
@@ -71,12 +73,10 @@
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"
-                                [routerLink]="['/', { outlets: { popup: 'linear-regression/'+ linearRegression.id + '/edit'} }]"
-                                replaceUrl="true"
-                                queryParamsHandling="merge"
-                                class="btn btn-primary btn-sm">
-                            <span class="fa fa-pencil"></span>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                                [routerLink]="['../linear-regression/chart', linearRegression.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="mmsApp.linearRegression.chart">Chart</span>
                         </button>
                     </div>
                 </td>

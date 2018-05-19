@@ -5,6 +5,7 @@ import { JhiPaginationUtil } from 'ng-jhipster';
 import { UserRouteAccessService } from '../../shared';
 import { LinearRegressionComponent } from './linear-regression.component';
 import { LinearRegressionDetailComponent } from './linear-regression-detail.component';
+import { LinearRegressionChartComponent } from './linear-regression-chart.component';
 import { LinearRegressionPopupComponent } from './linear-regression-dialog.component';
 import { LinearRegressionDeletePopupComponent } from './linear-regression-delete-dialog.component';
 import { LinearRegressionLearnPopupComponent } from './linear-regression-learn-dialog.component';
@@ -43,6 +44,14 @@ export const linearRegressionRoute: Routes = [
         data: {
             authorities: ['ROLE_ADMIN'],
             pageTitle: 'mmsApp.linearRegression.home.title'
+        },
+        canActivate: [UserRouteAccessService]
+    }, {
+        path: 'linear-regression/chart/:id',
+        component: LinearRegressionChartComponent,
+        data: {
+            authorities: ['ROLE_ADMIN'],
+            pageTitle: 'mmsApp.linearRegression.chart.title'
         },
         canActivate: [UserRouteAccessService]
     }

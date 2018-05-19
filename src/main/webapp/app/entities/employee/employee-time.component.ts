@@ -246,7 +246,7 @@ export class EmployeeTimeComponent implements OnInit, OnDestroy {
         // console.log('SSTO = ' + yybar);
         // console.log('SSE  = ' + rss);
         // console.log('SSR  = ' + ssr);
-
+        // console.log(beta0, beta1, 3, (beta1 * 3 + beta0), max, (beta1 * max + beta0));
         return[{
             x: 3, y: (beta1 * 3 + beta0)
         }, {

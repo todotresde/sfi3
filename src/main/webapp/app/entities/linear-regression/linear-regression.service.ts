@@ -3,6 +3,7 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { SERVER_API_URL } from '../../app.constants';
 
+import { Tracer } from './../tracer/tracer.model';
 import { LinearRegression } from './linear-regression.model';
 import { createRequestOption } from '../../shared';
 
@@ -36,6 +37,11 @@ export class LinearRegressionService {
         const options = createRequestOption(req);
         return this.http.get<LinearRegression[]>(this.resourceUrl, { params: options, observe: 'response' })
             .map((res: HttpResponse<LinearRegression[]>) => this.convertArrayResponse(res));
+    }
+
+    getTracers(id: number): Observable<HttpResponse<Tracer[]>> {
+        return this.http.get<Tracer[]>(`${this.resourceUrl}/tracers/${id}`, { observe: 'response' })
+            .map((res: HttpResponse<Tracer[]>) => this.convertArrayResponse(res));
     }
 
     learn(req?: any): Observable<HttpResponse<LinearRegression[]>> {

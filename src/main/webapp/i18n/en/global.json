@@ -20,7 +20,7 @@
                 "product": "Product",
                 "tracer": "Tracer",
                 "wsTracer": "WorkStation Tracer",
-                "linearRegression": "Linear Regression",
+                "workStationTimes": "WorkStation Times",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "sale": {

@@ -26,7 +26,8 @@
             "supply": "Supply",
             "supplyType": "Supply Type",
             "employee": "Employee",
-            "learn": "Learn"
+            "learn": "Learn",
+            "chart": "Chart"
         }
     }
 }

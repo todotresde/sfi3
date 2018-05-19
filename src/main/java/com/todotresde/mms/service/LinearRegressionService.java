@@ -34,7 +34,7 @@ public class LinearRegressionService {
         for(WorkStationConfig workStationConfig : workStationConfigs) {
             for(Employee employee : workStationConfig.getEmployees()) {
                 for(SupplyType supplyType : workStationConfig.getSupplyTypes()) {
-                    List<Tracer> tracers = this.tracerService.getTracersForWorkStationAndEmployee(workStationConfig.getWorkStation(), employee);
+                    List<Tracer> tracers = this.findAllTracers(workStationConfig, employee);
 
                     if(tracers.size() > 0) {
                         Double[] betas = this.generateLinearRegression(tracers);
@@ -61,6 +61,14 @@ public class LinearRegressionService {
         return this.linearRegressionRepository.findAll();
     }
 
+    public List<Tracer> findAllTracers(LinearRegression linearRegression) {
+        return this.findAllTracers(linearRegression.getWorkStationConfig(), linearRegression.getEmployee());
+    }
+
+    public List<Tracer> findAllTracers(WorkStationConfig workStationConfig, Employee employee) {
+        return this.tracerService.getTracersForWorkStationAndEmployee(workStationConfig.getWorkStation(), employee);
+    }
+
     private Double executeLinearRegression(Double x, Double[] betas) {
         //y =  beta1 * x + beta0
         return betas[1] * x + betas[0];
@@ -80,7 +88,7 @@ public class LinearRegressionService {
                 measure *= Double.parseDouble(supplyTypeAttrValue.getValue());
             }
             x[n] = measure;
-            y[n] = new Double(tracer.getTime()) / 2;
+            y[n] = new Double(tracer.getTime()) / 60;
             sumx  += x[n];
             sumx2 += x[n] * x[n];
             sumy  += y[n];
@@ -96,7 +104,7 @@ public class LinearRegressionService {
             yybar += (y[i] - ybar) * (y[i] - ybar);
             xybar += (x[i] - xbar) * (y[i] - ybar);
         }
-        Double beta1 = xybar / xxbar;
+        Double beta1 = (Double.isNaN(xybar / xxbar)) ? 0 : (xybar / xxbar);
         Double beta0 = ybar - beta1 * xbar;
 
         // StdOut.println("y   = " + beta1 + " * x + " + beta0);

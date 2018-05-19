@@ -2,6 +2,7 @@ package com.todotresde.mms.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import com.todotresde.mms.domain.LinearRegression;
+import com.todotresde.mms.domain.Tracer;
 import com.todotresde.mms.repository.LinearRegressionRepository;
 import com.todotresde.mms.service.LinearRegressionService;
 import com.todotresde.mms.web.rest.errors.BadRequestAlertException;
@@ -112,6 +113,19 @@ public class LinearRegressionResource {
         log.debug("REST request to get LinearRegression : {}", id);
         LinearRegression linearRegression = linearRegressionRepository.findOne(id);
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(linearRegression));
+    }
+
+    /**
+     * GET  /linear-regressions/trace/:id : get all the tracers for linearRegressions.
+     *
+     * @return the ResponseEntity with status 200 (OK) and the list of linearRegressions in body
+     */
+    @GetMapping("/linear-regressions/tracers/{id}")
+    @Timed
+    public List<Tracer> getAllTracers(@PathVariable Long id) {
+        log.debug("REST request to get a page of LinearRegressions");
+        LinearRegression linearRegression = linearRegressionRepository.findOne(id);
+        return linearRegressionService.findAllTracers(linearRegression);
     }
 
     /**

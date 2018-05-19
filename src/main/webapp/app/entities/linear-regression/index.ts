@@ -5,5 +5,6 @@ export * from './linear-regression-dialog.component';
 export * from './linear-regression-delete-dialog.component';
 export * from './linear-regression-learn-dialog.component';
 export * from './linear-regression-detail.component';
+export * from './linear-regression-chart.component';
 export * from './linear-regression.component';
 export * from './linear-regression.route';

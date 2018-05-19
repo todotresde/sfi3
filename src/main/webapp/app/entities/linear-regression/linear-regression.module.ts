@@ -7,6 +7,7 @@ import {
     LinearRegressionPopupService,
     LinearRegressionComponent,
     LinearRegressionDetailComponent,
+    LinearRegressionChartComponent,
     LinearRegressionDialogComponent,
     LinearRegressionPopupComponent,
     LinearRegressionDeletePopupComponent,
@@ -31,6 +32,7 @@ const ENTITY_STATES = [
     declarations: [
         LinearRegressionComponent,
         LinearRegressionDetailComponent,
+        LinearRegressionChartComponent,
         LinearRegressionDialogComponent,
         LinearRegressionDeleteDialogComponent,
         LinearRegressionLearnPopupComponent,
@@ -41,6 +43,7 @@ const ENTITY_STATES = [
     entryComponents: [
         LinearRegressionComponent,
         LinearRegressionDialogComponent,
+        LinearRegressionChartComponent,
         LinearRegressionPopupComponent,
         LinearRegressionDeleteDialogComponent,
         LinearRegressionDeletePopupComponent,
