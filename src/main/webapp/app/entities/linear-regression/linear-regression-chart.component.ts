@@ -20,7 +20,7 @@ export class LinearRegressionChartComponent implements OnInit, OnDestroy {
     chartOptions: any;
     linearRegression: LinearRegression;
     tracers: Tracer[];
-    max: number;
+    max = 0;
     private subscription: Subscription;
     private eventSubscriber: Subscription;
 
@@ -87,6 +87,7 @@ export class LinearRegressionChartComponent implements OnInit, OnDestroy {
         }, {
             x: this.max, y: (this.linearRegression.beta1 * this.max + this.linearRegression.beta0)
         }];
+        console.log(this.max);
 
         this.chartOptions = {
             title: {
