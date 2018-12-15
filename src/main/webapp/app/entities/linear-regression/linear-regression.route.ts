@@ -47,7 +47,7 @@ export const linearRegressionRoute: Routes = [
         },
         canActivate: [UserRouteAccessService]
     }, {
-        path: 'linear-regression/chart/:id',
+        path: 'linear-regression/chart/:lineId/:workStationConfigId/:workStationId/:employeeId',
         component: LinearRegressionChartComponent,
         data: {
             authorities: ['ROLE_ADMIN'],

@@ -30,6 +30,10 @@ public class WorkStationConfigService {
         this.productService = productService;
     }
 
+    public WorkStationConfig findOne(Long workStationConfigId) {
+        return this.workStationConfigRepository.findOne(workStationConfigId);
+    }
+
     public WorkStationConfig getFirstWorkStationConfigForLine(Line line){
         log.debug("Get first workStation for line {}", line.getId());
 

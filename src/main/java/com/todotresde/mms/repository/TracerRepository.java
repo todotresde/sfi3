@@ -17,6 +17,7 @@ import java.util.List;
 public interface TracerRepository extends JpaRepository<Tracer, Long> {
     List<Tracer> findByWorkStation(WorkStation workstation);
     List<Tracer> findByWorkStationAndStatus(WorkStation workstation, Integer status);
+    List<Tracer> findByLinearRegressionAndStatus(LinearRegression linearRegression, Integer status);
     List<Tracer> findByWorkStationAndStatusNot(WorkStation workstation, Integer status);
     List<Tracer> findByWorkStationAndEmployeeAndStatus(WorkStation workstation, Employee employee, Integer status);
     List<Tracer> findByWorkStationAndEmployeeAndStatusNot(WorkStation workstation, Employee employee, Integer status);
@@ -26,6 +27,7 @@ public interface TracerRepository extends JpaRepository<Tracer, Long> {
     List<Tracer> findByManufacturingOrderId(Long manufacturingOrderId);
     List<Tracer> findByStatusAndManufacturingOrderId(Integer status, Long manufacturingOrder);
     List<Tracer> findByStatusNotAndManufacturingOrderId(Integer status, Long manufacturingOrder);
+    List<Tracer> findByLineAndWorkStationConfigAndWorkStationAndEmployeeAndStatusAndLinearRegressionIsNotNull(Line line, WorkStationConfig workStationConfig, WorkStation workstation, Employee employee, Integer status);
 
     Tracer findByWorkStationAndCode(WorkStation workstation, String code);
     Integer countByManufacturingOrder(ManufacturingOrder manufacturingOrder);
@@ -43,4 +45,8 @@ public interface TracerRepository extends JpaRepository<Tracer, Long> {
         "WHERE tracer.status = 2 AND tracer.employee.id = :employeeId " +
         "ORDER BY tracer.employee.id, tracer.id, tracer.workStation.id, tracer.supply.id")
     List<TracerTimeProjection> findTracerTimesForEmployee(@Param("employeeId") Long employeeId);
+
+    @Modifying
+    @Query(value = "UPDATE Tracer set linearRegression = null ")
+    void clearLineRegressions();
 }

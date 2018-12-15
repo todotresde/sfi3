@@ -178,8 +178,16 @@ public class TracerService {
         return this.tracerRepository.findByWorkStationAndStatusNot(workStation, Constants.STATUS_FINISHED);
     }
 
+    public List<Tracer> getTracersForLinearRegression(LinearRegression linearRegression){
+        return this.tracerRepository.findByLinearRegressionAndStatus(linearRegression, Constants.STATUS_FINISHED);
+    }
+
     public List<Tracer> getTracersForWorkStationAndEmployee(WorkStation workStation, Employee employee){
         return this.tracerRepository.findByWorkStationAndEmployeeAndStatus(workStation, employee, Constants.STATUS_FINISHED);
+    }
+
+    public List<Tracer> getTracersForLineAndWorkStationConfigAndWorkStationAndEmployee(Line line, WorkStationConfig workStationConfig, WorkStation workStation, Employee employee){
+        return this.tracerRepository.findByLineAndWorkStationConfigAndWorkStationAndEmployeeAndStatusAndLinearRegressionIsNotNull(line, workStationConfig, workStation, employee, Constants.STATUS_FINISHED);
     }
 
     public Supply getSupplyForWorkStationConfig(WorkStationConfig workStationConfig, Product product) {
@@ -238,6 +246,14 @@ public class TracerService {
 
     public List<TracerTimeProjection> getTimesFromEmployee(Long employeeId) {
         return this.tracerRepository.findTracerTimesForEmployee(employeeId);
+    }
+
+    public void clearLineRegressions(){
+        this.tracerRepository.clearLineRegressions();
+    }
+
+    public void save(Tracer tracer){
+        this.tracerRepository.save(tracer);
     }
 }
 

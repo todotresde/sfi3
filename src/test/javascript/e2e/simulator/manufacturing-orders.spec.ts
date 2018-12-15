@@ -25,8 +25,8 @@ describe('manufacturing-orders', () => {
 
 		    	let code = Math.round(Math.random()*1000);
 		    	let count = Math.floor(Math.random()*3) + 1;
-		    	let width = parseFloat((Math.random()*10+1).toFixed(2));
-		    	let height = parseFloat((Math.random()*10+1).toFixed(2));
+		    	let width = parseFloat((Math.random()*2+1).toFixed(2));
+		    	let height = parseFloat((Math.random()*4+1).toFixed(2));
 
 		    	manufacturingOrderDialogPage = new ManufacturingOrderDialogPage();
 		    	manufacturingOrderDialogPage.setCodeInput(code);

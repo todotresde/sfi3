@@ -18,9 +18,9 @@ import * as Highcharts from 'highcharts';
 export class LinearRegressionChartComponent implements OnInit, OnDestroy {
     Highcharts = Highcharts;
     chartOptions: any;
-    linearRegression: LinearRegression;
+    linearRegressions: LinearRegression[];
     tracers: Tracer[];
-    max = 0;
+    maxsMins: any = {};
     private subscription: Subscription;
     private eventSubscriber: Subscription;
 
@@ -33,20 +33,21 @@ export class LinearRegressionChartComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         this.subscription = this.route.params.subscribe((params) => {
-            this.load(params['id']);
+            this.load(params['lineId'], params['workStationConfigId'], params['workStationId'], params['employeeId']);
         });
         this.registerChangeInLinearRegressions();
     }
 
-    load(id) {
-        this.linearRegressionService.find(id)
-            .subscribe((linearRegressionResponse: HttpResponse<LinearRegression>) => {
-                this.linearRegression = linearRegressionResponse.body;
-            });
-        this.linearRegressionService.getTracers(id)
-            .subscribe((tracersResponse: HttpResponse<Tracer[]>) => {
-                this.tracers = tracersResponse.body;
-                this.prepareDataForChart();
+    load(lineId, workStationConfigId, workStationId, employeeId) {
+        this.linearRegressionService.findByGroup(lineId, workStationConfigId, workStationId, employeeId)
+            .subscribe((linearRegressionResponse: HttpResponse<LinearRegression[]>) => {
+                this.linearRegressions = linearRegressionResponse.body;
+
+                this.linearRegressionService.getTracers(lineId, workStationConfigId, workStationId, employeeId)
+                    .subscribe((tracersResponse: HttpResponse<Tracer[]>) => {
+                        this.tracers = tracersResponse.body;
+                        this.prepareDataForChart();
+                    });
             });
     }
     previousState() {
@@ -61,33 +62,80 @@ export class LinearRegressionChartComponent implements OnInit, OnDestroy {
     registerChangeInLinearRegressions() {
         this.eventSubscriber = this.eventManager.subscribe(
             'linearRegressionListModification',
-            (response) => this.load(this.linearRegression.id)
+            (response) => this.load(1, 1, 1, 1)
         );
     }
 
     private prepareDataForChart() {
-        const data = [];
+        const data = {};
+        const tracersByLinearRegression = {};
+
         this.tracers.forEach((res) => {
-            let measure = 1;
-            res.supplyTypeAttrValues.forEach((supplyTypeAttrValue: SupplyTypeAttrValue) => {
-                measure *= parseFloat(supplyTypeAttrValue.value);
-                measure = parseFloat(measure.toFixed(2));
-                if (measure > this.max) {
-                    this.max = measure;
-                }
-            });
-            data.push({'x': measure, 'y': parseFloat((res.time / 60).toFixed(2)), 'data': res});
+            if (!tracersByLinearRegression[res.linearRegression.id]) {
+                tracersByLinearRegression[res.linearRegression.id] = [];
+            }
+            tracersByLinearRegression[res.linearRegression.id].push(res);
         });
+
+        for (const tracerByLinearRegression of Object.keys(tracersByLinearRegression)) {
+            let max = 0;
+            let min = 10000; 
+               
+            tracersByLinearRegression[tracerByLinearRegression].forEach((res) => {
+                let measure = 1;
+                res.supplyTypeAttrValues.forEach((supplyTypeAttrValue: SupplyTypeAttrValue) => {
+                    measure *= parseFloat(supplyTypeAttrValue.value);
+                    measure = parseFloat(measure.toFixed(2));
+                });
+
+                if (measure > max) {
+                    max = measure;
+                }
+                if (measure < min) {
+                    min = measure;
+                }
+
+                if (!data[res.linearRegression.id]) {
+                    data[res.linearRegression.id] = [];
+                }
+                data[res.linearRegression.id].push({'x': measure, 'y': parseFloat((res.time / 60).toFixed(2)), 'data': res});
+            });
+
+            if (!this.maxsMins[tracerByLinearRegression]) {
+                this.maxsMins[tracerByLinearRegression] = {min, max};
+            }
+        }
+
         this.loadChart(data);
     }
 
-    private loadChart(data: any[]) {
-        const linearRegressionDots = [{
-            x: 3, y: (this.linearRegression.beta1 * 3 + this.linearRegression.beta0)
-        }, {
-            x: this.max, y: (this.linearRegression.beta1 * this.max + this.linearRegression.beta0)
-        }];
-        console.log(this.max);
+    private loadChart(data: any) {
+        const series: any[] = [];
+        const colors: String[] = ['#00FF00', '#FF0000', '#0000FF'];
+
+        this.linearRegressions.forEach((linearRegression, index) => {
+            if (this.maxsMins[linearRegression.id]) {
+                const linearRegressionDots = [{
+                    x: this.maxsMins[linearRegression.id].min, y: (linearRegression.beta1 * this.maxsMins[linearRegression.id].min + linearRegression.beta0)
+                }, {
+                    x: this.maxsMins[linearRegression.id].max, y: (linearRegression.beta1 * this.maxsMins[linearRegression.id].max + linearRegression.beta0)
+                }];
+
+                series.push({
+                    name: 'Linear Regression ' + linearRegression.id,
+                    type: 'line',
+                    data: linearRegressionDots,
+                    color: colors[index]
+                });
+
+                series.push({
+                    name: 'Production ' + linearRegression.id,
+                    type: 'scatter',
+                    data: data[linearRegression.id],
+                    color: colors[index]
+                });
+            }
+        });
 
         this.chartOptions = {
             title: {
@@ -134,15 +182,7 @@ export class LinearRegressionChartComponent implements OnInit, OnDestroy {
                     }
                 }
             },
-            series: [{
-                name: 'Linear Regression',
-                type: 'line',
-                data: linearRegressionDots
-            }, {
-                name: 'Production',
-                type: 'scatter',
-                data
-            }]
+            series
         };
     }
 

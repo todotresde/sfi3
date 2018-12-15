@@ -27,7 +27,13 @@
             "supplyType": "Supply Type",
             "employee": "Employee",
             "learn": "Learn",
-            "chart": "Chart"
+            "chart": "Chart",
+            "confirm": {
+                "learn": "Rebuild Dataset"
+            },
+            "learn": {
+                "question": "Are you sure to rebuild the dataset?"
+            }
         }
     }
 }

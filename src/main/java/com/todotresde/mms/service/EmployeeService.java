@@ -1,5 +1,6 @@
 package com.todotresde.mms.service;
 
+import com.todotresde.mms.domain.Employee;
 import com.todotresde.mms.repository.EmployeeRepository;
 import com.todotresde.mms.service.dto.TracerTimeDTO;
 import org.slf4j.Logger;
@@ -22,6 +23,10 @@ public class EmployeeService {
 
     public EmployeeService(EmployeeRepository employeeRepository) {
         this.employeeRepository = employeeRepository;
+    }
+
+    public Employee findOne(Long employeeId) {
+        return this.employeeRepository.findOne(employeeId);
     }
 
 }

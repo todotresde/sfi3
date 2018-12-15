@@ -33,14 +33,19 @@ export class LinearRegressionService {
             .map((res: EntityResponseType) => this.convertResponse(res));
     }
 
+    findByGroup(lineId: number, workStationConfigId: number, workStationId: number, employeeId: number): Observable<HttpResponse<LinearRegression[]>> {
+        return this.http.get<LinearRegression[]>(`${this.resourceUrl}/bygroup/${lineId}/${workStationConfigId}/${workStationId}/${employeeId}`, { observe: 'response'})
+            .map((res: HttpResponse<LinearRegression[]>) => this.convertArrayResponse(res));
+    }
+
     query(req?: any): Observable<HttpResponse<LinearRegression[]>> {
         const options = createRequestOption(req);
         return this.http.get<LinearRegression[]>(this.resourceUrl, { params: options, observe: 'response' })
             .map((res: HttpResponse<LinearRegression[]>) => this.convertArrayResponse(res));
     }
 
-    getTracers(id: number): Observable<HttpResponse<Tracer[]>> {
-        return this.http.get<Tracer[]>(`${this.resourceUrl}/tracers/${id}`, { observe: 'response' })
+    getTracers(lineId: number, workStationConfigId: number, workStationId: number, employeeId: number): Observable<HttpResponse<Tracer[]>> {
+        return this.http.get<Tracer[]>(`${this.resourceUrl}/tracers/bygroup/${lineId}/${workStationConfigId}/${workStationId}/${employeeId}`, { observe: 'response' })
             .map((res: HttpResponse<Tracer[]>) => this.convertArrayResponse(res));
     }
 

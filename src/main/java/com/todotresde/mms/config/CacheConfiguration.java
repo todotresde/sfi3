@@ -70,6 +70,7 @@ public class CacheConfiguration {
             cm.createCache(com.todotresde.mms.domain.Tracer.class.getName(), jcacheConfiguration);
             cm.createCache(com.todotresde.mms.domain.Tracer.class.getName() + ".supplyTypeAttrValues", jcacheConfiguration);
             cm.createCache(com.todotresde.mms.domain.LinearRegression.class.getName(), jcacheConfiguration);
+            cm.createCache(com.todotresde.mms.domain.LinearRegression.class.getName() + ".tracers", jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

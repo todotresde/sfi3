@@ -38,6 +38,10 @@
                 <constraints nullable="false" />
             </column>
 
+            <column name="cluster" type="integer">
+                <constraints nullable="false" />
+            </column>
+
             <column name="line_id" type="bigint">
                 <constraints nullable="false" />
             </column>

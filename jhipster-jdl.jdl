@@ -8,7 +8,8 @@ entity LinearRegression{
     dimension Integer required,
     x Double required,
     beta0 Double required,
-    beta1 Double required
+    beta1 Double required,
+    cluster Integer required
 }
 
 entity Employee{
@@ -91,7 +92,8 @@ relationship ManyToOne {
 
 relationship OneToMany {
     Line{workStationConfig} to WorkStationConfig{line required},
-    SupplyType{supply} to Supply{supplyType required}
+    SupplyType{supply} to Supply{supplyType required},
+    LinearRegression{tracer required} to Tracer{linearRegression} 
 }
 
 relationship ManyToMany {

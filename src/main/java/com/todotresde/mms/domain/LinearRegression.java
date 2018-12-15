@@ -1,5 +1,6 @@
 package com.todotresde.mms.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -7,7 +8,9 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * A LinearRegression.
@@ -39,6 +42,10 @@ public class LinearRegression implements Serializable {
     @Column(name = "beta_1", nullable = false)
     private Double beta1;
 
+    @NotNull
+    @Column(name = "cluster", nullable = false)
+    private Integer cluster;
+
     @ManyToOne(optional = false)
     @NotNull
     private Line line;
@@ -62,6 +69,11 @@ public class LinearRegression implements Serializable {
     @ManyToOne(optional = false)
     @NotNull
     private Employee employee;
+
+    @OneToMany(mappedBy = "linearRegression")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Tracer> tracers = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -122,6 +134,19 @@ public class LinearRegression implements Serializable {
 
     public void setBeta1(Double beta1) {
         this.beta1 = beta1;
+    }
+
+    public Integer getCluster() {
+        return cluster;
+    }
+
+    public LinearRegression cluster(Integer cluster) {
+        this.cluster = cluster;
+        return this;
+    }
+
+    public void setCluster(Integer cluster) {
+        this.cluster = cluster;
     }
 
     public Line getLine() {
@@ -200,6 +225,31 @@ public class LinearRegression implements Serializable {
 
     public void setEmployee(Employee employee) {
         this.employee = employee;
+    }
+
+    public Set<Tracer> getTracers() {
+        return tracers;
+    }
+
+    public LinearRegression tracers(Set<Tracer> tracers) {
+        this.tracers = tracers;
+        return this;
+    }
+
+    public LinearRegression addTracer(Tracer tracer) {
+        this.tracers.add(tracer);
+        tracer.setLinearRegression(this);
+        return this;
+    }
+
+    public LinearRegression removeTracer(Tracer tracer) {
+        this.tracers.remove(tracer);
+        tracer.setLinearRegression(null);
+        return this;
+    }
+
+    public void setTracers(Set<Tracer> tracers) {
+        this.tracers = tracers;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

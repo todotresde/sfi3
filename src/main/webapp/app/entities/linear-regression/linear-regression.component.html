@@ -25,10 +25,12 @@
             <th jhiSortBy="supply.id"><span jhiTranslate="mmsApp.linearRegression.supply">Supply</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="supplyType.id"><span jhiTranslate="mmsApp.linearRegression.supplyType">Supply Type</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="employee.id"><span jhiTranslate="mmsApp.linearRegression.employee">Employee</span> <span class="fa fa-sort"></span></th>
+            <!--
             <th jhiSortBy="dimension"><span jhiTranslate="mmsApp.linearRegression.dimension">Dimension</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="x"><span jhiTranslate="mmsApp.linearRegression.x">X</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="beta0"><span jhiTranslate="mmsApp.linearRegression.beta0">Beta 0</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="beta1"><span jhiTranslate="mmsApp.linearRegression.beta1">Beta 1</span> <span class="fa fa-sort"></span></th>
+            -->
             <th></th>
             </tr>
             </thead>
@@ -66,14 +68,16 @@
                         <a [routerLink]="['../employee', linearRegression.employee?.id ]" >{{linearRegression.employee?.name}}</a>
                     </div>
                 </td>
+                <!--
                 <td>{{linearRegression.dimension}}</td>
                 <td>{{linearRegression.x | number : '1.2-2'}}</td>
                 <td>{{linearRegression.beta0 | number : '1.2-2'}}</td>
                 <td>{{linearRegression.beta1 | number : '1.2-2'}}</td>
+                -->
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"
-                                [routerLink]="['../linear-regression/chart', linearRegression.id ]"
+                                [routerLink]="['../linear-regression/chart', linearRegression.line?.id, linearRegression.workStationConfig?.id, linearRegression.workStation?.id, linearRegression.employee?.id ]"
                                 class="btn btn-info btn-sm">
                             <span class="fa fa-eye"></span>
                             <span class="d-none d-md-inline" jhiTranslate="mmsApp.linearRegression.chart">Chart</span>

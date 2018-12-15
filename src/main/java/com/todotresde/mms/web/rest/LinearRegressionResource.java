@@ -96,7 +96,7 @@ public class LinearRegressionResource {
     @Timed
     public ResponseEntity<List<LinearRegression>> getAllLinearRegressions(Pageable pageable) {
         log.debug("REST request to get a page of LinearRegressions");
-        Page<LinearRegression> page = linearRegressionRepository.findAll(pageable);
+        Page<LinearRegression> page = linearRegressionRepository.findAllGrouped(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/linear-regressions");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
@@ -116,7 +116,24 @@ public class LinearRegressionResource {
     }
 
     /**
-     * GET  /linear-regressions/trace/:id : get all the tracers for linearRegressions.
+     * GET  /linear-regressions/bygroup/:lineId/:workStationConfigId/:workStationId/:employeeId : get the "id" linearRegression.
+     *
+     * @param lineId the id of the linearRegression to retrieve
+     * @param workStationConfigId the id of the linearRegression to retrieve
+     * @param workStationId the id of the linearRegression to retrieve
+     * @param employeeId the id of the linearRegression to retrieve
+     * @return the ResponseEntity with status 200 (OK) and with body the linearRegression, or with status 404 (Not Found)
+     */
+    @GetMapping("/linear-regressions/bygroup/{lineId}/{workStationConfigId}/{workStationId}/{employeeId}")
+    @Timed
+    public ResponseEntity<List<LinearRegression>> getLinearRegression(@PathVariable Long lineId, @PathVariable Long workStationConfigId, @PathVariable Long workStationId, @PathVariable Long employeeId) {
+        log.debug("REST request to get LinearRegression : {}", lineId, workStationConfigId, workStationId, employeeId);
+        List<LinearRegression> linearRegressions = linearRegressionService.findByLineAndWorkStationConfigAndWorkStationAndEmployee(lineId, workStationConfigId, workStationId, employeeId);
+        return ResponseUtil.wrapOrNotFound(Optional.ofNullable(linearRegressions));
+    }
+
+    /**
+     * GET  /linear-regressions/tracers/:id : get all the tracers for linearRegressions.
      *
      * @return the ResponseEntity with status 200 (OK) and the list of linearRegressions in body
      */
@@ -126,6 +143,23 @@ public class LinearRegressionResource {
         log.debug("REST request to get a page of LinearRegressions");
         LinearRegression linearRegression = linearRegressionRepository.findOne(id);
         return linearRegressionService.findAllTracers(linearRegression);
+    }
+
+    /**
+     * GET  /linear-regressions/tracers/bygroup/:lineId/:workStationConfigId/:workStationId/:employeeId : get all the tracers for linearRegressions.
+     *
+     * @param lineId the id of the linearRegression to retrieve
+     * @param workStationConfigId the id of the linearRegression to retrieve
+     * @param workStationId the id of the linearRegression to retrieve
+     * @param employeeId the id of the linearRegression to retrieve
+     *
+     * @return the ResponseEntity with status 200 (OK) and the list of linearRegressions in body
+     */
+    @GetMapping("/linear-regressions/tracers/bygroup/{lineId}/{workStationConfigId}/{workStationId}/{employeeId}")
+    @Timed
+    public List<Tracer> getAllTracers(@PathVariable Long lineId, @PathVariable Long workStationConfigId, @PathVariable Long workStationId, @PathVariable Long employeeId) {
+        log.debug("REST request to get a page of LinearRegressions");
+        return linearRegressionService.findAllTracersByLineAndWorkStationConfigAndWorkStationAndEmployee(lineId, workStationConfigId, workStationId, employeeId);
     }
 
     /**

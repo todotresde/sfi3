@@ -3,7 +3,7 @@ import { NavBarPage } from './../page-objects/jhi-page-objects';
 import { WorkstationComponentsPage, TracerForWorkstationComponentsPage, TracerForWorkstationDialogPage } from './tracers-for-workstation.spec';
 
 let workStations: string[] = ['192.168.2.1','192.168.2.2','192.168.2.3','192.168.2.4','192.168.2.5'];
-let numberOfTracers = 40;
+let numberOfTracers = 1;
 
 describe('tracers-for-workstation', () => {
     let navBarPage: NavBarPage;

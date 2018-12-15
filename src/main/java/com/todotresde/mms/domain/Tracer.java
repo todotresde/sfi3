@@ -94,6 +94,9 @@ public class Tracer implements Serializable {
     @NotNull
     private Employee employee;
 
+    @ManyToOne(optional = true)
+    private LinearRegression linearRegression;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -348,6 +351,20 @@ public class Tracer implements Serializable {
     public Employee getEmployee() {
         return employee;
     }
+
+    public LinearRegression getLinearRegression() {
+        return linearRegression;
+    }
+
+    public Tracer linearRegression(LinearRegression linearRegression) {
+        this.linearRegression = linearRegression;
+        return this;
+    }
+
+    public void setLinearRegression(LinearRegression linearRegression) {
+        this.linearRegression = linearRegression;
+    }
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override

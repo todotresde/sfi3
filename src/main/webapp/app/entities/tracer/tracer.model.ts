@@ -20,6 +20,7 @@ export class Tracer implements BaseEntity {
         public nextWorkStation?: BaseEntity,
         public nextTracer?: BaseEntity,
         public prevTracer?: BaseEntity,
+        public linearRegression?: BaseEntity
     ) {
     }
 }

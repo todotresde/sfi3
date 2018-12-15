@@ -30,6 +30,10 @@ public class LineService {
         this.productService = productService;
     }
 
+    public Line findOne(Long lineId) {
+        return this.lineRepository.findOne(lineId);
+    }
+
     public void sendProduct(Line line, Product product){
         log.debug("Send Product to build line: {} and product: {}", line.getId(), product.getId());
 
