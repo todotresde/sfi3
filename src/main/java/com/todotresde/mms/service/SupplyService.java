@@ -34,6 +34,10 @@ public class SupplyService {
         this.supplyTypeRepository = supplyTypeRepository;
     }
 
+    public Supply findOne(Long supplyId) {
+        return this.supplyRepository.findOne(supplyId);
+    }
+
     public List<Supply> importSupplies(){
         log.debug("Import supplies from file");
         List<Supply> supplies = new ArrayList();

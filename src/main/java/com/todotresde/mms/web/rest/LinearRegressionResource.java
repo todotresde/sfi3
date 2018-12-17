@@ -116,17 +116,18 @@ public class LinearRegressionResource {
     }
 
     /**
-     * GET  /linear-regressions/bygroup/:lineId/:workStationConfigId/:workStationId/:employeeId : get the "id" linearRegression.
+     * GET  /linear-regressions/bygroup/:lineId/:workStationConfigId/:workStationId/:employeeId/:supplyId : get the "id" linearRegression.
      *
      * @param lineId the id of the linearRegression to retrieve
      * @param workStationConfigId the id of the linearRegression to retrieve
      * @param workStationId the id of the linearRegression to retrieve
      * @param employeeId the id of the linearRegression to retrieve
+     * @param supplyId the id of the linearRegression to retrieve
      * @return the ResponseEntity with status 200 (OK) and with body the linearRegression, or with status 404 (Not Found)
      */
-    @GetMapping("/linear-regressions/bygroup/{lineId}/{workStationConfigId}/{workStationId}/{employeeId}")
+    @GetMapping("/linear-regressions/bygroup/{lineId}/{workStationConfigId}/{workStationId}/{employeeId}/{supplyId}")
     @Timed
-    public ResponseEntity<List<LinearRegression>> getLinearRegression(@PathVariable Long lineId, @PathVariable Long workStationConfigId, @PathVariable Long workStationId, @PathVariable Long employeeId) {
+    public ResponseEntity<List<LinearRegression>> getLinearRegression(@PathVariable Long lineId, @PathVariable Long workStationConfigId, @PathVariable Long workStationId, @PathVariable Long employeeId, @PathVariable Long supplyId) {
         log.debug("REST request to get LinearRegression : {}", lineId, workStationConfigId, workStationId, employeeId);
         List<LinearRegression> linearRegressions = linearRegressionService.findByLineAndWorkStationConfigAndWorkStationAndEmployee(lineId, workStationConfigId, workStationId, employeeId);
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(linearRegressions));
@@ -146,32 +147,36 @@ public class LinearRegressionResource {
     }
 
     /**
-     * GET  /linear-regressions/tracers/bygroup/:lineId/:workStationConfigId/:workStationId/:employeeId : get all the tracers for linearRegressions.
+     * GET  /linear-regressions/tracers/bygroup/:lineId/:workStationConfigId/:workStationId/:employeeId/:supplyId : get all the tracers for linearRegressions.
      *
      * @param lineId the id of the linearRegression to retrieve
      * @param workStationConfigId the id of the linearRegression to retrieve
      * @param workStationId the id of the linearRegression to retrieve
      * @param employeeId the id of the linearRegression to retrieve
+     * @param supplyId the id of the linearRegression to retrieve
      *
      * @return the ResponseEntity with status 200 (OK) and the list of linearRegressions in body
      */
-    @GetMapping("/linear-regressions/tracers/bygroup/{lineId}/{workStationConfigId}/{workStationId}/{employeeId}")
+    @GetMapping("/linear-regressions/tracers/bygroup/{lineId}/{workStationConfigId}/{workStationId}/{employeeId}/{supplyId}")
     @Timed
-    public List<Tracer> getAllTracers(@PathVariable Long lineId, @PathVariable Long workStationConfigId, @PathVariable Long workStationId, @PathVariable Long employeeId) {
+    public List<Tracer> getAllTracers(@PathVariable Long lineId, @PathVariable Long workStationConfigId, @PathVariable Long workStationId, @PathVariable Long employeeId, @PathVariable Long supplyId) {
         log.debug("REST request to get a page of LinearRegressions");
         return linearRegressionService.findAllTracersByLineAndWorkStationConfigAndWorkStationAndEmployee(lineId, workStationConfigId, workStationId, employeeId);
     }
 
     /**
-     * GET  /linear-regressions/generate : generate all linearRegression.
+     * GET  /linear-regressions/generate/:numberOfCluster/:numberOfIterations : generate all linearRegression.
+     *
+     * @param numberOfClusters the id of the linearRegression to retrieve
+     * @param numberOfIterations the id of the linearRegression to retrieve
      *
      * @return the ResponseEntity with status 200 (OK) and with body the linearRegression, or with status 404 (Not Found)
      */
-    @GetMapping("/linear-regressions/generate")
+    @GetMapping("/linear-regressions/generate/{numberOfClusters}/{numberOfIterations}")
     @Timed
-    public List<LinearRegression> generateLinearRegressions() {
+    public List<LinearRegression> generateLinearRegressions(@PathVariable Integer numberOfClusters, @PathVariable Integer numberOfIterations) {
         log.debug("REST request to generate LinearRegressions : {}");
-        List<LinearRegression> linearRegressions = linearRegressionService.generate();
+        List<LinearRegression> linearRegressions = linearRegressionService.generate(numberOfClusters, numberOfIterations);
         return linearRegressions;
     }
 

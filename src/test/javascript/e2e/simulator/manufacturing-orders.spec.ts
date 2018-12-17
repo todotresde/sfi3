@@ -1,13 +1,31 @@
 import { browser, element, by } from 'protractor';
 import { NavBarPage } from './../page-objects/jhi-page-objects';
+import { ProductsRepository } from './products';
 
 describe('manufacturing-orders', () => {
 	let navBarPage: NavBarPage;
 	let manufacturingOrderComponentsPage: ManufacturingOrderComponentsPage;
 	let manufacturingOrderDialogPage: ManufacturingOrderDialogPage;
-	let numberOfManufacturinOrders = 70;
+	let numberOfManufacturinOrders = 5;
+    let productsRepositoryGrouped: any = {};
+
+    function groupProductsRepository(){
+        let productsRepositoryGrouped: any = {};
+        ProductsRepository.products.forEach((product) => {
+            if(product.supplyType && product.supplyType.id){
+                if(!productsRepositoryGrouped[product.supplyType.id]){
+                    productsRepositoryGrouped[product.supplyType.id] = [];
+                }
+                productsRepositoryGrouped[product.supplyType.id].push(product);
+            }
+        });
+
+        return productsRepositoryGrouped;
+    }
+
 
 	beforeAll(() => {
+        productsRepositoryGrouped = groupProductsRepository();
         browser.get('/');
         browser.waitForAngular();
         navBarPage = new NavBarPage();
@@ -24,7 +42,7 @@ describe('manufacturing-orders', () => {
 		    	manufacturingOrderComponentsPage.clickOnCreateButton();
 
 		    	let code = Math.round(Math.random()*1000);
-		    	let count = Math.floor(Math.random()*3) + 1;
+		    	let count = Math.floor(Math.random()*4) + 1;
 		    	let width = parseFloat((Math.random()*2+1).toFixed(2));
 		    	let height = parseFloat((Math.random()*4+1).toFixed(2));
 
@@ -33,13 +51,13 @@ describe('manufacturing-orders', () => {
 		    	manufacturingOrderDialogPage.setDescriptionInput('Descripción de Prueba' + code);
 		    	manufacturingOrderDialogPage.addProduct();
 		    	manufacturingOrderDialogPage.setQuantityInput(count);
-		    	manufacturingOrderDialogPage.selectSupply(0, 'Tela roler Acuarela Acero',[width, height]);
+		    	manufacturingOrderDialogPage.selectSupply(0, manufacturingOrderDialogPage.getSupplyType(1, productsRepositoryGrouped) ,[width, height]);
 		    	manufacturingOrderDialogPage.addSupply();
-		    	manufacturingOrderDialogPage.selectSupply(1, 'Sistema Tecno cadena metálica c/cenefa frente curvo de 60 mm',[width]);
+		    	manufacturingOrderDialogPage.selectSupply(1, manufacturingOrderDialogPage.getSupplyType(2, productsRepositoryGrouped),[width]);
 		    	manufacturingOrderDialogPage.addSupply();
-		    	manufacturingOrderDialogPage.selectSupply(2, 'Motor RA para Multistore Prolight automatizado con emisor',[]);
+		    	manufacturingOrderDialogPage.selectSupply(2, manufacturingOrderDialogPage.getSupplyType(6, productsRepositoryGrouped),[]);
 		    	manufacturingOrderDialogPage.addSupply();
-		    	manufacturingOrderDialogPage.selectSupply(3, 'Acces.60 mm p/sistema Tecno c/base suj. Blanco para S.214',[]);
+		    	manufacturingOrderDialogPage.selectSupply(3, manufacturingOrderDialogPage.getSupplyType(3, productsRepositoryGrouped),[]);
 
 		    	manufacturingOrderDialogPage.save();
 
@@ -155,5 +173,10 @@ export class ManufacturingOrderDialogPage {
 
     getSaveButton() {
         return this.saveButton;
+    }
+
+    getSupplyType(supplyTypeId: number, productsRepositoryGrouped: any): string {
+        const products: any[] = productsRepositoryGrouped[supplyTypeId];
+        return products[Math.floor(Math.random() * (products.length - 1))].name;
     }
 }

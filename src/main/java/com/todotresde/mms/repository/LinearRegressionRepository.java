@@ -17,9 +17,10 @@ import java.util.List;
 @Repository
 public interface LinearRegressionRepository extends JpaRepository<LinearRegression, Long> {
     @Query(value = "SELECT linearRegression from LinearRegression linearRegression " +
-            "GROUP BY linearRegression.line, linearRegression.workStationConfig, linearRegression.workStation, " +
-            " linearRegression.supply, linearRegression.employee")
+        " GROUP BY linearRegression.line, linearRegression.workStationConfig, linearRegression.workStation, linearRegression.employee")
     Page<LinearRegression> findAllGrouped(Pageable pageable);
 
     List<LinearRegression> findByLineAndWorkStationConfigAndWorkStationAndEmployee(Line line, WorkStationConfig workStationConfig, WorkStation workStation, Employee employee);
+
+    List<LinearRegression> findByLineAndWorkStationConfigAndWorkStationAndEmployeeAndSupply(Line line, WorkStationConfig workStationConfig, WorkStation workStation, Employee employee, Supply supply);
 }

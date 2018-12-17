@@ -26,14 +26,16 @@
             "supply": "Supply",
             "supplyType": "Supply Type",
             "employee": "Employee",
-            "learn": "Learn",
+            "train": "Train",
             "chart": "Chart",
             "confirm": {
-                "learn": "Rebuild Dataset"
+                "learn": "Train Dataset"
             },
             "learn": {
-                "question": "Are you sure to rebuild the dataset?"
-            }
+                "question": "Are you sure to re train the dataset?"
+            },
+            "numberOfClusters": "Number of Clusters",
+            "numberOfIterations": "Number of Iterations"
         }
     }
 }

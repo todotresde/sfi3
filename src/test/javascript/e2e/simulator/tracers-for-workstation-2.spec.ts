@@ -3,7 +3,7 @@ import { NavBarPage } from './../page-objects/jhi-page-objects';
 import { WorkstationComponentsPage, TracerForWorkstationComponentsPage, TracerForWorkstationDialogPage } from './tracers-for-workstation.spec';
 
 let workStations: string[] = ['192.168.2.1','192.168.2.2','192.168.2.3','192.168.2.4','192.168.2.5'];
-let numberOfTracers = 1;
+let numberOfTracers = 10;
 
 describe('tracers-for-workstation', () => {
     let navBarPage: NavBarPage;
@@ -33,20 +33,21 @@ describe('tracers-for-workstation', () => {
                     //Because of problems with intervals (reload async)
                     browser.waitForAngularEnabled(false);
 
-                    browser.sleep(2000);
+                    browser.sleep(1000);
                     navBarPage.goToLineAdministration('work-station');
                     workstationComponentsPage = new WorkstationComponentsPage();
                     workstationComponentsPage.clickOnWorkButton(workStation);
 
+                    browser.sleep(1000);
                     tracerForWorkstationComponentsPage = new TracerForWorkstationComponentsPage();
                     tracerForWorkstationComponentsPage.clickOnFirstStartButton();
 
-                    browser.sleep(2000);
+                    browser.sleep(1000);
                     tracerForWorkstationDialogPage = new TracerForWorkstationDialogPage();
                     tracerForWorkstationDialogPage.clickOnFinishButton();
 
                     browser.waitForAngularEnabled(true);
-                    browser.sleep(2000);
+                    browser.sleep(1000);
                 })
             })(workStations[workStationPos]);
         }

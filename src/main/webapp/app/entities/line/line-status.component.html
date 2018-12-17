@@ -4,11 +4,19 @@
         <span *ngIf="!manufacturingOrderId" jhiTranslate="mmsApp.line.status.title">Line Status</span>
         <span *ngIf="manufacturingOrderId" jhiTranslate="mmsApp.line.status.manufacturingOrder">Line Status for:</span>{{manufacturingOrderId}}
         <button *ngIf="manufacturingOrderId" 
-            class="btn btn-primary float-right jh-create-entity create-manufacturing-order" 
+            class="btn btn-primary float-right jh-view-entity view-manufacturing-order" 
+            [routerLink]="['/manufacturing-order', manufacturingOrderId ]" >
+            <span class="fa fa-eye"></span>
+            <span  jhiTranslate="mmsApp.manufacturingOrder.detail.title">
+                Manufacturing Order
+            </span>
+        </button>
+        <button *ngIf="manufacturingOrderId" 
+            class="btn btn-primary float-right jh-create-entity create-manufacturing-order mr-1" 
             [routerLink]="['/manufacturing-order/tracer-status', manufacturingOrderId ]" >
             <span class="fa fa-cogs"></span>
             <span  jhiTranslate="mmsApp.manufacturingOrder.tracers.status">
-                Line Status
+                Tracer Status
             </span>
         </button>
     </h2>

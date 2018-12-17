@@ -27,7 +27,8 @@ public interface TracerRepository extends JpaRepository<Tracer, Long> {
     List<Tracer> findByManufacturingOrderId(Long manufacturingOrderId);
     List<Tracer> findByStatusAndManufacturingOrderId(Integer status, Long manufacturingOrder);
     List<Tracer> findByStatusNotAndManufacturingOrderId(Integer status, Long manufacturingOrder);
-    List<Tracer> findByLineAndWorkStationConfigAndWorkStationAndEmployeeAndStatusAndLinearRegressionIsNotNull(Line line, WorkStationConfig workStationConfig, WorkStation workstation, Employee employee, Integer status);
+    List<Tracer> findByLineAndWorkStationConfigAndWorkStationAndEmployeeAndStatus(Line line, WorkStationConfig workStationConfig, WorkStation workstation, Employee employee, Integer status);
+    List<Tracer> findByLineAndWorkStationConfigAndWorkStationAndEmployeeAndSupplyAndStatusAndLinearRegressionIsNotNull(Line line, WorkStationConfig workStationConfig, WorkStation workstation, Employee employee, Supply supply, Integer status);
 
     Tracer findByWorkStationAndCode(WorkStation workstation, String code);
     Integer countByManufacturingOrder(ManufacturingOrder manufacturingOrder);

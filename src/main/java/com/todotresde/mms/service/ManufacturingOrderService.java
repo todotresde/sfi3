@@ -144,7 +144,7 @@ public class ManufacturingOrderService {
         ManufacturingOrder manufacturingOrder = this.manufacturingOrderRepository.findOne(manufacturingOrderId);
         List <Tracer> tracers = this.tracerService.findByManufacturingOrder(manufacturingOrder);
         for(Tracer tracer : tracers) {
-            timeToFinish += this.tracerService.getTotalTimeForWorkStationConfig(tracer.getWorkStationConfig()) + this.workStationConfigService.getPendingRowTimeFromWorkStationConfig(tracer.getWorkStationConfig(), tracer.getProduct(), tracer.getSupply());
+            timeToFinish += this.tracerService.getTotalTimeForWorkStationConfig(tracer.getWorkStationConfig());// + this.workStationConfigService.getPendingRowTimeFromWorkStationConfig(tracer.getWorkStationConfig(), tracer.getProduct(), tracer.getSupply());
         }
         return timeToFinish;
     }

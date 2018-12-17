@@ -33,17 +33,17 @@ export class LinearRegressionChartComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         this.subscription = this.route.params.subscribe((params) => {
-            this.load(params['lineId'], params['workStationConfigId'], params['workStationId'], params['employeeId']);
+            this.load(params['lineId'], params['workStationConfigId'], params['workStationId'], params['employeeId'], params['supplyId']);
         });
         this.registerChangeInLinearRegressions();
     }
 
-    load(lineId, workStationConfigId, workStationId, employeeId) {
-        this.linearRegressionService.findByGroup(lineId, workStationConfigId, workStationId, employeeId)
+    load(lineId, workStationConfigId, workStationId, employeeId, supplyId) {
+        this.linearRegressionService.findByGroup(lineId, workStationConfigId, workStationId, employeeId, supplyId)
             .subscribe((linearRegressionResponse: HttpResponse<LinearRegression[]>) => {
                 this.linearRegressions = linearRegressionResponse.body;
 
-                this.linearRegressionService.getTracers(lineId, workStationConfigId, workStationId, employeeId)
+                this.linearRegressionService.getTracers(lineId, workStationConfigId, workStationId, employeeId, supplyId)
                     .subscribe((tracersResponse: HttpResponse<Tracer[]>) => {
                         this.tracers = tracersResponse.body;
                         this.prepareDataForChart();
@@ -62,7 +62,7 @@ export class LinearRegressionChartComponent implements OnInit, OnDestroy {
     registerChangeInLinearRegressions() {
         this.eventSubscriber = this.eventManager.subscribe(
             'linearRegressionListModification',
-            (response) => this.load(1, 1, 1, 1)
+            (response) => this.load(1, 1, 1, 1, 1)
         );
     }
 
@@ -79,8 +79,8 @@ export class LinearRegressionChartComponent implements OnInit, OnDestroy {
 
         for (const tracerByLinearRegression of Object.keys(tracersByLinearRegression)) {
             let max = 0;
-            let min = 10000; 
-               
+            let min = 10000;
+
             tracersByLinearRegression[tracerByLinearRegression].forEach((res) => {
                 let measure = 1;
                 res.supplyTypeAttrValues.forEach((supplyTypeAttrValue: SupplyTypeAttrValue) => {

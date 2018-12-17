@@ -187,7 +187,11 @@ public class TracerService {
     }
 
     public List<Tracer> getTracersForLineAndWorkStationConfigAndWorkStationAndEmployee(Line line, WorkStationConfig workStationConfig, WorkStation workStation, Employee employee){
-        return this.tracerRepository.findByLineAndWorkStationConfigAndWorkStationAndEmployeeAndStatusAndLinearRegressionIsNotNull(line, workStationConfig, workStation, employee, Constants.STATUS_FINISHED);
+        return this.tracerRepository.findByLineAndWorkStationConfigAndWorkStationAndEmployeeAndStatus(line, workStationConfig, workStation, employee, Constants.STATUS_FINISHED);
+    }
+
+    public List<Tracer> getTracersForLineAndWorkStationConfigAndWorkStationAndEmployeeAndSupply(Line line, WorkStationConfig workStationConfig, WorkStation workStation, Employee employee, Supply supply){
+        return this.tracerRepository.findByLineAndWorkStationConfigAndWorkStationAndEmployeeAndSupplyAndStatusAndLinearRegressionIsNotNull(line, workStationConfig, workStation, employee, supply, Constants.STATUS_FINISHED);
     }
 
     public Supply getSupplyForWorkStationConfig(WorkStationConfig workStationConfig, Product product) {

@@ -33,8 +33,8 @@ export class LinearRegressionService {
             .map((res: EntityResponseType) => this.convertResponse(res));
     }
 
-    findByGroup(lineId: number, workStationConfigId: number, workStationId: number, employeeId: number): Observable<HttpResponse<LinearRegression[]>> {
-        return this.http.get<LinearRegression[]>(`${this.resourceUrl}/bygroup/${lineId}/${workStationConfigId}/${workStationId}/${employeeId}`, { observe: 'response'})
+    findByGroup(lineId: number, workStationConfigId: number, workStationId: number, employeeId: number, supplyId: number): Observable<HttpResponse<LinearRegression[]>> {
+        return this.http.get<LinearRegression[]>(`${this.resourceUrl}/bygroup/${lineId}/${workStationConfigId}/${workStationId}/${employeeId}/${supplyId}`, { observe: 'response'})
             .map((res: HttpResponse<LinearRegression[]>) => this.convertArrayResponse(res));
     }
 
@@ -44,14 +44,14 @@ export class LinearRegressionService {
             .map((res: HttpResponse<LinearRegression[]>) => this.convertArrayResponse(res));
     }
 
-    getTracers(lineId: number, workStationConfigId: number, workStationId: number, employeeId: number): Observable<HttpResponse<Tracer[]>> {
-        return this.http.get<Tracer[]>(`${this.resourceUrl}/tracers/bygroup/${lineId}/${workStationConfigId}/${workStationId}/${employeeId}`, { observe: 'response' })
+    getTracers(lineId: number, workStationConfigId: number, workStationId: number, employeeId: number, supplyId: number): Observable<HttpResponse<Tracer[]>> {
+        return this.http.get<Tracer[]>(`${this.resourceUrl}/tracers/bygroup/${lineId}/${workStationConfigId}/${workStationId}/${employeeId}/${supplyId}`, { observe: 'response' })
             .map((res: HttpResponse<Tracer[]>) => this.convertArrayResponse(res));
     }
 
-    learn(req?: any): Observable<HttpResponse<LinearRegression[]>> {
-        const options = createRequestOption(req);
-        return this.http.get<LinearRegression[]>(`${this.resourceUrl}/generate`, { params: options, observe: 'response' })
+    learn(numberOfClusters: number, numberOfIterations: number): Observable<HttpResponse<LinearRegression[]>> {
+        const options = createRequestOption();
+        return this.http.get<LinearRegression[]>(`${this.resourceUrl}/generate/${numberOfClusters}/${numberOfIterations}`, { params: options, observe: 'response' })
             .map((res: HttpResponse<LinearRegression[]>) => this.convertArrayResponse(res));
     }
 

@@ -7,10 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Service class for managing users.
@@ -26,15 +23,17 @@ public class LinearRegressionService {
     private final LineService lineService;
     private final WorkStationService workStationService;
     private final EmployeeService employeeService;
+    private final SupplyService supplyService;
 
     public LinearRegressionService(WorkStationConfigService workStationConfigService, TracerService tracerService, LinearRegressionRepository linearRegressionRepository,
-                                   LineService lineService, EmployeeService employeeService, WorkStationService workStationService) {
+                                   LineService lineService, EmployeeService employeeService, WorkStationService workStationService, SupplyService supplyService) {
         this.linearRegressionRepository = linearRegressionRepository;
         this.workStationConfigService = workStationConfigService;
         this.tracerService = tracerService;
         this.lineService = lineService;
         this.workStationService = workStationService;
         this.employeeService = employeeService;
+        this.supplyService = supplyService;
 
     }
 
@@ -47,15 +46,25 @@ public class LinearRegressionService {
         return this.linearRegressionRepository.findByLineAndWorkStationConfigAndWorkStationAndEmployee(line, workStationConfig, workStation, employee);
     }
 
-    public List<LinearRegression> generate() {
+    public List<LinearRegression> findByLineAndWorkStationConfigAndWorkStationAndEmployeeAndSupply(Long lineId, Long workStationConfigId, Long workStationId, Long employeeId, Long supplyId){
+        Line line = this.lineService.findOne(lineId);
+        WorkStationConfig workStationConfig = this.workStationConfigService.findOne(workStationConfigId);
+        WorkStation workStation = this.workStationService.findOne(workStationId);
+        Employee employee = this.employeeService.findOne(employeeId);
+        Supply supply = this.supplyService.findOne(supplyId);
+
+        return this.linearRegressionRepository.findByLineAndWorkStationConfigAndWorkStationAndEmployeeAndSupply(line, workStationConfig, workStation, employee, supply);
+    }
+
+    public List<LinearRegression> generate(Integer numberOfClusters, Integer numberOfIterations) {
         this.linearRegressionRepository.deleteAll();
         this.tracerService.clearLineRegressions();
         List<WorkStationConfig> workStationConfigs = this.workStationConfigService.findAll();
         for(WorkStationConfig workStationConfig : workStationConfigs) {
             for(Employee employee : workStationConfig.getEmployees()) {
                 for(SupplyType supplyType : workStationConfig.getSupplyTypes()) {
-                    List<Tracer> tracers = this.findAllTracers(workStationConfig, employee);
-                    List<List<Tracer>> clusters = this.clusterTracers(tracers, 3);
+                    List<Tracer> tracers = this.findAllTracers(workStationConfig.getLine(), workStationConfig, workStationConfig.getWorkStation(), employee);
+                    List<List<Tracer>> clusters = this.clusterTracers(tracers, numberOfClusters, numberOfIterations);
 
                     for(List<Tracer> cluster : clusters) {
                         if (cluster.size() > 0) {
@@ -99,6 +108,14 @@ public class LinearRegressionService {
         return this.tracerService.getTracersForWorkStationAndEmployee(workStationConfig.getWorkStation(), employee);
     }
 
+    public List<Tracer> findAllTracers(Line line, WorkStationConfig workStationConfig, WorkStation workStation, Employee employee) {
+        return this.tracerService.getTracersForLineAndWorkStationConfigAndWorkStationAndEmployee(line, workStationConfig, workStation, employee);
+    }
+
+    public List<Tracer> findAllTracers(Line line, WorkStationConfig workStationConfig, WorkStation workStation, Employee employee, Supply supply) {
+        return this.tracerService.getTracersForLineAndWorkStationConfigAndWorkStationAndEmployeeAndSupply(line, workStationConfig, workStation, employee, supply);
+    }
+
     public List<Tracer> findAllTracersByLineAndWorkStationConfigAndWorkStationAndEmployee(Long lineId, Long workStationConfigId, Long workStationId, Long employeeId){
         Line line = this.lineService.findOne(lineId);
         WorkStationConfig workStationConfig = this.workStationConfigService.findOne(workStationConfigId);
@@ -106,6 +123,16 @@ public class LinearRegressionService {
         Employee employee = this.employeeService.findOne(employeeId);
 
         return this.tracerService.getTracersForLineAndWorkStationConfigAndWorkStationAndEmployee(line, workStationConfig, workStation, employee);
+    }
+
+    public List<Tracer> findAllTracersByLineAndWorkStationConfigAndWorkStationAndEmployeeAndSupply(Long lineId, Long workStationConfigId, Long workStationId, Long employeeId, Long supplyId){
+        Line line = this.lineService.findOne(lineId);
+        WorkStationConfig workStationConfig = this.workStationConfigService.findOne(workStationConfigId);
+        WorkStation workStation = this.workStationService.findOne(workStationId);
+        Employee employee = this.employeeService.findOne(employeeId);
+        Supply supply = this.supplyService.findOne(supplyId);
+
+        return this.tracerService.getTracersForLineAndWorkStationConfigAndWorkStationAndEmployeeAndSupply(line, workStationConfig, workStation, employee, supply);
     }
 
     private Double executeLinearRegression(Double x, Double[] betas) {
@@ -162,32 +189,25 @@ public class LinearRegressionService {
         Double svar1 = svar / xxbar;
         Double svar0 = svar/n + xbar*xbar*svar1;
         svar0 = svar * sumx2 / (n * xxbar);
-        /*
-        StdOut.println("R^2                 = " + R2);
-        StdOut.println("std error of beta_1 = " + Math.sqrt(svar1));
-        StdOut.println("std error of beta_0 = " + Math.sqrt(svar0));
-        StdOut.println("std error of beta_0 = " + Math.sqrt(svar0));
-
-        StdOut.println("SSTO = " + yybar);
-        StdOut.println("SSE  = " + rss);
-        StdOut.println("SSR  = " + ssr);
-        */
 
         return new Double[]{beta0, beta1};
     }
 
-    private List<List<Tracer>> clusterTracers(List<Tracer> tracers, Integer numberOfGroups) {
+    private List<List<Tracer>> clusterTracers(List<Tracer> tracers, Integer numberOfClusters, Integer numberOfIterations) {
         List<List<Tracer>> clusters = new ArrayList<List<Tracer>>();
         List<List<Double>> pivots = new ArrayList<List<Double>>();
 
         if(tracers.size() > 0) {
-            pivots.add(this.getTracerMeasures(tracers.get(0)));
-            pivots.add(this.getTracerMeasures(tracers.get(tracers.size() - 1)));
-            pivots.add(this.getTracerMeasures(tracers.get(Math.round(tracers.size() / 2))));
+            for(int numberOfCluster = 0; numberOfCluster < numberOfClusters; numberOfCluster++){
+                List<Double> measures = new ArrayList<>();
+                measures.add((double) numberOfCluster+1);
+                measures.add((double) numberOfCluster+1);
+                pivots.add(measures);
+            }
 
-            clusters.add(new ArrayList<>());
-            clusters.add(new ArrayList<>());
-            clusters.add(new ArrayList<>());
+            for(int numberOfCluster = 0; numberOfCluster < numberOfClusters; numberOfCluster++) {
+                clusters.add(new ArrayList<>());
+            }
 
             for (Tracer tracer : tracers) {
                 Integer pivotMinorDistanceIndex = 0;
@@ -204,15 +224,16 @@ public class LinearRegressionService {
                 clusters.get(pivotMinorDistanceIndex).add(tracer);
             }
 
-            for (int i = 0; i < 100; i++) {
+            for (int i = 0; i < numberOfIterations; i++) {
                 for (List<Tracer> cluster : clusters) {
-                    pivots.set(clusters.indexOf(cluster), getTracersMediaMeasures(cluster));
+                    if(cluster.size()>0)
+                        pivots.set(clusters.indexOf(cluster), getTracersMediaMeasures(cluster));
                 }
 
                 clusters = new ArrayList<List<Tracer>>();
-                clusters.add(new ArrayList<>());
-                clusters.add(new ArrayList<>());
-                clusters.add(new ArrayList<>());
+                for(int numberOfCluster = 0; numberOfCluster < numberOfClusters; numberOfCluster++) {
+                    clusters.add(new ArrayList<>());
+                }
 
                 for (Tracer tracer : tracers) {
                     Integer pivotMinorDistanceIndex = 0;
@@ -251,11 +272,23 @@ public class LinearRegressionService {
     }
 
     private List<Double> getTracersMediaMeasures(List<Tracer> tracers){
-        List<Double> mediaMeasures = new ArrayList<>();
+        /*
+        Collections.sort(tracers, new Comparator<Tracer>() {
+            @Override
+            public int compare(Tracer tracerA, Tracer tracerB) {
+                List<Double> tracerMeasuresA = getTracerMeasures(tracerA);
+                List<Double> tracerMeasuresB = getTracerMeasures(tracerB);
+                return tracerMeasuresA.get(0) > tracerMeasuresB.get(0) ? -1 : (tracerMeasuresA.get(0) < tracerMeasuresB.get(0)) ? 1 : 0;
+            }
+        });
+
+        Tracer mediaTracer = tracers.get((int) Math.floor(tracers.size()/2));
+        */
+        List<Double> mediaMeasures = new ArrayList<Double>();
         mediaMeasures.add(0d);
         mediaMeasures.add(0d);
 
-        for(Tracer tracer: tracers) {
+        for(Tracer tracer : tracers){
             List<Double> tracerMeasures = getTracerMeasures(tracer);
             mediaMeasures.set(0, mediaMeasures.get(0) + tracerMeasures.get(0));
             mediaMeasures.set(1, mediaMeasures.get(1) + tracerMeasures.get(1));

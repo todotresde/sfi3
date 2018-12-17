@@ -6,22 +6,7 @@ exports.config = {
 
     allScriptsTimeout: 20000,
     
-    specs: [
-        /*'./e2e/account/*.spec.ts',
-        './e2e/admin/*.spec.ts',
-        './e2e/entities/*.spec.ts',
-        './e2e/simulator/*.spec.ts'*/
-        //'./e2e/simulator/manufacturing-orders.spec.ts',
-        //'./e2e/simulator/tracers-for-workstation-1.spec.ts'
-        /* jhipster-needle-add-protractor-tests - JHipster will add protractors tests here */
-    ],
-    /*
-    capabilities: {
-        'browserName': 'chrome',
-        'phantomjs.binary.path': require('phantomjs-prebuilt').path,
-        'phantomjs.ghostdriver.cli.args': ['--loglevel=DEBUG']
-    },
-    */
+    specs: [],
     
     multiCapabilities: [
         {

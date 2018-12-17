@@ -1,19 +1,29 @@
-<form name="learnForm" (ngSubmit)="confirmLearn()">
+<form name="learnForm" (ngSubmit)="confirmLearn(numberOfClusters, numberOfIterations)">
     <div class="modal-header">
-        <h4 class="modal-title" jhiTranslate="mmsApp.linearRegression.confirm.learn">Confirm Learn</h4>
+        <h4 class="modal-title" jhiTranslate="mmsApp.linearRegression.confirm.learn">Confirm Training</h4>
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 (click)="clear()">&times;</button>
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
-        <p jhiTranslate="mmsApp.linearRegression.learn.question" >Are you sure you want to run learning process?</p>
+        <p jhiTranslate="mmsApp.linearRegression.learn.question" >Are you sure you want to train the dataset?</p>
+        <div class="form-group" >
+            <label for="id" jhiTranslate="mmsApp.linearRegression.numberOfClusters">numberOfClusters</label>
+            <input type="text" class="form-control" id="numberOfClusters" name="numberOfClusters"
+                   [(ngModel)]="numberOfClusters" />
+        </div>
+        <div class="form-group" >
+            <label for="id" jhiTranslate="mmsApp.linearRegression.numberOfIterations">numberOfIterations</label>
+            <input type="text" class="form-control" id="numberOfIterations" name="numberOfIterations"
+                   [(ngModel)]="numberOfIterations" />
+        </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
             <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
         </button>
         <button type="submit" class="btn btn-danger">
-            <span class="fa fa-remove"></span>&nbsp;<span jhiTranslate="mmsApp.linearRegression.learn">Learn</span>
+            <span class="fa fa-remove"></span>&nbsp;<span jhiTranslate="mmsApp.linearRegression.train">Train</span>
         </button>
     </div>
 </form>

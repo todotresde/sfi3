@@ -19,6 +19,7 @@
             "name": "Name",
             "lastName": "Last Name",
             "user": "User",
+            "userType": "User Type",
             "workStationConfig": "Work Station Config",
             "times": "Times"
         }

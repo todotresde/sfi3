@@ -15,6 +15,8 @@ import { LinearRegressionService } from './linear-regression.service';
 export class LinearRegressionLearnDialogComponent {
 
     linearRegression: LinearRegression;
+    numberOfClusters = 3;
+    numberOfIterations = 50;
 
     constructor(
         private linearRegressionService: LinearRegressionService,
@@ -27,8 +29,8 @@ export class LinearRegressionLearnDialogComponent {
         this.activeModal.dismiss('cancel');
     }
 
-    confirmLearn() {
-        this.linearRegressionService.learn().subscribe((response) => {
+    confirmLearn(numberOfClusters: number, numberOfIterations: number) {
+        this.linearRegressionService.learn(numberOfClusters, numberOfIterations).subscribe((response) => {
             this.eventManager.broadcast({
                 name: 'linearRegressionListModification',
                 content: 'Learn'
